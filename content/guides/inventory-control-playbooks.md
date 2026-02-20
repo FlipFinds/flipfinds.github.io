@@ -3,6 +3,7 @@ title = "Inventory Control Playbooks"
 date = 2026-02-20T00:00:00Z
 draft = false
 description = "Simple routines to reduce stale inventory and improve sell-through."
+summary = "Simple inventory routines to reduce stale listings and improve weekly sell-through."
 tags = ["inventory", "sell-through", "guides", "reselling"]
 categories = ["Guides"]
 +++

@@ -3,6 +3,7 @@ title = "Pricing and Profit Playbooks"
 date = 2026-02-20T00:00:00Z
 draft = false
 description = "Operator-first workflows to protect margin and avoid profit leakage."
+summary = "Operator-first workflows to protect margin, prevent leakage, and keep listings above your profit floor."
 tags = ["pricing", "profit", "guides", "reselling"]
 categories = ["Guides"]
 +++

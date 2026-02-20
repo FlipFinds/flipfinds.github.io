@@ -3,6 +3,7 @@ title = "Sourcing and Listing Systems"
 date = 2026-02-20T00:00:00Z
 draft = false
 description = "Repeatable sourcing-to-listing workflows for consistent weekly output."
+summary = "Repeatable sourcing-to-listing systems that improve consistency and weekly output."
 tags = ["sourcing", "listing", "workflow", "guides"]
 categories = ["Guides"]
 +++
