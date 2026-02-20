@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-20T16:40:00Z",
+  "generatedAt": "2026-02-20T17:40:45Z",
   "kpis": {
     "weeklyPostTarget": 2,
     "weeklyPostsPublished": 1,
@@ -39,6 +39,20 @@
     {
       "severity": "info",
       "message": "Weekly review post published. Track organic clicks for the next 7 days."
+    }
+  ],
+  "agent": {
+    "status": "active",
+    "mode": "propose",
+    "lastRunId": "22234573230",
+    "lastRunAt": "2026-02-20T17:40:45Z",
+    "lastRunResult": "proposal_generated"
+  },
+  "activity": [
+    {
+      "at": "2026-02-20T17:40:45Z",
+      "kind": "proposal",
+      "summary": "Private growth agent proposed new draft content."
     }
   ]
 }
