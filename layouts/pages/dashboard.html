@@ -1,0 +1,76 @@
+{{- define "main" -}}
+{{- $dashboard := site.Data.dashboard -}}
+{{- $agent := site.Data.agent_state -}}
+{{- $approvals := site.Data.approvals -}}
+
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">FlipFinds Agent Dashboard</h1>
+    <div class="post-meta">
+      <span>Generated: {{ $dashboard.generatedAt }}</span>
+      <span> | Last run: {{ $agent.lastRunAt }}</span>
+    </div>
+  </header>
+
+  <section class="post-content">
+    <h2>Agent Status</h2>
+    <ul>
+      <li><strong>Mode:</strong> {{ $agent.mode }}</li>
+      <li><strong>Result:</strong> {{ $agent.lastRunStatus }}</li>
+      <li><strong>Trigger:</strong> {{ $agent.lastRunTrigger }}</li>
+      <li><strong>Run ID:</strong> {{ $agent.lastRunId }}</li>
+      <li><strong>Branch:</strong> {{ $agent.lastRunBranch }}</li>
+    </ul>
+
+    <h2>Pending Approvals</h2>
+    {{- if gt (len $approvals.pending) 0 }}
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Category</th>
+          <th>Title</th>
+          <th>Status</th>
+          <th>Label Needed</th>
+        </tr>
+      </thead>
+      <tbody>
+      {{- range $approvals.pending }}
+        <tr>
+          <td>{{ .id }}</td>
+          <td>{{ .category }}</td>
+          <td>{{ .title }}</td>
+          <td>{{ .status }}</td>
+          <td>{{ .requiredLabel }}</td>
+        </tr>
+      {{- end }}
+      </tbody>
+    </table>
+    {{- else }}
+    <p>No approvals pending.</p>
+    {{- end }}
+
+    <h2>Recent Actions</h2>
+    {{- if gt (len $agent.recentActions) 0 }}
+    <ul>
+      {{- range $agent.recentActions }}
+      <li><strong>{{ .at }}</strong> | {{ .type }} | {{ .status }} | {{ .message }}</li>
+      {{- end }}
+    </ul>
+    {{- else }}
+    <p>No actions recorded.</p>
+    {{- end }}
+
+    <h2>Next Planned Actions</h2>
+    {{- if gt (len $agent.nextPlannedActions) 0 }}
+    <ol>
+      {{- range $agent.nextPlannedActions }}
+      <li>{{ . }}</li>
+      {{- end }}
+    </ol>
+    {{- else }}
+    <p>No planned actions listed.</p>
+    {{- end }}
+  </section>
+</article>
+{{- end -}}

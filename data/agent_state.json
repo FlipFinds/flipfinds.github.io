@@ -1,0 +1,21 @@
+{
+  "mode": "observe",
+  "lastRunAt": "2026-02-20T00:00:00Z",
+  "lastRunStatus": "initialized",
+  "lastRunTrigger": "bootstrap",
+  "lastRunId": "",
+  "lastRunBranch": "main",
+  "recentActions": [
+    {
+      "at": "2026-02-20T00:00:00Z",
+      "type": "init",
+      "status": "completed",
+      "message": "Agent state initialized."
+    }
+  ],
+  "nextPlannedActions": [
+    "Observe daily site health and workflow outcomes.",
+    "Generate growth-content proposals in propose mode.",
+    "Request approval for external accounts when required."
+  ]
+}

@@ -1,8 +1,6 @@
 +++
 title = "Dashboard"
 url = "/dashboard/"
+layout = "dashboard"
 +++
-
-This dashboard will render reseller metrics from `data/dashboard.json`.
-
-Current status: schema scaffolded; UI wiring comes next.
+Agent operations dashboard powered by repository data files.

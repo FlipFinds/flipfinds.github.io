@@ -1,5 +1,20 @@
 {
   "generatedAt": "2026-02-20T00:00:00Z",
+  "agent": {
+    "status": "active",
+    "mode": "observe",
+    "lastRunId": "",
+    "lastRunAt": "2026-02-20T00:00:00Z",
+    "lastRunResult": "initialized",
+    "openApprovalCount": 1
+  },
+  "activity": [
+    {
+      "at": "2026-02-20T00:00:00Z",
+      "kind": "setup",
+      "summary": "Dashboard and agent baseline initialized."
+    }
+  ],
   "summary": {
     "totalRevenue": 0,
     "totalCost": 0,

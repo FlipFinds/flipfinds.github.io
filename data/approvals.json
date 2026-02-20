@@ -1,0 +1,14 @@
+{
+  "pending": [
+    {
+      "id": "approval-sample-001",
+      "createdAt": "2026-02-20T00:00:00Z",
+      "category": "account_creation",
+      "title": "Example: Create analytics provider account",
+      "reason": "Needed for cross-channel attribution once baseline traffic is steady.",
+      "status": "pending",
+      "requiredLabel": "approved-to-execute"
+    }
+  ],
+  "history": []
+}
