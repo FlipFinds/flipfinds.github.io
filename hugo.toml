@@ -1,0 +1,31 @@
+baseURL = "https://flipfinds.github.io/"
+languageCode = "en-us"
+title = "FlipFinds Reseller Blog"
+theme = "PaperMod"
+
+[params]
+  mainSections = ["posts", "guides", "pages"]
+  [params.author]
+    name = "FlipFinds"
+    email = "hello@flipfinds.github.io"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+[[menu.main]]
+  identifier = "posts"
+  name = "Posts"
+  url = "/posts/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "guides"
+  name = "Guides"
+  url = "/guides/"
+  weight = 20
+
+[[menu.main]]
+  identifier = "dashboard"
+  name = "Dashboard"
+  url = "/dashboard/"
+  weight = 30
