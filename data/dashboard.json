@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-02-20T00:00:00Z",
+  "generatedAt": "2026-02-20T16:40:00Z",
   "kpis": {
     "weeklyPostTarget": 2,
-    "weeklyPostsPublished": 0,
+    "weeklyPostsPublished": 1,
     "weeklyOrganicClicksTarget": 100,
     "weeklyOrganicClicks": 0
   },
@@ -38,7 +38,7 @@
   "alerts": [
     {
       "severity": "info",
-      "message": "Replace this sample data with real dashboard exports."
+      "message": "Weekly review post published. Track organic clicks for the next 7 days."
     }
   ]
 }
