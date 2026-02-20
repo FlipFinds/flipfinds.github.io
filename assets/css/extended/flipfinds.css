@@ -1,0 +1,14 @@
+/* Emphasize install CTAs in top nav and home intro while preserving PaperMod layout. */
+a[href*="play.google.com/store/apps/details?id=com.flipfinds.app"],
+a[href*="apps.apple.com/au/app/flipfinds-resale-tracker/id6757338338"] {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.3rem 0.75rem;
+  text-decoration: none;
+}
+
+.home-info .entry-content a[href*="play.google.com/store/apps/details?id=com.flipfinds.app"],
+.home-info .entry-content a[href*="apps.apple.com/au/app/flipfinds-resale-tracker/id6757338338"] {
+  display: inline-block;
+  margin-top: 0.35rem;
+}
