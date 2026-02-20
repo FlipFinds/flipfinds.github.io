@@ -23,9 +23,3 @@ theme = "PaperMod"
   name = "Guides"
   url = "/guides/"
   weight = 20
-
-[[menu.main]]
-  identifier = "dashboard"
-  name = "Dashboard"
-  url = "/dashboard/"
-  weight = 30
