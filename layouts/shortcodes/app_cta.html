@@ -1,0 +1,10 @@
+{{- $source := .Get "source" | default "article_end" -}}
+{{- $campaign := .Get "campaign" | default "content_conversion" -}}
+<aside class="ff-inline-cta" aria-label="Install FlipFinds">
+  <h3>Install FlipFinds</h3>
+  <p>Use the app while you run this workflow so your weekly decisions stay consistent.</p>
+  <div class="ff-inline-cta-actions">
+    <a class="ff-cta ff-cta-primary" href="https://play.google.com/store/apps/details?id=com.flipfinds.app&utm_source=flipfinds_blog&utm_medium={{ $source }}&utm_campaign={{ $campaign }}" target="_blank" rel="noopener">Get on Google Play</a>
+    <a class="ff-cta ff-cta-secondary" href="https://apps.apple.com/au/app/flipfinds-resale-tracker/id6757338338?pt=parasdigital&ct=flipfinds_blog_{{ $source }}_{{ $campaign }}&mt=8" target="_blank" rel="noopener">Get on App Store</a>
+  </div>
+</aside>

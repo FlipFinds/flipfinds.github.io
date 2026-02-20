@@ -64,3 +64,5 @@ Block 15 minutes on your calendar and run this process once.
 Then repeat next week with the same scorecard.
 
 Consistency beats intensity for reseller growth.
+
+{{< app_cta source="post_weekly_review" campaign="content_conversion" >}}

@@ -31,3 +31,5 @@ Track these four numbers:
 4. Stale listings resolved
 
 Run this every week. Operational consistency compounds.
+
+{{< app_cta source="guide_weekly_operating_routine" campaign="content_conversion" >}}

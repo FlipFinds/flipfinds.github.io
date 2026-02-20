@@ -2,9 +2,16 @@ baseURL = "https://flipfinds.github.io/"
 languageCode = "en-us"
 title = "FlipFinds Reseller Blog"
 theme = "PaperMod"
+enableRobotsTXT = true
+
+[sitemap]
+  changeFreq = "weekly"
+  priority = 0.8
 
 [params]
+  env = "production"
   description = "Practical reseller workflows, inventory discipline, and listing execution playbooks from FlipFinds."
+  keywords = ["reseller app", "reseller workflow", "inventory tracking", "pricing discipline", "sell-through"]
   mainSections = ["posts", "guides"]
   images = ["images/hero-preview.jpg"]
   defaultTheme = "light"
@@ -40,6 +47,19 @@ theme = "PaperMod"
   [params.author]
     name = "FlipFinds"
     email = "support@parasdigital.net"
+  [params.analytics.google]
+    SiteVerificationTag = ""
+  [params.analytics.bing]
+    SiteVerificationTag = ""
+  [params.analytics.yandex]
+    SiteVerificationTag = ""
+  [params.analytics.plausible]
+    domain = ""
+    scriptSrc = "https://plausible.io/js/script.js"
+
+[services]
+  [services.googleAnalytics]
+    ID = ""
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
@@ -65,11 +85,11 @@ theme = "PaperMod"
 [[menu.main]]
   identifier = "get-google-play"
   name = "Google Play"
-  url = "https://play.google.com/store/apps/details?id=com.flipfinds.app"
+  url = "https://play.google.com/store/apps/details?id=com.flipfinds.app&utm_source=flipfinds_blog&utm_medium=header_nav&utm_campaign=install_cta"
   weight = 30
 
 [[menu.main]]
   identifier = "get-app-store"
   name = "App Store"
-  url = "https://apps.apple.com/au/app/flipfinds-resale-tracker/id6757338338"
+  url = "https://apps.apple.com/au/app/flipfinds-resale-tracker/id6757338338?pt=parasdigital&ct=flipfinds_blog_header_nav&mt=8"
   weight = 40

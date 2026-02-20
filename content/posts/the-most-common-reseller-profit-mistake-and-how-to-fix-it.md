@@ -43,3 +43,5 @@ If the projected net is below target, either raise the price, lower your buy cos
 Do not list until the item has a profit floor.
 
 A clear floor protects cash flow, improves sourcing discipline, and makes growth predictable.
+
+{{< app_cta source="post_profit_mistake" campaign="content_conversion" >}}

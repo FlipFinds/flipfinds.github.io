@@ -57,3 +57,5 @@ Text-first article style. Do not embed screenshots unless the topic is a product
 
 ## Call to Action
 Run this process this week, then review KPI changes in 7 days.
+
+{{< app_cta source="post_inventory_discipline" campaign="content_conversion" >}}
