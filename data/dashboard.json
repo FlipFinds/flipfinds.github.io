@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-20T00:00:00Z",
+  "generatedAt": "2026-02-20T16:20:43Z",
   "summary": {
     "totalRevenue": 0,
     "totalCost": 0,
@@ -33,6 +33,20 @@
     {
       "severity": "info",
       "message": "Replace this sample data with real dashboard exports."
+    }
+  ],
+  "agent": {
+    "status": "active",
+    "mode": "propose",
+    "lastRunId": "22231856728",
+    "lastRunAt": "2026-02-20T16:20:43Z",
+    "lastRunResult": "proposal_generated"
+  },
+  "activity": [
+    {
+      "at": "2026-02-20T16:20:43Z",
+      "kind": "proposal",
+      "summary": "Private growth agent proposed new draft content."
     }
   ]
 }
