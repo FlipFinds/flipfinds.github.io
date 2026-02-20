@@ -5,9 +5,6 @@ draft = false
 description = "A simple weekly routine to keep reseller operations healthy using FlipFinds."
 tags = ["guides", "workflow", "reselling", "inventory"]
 categories = ["Guides"]
-[cover]
-  image = "images/app-screenshot.jpg"
-  alt = "FlipFinds app screenshot"
 +++
 
 This routine is designed for busy resellers who need consistency more than complexity.

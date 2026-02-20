@@ -5,9 +5,6 @@ draft = false
 description = "The single mistake that quietly kills reseller profits, plus a simple framework to fix it."
 tags = ["reselling", "profit", "pricing", "inventory"]
 categories = ["Posts"]
-[cover]
-  image = "images/hero-preview.jpg"
-  alt = "FlipFinds app preview"
 +++
 
 Most resellers do not lose money because they cannot source good products.  
