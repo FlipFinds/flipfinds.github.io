@@ -5,9 +5,14 @@ theme = "PaperMod"
 
 [params]
   mainSections = ["posts", "guides", "pages"]
+  [params.homeInfoParams]
+    Title = "FlipFinds for Practical Resellers"
+    Content = """FlipFinds helps you move from sourcing to listing with less busywork and clearer inventory decisions.
+Use these posts as playbooks you can run in your own weekly workflow.
+[Get on Google Play](https://play.google.com/store/apps/details?id=com.flipfinds.app) | [Get on App Store](https://apps.apple.com/au/app/flipfinds-resale-tracker/id6757338338)"""
   [params.author]
     name = "FlipFinds"
-    email = "hello@flipfinds.github.io"
+    email = "support@parasdigital.net"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
@@ -23,3 +28,15 @@ theme = "PaperMod"
   name = "Guides"
   url = "/guides/"
   weight = 20
+
+[[menu.main]]
+  identifier = "get-google-play"
+  name = "Get on Google Play"
+  url = "https://play.google.com/store/apps/details?id=com.flipfinds.app"
+  weight = 30
+
+[[menu.main]]
+  identifier = "get-app-store"
+  name = "Get on App Store"
+  url = "https://apps.apple.com/au/app/flipfinds-resale-tracker/id6757338338"
+  weight = 40
