@@ -5,6 +5,9 @@ draft = false
 description = "A practical weekly review framework for resellers to protect margins and spot growth opportunities in 15 minutes."
 tags = ["reselling", "profit", "inventory", "pricing"]
 categories = ["Posts"]
+[cover]
+  image = "images/app-screenshot.jpg"
+  alt = "FlipFinds app workflow screenshot"
 +++
 
 If your store feels busy but profits are inconsistent, you probably do not need more listings.  

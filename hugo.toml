@@ -5,26 +5,50 @@ theme = "PaperMod"
 
 [params]
   description = "Practical reseller workflows, inventory discipline, and listing execution playbooks from FlipFinds."
-  mainSections = ["posts", "guides", "pages"]
+  mainSections = ["posts", "guides"]
+  images = ["images/hero-preview.jpg"]
+  defaultTheme = "light"
+  disableThemeToggle = false
   ShowReadingTime = true
   ShowShareButtons = false
   ShowCodeCopyButtons = false
   ShowBreadCrumbs = true
   ShowPostNavLinks = true
   disableSpecial1stPost = true
+  [params.label]
+    text = "FlipFinds Reseller Blog"
+    icon = "images/app-icon.png"
+    iconHeight = 26
+  [params.assets]
+    favicon = "images/app-icon.png"
+    favicon16x16 = "images/app-icon.png"
+    favicon32x32 = "images/app-icon.png"
+    apple_touch_icon = "images/app-icon.png"
+  [params.cover]
+    hiddenInList = false
+    hiddenInSingle = false
+  [params.editPost]
+    URL = "https://github.com/FlipFinds/flipfinds.github.io/tree/main/content"
+    Text = "Suggest an edit"
+    appendFilePath = true
   [params.footer]
     text = "Support: support@parasdigital.net"
+    hideCopyright = false
   [params.homeInfoParams]
-    Title = "FlipFinds for Practical Resellers"
-    Content = """FlipFinds helps you move from sourcing to listing with less busywork and clearer inventory decisions.
-Use these posts as playbooks you can run in your own weekly workflow.
-[Get on Google Play](https://play.google.com/store/apps/details?id=com.flipfinds.app) | [Get on App Store](https://apps.apple.com/au/app/flipfinds-resale-tracker/id6757338338)"""
+    Title = "FlipFinds Growth Playbooks for Resellers"
+    Content = "Practical weekly systems for sourcing, listing, inventory control, and sell-through improvements."
   [params.author]
     name = "FlipFinds"
     email = "support@parasdigital.net"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
+
+[[menu.main]]
+  identifier = "start-here"
+  name = "Start Here"
+  url = "/pages/start-here/"
+  weight = 5
 
 [[menu.main]]
   identifier = "posts"
@@ -40,12 +64,12 @@ Use these posts as playbooks you can run in your own weekly workflow.
 
 [[menu.main]]
   identifier = "get-google-play"
-  name = "Get on Google Play"
+  name = "Google Play"
   url = "https://play.google.com/store/apps/details?id=com.flipfinds.app"
   weight = 30
 
 [[menu.main]]
   identifier = "get-app-store"
-  name = "Get on App Store"
+  name = "App Store"
   url = "https://apps.apple.com/au/app/flipfinds-resale-tracker/id6757338338"
   weight = 40
