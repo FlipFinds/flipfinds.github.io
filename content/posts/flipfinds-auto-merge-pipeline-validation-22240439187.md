@@ -31,7 +31,7 @@ Using FlipFinds consistently for weekly sourcing and listing workflows will impr
 ## Action Plan
 1. Use FlipFinds to run one focused sourcing pass this week.
 2. Publish listings with a consistent naming and repricing process.
-3. Track the KPI changes shown in the dashboard before/after the week.
+3. Track weekly KPI changes before and after this workflow.
 
 ## Success Metric
 Primary: increase weekly posts/listings completed by at least 15%.
@@ -42,7 +42,7 @@ Primary: increase weekly posts/listings completed by at least 15%.
 ## Proof-of-Concept Weekly Checklist
 1. Complete one full sourcing-to-listing cycle.
 2. Review stale inventory and reprice at least five items.
-3. Record KPI deltas in the dashboard.
+3. Record KPI deltas in your weekly tracking log.
 
 ## Content Guardrails Applied
 - This draft only uses statements supported by repository source-of-truth files.
@@ -56,3 +56,4 @@ App store screenshot: https://flipfinds.parasdigital.net/image1.jpeg
 
 ## Call to Action
 Run this process this week, then review KPI changes in 7 days.
+
