@@ -1,5 +1,11 @@
 {
   "generatedAt": "2026-02-20T00:00:00Z",
+  "kpis": {
+    "weeklyPostTarget": 2,
+    "weeklyPostsPublished": 0,
+    "weeklyOrganicClicksTarget": 100,
+    "weeklyOrganicClicks": 0
+  },
   "summary": {
     "totalRevenue": 0,
     "totalCost": 0,

@@ -1,0 +1,37 @@
+{{- define "main" -}}
+{{- $d := site.Data.dashboard -}}
+<article class="post-single">
+  <header class="post-header">
+    <h1 class="post-title">FlipFinds Dashboard</h1>
+    <div class="post-meta">Generated: {{ $d.generatedAt }}</div>
+  </header>
+
+  <section class="post-content">
+    <h2>Weekly KPIs</h2>
+    <ul>
+      <li><strong>Posts published:</strong> {{ $d.kpis.weeklyPostsPublished }} / {{ $d.kpis.weeklyPostTarget }}</li>
+      <li><strong>Organic clicks:</strong> {{ $d.kpis.weeklyOrganicClicks }} / {{ $d.kpis.weeklyOrganicClicksTarget }}</li>
+    </ul>
+
+    <h2>Business Summary</h2>
+    <ul>
+      <li><strong>Total revenue:</strong> {{ $d.summary.totalRevenue }}</li>
+      <li><strong>Total cost:</strong> {{ $d.summary.totalCost }}</li>
+      <li><strong>Gross profit:</strong> {{ $d.summary.grossProfit }}</li>
+      <li><strong>Net profit:</strong> {{ $d.summary.netProfit }}</li>
+      <li><strong>Sell-through rate:</strong> {{ $d.summary.sellThroughRate }}</li>
+    </ul>
+
+    <h2>Alerts</h2>
+    {{- if gt (len $d.alerts) 0 }}
+    <ul>
+      {{- range $d.alerts }}
+      <li><strong>{{ .severity }}:</strong> {{ .message }}</li>
+      {{- end }}
+    </ul>
+    {{- else }}
+    <p>No alerts.</p>
+    {{- end }}
+  </section>
+</article>
+{{- end -}}
