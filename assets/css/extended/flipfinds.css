@@ -60,34 +60,6 @@
   color: var(--primary);
 }
 
-.ff-visual-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.8rem;
-  margin-top: 1.2rem;
-}
-
-.ff-visual-card {
-  margin: 0;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  overflow: hidden;
-  background: var(--code-bg);
-}
-
-.ff-visual-card img {
-  display: block;
-  width: 100%;
-  height: 170px;
-  object-fit: cover;
-}
-
-.ff-visual-card figcaption {
-  font-size: 0.85rem;
-  padding: 0.45rem 0.65rem 0.6rem;
-  color: var(--secondary);
-}
-
 #menu a[href*="play.google.com/store/apps/details?id=com.flipfinds.app"],
 #menu a[href*="apps.apple.com/au/app/flipfinds-resale-tracker/id6757338338"] {
   border: 1px solid var(--border);
@@ -103,9 +75,5 @@
 @media (max-width: 768px) {
   .home-hero {
     padding: 1.05rem;
-  }
-
-  .ff-visual-grid {
-    grid-template-columns: 1fr;
   }
 }
