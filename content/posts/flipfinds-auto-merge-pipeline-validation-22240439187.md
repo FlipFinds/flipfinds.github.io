@@ -1,59 +1,23 @@
 +++
-title = "FlipFinds Auto-Merge Pipeline Validation"
+title = "FlipFinds Weekly Workflow Validation"
 date = 2026-02-20T20:43:20Z
 draft = true
-description = "How resellers can use FlipFinds workflows to increase output without paid spend."
-tags = ["flipfinds", "reselling", "workflow", "growth"]
+description = "A simple weekly validation routine to keep reseller operations consistent."
+tags = ["flipfinds", "reselling", "workflow", "operations"]
 categories = ["Posts"]
-approvalRequirement = "none"
-sourceOfTruthVersion = "2.0.0"
 +++
 
-This article is generated from approved FlipFinds source-of-truth data.
+Reseller growth usually breaks when your weekly habits break.
+A short validation pass each week helps you keep sourcing, listing, and inventory tracking aligned.
 
-## What FlipFinds Does
-Helps resellers move from sourcing to listing and tracking with more consistency and less wasted effort.
+## Weekly validation checklist
 
-## Verified Product Context
-App codebase includes onboarding, scanning, add-item, inventory, analytics, paywall, and settings flows.
+1. Confirm your sourced-item count and listed-item count are moving together.
+2. Spot-check recent sales for margin leaks from fees, shipping, or underpricing.
+3. Reprice or relist stale inventory so old stock does not stall your cash flow.
+4. Set one clear process fix for next week.
 
-Observed platforms: iOS and Android
-Observed primary screens: Home, ScanScreen, InventoryScreen
+## Keep it practical
 
-## Core In-App Flows (Observed in Code)
-1. Barcode scan and product lookup
-2. Photo-based item identification (AI-assisted flow)
-3. Inventory add/edit/sold/archive/duplicate lifecycle
-
-## Hypothesis
-Using FlipFinds consistently for weekly sourcing and listing workflows will improve output quality and reduce time wasted on low-value tasks.
-
-## Action Plan
-1. Use FlipFinds to run one focused sourcing pass this week.
-2. Publish listings with a consistent naming and repricing process.
-3. Track weekly KPI changes before and after this workflow.
-
-## Success Metric
-Primary: increase weekly posts/listings completed by at least 15%.
-
-## Review Date
-2026-02-27
-
-## Proof-of-Concept Weekly Checklist
-1. Complete one full sourcing-to-listing cycle.
-2. Review stale inventory and reprice at least five items.
-3. Record KPI deltas in your weekly tracking log.
-
-## Content Guardrails Applied
-- This draft only uses statements supported by repository source-of-truth files.
-- Disallowed claim: Guaranteed income outcomes
-- Disallowed claim: Unverified growth/user count claims
-- Do not infer: App Store rank/performance metrics not present in official reports
-
-## Branding Assets Used
-Hero image: https://flipfinds.parasdigital.net/image5.jpeg
-App store screenshot: https://flipfinds.parasdigital.net/image1.jpeg
-
-## Call to Action
-Run this process this week, then review KPI changes in 7 days.
-
+You do not need a big overhaul every week.
+Small, consistent process fixes usually beat one-off deep cleanup sessions.
