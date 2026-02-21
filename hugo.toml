@@ -34,10 +34,6 @@ enableRobotsTXT = true
   [params.cover]
     hiddenInList = false
     hiddenInSingle = false
-  [params.editPost]
-    URL = "https://github.com/FlipFinds/flipfinds.github.io/tree/main/content"
-    Text = "Suggest an edit"
-    appendFilePath = true
   [params.footer]
     text = "Support: support@parasdigital.net"
     hideCopyright = false
