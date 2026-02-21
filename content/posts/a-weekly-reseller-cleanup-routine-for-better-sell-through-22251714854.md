@@ -64,4 +64,3 @@ Small improvements each week compound over a month.
 Run this routine once this week and compare your stale count and margin next week.
 If you want this workflow in an app, install FlipFinds and run it during your weekly review.
 
-{{< app_cta source="agent_generated_post" campaign="content_conversion" >}}
