@@ -82,14 +82,3 @@ enableRobotsTXT = true
   url = "/guides/"
   weight = 20
 
-[[menu.main]]
-  identifier = "get-google-play"
-  name = "Google Play"
-  url = "https://play.google.com/store/apps/details?id=com.flipfinds.app&utm_source=flipfinds_blog&utm_medium=header_nav&utm_campaign=install_cta"
-  weight = 30
-
-[[menu.main]]
-  identifier = "get-app-store"
-  name = "App Store"
-  url = "https://apps.apple.com/au/app/flipfinds-resale-tracker/id6757338338?pt=parasdigital&ct=flipfinds_blog_header_nav&mt=8"
-  weight = 40
