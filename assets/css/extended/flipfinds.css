@@ -40,24 +40,17 @@
   margin-top: 0.8rem;
 }
 
-.ff-cta {
-  display: inline-block;
-  border-radius: 10px;
-  padding: 0.55rem 0.95rem;
+.ff-store-badge-link {
+  display: inline-flex;
+  align-items: center;
   text-decoration: none;
-  border: 1px solid var(--border);
-  font-weight: 600;
+  border-radius: 8px;
 }
 
-.ff-cta-primary {
-  background: var(--primary);
-  color: var(--theme);
-  border-color: var(--primary);
-}
-
-.ff-cta-secondary {
-  background: transparent;
-  color: var(--primary);
+.ff-store-badge {
+  display: block;
+  height: 44px;
+  width: auto;
 }
 
 .ff-track-links {
