@@ -1,0 +1,37 @@
+<script>
+  (function () {
+    var NS = "flipfinds-store-clicks";
+
+    function isoDay() {
+      return new Date().toISOString().slice(0, 10);
+    }
+
+    function classifyStore(href) {
+      if (!href) return null;
+      if (href.indexOf("play.google.com/store/apps/details?id=com.flipfinds.app") !== -1) return "play";
+      if (href.indexOf("apps.apple.com/au/app/flipfinds-resale-tracker/id6757338338") !== -1) return "appstore";
+      return null;
+    }
+
+    function fireAndForget(url) {
+      try {
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon(url);
+          return;
+        }
+      } catch (e) {}
+      fetch(url, { mode: "no-cors", keepalive: true }).catch(function () {});
+    }
+
+    document.addEventListener("click", function (evt) {
+      var anchor = evt.target && evt.target.closest ? evt.target.closest("a[href]") : null;
+      if (!anchor) return;
+      var store = classifyStore(anchor.getAttribute("href"));
+      if (!store) return;
+
+      var day = isoDay();
+      fireAndForget("https://api.countapi.xyz/hit/" + NS + "/total-" + day);
+      fireAndForget("https://api.countapi.xyz/hit/" + NS + "/" + store + "-" + day);
+    });
+  })();
+</script>
