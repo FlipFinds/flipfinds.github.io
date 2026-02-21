@@ -1,6 +1,7 @@
 <script>
   (function () {
-    var NS = "flipfinds-store-clicks";
+    var COUNT_API_BASE = "https://countapi.mileshilliard.com/api/v1";
+    var KEY_PREFIX = "flipfinds_store_clicks";
 
     function isoDay() {
       return new Date().toISOString().slice(0, 10);
@@ -35,8 +36,8 @@
       if (!store) return;
 
       var day = isoDay();
-      fireAndForget("https://api.countapi.xyz/hit/" + NS + "/total-" + day);
-      fireAndForget("https://api.countapi.xyz/hit/" + NS + "/" + store + "-" + day);
+      fireAndForget(COUNT_API_BASE + "/hit/" + KEY_PREFIX + "_total_" + day);
+      fireAndForget(COUNT_API_BASE + "/hit/" + KEY_PREFIX + "_" + store + "_" + day);
     });
   })();
 </script>
