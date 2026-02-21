@@ -53,6 +53,14 @@
   width: auto;
 }
 
+.ff-store-badge-google {
+  height: 52px;
+}
+
+.ff-store-badge-apple {
+  height: 44px;
+}
+
 .ff-track-links {
   display: flex;
   flex-wrap: wrap;
@@ -105,5 +113,9 @@
 @media (max-width: 768px) {
   .home-hero {
     padding: 1.05rem;
+  }
+
+  .ff-store-badge-google {
+    height: 48px;
   }
 }
