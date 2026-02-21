@@ -8,19 +8,24 @@
 
     function classifyStore(href) {
       if (!href) return null;
-      if (href.indexOf("play.google.com/store/apps/details?id=com.flipfinds.app") !== -1) return "play";
-      if (href.indexOf("apps.apple.com/au/app/flipfinds-resale-tracker/id6757338338") !== -1) return "appstore";
+      try {
+        var u = new URL(href, window.location.origin);
+        var host = (u.hostname || "").toLowerCase();
+        var path = (u.pathname || "").toLowerCase();
+        if (host.indexOf("play.google.com") !== -1 && u.search.indexOf("id=com.flipfinds.app") !== -1) return "play";
+        if (host.indexOf("apps.apple.com") !== -1 && path.indexOf("/flipfinds-resale-tracker/") !== -1) return "appstore";
+      } catch (e) {
+        return null;
+      }
       return null;
     }
 
     function fireAndForget(url) {
       try {
-        if (navigator.sendBeacon) {
-          navigator.sendBeacon(url);
-          return;
-        }
+        fetch(url, { method: "GET", mode: "no-cors", keepalive: true, cache: "no-store" }).catch(function () {});
       } catch (e) {}
-      fetch(url, { mode: "no-cors", keepalive: true }).catch(function () {});
+      var img = new Image();
+      img.src = url + (url.indexOf("?") === -1 ? "?" : "&") + "r=" + Date.now();
     }
 
     document.addEventListener("click", function (evt) {
