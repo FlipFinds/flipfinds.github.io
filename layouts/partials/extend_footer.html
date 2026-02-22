@@ -41,3 +41,64 @@
     });
   })();
 </script>
+<script>
+  (function () {
+    function initHeroCarousel(root) {
+      var slides = Array.prototype.slice.call(root.querySelectorAll("[data-ff-hero-slide]"));
+      var dots = Array.prototype.slice.call(root.querySelectorAll("[data-ff-hero-dot]"));
+      var titleEl = root.querySelector("[data-ff-hero-title]");
+      var captionEl = root.querySelector("[data-ff-hero-caption]");
+      var prevBtn = root.querySelector("[data-ff-hero-prev]");
+      var nextBtn = root.querySelector("[data-ff-hero-next]");
+      if (!slides.length) return;
+
+      var index = slides.findIndex(function (s) { return s.classList.contains("is-active"); });
+      if (index < 0) index = 0;
+
+      function render() {
+        slides.forEach(function (slide, i) {
+          var active = i === index;
+          slide.classList.toggle("is-active", active);
+        });
+        dots.forEach(function (dot, i) {
+          var active = i === index;
+          dot.classList.toggle("is-active", active);
+          dot.setAttribute("aria-selected", active ? "true" : "false");
+        });
+        if (titleEl) titleEl.textContent = slides[index].getAttribute("data-title") || "";
+        if (captionEl) captionEl.textContent = slides[index].getAttribute("data-caption") || "";
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener("click", function () {
+          index = (index - 1 + slides.length) % slides.length;
+          render();
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener("click", function () {
+          index = (index + 1) % slides.length;
+          render();
+        });
+      }
+      dots.forEach(function (dot) {
+        dot.addEventListener("click", function () {
+          var v = Number(dot.getAttribute("data-ff-hero-dot"));
+          if (!Number.isNaN(v) && v >= 0 && v < slides.length) {
+            index = v;
+            render();
+          }
+        });
+      });
+
+      render();
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll("[data-ff-hero-carousel]").forEach(function (carousel) {
+        var root = carousel.closest(".ff-hero-proof");
+        if (root) initHeroCarousel(root);
+      });
+    });
+  })();
+</script>

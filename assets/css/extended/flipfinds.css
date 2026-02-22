@@ -10,6 +10,21 @@
   background: linear-gradient(180deg, rgba(0, 0, 0, 0.025), rgba(0, 0, 0, 0));
 }
 
+.ff-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: 1.1rem;
+  align-items: stretch;
+}
+
+.ff-hero-copy .entry-header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.ff-hero-copy .entry-content p {
+  margin-top: 0;
+}
+
 .ff-kicker {
   display: inline-block;
   padding: 0.2rem 0.6rem;
@@ -38,6 +53,146 @@
   flex-wrap: wrap;
   gap: 0.75rem;
   margin-top: 0.8rem;
+}
+
+.ff-hero-proof {
+  border: 1px solid rgba(21, 110, 72, 0.18);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(96, 201, 153, 0.28), transparent 44%),
+    linear-gradient(180deg, rgba(10, 122, 78, 0.08), rgba(10, 122, 78, 0.02)),
+    #efede4;
+  padding: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-width: 0;
+}
+
+.ff-hero-proof-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.ff-hero-proof-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.8rem;
+  color: #1f2a37;
+  border: 1px solid rgba(33, 38, 45, 0.08);
+  background: rgba(255, 255, 255, 0.66);
+  border-radius: 999px;
+  padding: 0.18rem 0.55rem;
+}
+
+.ff-hero-proof-nav {
+  display: inline-flex;
+  gap: 0.4rem;
+}
+
+.ff-hero-proof-btn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(33, 38, 45, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+  color: #1f2a37;
+  font-size: 1.1rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.ff-hero-proof-btn:hover {
+  background: #fff;
+}
+
+.ff-hero-proof-btn:focus-visible,
+.ff-hero-dot:focus-visible {
+  outline: 2px solid rgba(10, 122, 78, 0.6);
+  outline-offset: 2px;
+}
+
+.ff-hero-carousel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3.5;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(10, 122, 78, 0.12);
+  background: linear-gradient(180deg, #0f7a4f, #74c7a2);
+}
+
+.ff-hero-slide {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem;
+}
+
+.ff-hero-slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.ff-hero-slide img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(15, 22, 28, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: #f4f2ea;
+}
+
+.ff-hero-proof-meta {
+  min-height: 4.2rem;
+}
+
+.ff-hero-proof-title {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.25;
+  color: #111827;
+}
+
+.ff-hero-proof-caption {
+  margin: 0.28rem 0 0;
+  color: #4b5563;
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+.ff-hero-proof-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.38rem;
+}
+
+.ff-hero-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(17, 24, 39, 0.2);
+  cursor: pointer;
+  padding: 0;
+}
+
+.ff-hero-dot.is-active {
+  width: 1.15rem;
+  background: #0f7a4f;
 }
 
 .ff-store-badge-link {
@@ -99,6 +254,23 @@
 @media (max-width: 768px) {
   .home-hero {
     padding: 1.05rem;
+  }
+
+  .ff-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .ff-hero-proof {
+    padding: 0.75rem;
+  }
+
+  .ff-hero-carousel {
+    aspect-ratio: 4 / 4.2;
+  }
+
+  .ff-hero-proof-meta {
+    min-height: auto;
   }
 
   .ff-store-badge-google {
