@@ -386,6 +386,27 @@
   color: var(--secondary);
 }
 
+.ff-related-posts {
+  margin: 1rem 0 0;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--entry);
+}
+
+.ff-related-posts h3 {
+  margin: 0 0 0.5rem;
+}
+
+.ff-related-posts ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.ff-related-posts li + li {
+  margin-top: 0.3rem;
+}
+
 .ff-guides-banner {
   border: 1px solid var(--border);
   border-radius: 16px;

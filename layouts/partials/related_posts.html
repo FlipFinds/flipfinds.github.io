@@ -1,0 +1,27 @@
+{{- if eq .Section "posts" -}}
+{{- $related := slice -}}
+{{- with .Params.tags -}}
+  {{- $tags := . -}}
+  {{- $related = where site.RegularPages "Section" "posts" -}}
+  {{- $related = where $related "Permalink" "!=" $.Permalink -}}
+  {{- $related = where $related "Params.hiddenInHomeList" "!=" true -}}
+  {{- $related = where $related "Params.tags" "intersect" $tags -}}
+{{- end -}}
+{{- if lt (len $related) 2 -}}
+  {{- $fallback := where site.RegularPages "Section" "posts" -}}
+  {{- $fallback = where $fallback "Permalink" "!=" .Permalink -}}
+  {{- $related = first 3 $fallback -}}
+{{- else -}}
+  {{- $related = first 3 $related -}}
+{{- end -}}
+{{- if gt (len $related) 0 -}}
+<aside class="ff-related-posts" aria-label="Related posts">
+  <h3>Related posts</h3>
+  <ul>
+    {{- range $related }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{- end }}
+  </ul>
+</aside>
+{{- end -}}
+{{- end -}}

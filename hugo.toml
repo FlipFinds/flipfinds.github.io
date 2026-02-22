@@ -83,3 +83,15 @@ summaryLength = 30
   url = "/guides/"
   weight = 20
 
+[[menu.main]]
+  identifier = "about"
+  name = "About"
+  url = "/pages/about/"
+  weight = 30
+
+[[menu.main]]
+  identifier = "contact"
+  name = "Contact"
+  url = "/pages/contact/"
+  weight = 40
+

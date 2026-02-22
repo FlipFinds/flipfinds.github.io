@@ -18,6 +18,8 @@ If you are new to FlipFinds, use this page as your 10-minute setup + first workf
 Start with the practical posts:
 
 - [A Weekly Reseller Cleanup Routine for Better Sell-Through](/posts/a-weekly-reseller-cleanup-routine-for-better-sell-through-22251714854/)
+- [A Pricing Floor Routine for Resellers Who Keep Guessing](/posts/a-pricing-floor-routine-for-resellers-who-keep-guessing/)
+- [A Sourcing-to-Listing Handoff That Prevents Backlog Creep](/posts/a-sourcing-to-listing-handoff-that-prevents-backlog-creep/)
 - [Browse all posts](/posts/)
 - [Guides hub](/guides/)
 
