@@ -5,7 +5,9 @@ draft = false
 description = "How to use FlipFinds blog content as a weekly operating system."
 +++
 
-If you are new to FlipFinds, use this page as your weekly operating guide.
+If you are new to FlipFinds, use this page as your 10-minute setup + first workflow path.
+
+{{< author_box >}}
 
 ## 1) Install the app
 
@@ -15,12 +17,18 @@ If you are new to FlipFinds, use this page as your weekly operating guide.
 
 Start with the practical posts:
 
-- [The Most Common Reseller Profit Mistake (And How to Fix It)](/posts/the-most-common-reseller-profit-mistake-and-how-to-fix-it/)
-- [A 15-Minute Weekly Reseller Review to Protect Your Margin](/posts/the-15-minute-weekly-review-that-saves-resellers-thousands-22232371223/)
+- [A Weekly Reseller Cleanup Routine for Better Sell-Through](/posts/a-weekly-reseller-cleanup-routine-for-better-sell-through-22251714854/)
+- [Browse all posts](/posts/)
+- [Guides hub](/guides/)
 
 ## 3) Apply one change immediately
 
 Use each article as an operating checklist, not just reading material.  
 Pick one action, run it this week, and keep the habit consistent.
+
+## 4) Keep going with the next step
+
+- Review the [Guides hub](/guides/) by topic
+- Install FlipFinds and run the same workflow in the app
 
 For support, email [support@parasdigital.net](mailto:support@parasdigital.net).

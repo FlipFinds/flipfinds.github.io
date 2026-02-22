@@ -1,7 +1,7 @@
 {{- if or .Params.author site.Params.author site.Params.author.email site.Params.author.name }}
 {{- $author := (.Params.author | default site.Params.author) }}
 {{- if reflect.IsMap $author }}
-{{- with $author.email }}{{ . }}{{ else }}{{ $author.name }}{{ end }}
+{{- with $author.name }}{{ . }}{{ else }}{{ $author.email }}{{ end }}
 {{- else if (or (eq (printf "%T" $author) "[]string") (eq (printf "%T" $author) "[]interface {}")) }}
 {{- (delimit $author ", " ) }}
 {{- else }}

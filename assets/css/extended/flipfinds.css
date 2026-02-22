@@ -228,6 +228,51 @@
   height: 44px;
 }
 
+.ff-home-callout,
+.ff-home-lead {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--entry);
+  padding: 1rem 1.1rem;
+  margin: 0.9rem 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.9rem;
+}
+
+.ff-home-callout h2,
+.ff-home-lead h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.ff-home-callout p,
+.ff-home-lead p {
+  margin: 0.25rem 0 0;
+  color: var(--secondary);
+}
+
+.ff-home-callout-btn,
+.ff-home-lead-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 122, 79, 0.25);
+  background: rgba(15, 122, 79, 0.08);
+  color: inherit;
+  font-weight: 600;
+  padding: 0.55rem 0.9rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.ff-home-callout-btn:hover,
+.ff-home-lead-btn:hover {
+  background: rgba(15, 122, 79, 0.14);
+}
+
 .ff-inline-cta {
   margin: 1.5rem 0;
   padding: 1rem;
@@ -249,6 +294,147 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
+}
+
+.ff-list-taxonomy {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.5rem 0 0.2rem;
+}
+
+.ff-list-tag {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.15rem 0.5rem;
+  font-size: 0.72rem;
+  color: var(--secondary);
+  text-decoration: none;
+  background: var(--theme);
+}
+
+.ff-list-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.ff-list-card-footer .entry-footer {
+  margin: 0;
+}
+
+.ff-read-more {
+  position: relative;
+  z-index: 1;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #0f7a4f;
+  white-space: nowrap;
+}
+
+.ff-post-next-steps {
+  margin: 1.6rem 0 0;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--entry);
+}
+
+.ff-post-next-steps h3 {
+  margin: 0 0 0.35rem;
+}
+
+.ff-post-next-steps p {
+  margin: 0 0 0.75rem;
+  color: var(--secondary);
+}
+
+.ff-post-next-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+}
+
+.ff-post-next-link {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 0.45rem 0.75rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.ff-author-box {
+  margin: 1.2rem 0;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--entry);
+}
+
+.ff-author-box h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+}
+
+.ff-author-box p {
+  margin: 0;
+  color: var(--secondary);
+}
+
+.ff-guides-banner {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--entry);
+  padding: 1rem 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.ff-guides-banner h2 {
+  margin: 0 0 0.2rem;
+}
+
+.ff-guides-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+  margin: 1rem 0;
+}
+
+.ff-guide-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 0.9rem;
+  background: var(--entry);
+}
+
+.ff-guide-card h3 {
+  margin: 0 0 0.35rem;
+}
+
+.ff-guide-card p {
+  margin: 0 0 0.55rem;
+  color: var(--secondary);
+}
+
+.ff-guide-card ul {
+  margin: 0;
+  padding-left: 1rem;
+}
+
+.ff-guide-browse {
+  border-top: 1px solid var(--border);
+  padding-top: 1rem;
+  margin-top: 1rem;
 }
 
 #menu a[href*="play.google.com/store/apps/details?id=com.flipfinds.app"],
@@ -294,5 +480,21 @@
 
   .ff-store-badge-google {
     height: 56px;
+  }
+
+  .ff-home-callout,
+  .ff-home-lead {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ff-list-card-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .ff-guides-grid {
+    grid-template-columns: 1fr;
   }
 }

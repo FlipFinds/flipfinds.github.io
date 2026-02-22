@@ -1,0 +1,61 @@
+{{ define "main" }}
+<header class="page-header">
+  {{ partial "breadcrumbs.html" . }}
+  <h1>{{ .Title }}</h1>
+  {{ with .Description }}<div class="post-description">{{ . }}</div>{{ end }}
+</header>
+
+<section class="ff-guides-banner" aria-label="Start with FlipFinds guides">
+  <h2>Start Here before the deeper guides</h2>
+  <p>Use the quick setup path first, then come back here to build a weekly reseller system by topic.</p>
+  <p><a class="ff-post-next-link" href="/pages/start-here/">Start Here &rarr;</a></p>
+</section>
+
+<div class="ff-guides-grid">
+  <section class="ff-guide-card">
+    <h3>Pricing Track</h3>
+    <p>Protect margin and tighten pricing decisions.</p>
+    <ul>
+      <li><a href="/posts/a-weekly-reseller-cleanup-routine-for-better-sell-through-22251714854/">Weekly cleanup routine</a></li>
+      <li><a href="/tags/profit/">Profit posts</a></li>
+      <li><a href="/posts/">All pricing-related posts</a></li>
+    </ul>
+  </section>
+  <section class="ff-guide-card">
+    <h3>Inventory Track</h3>
+    <p>Reduce stale listings and improve weekly sell-through discipline.</p>
+    <ul>
+      <li><a href="/posts/a-weekly-reseller-cleanup-routine-for-better-sell-through-22251714854/">Weekly cleanup routine</a></li>
+      <li><a href="/tags/inventory/">Inventory posts</a></li>
+      <li><a href="/pages/start-here/">Start Here workflow</a></li>
+    </ul>
+  </section>
+  <section class="ff-guide-card">
+    <h3>Sourcing Track</h3>
+    <p>Use sourcing guardrails and better category signals.</p>
+    <ul>
+      <li><a href="/pages/start-here/">10-minute setup</a></li>
+      <li><a href="/tags/reselling/">Reselling workflow posts</a></li>
+      <li><a href="/posts/">Browse recent posts</a></li>
+    </ul>
+  </section>
+  <section class="ff-guide-card">
+    <h3>Listing Track</h3>
+    <p>Build repeatable listing habits and weekly review loops.</p>
+    <ul>
+      <li><a href="/posts/a-weekly-reseller-cleanup-routine-for-better-sell-through-22251714854/">Cleanup + review routine</a></li>
+      <li><a href="/tags/workflow/">Workflow posts</a></li>
+      <li><a href="/guides/">This guides hub</a></li>
+    </ul>
+  </section>
+</div>
+
+<section class="ff-guide-browse" aria-label="Browse by topic">
+  <h2>Browse by topic</h2>
+  <p>
+    <a class="ff-post-next-link" href="/tags/">Tags</a>
+    <a class="ff-post-next-link" href="/categories/">Categories</a>
+    <a class="ff-post-next-link" href="/posts/">All posts</a>
+  </p>
+</section>
+{{ end }}
