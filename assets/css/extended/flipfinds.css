@@ -5,9 +5,145 @@
 
 .home-hero {
   border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 1.2rem;
+  background: linear-gradient(180deg, rgba(236, 232, 222, 0.72), rgba(255, 255, 255, 0.78));
+}
+
+.ff-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  gap: 1.1rem;
+  align-items: stretch;
+}
+
+.ff-hero-copy {
+  min-width: 0;
+}
+
+.ff-hero-copy .entry-header h1 {
+  line-height: 1.08;
+  margin-bottom: 0.45rem;
+}
+
+.ff-hero-copy .entry-content > p:first-child {
+  color: var(--secondary);
+  max-width: 38ch;
+}
+
+.ff-hero-proof-line {
+  margin-top: 0.65rem;
+  margin-bottom: 0;
+  color: var(--secondary);
+  font-size: 0.94rem;
+}
+
+.ff-hero-media {
+  position: relative;
+  min-height: 360px;
   border-radius: 18px;
-  padding: 1.5rem;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.025), rgba(0, 0, 0, 0));
+  border: 1px solid rgba(218, 206, 184, 0.8);
+  background: #e9e4d8;
+  overflow: hidden;
+  padding: 0.85rem;
+}
+
+.ff-hero-media-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 88% 20%, rgba(255, 255, 255, 0.22), transparent 45%),
+    linear-gradient(145deg, #0d6f43 0%, #12824d 45%, #89cba8 100%);
+  opacity: 0.95;
+}
+
+.ff-hero-media-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.ff-hero-shot {
+  position: absolute;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(237, 227, 208, 0.95);
+  box-shadow: 0 14px 26px rgba(18, 29, 35, 0.11);
+  overflow: hidden;
+}
+
+.ff-hero-shot img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+.ff-shot-label {
+  position: absolute;
+  left: 0.7rem;
+  top: 0.6rem;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(226, 214, 191, 0.85);
+  color: #23303c;
+  border-radius: 999px;
+  padding: 0.16rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.ff-hero-shot-primary {
+  inset: 0.95rem 7.2rem 4.6rem 0.95rem;
+}
+
+.ff-hero-shot-secondary {
+  width: 42%;
+  height: 60%;
+  right: 0.95rem;
+  top: 1.45rem;
+}
+
+.ff-hero-card {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  width: 46%;
+  border-radius: 16px;
+  border: 1px solid rgba(229, 219, 201, 0.95);
+  background: rgba(250, 248, 243, 0.97);
+  box-shadow: 0 10px 18px rgba(18, 29, 35, 0.08);
+  padding: 0.7rem 0.75rem;
+  z-index: 3;
+}
+
+.ff-hero-card-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #384655;
+  margin-bottom: 0.45rem;
+}
+
+.ff-hero-card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+}
+
+.ff-hero-card-grid span {
+  border: 1px solid rgba(226, 214, 191, 0.9);
+  border-radius: 12px;
+  background: #fff;
+  padding: 0.35rem 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #23303c;
+  text-align: center;
 }
 
 .ff-kicker {
@@ -98,11 +234,38 @@
 
 @media (max-width: 768px) {
   .home-hero {
-    padding: 1.05rem;
+    padding: 0.95rem;
+  }
+
+  .ff-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .ff-hero-media {
+    min-height: 300px;
+    padding: 0.65rem;
+  }
+
+  .ff-hero-shot-primary {
+    inset: 0.65rem 5.4rem 4.1rem 0.65rem;
+  }
+
+  .ff-hero-shot-secondary {
+    width: 44%;
+    height: 58%;
+    right: 0.65rem;
+    top: 1rem;
+  }
+
+  .ff-hero-card {
+    right: 0.7rem;
+    bottom: 0.7rem;
+    width: 52%;
+    padding: 0.55rem 0.6rem;
   }
 
   .ff-store-badge-google {
     height: 56px;
   }
-
 }
