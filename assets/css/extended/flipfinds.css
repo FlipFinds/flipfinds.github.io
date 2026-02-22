@@ -68,6 +68,20 @@
   margin-top: 0.9rem;
 }
 
+.ff-hero-visual {
+  margin-top: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--entry);
+}
+
+.ff-hero-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .ff-track-links a {
   border: 1px solid var(--border);
   border-radius: 999px;
@@ -117,5 +131,9 @@
 
   .ff-store-badge-google {
     height: 56px;
+  }
+
+  .ff-hero-visual {
+    margin-top: 0.85rem;
   }
 }
