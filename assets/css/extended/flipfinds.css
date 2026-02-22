@@ -61,6 +61,20 @@
   height: 44px;
 }
 
+.ff-hero-support {
+  margin-top: 0.9rem;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--entry);
+}
+
+.ff-hero-support img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 .ff-inline-cta {
   margin: 1.5rem 0;
   padding: 1rem;
@@ -103,5 +117,9 @@
 
   .ff-store-badge-google {
     height: 56px;
+  }
+
+  .ff-hero-support {
+    margin-top: 0.8rem;
   }
 }

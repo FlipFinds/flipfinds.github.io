@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="220" viewBox="0 0 1040 220" role="img" aria-labelledby="t d">
+  <title id="t">Product-style workflow preview</title>
+  <desc id="d">A compact visual strip that supports the main hero without repeating it.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0A5E36" />
+      <stop offset="55%" stop-color="#0F7C48" />
+      <stop offset="100%" stop-color="#8BC7A7" />
+    </linearGradient>
+    <radialGradient id="halo" cx="88%" cy="28%" r="45%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22" />
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0" />
+    </radialGradient>
+    <pattern id="grid" width="22" height="22" patternUnits="userSpaceOnUse">
+      <path d="M22 0 L0 0 0 22" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="1"/>
+    </pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#101b25" flood-opacity="0.13"/>
+    </filter>
+  </defs>
+
+  <rect x="0" y="0" width="1040" height="220" rx="26" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1040" height="220" rx="26" fill="url(#grid)"/>
+  <rect x="0" y="0" width="1040" height="220" rx="26" fill="url(#halo)"/>
+
+  <g filter="url(#shadow)">
+    <rect x="20" y="18" width="360" height="184" rx="22" fill="#FFFFFF" stroke="#EAE2D2" fill-opacity="0.96"/>
+    <image href="/images/app-icon.png" x="36" y="34" width="22" height="22" preserveAspectRatio="xMidYMid slice"/>
+    <text x="72" y="49" fill="#1F2A37" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="13" font-weight="700">FlipFinds workflow</text>
+
+    <rect x="36" y="66" width="260" height="56" rx="18" fill="#F6F5F1" stroke="#EAE2D2"/>
+    <rect x="52" y="82" width="68" height="10" rx="5" fill="#0F7C48" fill-opacity="0.95"/>
+    <rect x="52" y="98" width="118" height="8" rx="4" fill="#697386" fill-opacity="0.55"/>
+    <rect x="182" y="82" width="98" height="10" rx="5" fill="#0F7C48" fill-opacity="0.55"/>
+    <rect x="182" y="98" width="82" height="8" rx="4" fill="#697386" fill-opacity="0.35"/>
+
+    <g transform="translate(36,132)">
+      <rect x="0" y="0" width="86" height="30" rx="15" fill="#EEF5EA" stroke="#E2D6BF" />
+      <text x="43" y="20" text-anchor="middle" fill="#0A5E36" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" font-weight="700">Track</text>
+      <rect x="96" y="0" width="86" height="30" rx="15" fill="#EEF5EA" stroke="#E2D6BF" />
+      <text x="139" y="20" text-anchor="middle" fill="#0A5E36" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" font-weight="700">Price</text>
+      <rect x="192" y="0" width="100" height="30" rx="15" fill="#EEF5EA" stroke="#E2D6BF" />
+      <text x="242" y="20" text-anchor="middle" fill="#0A5E36" font-family="system-ui, -apple-system, Segoe UI, sans-serif" font-size="12" font-weight="700">Review</text>
+    </g>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="398" y="18" width="622" height="184" rx="22" fill="#F6F5F1" stroke="#EAE2D2" fill-opacity="0.96"/>
+    <rect x="416" y="34" width="586" height="46" rx="16" fill="url(#bg)"/>
+    <rect x="432" y="48" width="522" height="18" rx="9" fill="#ffffff" fill-opacity="0.9"/>
+    <rect x="416" y="94" width="586" height="92" rx="16" fill="#FFFFFF" stroke="#EAE2D2"/>
+
+    <rect x="416" y="112" width="187" height="54" rx="12" fill="#F6F5F1" stroke="#EAE2D2"/>
+    <rect x="615" y="112" width="187" height="54" rx="12" fill="#F6F5F1" stroke="#EAE2D2"/>
+    <rect x="814" y="112" width="187" height="54" rx="12" fill="#F6F5F1" stroke="#EAE2D2"/>
+
+    <rect x="416" y="182" width="586" height="8" rx="4" fill="#EAE2D2"/>
+    <rect x="416" y="182" width="480" height="8" rx="4" fill="#0F7C48"/>
+    <rect x="416" y="198" width="586" height="8" rx="4" fill="#EAE2D2"/>
+    <rect x="416" y="198" width="339" height="8" rx="4" fill="#697386" fill-opacity="0.55"/>
+  </g>
+</svg>
