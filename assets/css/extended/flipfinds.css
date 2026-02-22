@@ -61,34 +61,6 @@
   height: 44px;
 }
 
-.ff-track-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 0.9rem;
-}
-
-.ff-hero-visual {
-  margin-top: 1rem;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  overflow: hidden;
-  background: var(--entry);
-}
-
-.ff-hero-visual img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.ff-track-links a {
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  padding: 0.2rem 0.65rem;
-  text-decoration: none;
-}
-
 .ff-inline-cta {
   margin: 1.5rem 0;
   padding: 1rem;
@@ -131,9 +103,5 @@
 
   .ff-store-badge-google {
     height: 56px;
-  }
-
-  .ff-hero-visual {
-    margin-top: 0.85rem;
   }
 }
