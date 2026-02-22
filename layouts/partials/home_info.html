@@ -67,13 +67,3 @@
   </div>
   <a class="ff-home-callout-btn" href="/pages/start-here/">Start Here &rarr;</a>
 </section>
-
-{{- with site.Params.leadCapture -}}
-<section class="ff-home-lead" aria-label="Free checklist">
-  <div class="ff-home-lead-copy">
-    <h3>{{ .heading }}</h3>
-    <p>{{ .subtext }}</p>
-  </div>
-  <a class="ff-home-lead-btn" href="{{ .signupUrl }}" target="_blank" rel="noopener">{{ .buttonText }}</a>
-</section>
-{{- end -}}

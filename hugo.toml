@@ -38,11 +38,6 @@ summaryLength = 30
   [params.footer]
     text = "Support: support@parasdigital.net"
     hideCopyright = false
-  [params.leadCapture]
-    heading = "Get the weekly reseller checklist"
-    subtext = "A short checklist you can run each week to protect margin and improve sell-through. No spam."
-    buttonText = "Get free checklist"
-    signupUrl = "https://forms.gle/replace-with-your-signup-form"
   [params.homeInfoParams]
     Title = "FlipFinds Growth Playbooks for Resellers"
     Content = "Practical weekly systems for sourcing, listing, inventory control, and sell-through improvements."

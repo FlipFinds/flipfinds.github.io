@@ -228,8 +228,7 @@
   height: 44px;
 }
 
-.ff-home-callout,
-.ff-home-lead {
+.ff-home-callout {
   border: 1px solid var(--border);
   border-radius: 16px;
   background: var(--entry);
@@ -241,20 +240,17 @@
   gap: 0.9rem;
 }
 
-.ff-home-callout h2,
-.ff-home-lead h3 {
+.ff-home-callout h2 {
   margin: 0;
   font-size: 1.05rem;
 }
 
-.ff-home-callout p,
-.ff-home-lead p {
+.ff-home-callout p {
   margin: 0.25rem 0 0;
   color: var(--secondary);
 }
 
-.ff-home-callout-btn,
-.ff-home-lead-btn {
+.ff-home-callout-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -268,8 +264,7 @@
   white-space: nowrap;
 }
 
-.ff-home-callout-btn:hover,
-.ff-home-lead-btn:hover {
+.ff-home-callout-btn:hover {
   background: rgba(15, 122, 79, 0.14);
 }
 
@@ -482,8 +477,7 @@
     height: 56px;
   }
 
-  .ff-home-callout,
-  .ff-home-lead {
+  .ff-home-callout {
     flex-direction: column;
     align-items: flex-start;
   }

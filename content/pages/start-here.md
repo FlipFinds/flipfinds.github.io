@@ -23,7 +23,7 @@ Start with the practical posts:
 
 ## 3) Apply one change immediately
 
-Use each article as an operating checklist, not just reading material.  
+Use each article as an operating routine, not just reading material.  
 Pick one action, run it this week, and keep the habit consistent.
 
 ## 4) Keep going with the next step
