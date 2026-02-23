@@ -58,4 +58,20 @@
     <a class="ff-post-next-link" href="/posts/">All posts</a>
   </p>
 </section>
+
+{{ $guides := .RegularPages.ByDate.Reverse }}
+{{ if gt (len $guides) 0 }}
+<section class="ff-guide-browse" aria-label="Published guides">
+  <h2>Published guides</h2>
+  <div class="ff-guides-grid">
+    {{ range $guides }}
+    <section class="ff-guide-card">
+      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      {{ with .Summary }}<p>{{ . | plainify }}</p>{{ end }}
+      <p><a class="ff-post-next-link" href="{{ .RelPermalink }}">Read guide &rarr;</a></p>
+    </section>
+    {{ end }}
+  </div>
+</section>
+{{ end }}
 {{ end }}
