@@ -1,7 +1,8 @@
 <script>
   (function () {
     var COUNT_API_BASE = "https://countapi.mileshilliard.com/api/v1";
-    var KEY_PREFIX = "flipfinds_store_clicks";
+    var STORE_PREFIX = "flipfinds_store_clicks";
+    var EVENT_PREFIX = "flipfinds_site_events";
 
     function isoDay() {
       return new Date().toISOString().slice(0, 10);
@@ -29,16 +30,80 @@
       img.src = url + (url.indexOf("?") === -1 ? "?" : "&") + "r=" + Date.now();
     }
 
+    function hit(prefix, key) {
+      if (!key) return;
+      fireAndForget(COUNT_API_BASE + "/hit/" + prefix + "_" + key);
+    }
+
+    function pathBucket() {
+      var p = (window.location.pathname || "/").toLowerCase();
+      if (p === "/" || p === "") return "home";
+      if (p.indexOf("/pages/start-here/") === 0) return "page_start_here";
+      if (p.indexOf("/posts/") === 0) {
+        return p === "/posts/" ? "posts_index" : "post_article";
+      }
+      if (p.indexOf("/guides/") === 0) {
+        return p === "/guides/" ? "guides_index" : "guide_article";
+      }
+      return "other";
+    }
+
+    function trackPageViewOncePerLoad() {
+      var day = isoDay();
+      var bucket = pathBucket();
+      hit(EVENT_PREFIX, "page_total_" + day);
+      hit(EVENT_PREFIX, "page_" + bucket + "_" + day);
+    }
+
+    function inferClickSource(anchor) {
+      if (!anchor) return "unknown";
+      var explicit = anchor.getAttribute("data-source");
+      if (explicit) return explicit;
+      var tracked = anchor.getAttribute("data-ff-track");
+      if (tracked) return tracked;
+      var p = (window.location.pathname || "").toLowerCase();
+      if (anchor.closest && anchor.closest(".ff-home-callout")) return "home_callout";
+      if (anchor.closest && anchor.closest(".ff-post-next-steps")) return "post_next_steps";
+      if (anchor.closest && anchor.closest(".ff-inline-cta")) return "inline_cta";
+      if (p.indexOf("/pages/start-here/") === 0) return "start_here_page";
+      if (p.indexOf("/guides/") === 0) return "guides_page";
+      if (p.indexOf("/posts/") === 0) return "post_page";
+      if (p === "/") return "home";
+      return "unknown";
+    }
+
+    function trackStartHereClick(anchor) {
+      var href = (anchor && anchor.getAttribute("href")) || "";
+      if (!href) return;
+      try {
+        var u = new URL(href, window.location.origin);
+        if (u.pathname.toLowerCase().indexOf("/pages/start-here/") !== 0) return;
+      } catch (e) {
+        return;
+      }
+      var day = isoDay();
+      var source = inferClickSource(anchor);
+      hit(EVENT_PREFIX, "start_here_click_total_" + day);
+      hit(EVENT_PREFIX, "start_here_click_" + source + "_" + day);
+    }
+
     document.addEventListener("click", function (evt) {
       var anchor = evt.target && evt.target.closest ? evt.target.closest("a[href]") : null;
       if (!anchor) return;
+      trackStartHereClick(anchor);
       var store = classifyStore(anchor.getAttribute("href"));
       if (!store) return;
 
       var day = isoDay();
-      fireAndForget(COUNT_API_BASE + "/hit/" + KEY_PREFIX + "_total_" + day);
-      fireAndForget(COUNT_API_BASE + "/hit/" + KEY_PREFIX + "_" + store + "_" + day);
+      var source = inferClickSource(anchor);
+      hit(STORE_PREFIX, "total_" + day);
+      hit(STORE_PREFIX, store + "_" + day);
+      hit(EVENT_PREFIX, "store_click_total_" + day);
+      hit(EVENT_PREFIX, "store_click_" + source + "_" + day);
+      hit(EVENT_PREFIX, "store_click_" + source + "_" + store + "_" + day);
     });
+
+    trackPageViewOncePerLoad();
   })();
 </script>
 <script>
