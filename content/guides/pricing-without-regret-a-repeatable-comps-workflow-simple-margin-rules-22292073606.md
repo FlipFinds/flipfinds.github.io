@@ -1,7 +1,7 @@
 +++
 title = "Pricing Without Regret: A Repeatable Comps Workflow + Simple Margin Rules"
 date = 2026-02-23T03:40:47Z
-draft = true
+draft = false
 description = "A fast comps routine with clear decision rules for price bands, minimum profit, and when to skip an item"
 summary = "A deep operational guide for pricing and comps workflows with SOP steps, checkpoints, and weekly maintenance rules."
 tags = ["reselling", "guide", "workflow", "pricing-and-comps-workflows"]
