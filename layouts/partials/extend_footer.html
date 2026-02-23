@@ -1,8 +1,8 @@
 <script>
   (function () {
     var COUNT_API_BASE = "https://countapi.mileshilliard.com/api/v1";
-    var STORE_PREFIX = "flipfinds_store_clicks";
-    var EVENT_PREFIX = "flipfinds_site_events";
+    var STORE_PREFIX = "flipfinds_store_clicks_v2";
+    var EVENT_PREFIX = "flipfinds_site_events_v2";
 
     function isoDay() {
       return new Date().toISOString().slice(0, 10);
@@ -23,9 +23,12 @@
     }
 
     function fireAndForget(url) {
-      try {
-        fetch(url, { method: "GET", mode: "no-cors", keepalive: true, cache: "no-store" }).catch(function () {});
-      } catch (e) {}
+      if (typeof fetch === "function") {
+        try {
+          fetch(url, { method: "GET", mode: "no-cors", keepalive: true, cache: "no-store" }).catch(function () {});
+          return;
+        } catch (e) {}
+      }
       var img = new Image();
       img.src = url + (url.indexOf("?") === -1 ? "?" : "&") + "r=" + Date.now();
     }
