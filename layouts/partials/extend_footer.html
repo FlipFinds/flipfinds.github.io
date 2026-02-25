@@ -22,6 +22,26 @@
       return null;
     }
 
+    function classifyLandingPageClick(anchor) {
+      var href = (anchor && anchor.getAttribute("href")) || "";
+      if (!href) return null;
+      try {
+        var u = new URL(href, window.location.origin);
+        var host = (u.hostname || "").toLowerCase();
+        if (host !== "flipfinds.parasdigital.net") return null;
+        var medium = (u.searchParams.get("utm_medium") || "").toLowerCase();
+        if (medium === "nav") return "nav";
+        if (medium === "start_here") return "start_here";
+        if (medium === "post_cta") return "post_cta";
+        var tracked = (anchor.getAttribute("data-ff-track") || "").toLowerCase();
+        if (tracked.indexOf("post_cta") !== -1) return "post_cta";
+        if (tracked.indexOf("start_here") !== -1) return "start_here";
+        return "other";
+      } catch (e) {
+        return null;
+      }
+    }
+
     function fireAndForget(url) {
       if (typeof fetch === "function") {
         try {
@@ -94,6 +114,12 @@
       var anchor = evt.target && evt.target.closest ? evt.target.closest("a[href]") : null;
       if (!anchor) return;
       trackStartHereClick(anchor);
+      var landingSource = classifyLandingPageClick(anchor);
+      if (landingSource) {
+        var day = isoDay();
+        hit(EVENT_PREFIX, "landing_click_total_" + day);
+        hit(EVENT_PREFIX, "landing_click_" + landingSource + "_" + day);
+      }
       var store = classifyStore(anchor.getAttribute("href"));
       if (!store) return;
 

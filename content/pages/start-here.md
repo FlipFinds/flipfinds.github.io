@@ -7,6 +7,8 @@ description = "How to use FlipFinds blog content as a weekly operating system."
 
 If you are new to FlipFinds, use this page as your 10-minute setup + first workflow path.
 
+Prefer the product overview first? Visit the [FlipFinds app page](https://flipfinds.parasdigital.net/?utm_source=flipfinds_blog&utm_medium=start_here&utm_campaign=crosslink).
+
 {{< author_box >}}
 
 ## 1) Install the app

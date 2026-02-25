@@ -84,6 +84,12 @@ summaryLength = 30
   weight = 20
 
 [[menu.main]]
+  identifier = "flipfinds-app"
+  name = "FlipFinds App"
+  url = "https://flipfinds.parasdigital.net/?utm_source=flipfinds_blog&utm_medium=nav&utm_campaign=crosslink"
+  weight = 25
+
+[[menu.main]]
   identifier = "about"
   name = "About"
   url = "/pages/about/"
