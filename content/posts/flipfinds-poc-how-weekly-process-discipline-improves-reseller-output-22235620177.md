@@ -1,7 +1,7 @@
 +++
 title = "FlipFinds POC: How Weekly Process Discipline Improves Reseller Output"
 date = 2026-02-20T18:12:24Z
-draft = true
+draft = false
 description = "How resellers can use FlipFinds workflows to increase output without paid spend."
 tags = ["flipfinds", "reselling", "workflow", "growth"]
 categories = ["Posts"]

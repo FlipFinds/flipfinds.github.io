@@ -1,7 +1,7 @@
 +++
 title = "FlipFinds: Weekly reseller workflow to protect margin"
 date = 2026-02-23T14:29:54Z
-draft = true
+draft = false
 description = "A practical reseller workflow for tighter inventory control, cleaner tracking, and better margin protection."
 summary = "A practical weekly reseller routine to reduce stale inventory, catch margin leaks, and improve sell-through."
 tags = ["reselling", "inventory", "workflow", "profit"]
