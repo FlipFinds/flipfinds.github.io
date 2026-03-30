@@ -1,0 +1,70 @@
++++
+title = "FlipFinds: How FlipFinds helps resellers save time while sourcing and listing"
+date = 2026-03-30T14:50:05Z
+draft = false
+description = "A practical reseller workflow for tighter inventory control, cleaner tracking, and better margin protection."
+summary = "A practical weekly reseller routine to reduce stale inventory, catch margin leaks, and improve sell-through."
+tags = ["reselling", "inventory", "workflow", "profit"]
++++
+
+A busy week can hide profit leaks: stale listings pile up, shipping gets undercharged, and tracking falls behind.
+A short weekly operating routine fixes this without adding tools or spend.
+
+Use this as a weekly operating pass you can run in one sitting.
+It is built to help you reduce stale inventory, catch pricing drift, and protect margin.
+
+## The 15-minute weekly routine
+
+1. **Scan active inventory (3 minutes).**
+Filter items older than 45 days and mark which need repricing, retitle, or relist.
+
+2. **Check recent sold items (3 minutes).**
+Review the last 10 sales and verify net after fees, shipping, and supplies.
+If two or more items miss target margin, flag the category for correction.
+
+3. **Fix stale-item actions (4 minutes).**
+Choose one action per stale item: reprice, improve listing quality, bundle, or clear.
+Do not defer all stale items to "later."
+
+4. **Set next sourcing guardrails (3 minutes).**
+Use what sold this week to choose what to buy next week.
+Reduce buys in categories where stale count is climbing.
+
+5. **Log one weekly snapshot (2 minutes).**
+Record active items, sold items, stale items, and average net margin for the week.
+Consistency matters more than perfect reporting.
+## Example from a reseller week
+
+A part-time reseller used a single review block to flag dead stock early and move budget toward faster categories. They also found shipping undercharged on two heavier items and fixed the rates before the next sale.
+Last week, one seller repriced 12 listings, bundled 3 items, and re-listed 2 listings after a photo lighting retake.
+They used a net margin target of 30%+ to keep repricing decisions consistent across the session.
+That is the point of this routine: fewer random decisions, cleaner pricing calls, and more predictable weekly output.
+## Common mistakes to avoid
+
+1. Reviewing solds but skipping shipping and fee checks.
+2. Repricing everything at once instead of fixing the worst items first.
+3. Letting a bundle lot sit because it "might sell eventually."
+4. Logging no metrics, then guessing whether the routine worked.
+## Weekly scorecard
+
+Track these every week:
+
+1. Active item count
+2. Stale item count (45+ days)
+3. Units sold
+4. Net margin trend
+
+Small improvements each week compound over a month.
+## Next step
+
+Pick one category and run the routine before your next sourcing trip.
+Then repeat it next week using the same thresholds.
+If you want this workflow in an app, install FlipFinds and run it during your weekly review.
+## Related reading
+
+Related reading to build the same routine into your week:
+
+- [Start Here](/pages/start-here/)
+- [A Sourcing-to-Listing Handoff That Prevents Backlog Creep](/posts/a-sourcing-to-listing-handoff-that-prevents-backlog-creep/)
+- [A Simple Weekly Sell-Through Review for Part-Time Resellers](/posts/a-simple-weekly-sell-through-review-for-part-time-resellers-22292557017/)
+
