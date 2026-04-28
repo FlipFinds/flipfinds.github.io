@@ -60,6 +60,34 @@
 }
 </script>
 {{- if .IsPage }}
+{{- if eq .Type "calculator" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": {{ .Title | plainify }},
+  "headline": {{ .Title | plainify }},
+  "description": {{ with .Description | plainify }}{{ . }}{{ else }}{{ .Summary | plainify }}{{ end -}},
+  "url": {{ .Permalink | safeHTML }},
+  "inLanguage": {{ .Language.Lang | default "en-us" }},
+  "about": [
+    "Resale profit calculator",
+    "eBay profit calculator",
+    "Poshmark fee calculator",
+    "Mercari profit calculator",
+    "Reseller ROI calculator"
+  ],
+  "publisher": {
+    "@type": "Organization",
+    "name": "FlipFinds",
+    "logo": {
+      "@type": "ImageObject",
+      "url": {{ site.Params.assets.favicon | default "favicon.ico" | absURL }}
+    }
+  }
+}
+</script>
+{{- else }}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -129,6 +157,7 @@
   }
 }
 </script>
+{{- end }}
 {{- end }}{{/* .IsPage end */}}
 
 {{- end -}}
