@@ -1,0 +1,753 @@
+{{ define "main" }}
+<section class="ff-calc-shell">
+  <style>
+    .ff-calc-shell {
+      position: relative;
+      left: 50%;
+      right: 50%;
+      width: 100vw;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      color: #f8fafc;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(16, 185, 129, 0.16) 0%, transparent 38%),
+        radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.02) 0%, transparent 34%),
+        #030712;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .ff-calc-shell * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .ff-calc-container {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .ff-calc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 40px 0 32px;
+    }
+
+    .ff-calc-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: -0.5px;
+    }
+
+    .ff-calc-brand img {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .ff-calc-nav {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .ff-calc-nav a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s ease;
+    }
+
+    .ff-calc-nav a:hover,
+    .ff-calc-nav a.ff-calc-nav-active {
+      color: #fff;
+    }
+
+    .ff-calc-pill {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #10b981;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .ff-calc-hero {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 34px;
+      align-items: start;
+      padding: 12px 0 88px;
+    }
+
+    .ff-calc-kicker {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.04);
+      color: #10b981;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .ff-calc-title {
+      margin: 22px 0 18px;
+      font-size: clamp(40px, 5vw, 66px);
+      line-height: 1.03;
+      letter-spacing: -0.05em;
+      background: linear-gradient(135deg, #fff 40%, #64748b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .ff-calc-subtitle {
+      max-width: 560px;
+      margin: 0 0 30px;
+      font-size: 19px;
+      line-height: 1.65;
+      color: #94a3b8;
+    }
+
+    .ff-calc-hero-list {
+      display: grid;
+      gap: 12px;
+      padding: 0;
+      margin: 0 0 26px;
+      list-style: none;
+    }
+
+    .ff-calc-hero-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: #cbd5e1;
+    }
+
+    .ff-calc-hero-list li::before {
+      content: "\2713";
+      color: #10b981;
+      font-weight: 900;
+      margin-top: 2px;
+    }
+
+    .ff-calc-note {
+      font-size: 14px;
+      color: #94a3b8;
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .ff-calc-card {
+      border-radius: 28px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.45);
+      overflow: hidden;
+    }
+
+    .ff-calc-card-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 22px 24px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .ff-calc-card-head h2 {
+      margin: 0;
+      font-size: 24px;
+      color: #fff;
+    }
+
+    .ff-calc-card-head p {
+      margin: 8px 0 0;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    .ff-calc-presets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 20px 24px 0;
+    }
+
+    .ff-calc-preset {
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.03);
+      color: #cbd5e1;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .ff-calc-preset.is-active,
+    .ff-calc-preset:hover {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .ff-calc-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.92fr;
+      gap: 22px;
+      padding: 20px 24px 24px;
+    }
+
+    .ff-calc-form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .ff-calc-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .ff-calc-field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .ff-calc-field label {
+      color: #e2e8f0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .ff-calc-help {
+      color: #94a3b8;
+      font-size: 12px;
+      margin-top: -2px;
+    }
+
+    .ff-calc-input {
+      width: 100%;
+      padding: 14px 15px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(2, 6, 23, 0.45);
+      color: #fff;
+      font: inherit;
+    }
+
+    .ff-calc-input:focus {
+      outline: none;
+      border-color: rgba(16, 185, 129, 0.75);
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12);
+    }
+
+    .ff-calc-results {
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .ff-calc-results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .ff-calc-metric {
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .ff-calc-metric-primary {
+      background: linear-gradient(155deg, rgba(16, 185, 129, 0.18), rgba(255, 255, 255, 0.04));
+      border-color: rgba(16, 185, 129, 0.22);
+    }
+
+    .ff-calc-metric-label {
+      color: #94a3b8;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .ff-calc-metric-value {
+      margin-top: 10px;
+      color: #fff;
+      font-size: clamp(24px, 4vw, 40px);
+      line-height: 1.05;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .ff-calc-metric-meta {
+      margin-top: 8px;
+      color: #94a3b8;
+      font-size: 13px;
+    }
+
+    .ff-calc-summary {
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .ff-calc-summary strong {
+      color: #fff;
+    }
+
+    .ff-calc-cta {
+      padding: 22px;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .ff-calc-cta h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      color: #fff;
+    }
+
+    .ff-calc-cta p {
+      margin: 0 0 18px;
+      color: #94a3b8;
+    }
+
+    .ff-calc-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .ff-calc-cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.06);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .ff-calc-cta-button:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.22);
+    }
+
+    .ff-calc-cta-button-primary {
+      background: linear-gradient(135deg, #0ea56b, #10b981);
+      border-color: rgba(16, 185, 129, 0.8);
+      color: #03130f;
+    }
+
+    .ff-calc-cta-button-primary:hover {
+      background: linear-gradient(135deg, #12b778, #34d399);
+    }
+
+    .ff-calc-section {
+      padding: 0 0 88px;
+    }
+
+    .ff-calc-section-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .ff-calc-section-card {
+      padding: 22px;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .ff-calc-section-card h3 {
+      margin: 0 0 10px;
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .ff-calc-section-card p {
+      margin: 0;
+      color: #94a3b8;
+    }
+
+    .ff-calc-footer {
+      padding: 0 0 64px;
+      text-align: center;
+    }
+
+    .ff-calc-footer p,
+    .ff-calc-footer a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .ff-calc-footer a {
+      margin: 0 8px;
+    }
+
+    @media (max-width: 980px) {
+      .ff-calc-hero,
+      .ff-calc-grid,
+      .ff-calc-section-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ff-calc-row,
+      .ff-calc-results-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ff-calc-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .ff-calc-nav {
+        gap: 16px;
+      }
+
+      .ff-calc-nav a {
+        font-size: 13px;
+      }
+    }
+  </style>
+
+  <div class="ff-calc-container">
+    <header class="ff-calc-header">
+      <a class="ff-calc-brand" href="/">
+        <img src="/images/app-icon.png" alt="FlipFinds Logo">
+        FlipFinds
+      </a>
+      <nav class="ff-calc-nav">
+        <a href="/" >Home</a>
+        <a href="/calculator/" class="ff-calc-nav-active">Calculator</a>
+        <a href="/guides/">Guides</a>
+        <a href="/posts/">Blog</a>
+        <a href="/pages/contact/">Contact</a>
+      </nav>
+      <div class="ff-calc-pill">Free Tool</div>
+    </header>
+
+    <section class="ff-calc-hero">
+      <div>
+        <span class="ff-calc-kicker">Resale Profit Calculator</span>
+        <h1 class="ff-calc-title">Estimate profit before you buy, price, or list.</h1>
+        <p class="ff-calc-subtitle">
+          Use practical resale math, not guesses. Estimate profit, margin, ROI, and break-even sale
+          price with editable marketplace assumptions.
+        </p>
+        <ul class="ff-calc-hero-list">
+          <li>Good for eBay, Poshmark, Mercari, Facebook Marketplace, and custom fee setups.</li>
+          <li>Simple enough for in-store sourcing decisions, detailed enough for listing math.</li>
+          <li>Built to lead into FlipFinds when you want to track real results across inventory.</li>
+        </ul>
+        <div class="ff-calc-note">
+          This is an estimate tool. Real outcomes depend on your actual fees, discounts, shipping,
+          taxes, and how the sale was fulfilled.
+        </div>
+      </div>
+
+      <div class="ff-calc-card">
+        <div class="ff-calc-card-head">
+          <div>
+            <h2>Run the math</h2>
+            <p>Adjust the numbers until the deal makes sense.</p>
+          </div>
+        </div>
+
+        <div class="ff-calc-presets">
+          <button type="button" class="ff-calc-preset is-active" data-preset="ebay">eBay</button>
+          <button type="button" class="ff-calc-preset" data-preset="poshmark">Poshmark</button>
+          <button type="button" class="ff-calc-preset" data-preset="mercari">Mercari</button>
+          <button type="button" class="ff-calc-preset" data-preset="facebook">Facebook</button>
+          <button type="button" class="ff-calc-preset" data-preset="custom">Custom</button>
+        </div>
+
+        <div class="ff-calc-grid">
+          <form class="ff-calc-form" id="ffProfitForm">
+            <div class="ff-calc-row">
+              <div class="ff-calc-field">
+                <label for="purchaseCost">Item cost</label>
+                <input class="ff-calc-input" id="purchaseCost" name="purchaseCost" type="number" min="0" step="0.01" value="12">
+              </div>
+              <div class="ff-calc-field">
+                <label for="salePrice">Expected sale price</label>
+                <input class="ff-calc-input" id="salePrice" name="salePrice" type="number" min="0" step="0.01" value="44">
+              </div>
+            </div>
+
+            <div class="ff-calc-row">
+              <div class="ff-calc-field">
+                <label for="shippingCharged">Shipping charged to buyer</label>
+                <input class="ff-calc-input" id="shippingCharged" name="shippingCharged" type="number" min="0" step="0.01" value="7.99">
+              </div>
+              <div class="ff-calc-field">
+                <label for="shippingCost">Shipping you pay</label>
+                <input class="ff-calc-input" id="shippingCost" name="shippingCost" type="number" min="0" step="0.01" value="8.25">
+              </div>
+            </div>
+
+            <div class="ff-calc-row">
+              <div class="ff-calc-field">
+                <label for="platformFeePct">Platform fee %</label>
+                <input class="ff-calc-input" id="platformFeePct" name="platformFeePct" type="number" min="0" step="0.01" value="13.25">
+                <div class="ff-calc-help">Percentage taken from the sale price.</div>
+              </div>
+              <div class="ff-calc-field">
+                <label for="processingFeePct">Payment processing %</label>
+                <input class="ff-calc-input" id="processingFeePct" name="processingFeePct" type="number" min="0" step="0.01" value="2.90">
+                <div class="ff-calc-help">Percentage taken from sale price plus buyer shipping.</div>
+              </div>
+            </div>
+
+            <div class="ff-calc-row">
+              <div class="ff-calc-field">
+                <label for="processingFixed">Payment processing fixed fee</label>
+                <input class="ff-calc-input" id="processingFixed" name="processingFixed" type="number" min="0" step="0.01" value="0.30">
+              </div>
+              <div class="ff-calc-field">
+                <label for="packagingCost">Packaging / supplies</label>
+                <input class="ff-calc-input" id="packagingCost" name="packagingCost" type="number" min="0" step="0.01" value="0.75">
+              </div>
+            </div>
+
+            <div class="ff-calc-field">
+              <label for="otherCosts">Other costs</label>
+              <input class="ff-calc-input" id="otherCosts" name="otherCosts" type="number" min="0" step="0.01" value="0">
+              <div class="ff-calc-help">Use for promoted listing spend, cleaning, repair, taxes, or misc costs.</div>
+            </div>
+          </form>
+
+          <div class="ff-calc-results">
+            <div class="ff-calc-results-grid">
+              <div class="ff-calc-metric ff-calc-metric-primary">
+                <div class="ff-calc-metric-label">Estimated Profit</div>
+                <div class="ff-calc-metric-value" id="ffProfitValue">$0.00</div>
+                <div class="ff-calc-metric-meta" id="ffProfitMeta">After item cost, shipping, fees, and supplies</div>
+              </div>
+
+              <div class="ff-calc-metric">
+                <div class="ff-calc-metric-label">Break-even Sale Price</div>
+                <div class="ff-calc-metric-value" id="ffBreakEvenValue">$0.00</div>
+                <div class="ff-calc-metric-meta">Before discounts or offers</div>
+              </div>
+
+              <div class="ff-calc-metric">
+                <div class="ff-calc-metric-label">Profit Margin</div>
+                <div class="ff-calc-metric-value" id="ffMarginValue">0%</div>
+                <div class="ff-calc-metric-meta">Profit as a share of total revenue</div>
+              </div>
+
+              <div class="ff-calc-metric">
+                <div class="ff-calc-metric-label">ROI</div>
+                <div class="ff-calc-metric-value" id="ffRoiValue">0%</div>
+                <div class="ff-calc-metric-meta">Profit compared with cash invested</div>
+              </div>
+            </div>
+
+            <div class="ff-calc-summary" id="ffCalcSummary"></div>
+
+            <div class="ff-calc-cta">
+              <h3>Want to track real flips, not just one estimate?</h3>
+              <p>
+                FlipFinds helps you keep actual item cost, shipping, profit, and inventory performance
+                in one place so the math is tied to your real business.
+              </p>
+              <div class="ff-calc-cta-row">
+                <a class="ff-calc-cta-button ff-calc-cta-button-primary" href="https://apps.apple.com/us/app/flipfinds/id6757338338" target="_blank" rel="noopener">Download on iPhone</a>
+                <a class="ff-calc-cta-button" href="https://play.google.com/store/apps/details?id=com.flipfinds.app" target="_blank" rel="noopener">Get it on Android</a>
+                <a class="ff-calc-cta-button" href="/posts/">Read reseller workflows</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ff-calc-section">
+      <div class="ff-calc-section-grid">
+        <article class="ff-calc-section-card">
+          <h3>Use it while sourcing</h3>
+          <p>Quickly decide whether a thrift, garage sale, estate sale, or clearance item still has room for real profit.</p>
+        </article>
+        <article class="ff-calc-section-card">
+          <h3>Use it while pricing</h3>
+          <p>Adjust sale price and fee assumptions until the deal meets your target margin instead of relying on guesswork.</p>
+        </article>
+        <article class="ff-calc-section-card">
+          <h3>Use FlipFinds for the real numbers</h3>
+          <p>The calculator estimates one deal. FlipFinds helps you track what actually happened across all inventory and sales.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer class="ff-calc-footer">
+      <p>
+        <a href="/">Home</a>
+        <a href="/guides/">Guides</a>
+        <a href="/posts/">Blog</a>
+        <a href="/pages/privacy/">Privacy</a>
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var presets = {
+        ebay: { platformFeePct: 13.25, processingFeePct: 2.9, processingFixed: 0.3 },
+        poshmark: { platformFeePct: 20, processingFeePct: 0, processingFixed: 0 },
+        mercari: { platformFeePct: 10, processingFeePct: 2.9, processingFixed: 0.5 },
+        facebook: { platformFeePct: 10, processingFeePct: 0, processingFixed: 0 },
+        custom: null
+      };
+
+      var fields = {
+        purchaseCost: document.getElementById("purchaseCost"),
+        salePrice: document.getElementById("salePrice"),
+        shippingCharged: document.getElementById("shippingCharged"),
+        shippingCost: document.getElementById("shippingCost"),
+        platformFeePct: document.getElementById("platformFeePct"),
+        processingFeePct: document.getElementById("processingFeePct"),
+        processingFixed: document.getElementById("processingFixed"),
+        packagingCost: document.getElementById("packagingCost"),
+        otherCosts: document.getElementById("otherCosts")
+      };
+
+      var profitValue = document.getElementById("ffProfitValue");
+      var profitMeta = document.getElementById("ffProfitMeta");
+      var breakEvenValue = document.getElementById("ffBreakEvenValue");
+      var marginValue = document.getElementById("ffMarginValue");
+      var roiValue = document.getElementById("ffRoiValue");
+      var summary = document.getElementById("ffCalcSummary");
+      var presetButtons = Array.prototype.slice.call(document.querySelectorAll("[data-preset]"));
+
+      function num(el) {
+        var value = Number(el.value);
+        return Number.isFinite(value) ? value : 0;
+      }
+
+      function currency(value) {
+        return new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD"
+        }).format(value || 0);
+      }
+
+      function percent(value) {
+        if (!Number.isFinite(value)) return "—";
+        return value.toFixed(1) + "%";
+      }
+
+      function setPreset(name) {
+        presetButtons.forEach(function (button) {
+          button.classList.toggle("is-active", button.getAttribute("data-preset") === name);
+        });
+
+        var preset = presets[name];
+        if (!preset) return calculate();
+
+        fields.platformFeePct.value = preset.platformFeePct.toFixed(2);
+        fields.processingFeePct.value = preset.processingFeePct.toFixed(2);
+        fields.processingFixed.value = preset.processingFixed.toFixed(2);
+        calculate();
+      }
+
+      function calculate() {
+        var purchaseCost = num(fields.purchaseCost);
+        var salePrice = num(fields.salePrice);
+        var shippingCharged = num(fields.shippingCharged);
+        var shippingCost = num(fields.shippingCost);
+        var platformFeePct = num(fields.platformFeePct) / 100;
+        var processingFeePct = num(fields.processingFeePct) / 100;
+        var processingFixed = num(fields.processingFixed);
+        var packagingCost = num(fields.packagingCost);
+        var otherCosts = num(fields.otherCosts);
+
+        var totalRevenue = salePrice + shippingCharged;
+        var platformFees = salePrice * platformFeePct;
+        var processingFees = totalRevenue * processingFeePct + processingFixed;
+        var cashInvested = purchaseCost + shippingCost + packagingCost + otherCosts;
+        var totalCosts = cashInvested + platformFees + processingFees;
+        var profit = totalRevenue - totalCosts;
+        var margin = totalRevenue > 0 ? (profit / totalRevenue) * 100 : 0;
+        var roi = cashInvested > 0 ? (profit / cashInvested) * 100 : NaN;
+
+        var denominator = 1 - platformFeePct - processingFeePct;
+        var breakEven = denominator > 0
+          ? (cashInvested + processingFixed - shippingCharged * (1 - processingFeePct)) / denominator
+          : NaN;
+
+        profitValue.textContent = currency(profit);
+        breakEvenValue.textContent = Number.isFinite(breakEven) ? currency(Math.max(breakEven, 0)) : "—";
+        marginValue.textContent = percent(margin);
+        roiValue.textContent = percent(roi);
+
+        if (profit > 0) {
+          profitMeta.textContent = "Estimated positive profit after recorded costs";
+        } else if (profit < 0) {
+          profitMeta.textContent = "This setup is currently estimating a loss";
+        } else {
+          profitMeta.textContent = "This setup is currently at break-even";
+        }
+
+        summary.innerHTML =
+          "<strong>Total revenue estimate:</strong> " + currency(totalRevenue) +
+          " &nbsp;•&nbsp; <strong>Total fees estimate:</strong> " + currency(platformFees + processingFees) +
+          " &nbsp;•&nbsp; <strong>Cash invested:</strong> " + currency(cashInvested) +
+          "<br><br>" +
+          "Use this as a decision aid, not as accounting. If your actual fees, promoted listing costs, discounts, or shipping label costs differ, your real profit will differ too.";
+      }
+
+      presetButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          setPreset(button.getAttribute("data-preset"));
+        });
+      });
+
+      Object.keys(fields).forEach(function (key) {
+        fields[key].addEventListener("input", calculate);
+      });
+
+      calculate();
+    })();
+  </script>
+</section>
+{{ end }}
