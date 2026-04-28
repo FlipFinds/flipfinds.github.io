@@ -101,71 +101,6 @@
       border: 1px solid var(--ff-calc-border);
     }
 
-    .ff-calc-intro {
-      display: grid;
-      gap: 12px;
-      padding: 8px 0 22px;
-    }
-
-    .ff-calc-kicker {
-      display: inline-flex;
-      align-items: center;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--ff-calc-border);
-      background: var(--ff-calc-surface);
-      color: var(--ff-calc-emerald);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .ff-calc-title {
-      margin: 12px 0 8px;
-      font-size: clamp(30px, 4vw, 44px);
-      line-height: 1.02;
-      letter-spacing: -0.05em;
-      background: linear-gradient(135deg, #fff 38%, #64748b 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .ff-calc-subtitle {
-      max-width: 680px;
-      margin: 0;
-      font-size: 15px;
-      color: var(--ff-calc-muted);
-    }
-
-    .ff-calc-scenario-row {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .ff-calc-scenario-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 40px;
-      padding: 0 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: rgba(255, 255, 255, 0.03);
-      color: #fff;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.2s ease;
-    }
-
-    .ff-calc-scenario-button:hover {
-      border-color: rgba(255, 255, 255, 0.22);
-      background: rgba(255, 255, 255, 0.08);
-    }
-
     .ff-calc-button {
       display: inline-flex;
       align-items: center;
@@ -219,7 +154,7 @@
 
     .ff-calc-hero-note {
       max-width: 680px;
-      padding: 0;
+      padding: 0 0 18px;
       border: 0;
       background: transparent;
       color: var(--ff-calc-muted);
@@ -730,23 +665,10 @@
       <div class="ff-calc-pill">Free Tool</div>
     </header>
 
-    <section class="ff-calc-intro">
-      <span class="ff-calc-kicker">Resale Profit Calculator</span>
-      <h1 class="ff-calc-title">Check the flip before you buy it.</h1>
-      <p class="ff-calc-subtitle">Estimate profit, ROI, break-even, and max buy cost in a few taps.</p>
-
-      <div class="ff-calc-scenario-row">
-        <button type="button" class="ff-calc-scenario-button" data-scenario="thrift">$5 thrift flip</button>
-        <button type="button" class="ff-calc-scenario-button" data-scenario="garage">$20 garage sale flip</button>
-        <button type="button" class="ff-calc-scenario-button" data-scenario="resale">$50 eBay resale</button>
-      </div>
-
+    <section id="profit-calculator" class="ff-calc-workspace">
       <div class="ff-calc-hero-note">
         Seller-side estimate only. Real profit will move if fees, discounts, taxes, or labels differ.
       </div>
-    </section>
-
-    <section id="profit-calculator" class="ff-calc-workspace">
       <div class="ff-calc-card">
         <div class="ff-calc-card-head">
           <div>
@@ -1055,7 +977,6 @@
       var dealRatingCopy = document.getElementById("ffDealRatingCopy");
       var presetButtons = Array.prototype.slice.call(document.querySelectorAll("[data-preset]"));
       var targetModeButtons = Array.prototype.slice.call(document.querySelectorAll("[name='targetMode']"));
-      var scenarioButtons = Array.prototype.slice.call(document.querySelectorAll("[data-scenario]"));
 
       function num(el) {
         var value = Number(el.value);
@@ -1169,32 +1090,6 @@
         return totalRevenue - sellerFees - shippingCost - packagingCost - otherCosts - targetProfit;
       }
 
-      function applyScenario(name) {
-        var scenario;
-        if (name === "thrift") {
-          scenario = { preset: "ebay", purchaseCost: 5, salePrice: 28, shippingCharged: 6.99, shippingCost: 6.25, packagingCost: 0.50, otherCosts: 0, targetMode: "profit", targetValue: 15 };
-        } else if (name === "garage") {
-          scenario = { preset: "facebook", purchaseCost: 20, salePrice: 52, shippingCharged: 0, shippingCost: 0, packagingCost: 0, otherCosts: 0, targetMode: "profit", targetValue: 20 };
-        } else if (name === "resale") {
-          scenario = { preset: "ebay", purchaseCost: 50, salePrice: 92, shippingCharged: 8.99, shippingCost: 9.50, packagingCost: 1, otherCosts: 0, targetMode: "roi", targetValue: 35 };
-        }
-
-        if (!scenario) return;
-
-        fields.purchaseCost.value = scenario.purchaseCost.toFixed(2);
-        fields.salePrice.value = scenario.salePrice.toFixed(2);
-        fields.shippingCharged.value = scenario.shippingCharged.toFixed(2);
-        fields.shippingCost.value = scenario.shippingCost.toFixed(2);
-        fields.packagingCost.value = scenario.packagingCost.toFixed(2);
-        fields.otherCosts.value = scenario.otherCosts.toFixed(2);
-        fields.targetValue.value = scenario.targetValue.toFixed(2);
-        showAdvancedInputs.checked = scenario.shippingCharged > 0;
-        updateAdvancedInputs();
-        document.getElementById(scenario.targetMode === "roi" ? "targetRoiMode" : "targetProfitMode").checked = true;
-        updateTargetUi();
-        applyPreset(scenario.preset);
-      }
-
       function calculate() {
         var purchaseCost = num(fields.purchaseCost);
         var salePrice = num(fields.salePrice);
@@ -1303,12 +1198,6 @@
       showAdvancedInputs.addEventListener("change", function () {
         updateAdvancedInputs();
         calculate();
-      });
-
-      scenarioButtons.forEach(function (button) {
-        button.addEventListener("click", function () {
-          applyScenario(button.getAttribute("data-scenario"));
-        });
       });
 
       updateTargetUi();
