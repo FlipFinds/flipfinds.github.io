@@ -21,6 +21,50 @@
       padding: 0 24px;
     }
 
+    .ff-landing-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 28px 0 18px;
+    }
+
+    .ff-landing-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: #f8fafc;
+      text-decoration: none;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .ff-landing-brand img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .ff-landing-menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .ff-landing-menu a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .ff-landing-menu a:hover {
+      color: #ffffff;
+    }
+
     .ff-landing-hero {
       display: grid;
       grid-template-columns: 1.08fr 0.92fr;
@@ -336,6 +380,16 @@
     }
 
     @media (max-width: 960px) {
+      .ff-landing-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-bottom: 10px;
+      }
+
+      .ff-landing-menu {
+        gap: 16px;
+      }
+
       .ff-landing-hero,
       .ff-landing-blog,
       .ff-landing-grid,
@@ -362,6 +416,20 @@
   </style>
 
   <div class="ff-landing-container">
+    <nav class="ff-landing-nav" aria-label="FlipFinds">
+      <a class="ff-landing-brand" href="/">
+        <img src="/images/app-icon.png" alt="FlipFinds logo">
+        <span>FlipFinds</span>
+      </a>
+      <div class="ff-landing-menu">
+        <a href="/pages/start-here/">Start Here</a>
+        <a href="/posts/">Posts</a>
+        <a href="/guides/">Guides</a>
+        <a href="/pages/about/">About</a>
+        <a href="/pages/contact/">Contact</a>
+      </div>
+    </nav>
+
     <section class="ff-landing-hero">
       <div>
         <span class="ff-landing-kicker">iOS &amp; Android Live</span>
