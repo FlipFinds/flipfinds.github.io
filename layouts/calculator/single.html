@@ -11,6 +11,9 @@
       --ff-calc-text: #f8fafc;
       --ff-calc-muted: #94a3b8;
       --ff-calc-muted-soft: #cbd5e1;
+      --ff-calc-good: #34d399;
+      --ff-calc-warn: #f59e0b;
+      --ff-calc-risk: #fb7185;
     }
 
     .ff-calc-shell {
@@ -100,8 +103,8 @@
 
     .ff-calc-hero {
       display: grid;
-      grid-template-columns: 1.04fr 0.96fr;
-      gap: 48px;
+      grid-template-columns: 1.03fr 0.97fr;
+      gap: 46px;
       align-items: center;
       padding: 26px 0 72px;
     }
@@ -121,7 +124,7 @@
     }
 
     .ff-calc-title {
-      margin: 22px 0 22px;
+      margin: 22px 0;
       font-size: clamp(40px, 5vw, 64px);
       line-height: 1.04;
       letter-spacing: -0.05em;
@@ -131,10 +134,17 @@
     }
 
     .ff-calc-subtitle {
-      max-width: 560px;
-      margin: 0 0 28px;
+      max-width: 580px;
+      margin: 0 0 24px;
       font-size: 19px;
       color: var(--ff-calc-muted);
+    }
+
+    .ff-calc-hero-claim {
+      margin: 0 0 28px;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
     }
 
     .ff-calc-cta-row {
@@ -163,6 +173,17 @@
     .ff-calc-button:hover {
       background: var(--ff-calc-surface-hover);
       border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .ff-calc-button-primary {
+      background: linear-gradient(135deg, #0ea56b, #10b981);
+      border-color: rgba(16, 185, 129, 0.8);
+      color: #03130f;
+    }
+
+    .ff-calc-button-primary:hover {
+      background: linear-gradient(135deg, #12b778, #34d399);
+      border-color: rgba(52, 211, 153, 0.9);
     }
 
     .ff-calc-badge-link {
@@ -202,7 +223,7 @@
     }
 
     .ff-calc-hero-note {
-      max-width: 580px;
+      max-width: 600px;
       padding: 16px 18px;
       border-radius: 18px;
       border: 1px solid var(--ff-calc-border);
@@ -212,7 +233,7 @@
     }
 
     .ff-calc-proof-card {
-      padding: 26px;
+      padding: 28px;
       border-radius: 28px;
       border: 1px solid var(--ff-calc-border);
       background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(15, 23, 42, 0.82));
@@ -309,7 +330,7 @@
 
     .ff-calc-card-body {
       display: grid;
-      grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+      grid-template-columns: minmax(0, 1.06fr) minmax(330px, 0.94fr);
       gap: 22px;
       padding: 26px 30px 30px;
     }
@@ -363,7 +384,7 @@
     }
 
     .ff-calc-group p {
-      margin: 0 0 18px;
+      margin: 0 0 16px;
       color: var(--ff-calc-muted);
       font-size: 14px;
     }
@@ -389,7 +410,8 @@
       font-weight: 600;
     }
 
-    .ff-calc-help {
+    .ff-calc-help,
+    .ff-calc-note-sm {
       color: var(--ff-calc-muted);
       font-size: 12px;
     }
@@ -427,6 +449,30 @@
       outline: none;
       border-color: rgba(16, 185, 129, 0.75);
       box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12);
+    }
+
+    .ff-calc-toggle {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 0;
+      margin: 0;
+      border: 0;
+    }
+
+    .ff-calc-toggle label,
+    .ff-calc-checkbox {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--ff-calc-muted-soft);
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .ff-calc-toggle input,
+    .ff-calc-checkbox input {
+      accent-color: var(--ff-calc-emerald);
     }
 
     .ff-calc-results {
@@ -497,6 +543,42 @@
       font-size: 13px;
     }
 
+    .ff-calc-rating-card {
+      padding: 20px;
+      border-radius: 20px;
+      border: 1px solid var(--ff-calc-border);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .ff-calc-rating-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .ff-calc-rating-good {
+      background: rgba(52, 211, 153, 0.12);
+      color: var(--ff-calc-good);
+      border: 1px solid rgba(52, 211, 153, 0.28);
+    }
+
+    .ff-calc-rating-okay {
+      background: rgba(245, 158, 11, 0.12);
+      color: var(--ff-calc-warn);
+      border: 1px solid rgba(245, 158, 11, 0.28);
+    }
+
+    .ff-calc-rating-risky {
+      background: rgba(251, 113, 133, 0.12);
+      color: var(--ff-calc-risk);
+      border: 1px solid rgba(251, 113, 133, 0.28);
+    }
+
     .ff-calc-summary {
       padding: 20px;
       border-radius: 20px;
@@ -523,34 +605,14 @@
       text-align: right;
     }
 
-    .ff-calc-insight {
-      padding: 18px 20px;
-      border-radius: 20px;
-      border: 1px solid var(--ff-calc-border);
-      background: rgba(255, 255, 255, 0.03);
-    }
-
-    .ff-calc-insight strong {
-      display: block;
-      margin-bottom: 6px;
-      color: #fff;
-      font-size: 15px;
-    }
-
-    .ff-calc-insight p {
-      margin: 0;
-      color: var(--ff-calc-muted);
-      font-size: 14px;
-    }
-
-    .ff-calc-app-card {
+    .ff-calc-save-card {
       padding: 24px;
       border-radius: 24px;
       border: 1px solid var(--ff-calc-border);
       background: rgba(255, 255, 255, 0.04);
     }
 
-    .ff-calc-app-card h3 {
+    .ff-calc-save-card h3 {
       margin: 0 0 10px;
       color: #fff;
       font-size: 24px;
@@ -558,13 +620,13 @@
       letter-spacing: -0.03em;
     }
 
-    .ff-calc-app-card p {
+    .ff-calc-save-card p {
       margin: 0 0 18px;
       color: var(--ff-calc-muted);
       font-size: 15px;
     }
 
-    .ff-calc-app-list {
+    .ff-calc-save-list {
       display: grid;
       gap: 10px;
       padding: 0;
@@ -572,21 +634,21 @@
       list-style: none;
     }
 
-    .ff-calc-app-list li {
+    .ff-calc-save-list li {
       display: flex;
       gap: 10px;
       color: var(--ff-calc-muted-soft);
       font-size: 14px;
     }
 
-    .ff-calc-app-list li::before {
+    .ff-calc-save-list li::before {
       content: "\2713";
       color: var(--ff-calc-emerald);
       font-weight: 800;
       margin-top: 1px;
     }
 
-    .ff-calc-app-actions {
+    .ff-calc-save-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
@@ -621,7 +683,7 @@
 
     .ff-calc-section-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
 
@@ -635,13 +697,17 @@
     .ff-calc-section-card h3 {
       margin: 0 0 10px;
       color: #fff;
-      font-size: 20px;
+      font-size: 22px;
     }
 
     .ff-calc-section-card p {
-      margin: 0;
+      margin: 0 0 14px;
       color: var(--ff-calc-muted);
       font-size: 15px;
+    }
+
+    .ff-calc-section-card p:last-child {
+      margin-bottom: 0;
     }
 
     .ff-calc-footer {
@@ -663,19 +729,16 @@
     @media (max-width: 980px) {
       .ff-calc-hero,
       .ff-calc-card-body,
-      .ff-calc-section-grid {
+      .ff-calc-section-grid,
+      .ff-calc-proof-grid,
+      .ff-calc-results-grid,
+      .ff-calc-group-grid {
         grid-template-columns: 1fr;
       }
 
       .ff-calc-card-head {
         grid-template-columns: 1fr;
         align-items: start;
-      }
-
-      .ff-calc-proof-grid,
-      .ff-calc-results-grid,
-      .ff-calc-group-grid {
-        grid-template-columns: 1fr;
       }
     }
 
@@ -742,9 +805,10 @@
           Use practical resale math, not guesses. Run the numbers before checkout or before you send
           an offer so you know whether the deal still makes sense after fees and shipping.
         </p>
+        <p class="ff-calc-hero-claim">Want this saved automatically for every item? Use FlipFinds.</p>
 
         <div class="ff-calc-cta-row">
-          <a class="ff-calc-button" href="#profit-calculator">Jump to calculator</a>
+          <a class="ff-calc-button ff-calc-button-primary" href="#profit-calculator">Run the calculator</a>
           <a href="https://apps.apple.com/us/app/flipfinds/id6757338338" class="ff-calc-badge-link ff-calc-store-apple" target="_blank" rel="noopener">
             <img src="/images/store-badges/download-on-the-app-store.svg" alt="Download on the App Store">
           </a>
@@ -755,38 +819,38 @@
 
         <div class="ff-calc-trust-line">
           <span class="ff-calc-trust-tag">Fast in-store sourcing math</span>
-          <span class="ff-calc-trust-tag">Editable fee assumptions</span>
-          <span class="ff-calc-trust-tag">Built to lead into FlipFinds</span>
+          <span class="ff-calc-trust-tag">Current marketplace presets</span>
+          <span class="ff-calc-trust-tag">Target-price planning</span>
         </div>
 
         <div class="ff-calc-hero-note">
-          This is an estimate tool. Real outcomes depend on discounts, promoted listing spend,
-          label costs, taxes, and what the marketplace actually charged on the sale.
+          This is an estimate tool, not accounting. Presets are heuristics based on public marketplace
+          docs as of April 28, 2026, and your real profit will move if fees, discounts, taxes, or labels differ.
         </div>
       </div>
 
       <div class="ff-calc-proof-card">
         <h2>Know the deal before you commit.</h2>
         <p>
-          The calculator focuses on the numbers that usually change the outcome: item cost, selling
-          price, shipping, platform fees, payment fees, and extra handling costs.
+          The calculator focuses on the inputs that usually change the outcome: item cost, sale price,
+          buyer-paid shipping, seller-paid shipping, seller fees, and extra handling costs.
         </p>
         <div class="ff-calc-proof-grid">
           <div class="ff-calc-proof-metric">
             <strong>Use it while sourcing</strong>
-            <span>Check whether a thrift or clearance find still leaves room for profit.</span>
+            <span>Check whether a thrift or clearance find still leaves room for a real flip.</span>
           </div>
           <div class="ff-calc-proof-metric">
             <strong>Use it while listing</strong>
-            <span>Test offers and pricing before you accept thinner margins by accident.</span>
+            <span>Test offers and pricing before you accept thin margins by accident.</span>
           </div>
           <div class="ff-calc-proof-metric">
-            <strong>Use presets first</strong>
-            <span>Start with eBay, Poshmark, Mercari, or Facebook and then edit as needed.</span>
+            <strong>Use current fee logic</strong>
+            <span>eBay, Poshmark, Mercari, Facebook, and custom assumptions are built in.</span>
           </div>
           <div class="ff-calc-proof-metric">
-            <strong>Track the real outcome later</strong>
-            <span>FlipFinds is where you keep the actual item, not just this estimate.</span>
+            <strong>Save the real item later</strong>
+            <span>FlipFinds is where the estimate becomes an item with actual sale history.</span>
           </div>
         </div>
       </div>
@@ -797,7 +861,7 @@
         <div class="ff-calc-card-head">
           <div>
             <h2>Run the math</h2>
-            <p>Choose a marketplace, adjust the inputs, and read the outputs before you buy or list.</p>
+            <p>Pick a marketplace, adjust the assumptions, and see profit, break-even, deal quality, and the sale price needed to hit your target.</p>
           </div>
           <div class="ff-calc-card-chip">Calculator</div>
         </div>
@@ -849,25 +913,28 @@
               </section>
 
               <section class="ff-calc-group">
-                <h3>Marketplace fees</h3>
-                <p>These are editable assumptions. Use the preset as a starting point, not as a guarantee.</p>
+                <h3>Seller fee assumptions</h3>
+                <p id="ffFeeModelNote">Preset fee logic will appear here.</p>
                 <div class="ff-calc-group-grid">
                   <div class="ff-calc-field">
-                    <label for="platformFeePct">Platform fee percent</label>
-                    <input class="ff-calc-input" id="platformFeePct" name="platformFeePct" type="number" min="0" step="0.01" value="13.25">
-                    <div class="ff-calc-help">Applied to the sale price.</div>
+                    <label for="sellerFeePct">Seller fee percent</label>
+                    <input class="ff-calc-input" id="sellerFeePct" name="sellerFeePct" type="number" min="0" step="0.01" value="13.60">
+                    <div class="ff-calc-help">Used for eBay, Mercari, Facebook, and custom fee math. Editing fee fields switches to Custom.</div>
                   </div>
                   <div class="ff-calc-field">
-                    <label for="processingFeePct">Payment processing percent</label>
-                    <input class="ff-calc-input" id="processingFeePct" name="processingFeePct" type="number" min="0" step="0.01" value="2.90">
-                    <div class="ff-calc-help">Applied to sale price plus buyer shipping.</div>
-                  </div>
-                  <div class="ff-calc-field">
-                    <label for="processingFixed">Payment processing fixed fee</label>
+                    <label for="fixedFee">Fixed order fee</label>
                     <div class="ff-calc-input-wrap">
                       <span class="ff-calc-input-symbol">$</span>
-                      <input class="ff-calc-input ff-calc-input-currency" id="processingFixed" name="processingFixed" type="number" min="0" step="0.01" value="0.30">
+                      <input class="ff-calc-input ff-calc-input-currency" id="fixedFee" name="fixedFee" type="number" min="0" step="0.01" value="0.40">
                     </div>
+                    <div class="ff-calc-help">Common for eBay-style order fee math.</div>
+                  </div>
+                  <div class="ff-calc-field ff-calc-field-wide">
+                    <label class="ff-calc-checkbox" for="feeIncludesShipping">
+                      <input id="feeIncludesShipping" name="feeIncludesShipping" type="checkbox" checked>
+                      Apply seller fee percent to buyer-paid shipping too
+                    </label>
+                    <div class="ff-calc-note-sm">Mercari and the common eBay preset include buyer-paid shipping in the seller-fee base. Facebook does not by default.</div>
                   </div>
                   <div class="ff-calc-field">
                     <label for="packagingCost">Packaging and supplies</label>
@@ -876,13 +943,38 @@
                       <input class="ff-calc-input ff-calc-input-currency" id="packagingCost" name="packagingCost" type="number" min="0" step="0.01" value="0.75">
                     </div>
                   </div>
-                  <div class="ff-calc-field ff-calc-field-wide">
+                  <div class="ff-calc-field">
                     <label for="otherCosts">Other costs</label>
                     <div class="ff-calc-input-wrap">
                       <span class="ff-calc-input-symbol">$</span>
                       <input class="ff-calc-input ff-calc-input-currency" id="otherCosts" name="otherCosts" type="number" min="0" step="0.01" value="0">
                     </div>
-                    <div class="ff-calc-help">Use for promoted listing spend, repairs, cleaning, tax handling, or anything else this estimate should include.</div>
+                    <div class="ff-calc-help">Use for promoted listing spend, repairs, cleaning, or any other cost you want included.</div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="ff-calc-group">
+                <h3>Minimum acceptable sale price</h3>
+                <p>Set your target and the calculator will tell you the sale price needed under these assumptions.</p>
+                <fieldset class="ff-calc-toggle">
+                  <label for="targetProfitMode">
+                    <input id="targetProfitMode" name="targetMode" type="radio" value="profit" checked>
+                    Target profit
+                  </label>
+                  <label for="targetRoiMode">
+                    <input id="targetRoiMode" name="targetMode" type="radio" value="roi">
+                    Target ROI
+                  </label>
+                </fieldset>
+                <div class="ff-calc-group-grid" style="margin-top:16px;">
+                  <div class="ff-calc-field">
+                    <label for="targetValue" id="ffTargetValueLabel">Target profit</label>
+                    <div class="ff-calc-input-wrap">
+                      <span class="ff-calc-input-symbol" id="ffTargetSymbol">$</span>
+                      <input class="ff-calc-input ff-calc-input-currency" id="targetValue" name="targetValue" type="number" min="0" step="0.01" value="15">
+                    </div>
+                    <div class="ff-calc-help" id="ffTargetHelp">How much profit you want to clear on this item.</div>
                   </div>
                 </div>
               </section>
@@ -893,14 +985,27 @@
             <div class="ff-calc-results-primary" id="ffProfitCard">
               <div class="ff-calc-results-label">Estimated Profit</div>
               <div class="ff-calc-results-value" id="ffProfitValue">$0.00</div>
-              <div class="ff-calc-results-copy" id="ffProfitMeta">After item cost, shipping, fees, and supplies.</div>
+              <div class="ff-calc-results-copy" id="ffProfitMeta">After item cost, shipping, seller fees, and supplies.</div>
+            </div>
+
+            <div class="ff-calc-rating-card">
+              <div class="ff-calc-results-label">Deal rating</div>
+              <div style="margin-top:10px;">
+                <span class="ff-calc-rating-pill ff-calc-rating-risky" id="ffDealRating">Risky Deal</span>
+              </div>
+              <div class="ff-calc-results-copy" id="ffDealRatingCopy">This estimate does not clear the current profit and ROI thresholds yet.</div>
             </div>
 
             <div class="ff-calc-results-grid">
               <div class="ff-calc-metric">
+                <div class="ff-calc-results-label">Minimum acceptable sale price</div>
+                <div class="ff-calc-metric-value" id="ffTargetSaleValue">$0.00</div>
+                <div class="ff-calc-metric-copy" id="ffTargetSaleCopy">Needed to hit your current target.</div>
+              </div>
+              <div class="ff-calc-metric">
                 <div class="ff-calc-results-label">Break-even sale price</div>
                 <div class="ff-calc-metric-value" id="ffBreakEvenValue">$0.00</div>
-                <div class="ff-calc-metric-copy">The lowest price before discounts or offers.</div>
+                <div class="ff-calc-metric-copy">The lowest price before you start losing money.</div>
               </div>
               <div class="ff-calc-metric">
                 <div class="ff-calc-results-label">ROI</div>
@@ -912,32 +1017,21 @@
                 <div class="ff-calc-metric-value" id="ffMarginValue">0%</div>
                 <div class="ff-calc-metric-copy">Profit as a share of total revenue.</div>
               </div>
-              <div class="ff-calc-metric">
-                <div class="ff-calc-results-label">Outcome</div>
-                <div class="ff-calc-metric-value" id="ffOutcomeValue">Review</div>
-                <div class="ff-calc-metric-copy" id="ffOutcomeMeta">Use the estimate as a decision aid, not as accounting.</div>
-              </div>
             </div>
 
             <div class="ff-calc-summary" id="ffCalcSummary"></div>
 
-            <div class="ff-calc-insight">
-              <strong>Reality check</strong>
-              <p>If you discount the item later, buy a label at a different price, or add promoted listing costs, the real profit will move with it.</p>
-            </div>
-
-            <div class="ff-calc-app-card">
-              <h3>Want to track the real flip, not just the estimate?</h3>
-              <p>FlipFinds helps you capture actual cost, pricing, profit, and inventory history across all your items after the decision is made.</p>
-              <ul class="ff-calc-app-list">
-                <li>Keep inventory and sale outcomes in one place.</li>
-                <li>Track the actual numbers after the item sells.</li>
-                <li>Move from one-off estimates to repeatable workflow.</li>
+            <div class="ff-calc-save-card">
+              <h3>Save this estimate in FlipFinds</h3>
+              <p>Save the item, track actual sale profit, and build inventory history in FlipFinds instead of doing this math from scratch every time.</p>
+              <ul class="ff-calc-save-list">
+                <li>Save the item instead of losing the estimate.</li>
+                <li>Track the actual sale result after fees and shipping.</li>
+                <li>Build repeatable inventory history across your flips.</li>
               </ul>
-              <div class="ff-calc-app-actions">
-                <a class="ff-calc-button" href="https://apps.apple.com/us/app/flipfinds/id6757338338" target="_blank" rel="noopener">Download on iPhone</a>
-                <a class="ff-calc-button" href="https://play.google.com/store/apps/details?id=com.flipfinds.app" target="_blank" rel="noopener">Get it on Android</a>
-                <a class="ff-calc-button" href="/pages/start-here/?utm_source=flipfinds_site&utm_medium=calculator&utm_campaign=blog_crosslink">Read reseller workflows</a>
+              <div class="ff-calc-save-actions">
+                <a class="ff-calc-button ff-calc-button-primary" href="https://apps.apple.com/us/app/flipfinds/id6757338338" target="_blank" rel="noopener">Save in FlipFinds for iPhone</a>
+                <a class="ff-calc-button" href="https://play.google.com/store/apps/details?id=com.flipfinds.app" target="_blank" rel="noopener">Save in FlipFinds for Android</a>
               </div>
             </div>
           </aside>
@@ -947,22 +1041,37 @@
 
     <section class="ff-calc-sections">
       <div class="ff-calc-section-head">
-        <span class="ff-calc-section-chip">Why use it</span>
-        <h2>Built for real resale decisions</h2>
+        <span class="ff-calc-section-chip">Calculator SEO</span>
+        <h2>Marketplace-specific resale math</h2>
       </div>
 
       <div class="ff-calc-section-grid">
         <article class="ff-calc-section-card">
-          <h3>Use it while sourcing</h3>
-          <p>Quickly test whether a thrift, garage sale, estate sale, or clearance item still leaves enough room after fees and shipping.</p>
+          <h3>eBay profit calculator</h3>
+          <p>This calculator treats the eBay preset as a common combined final value fee plus fixed order fee on the total sale amount, including buyer-paid shipping.</p>
+          <p>eBay fees vary by category and account status, so use this as a practical starting point and then adjust the assumptions if your category runs differently.</p>
+          <p>Once the item is worth saving, FlipFinds is where you can track the actual numbers across your inventory instead of only the estimate.</p>
         </article>
+
         <article class="ff-calc-section-card">
-          <h3>Use it while pricing</h3>
-          <p>Adjust price or shipping assumptions until the item hits a margin you can defend instead of relying on rough mental math.</p>
+          <h3>Poshmark fee calculator</h3>
+          <p>The Poshmark preset uses the current official U.S. fee structure that reverted on October 24, 2024: $2.95 for sales under $15 and 20% for sales at $15 and above.</p>
+          <p>That makes Poshmark small-item math behave very differently from percentage-only marketplaces, which is why this preset handles the fee logic for you.</p>
+          <p>Use FlipFinds when you want the actual item, final sale amount, and real outcome saved after the listing sells.</p>
         </article>
+
         <article class="ff-calc-section-card">
-          <h3>Use FlipFinds for the real numbers</h3>
-          <p>The calculator helps with one decision. FlipFinds is where you track what actually happened across your inventory over time.</p>
+          <h3>Mercari profit calculator</h3>
+          <p>The Mercari preset uses the current seller fee structure effective January 6, 2025: a 10% selling fee on item price plus buyer-paid shipping, with no separate payment processing fee for new and updated listings.</p>
+          <p>This matters because shipping charged to the buyer still affects seller proceeds once the selling fee is applied to that combined amount.</p>
+          <p>FlipFinds can take over once the item is worth keeping in your sourcing pipeline.</p>
+        </article>
+
+        <article class="ff-calc-section-card">
+          <h3>Reseller ROI calculator</h3>
+          <p>Profit alone is not enough when cash is tied up in inventory. ROI helps show whether the flip is actually worth the capital and effort.</p>
+          <p>Use target profit or target ROI mode to find the minimum sale price you need before you buy, send an offer, or accept one.</p>
+          <p>When you want to stop doing one-off math and start tracking real business performance, move the item into FlipFinds.</p>
         </article>
       </div>
     </section>
@@ -980,11 +1089,40 @@
   <script>
     (function () {
       var presets = {
-        ebay: { platformFeePct: 13.25, processingFeePct: 2.9, processingFixed: 0.3 },
-        poshmark: { platformFeePct: 20, processingFeePct: 0, processingFixed: 0 },
-        mercari: { platformFeePct: 10, processingFeePct: 2.9, processingFixed: 0.5 },
-        facebook: { platformFeePct: 10, processingFeePct: 0, processingFixed: 0 },
-        custom: null
+        ebay: {
+          sellerFeePct: 13.6,
+          fixedFee: 0.40,
+          feeIncludesShipping: true,
+          note: "Common eBay U.S. heuristic: combined final value fee on total sale amount plus a fixed order fee. eBay fees vary by category and seller status."
+        },
+        poshmark: {
+          sellerFeePct: 20,
+          fixedFee: 0,
+          feeIncludesShipping: false,
+          note: "Current official U.S. Poshmark logic reverted on October 24, 2024: $2.95 for sales under $15, otherwise 20% of item price. Editing fee fields switches to Custom."
+        },
+        mercari: {
+          sellerFeePct: 10,
+          fixedFee: 0,
+          feeIncludesShipping: true,
+          note: "Current Mercari U.S. seller logic effective January 6, 2025: 10% selling fee on item price plus buyer-paid shipping, with no separate payment processing fee."
+        },
+        facebook: {
+          sellerFeePct: 10,
+          fixedFee: 0,
+          feeIncludesShipping: false,
+          note: "Facebook Marketplace stays simple here: percent-based seller fee assumptions are editable and buyer-paid shipping is excluded by default."
+        },
+        custom: {
+          sellerFeePct: 12,
+          fixedFee: 0.30,
+          feeIncludesShipping: false,
+          note: "Custom mode lets you edit the raw seller-fee assumptions directly."
+        }
+      };
+
+      var state = {
+        activePreset: "ebay"
       };
 
       var fields = {
@@ -992,27 +1130,40 @@
         salePrice: document.getElementById("salePrice"),
         shippingCharged: document.getElementById("shippingCharged"),
         shippingCost: document.getElementById("shippingCost"),
-        platformFeePct: document.getElementById("platformFeePct"),
-        processingFeePct: document.getElementById("processingFeePct"),
-        processingFixed: document.getElementById("processingFixed"),
+        sellerFeePct: document.getElementById("sellerFeePct"),
+        fixedFee: document.getElementById("fixedFee"),
+        feeIncludesShipping: document.getElementById("feeIncludesShipping"),
         packagingCost: document.getElementById("packagingCost"),
-        otherCosts: document.getElementById("otherCosts")
+        otherCosts: document.getElementById("otherCosts"),
+        targetValue: document.getElementById("targetValue")
       };
+
+      var feeModelNote = document.getElementById("ffFeeModelNote");
+      var targetValueLabel = document.getElementById("ffTargetValueLabel");
+      var targetSymbol = document.getElementById("ffTargetSymbol");
+      var targetHelp = document.getElementById("ffTargetHelp");
 
       var profitCard = document.getElementById("ffProfitCard");
       var profitValue = document.getElementById("ffProfitValue");
       var profitMeta = document.getElementById("ffProfitMeta");
+      var targetSaleValue = document.getElementById("ffTargetSaleValue");
+      var targetSaleCopy = document.getElementById("ffTargetSaleCopy");
       var breakEvenValue = document.getElementById("ffBreakEvenValue");
       var marginValue = document.getElementById("ffMarginValue");
       var roiValue = document.getElementById("ffRoiValue");
-      var outcomeValue = document.getElementById("ffOutcomeValue");
-      var outcomeMeta = document.getElementById("ffOutcomeMeta");
+      var dealRating = document.getElementById("ffDealRating");
+      var dealRatingCopy = document.getElementById("ffDealRatingCopy");
       var summary = document.getElementById("ffCalcSummary");
       var presetButtons = Array.prototype.slice.call(document.querySelectorAll("[data-preset]"));
+      var targetModeButtons = Array.prototype.slice.call(document.querySelectorAll("[name='targetMode']"));
 
       function num(el) {
         var value = Number(el.value);
         return Number.isFinite(value) ? value : 0;
+      }
+
+      function bool(el) {
+        return !!el.checked;
       }
 
       function currency(value) {
@@ -1027,21 +1178,77 @@
         return value.toFixed(1) + "%";
       }
 
-      function setPreset(name) {
+      function currentTargetMode() {
+        var checked = document.querySelector("[name='targetMode']:checked");
+        return checked ? checked.value : "profit";
+      }
+
+      function setActivePreset(name) {
+        state.activePreset = name;
         presetButtons.forEach(function (button) {
           button.classList.toggle("is-active", button.getAttribute("data-preset") === name);
         });
+      }
 
+      function applyPreset(name) {
         var preset = presets[name];
-        if (!preset) {
-          calculate();
-          return;
+        setActivePreset(name);
+        if (preset) {
+          fields.sellerFeePct.value = preset.sellerFeePct.toFixed(2);
+          fields.fixedFee.value = preset.fixedFee.toFixed(2);
+          fields.feeIncludesShipping.checked = preset.feeIncludesShipping;
+          feeModelNote.textContent = preset.note;
+        }
+        calculate();
+      }
+
+      function promoteToCustomIfNeeded() {
+        if (state.activePreset !== "custom") {
+          setActivePreset("custom");
+          feeModelNote.textContent = presets.custom.note;
+        }
+      }
+
+      function updateTargetUi() {
+        if (currentTargetMode() === "roi") {
+          targetValueLabel.textContent = "Target ROI";
+          targetSymbol.textContent = "%";
+          targetHelp.textContent = "The ROI percent you want compared with cash invested.";
+          fields.targetValue.classList.remove("ff-calc-input-currency");
+        } else {
+          targetValueLabel.textContent = "Target profit";
+          targetSymbol.textContent = "$";
+          targetHelp.textContent = "How much profit you want to clear on this item.";
+          fields.targetValue.classList.add("ff-calc-input-currency");
+        }
+      }
+
+      function getSellerFees(salePrice, shippingCharged, sellerFeePct, fixedFee, feeIncludesShipping) {
+        if (state.activePreset === "poshmark") {
+          if (salePrice < 15) return 2.95;
+          return salePrice * 0.20;
         }
 
-        fields.platformFeePct.value = preset.platformFeePct.toFixed(2);
-        fields.processingFeePct.value = preset.processingFeePct.toFixed(2);
-        fields.processingFixed.value = preset.processingFixed.toFixed(2);
-        calculate();
+        var feeBase = salePrice + (feeIncludesShipping ? shippingCharged : 0);
+        return feeBase * sellerFeePct + fixedFee;
+      }
+
+      function getRequiredSalePrice(targetProfit, shippingCharged, cashInvested, sellerFeePct, fixedFee, feeIncludesShipping) {
+        if (state.activePreset === "poshmark") {
+          var under15Candidate = targetProfit + cashInvested + 2.95 - shippingCharged;
+          if (under15Candidate > 0 && under15Candidate < 15) return under15Candidate;
+
+          var over15Denominator = 1 - 0.20;
+          if (over15Denominator <= 0) return NaN;
+          var over15Candidate = (targetProfit + cashInvested - shippingCharged) / over15Denominator;
+          return over15Candidate >= 15 ? over15Candidate : 15;
+        }
+
+        var shippingFactor = feeIncludesShipping ? 1 : 0;
+        var denominator = 1 - sellerFeePct;
+        if (denominator <= 0) return NaN;
+
+        return (targetProfit + cashInvested + fixedFee - shippingCharged * (1 - shippingFactor * sellerFeePct)) / denominator;
       }
 
       function calculate() {
@@ -1049,67 +1256,110 @@
         var salePrice = num(fields.salePrice);
         var shippingCharged = num(fields.shippingCharged);
         var shippingCost = num(fields.shippingCost);
-        var platformFeePct = num(fields.platformFeePct) / 100;
-        var processingFeePct = num(fields.processingFeePct) / 100;
-        var processingFixed = num(fields.processingFixed);
+        var sellerFeePct = num(fields.sellerFeePct) / 100;
+        var fixedFee = num(fields.fixedFee);
+        var feeIncludesShipping = bool(fields.feeIncludesShipping);
         var packagingCost = num(fields.packagingCost);
         var otherCosts = num(fields.otherCosts);
+        var targetValueRaw = num(fields.targetValue);
 
         var totalRevenue = salePrice + shippingCharged;
-        var platformFees = salePrice * platformFeePct;
-        var processingFees = totalRevenue * processingFeePct + processingFixed;
+        var sellerFees = getSellerFees(salePrice, shippingCharged, sellerFeePct, fixedFee, feeIncludesShipping);
         var cashInvested = purchaseCost + shippingCost + packagingCost + otherCosts;
-        var totalCosts = cashInvested + platformFees + processingFees;
+        var totalCosts = cashInvested + sellerFees;
         var profit = totalRevenue - totalCosts;
         var margin = totalRevenue > 0 ? (profit / totalRevenue) * 100 : 0;
         var roi = cashInvested > 0 ? (profit / cashInvested) * 100 : NaN;
-
-        var denominator = 1 - platformFeePct - processingFeePct;
-        var breakEven = denominator > 0
-          ? (cashInvested + processingFixed - shippingCharged * (1 - processingFeePct)) / denominator
-          : NaN;
+        var targetProfit = currentTargetMode() === "roi"
+          ? cashInvested * (targetValueRaw / 100)
+          : targetValueRaw;
+        var breakEven = getRequiredSalePrice(0, shippingCharged, cashInvested, sellerFeePct, fixedFee, feeIncludesShipping);
+        var minimumAcceptableSale = getRequiredSalePrice(targetProfit, shippingCharged, cashInvested, sellerFeePct, fixedFee, feeIncludesShipping);
 
         profitValue.textContent = currency(profit);
         breakEvenValue.textContent = Number.isFinite(breakEven) ? currency(Math.max(breakEven, 0)) : "--";
+        targetSaleValue.textContent = Number.isFinite(minimumAcceptableSale) ? currency(Math.max(minimumAcceptableSale, 0)) : "--";
         marginValue.textContent = percent(margin);
         roiValue.textContent = percent(roi);
 
+        if (currentTargetMode() === "roi") {
+          targetSaleCopy.textContent = "Needed to hit " + percent(targetValueRaw) + " ROI under these assumptions.";
+        } else {
+          targetSaleCopy.textContent = "Needed to clear " + currency(targetValueRaw) + " profit under these assumptions.";
+        }
+
         if (profit > 0) {
-          profitMeta.textContent = "Estimated positive profit after item cost, shipping, fees, and supplies.";
-          outcomeValue.textContent = "Green";
-          outcomeMeta.textContent = "This estimate still has room after the recorded costs.";
+          profitMeta.textContent = "Estimated positive profit after item cost, shipping, seller fees, and supplies.";
           profitCard.style.borderColor = "rgba(16, 185, 129, 0.28)";
         } else if (profit < 0) {
-          profitMeta.textContent = "This setup is currently estimating a loss after recorded costs.";
-          outcomeValue.textContent = "Loss";
-          outcomeMeta.textContent = "Raise the sale price, cut costs, or skip the deal.";
+          profitMeta.textContent = "This setup is currently estimating a loss after the recorded costs.";
           profitCard.style.borderColor = "rgba(251, 113, 133, 0.32)";
         } else {
           profitMeta.textContent = "This setup is currently estimating a break-even result.";
-          outcomeValue.textContent = "Flat";
-          outcomeMeta.textContent = "Any extra cost or discount would push this deal negative.";
           profitCard.style.borderColor = "rgba(255, 255, 255, 0.18)";
+        }
+
+        dealRating.classList.remove("ff-calc-rating-good", "ff-calc-rating-okay", "ff-calc-rating-risky");
+        if (profit > 15 && roi > 50) {
+          dealRating.textContent = "Good Deal";
+          dealRating.classList.add("ff-calc-rating-good");
+          dealRatingCopy.textContent = "This clears both the current profit and ROI thresholds with room to work.";
+        } else if (profit > 8 && roi > 30) {
+          dealRating.textContent = "Okay Deal";
+          dealRating.classList.add("ff-calc-rating-okay");
+          dealRatingCopy.textContent = "There is still room here, but the deal is less forgiving if the sale price or fees move.";
+        } else {
+          dealRating.textContent = "Risky Deal";
+          dealRating.classList.add("ff-calc-rating-risky");
+          dealRatingCopy.textContent = "This estimate is thin relative to the current thresholds and needs a better price, lower costs, or a stronger sale price.";
         }
 
         summary.innerHTML =
           '<div class="ff-calc-summary-line"><span>Total revenue estimate</span><span class="ff-calc-summary-value">' + currency(totalRevenue) + "</span></div>" +
-          '<div class="ff-calc-summary-line"><span>Total fees estimate</span><span class="ff-calc-summary-value">' + currency(platformFees + processingFees) + "</span></div>" +
+          '<div class="ff-calc-summary-line"><span>Seller fees estimate</span><span class="ff-calc-summary-value">' + currency(sellerFees) + "</span></div>" +
           '<div class="ff-calc-summary-line"><span>Cash invested</span><span class="ff-calc-summary-value">' + currency(cashInvested) + "</span></div>" +
           '<div class="ff-calc-summary-line"><span>Total cost basis</span><span class="ff-calc-summary-value">' + currency(totalCosts) + "</span></div>" +
-          '<div style="margin-top:14px;color:#94a3b8;">Use this as decision support, not accounting. Real profit will vary if your actual fees, labels, discounts, or promotions differ.</div>';
+          '<div style="margin-top:14px;color:#94a3b8;">This is seller-side decision support only. Buyer fees, taxes, and other marketplace-specific adjustments are not treated as seller profit unless they change seller proceeds.</div>';
       }
 
       presetButtons.forEach(function (button) {
         button.addEventListener("click", function () {
-          setPreset(button.getAttribute("data-preset"));
+          applyPreset(button.getAttribute("data-preset"));
         });
       });
 
-      Object.keys(fields).forEach(function (key) {
-        fields[key].addEventListener("input", calculate);
+      [fields.sellerFeePct, fields.fixedFee, fields.feeIncludesShipping].forEach(function (field) {
+        field.addEventListener("input", function () {
+          promoteToCustomIfNeeded();
+          calculate();
+        });
+        field.addEventListener("change", function () {
+          promoteToCustomIfNeeded();
+          calculate();
+        });
       });
 
-      calculate();
+      [
+        fields.purchaseCost,
+        fields.salePrice,
+        fields.shippingCharged,
+        fields.shippingCost,
+        fields.packagingCost,
+        fields.otherCosts,
+        fields.targetValue
+      ].forEach(function (field) {
+        field.addEventListener("input", calculate);
+      });
+
+      targetModeButtons.forEach(function (button) {
+        button.addEventListener("change", function () {
+          updateTargetUi();
+          calculate();
+        });
+      });
+
+      updateTargetUi();
+      applyPreset("ebay");
     })();
   </script>
 </section>
