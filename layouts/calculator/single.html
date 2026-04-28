@@ -240,9 +240,10 @@
 
     .ff-calc-preset {
       width: 100%;
-      min-height: 44px;
-      padding: 0 12px;
-      border-radius: 999px;
+      aspect-ratio: 1 / 1;
+      min-height: 0;
+      padding: 10px;
+      border-radius: 50%;
       border: 1px solid rgba(255, 255, 255, 0.1);
       background: rgba(255, 255, 255, 0.03);
       color: var(--ff-calc-muted-soft);
@@ -250,6 +251,7 @@
       font-weight: 600;
       cursor: pointer;
       transition: 0.2s ease;
+      line-height: 1.2;
     }
 
     .ff-calc-preset.is-active,
