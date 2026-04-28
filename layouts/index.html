@@ -1,0 +1,531 @@
+{{ define "main" }}
+<section class="ff-landing-shell">
+  <style>
+    .ff-landing-shell {
+      position: relative;
+      left: 50%;
+      right: 50%;
+      width: 100vw;
+      margin-left: -50vw;
+      margin-right: -50vw;
+      color: #f8fafc;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(16, 185, 129, 0.18) 0%, transparent 38%),
+        radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.03) 0%, transparent 32%),
+        #030712;
+    }
+
+    .ff-landing-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .ff-landing-hero {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 56px;
+      align-items: center;
+      padding: 44px 0 96px;
+    }
+
+    .ff-landing-kicker,
+    .ff-landing-chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.04);
+      color: #10b981;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .ff-landing-title {
+      margin: 24px 0 18px;
+      font-size: clamp(40px, 5vw, 68px);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      color: #fff;
+    }
+
+    .ff-landing-subtitle {
+      max-width: 540px;
+      margin: 0 0 34px;
+      font-size: 19px;
+      line-height: 1.65;
+      color: #94a3b8;
+    }
+
+    .ff-landing-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .ff-landing-badge-link {
+      display: inline-block;
+      transition: transform 0.25s ease, filter 0.25s ease;
+    }
+
+    .ff-landing-badge-link:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.06);
+    }
+
+    .ff-landing-badge-google {
+      height: 60px;
+      display: block;
+    }
+
+    .ff-landing-badge-apple {
+      height: 44px;
+      display: block;
+    }
+
+    .ff-landing-text-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.04);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .ff-landing-text-cta:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.18);
+    }
+
+    .ff-landing-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .ff-landing-device {
+      position: relative;
+      padding: 12px;
+      border-radius: 40px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(20px);
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.55);
+    }
+
+    .ff-landing-device img {
+      width: 100%;
+      display: block;
+      border-radius: 30px;
+      background: #000;
+      aspect-ratio: 10 / 18;
+      object-fit: cover;
+    }
+
+    .ff-landing-device-meta {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .ff-landing-device-meta h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      color: #fff;
+    }
+
+    .ff-landing-device-meta p {
+      margin: 0;
+      color: #94a3b8;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .ff-landing-section {
+      padding: 82px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .ff-landing-section-title {
+      margin: 0 0 38px;
+      font-size: 32px;
+      letter-spacing: -0.03em;
+      color: #fff;
+      text-align: center;
+    }
+
+    .ff-landing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .ff-landing-card,
+    .ff-landing-list li,
+    .ff-landing-faq details,
+    .ff-landing-blog-card {
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(12px);
+    }
+
+    .ff-landing-card {
+      padding: 34px;
+      border-radius: 24px;
+    }
+
+    .ff-landing-card h3 {
+      margin: 14px 0 12px;
+      font-size: 22px;
+      color: #fff;
+    }
+
+    .ff-landing-card p {
+      margin: 0;
+      color: #94a3b8;
+      line-height: 1.7;
+    }
+
+    .ff-landing-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .ff-landing-list li {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 20px 22px;
+      border-radius: 18px;
+      color: #cbd5e1;
+      line-height: 1.55;
+    }
+
+    .ff-landing-list li::before {
+      content: "\2713";
+      color: #10b981;
+      font-weight: 900;
+      font-size: 16px;
+    }
+
+    .ff-landing-blog {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .ff-landing-blog-card {
+      padding: 34px;
+      border-radius: 24px;
+    }
+
+    .ff-landing-blog-card h2,
+    .ff-landing-blog-card h3 {
+      margin: 0 0 14px;
+      color: #fff;
+    }
+
+    .ff-landing-blog-card p,
+    .ff-landing-blog-card li {
+      color: #94a3b8;
+      line-height: 1.7;
+    }
+
+    .ff-landing-blog-card ul {
+      margin: 18px 0 0;
+      padding-left: 18px;
+    }
+
+    .ff-landing-link-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .ff-landing-link-list a {
+      display: block;
+      padding: 16px 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .ff-landing-link-list a span {
+      display: block;
+      margin-top: 6px;
+      color: #94a3b8;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    .ff-landing-faq {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .ff-landing-faq details {
+      margin-bottom: 12px;
+      padding: 24px;
+      border-radius: 20px;
+    }
+
+    .ff-landing-faq summary {
+      cursor: pointer;
+      list-style: none;
+      font-size: 18px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .ff-landing-faq p {
+      margin: 16px 0 0;
+      color: #94a3b8;
+      line-height: 1.7;
+    }
+
+    .ff-landing-footer-cta {
+      padding: 88px 0 64px;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .ff-landing-footer-cta h2 {
+      margin: 0 0 18px;
+      color: #fff;
+      font-size: 36px;
+      letter-spacing: -0.03em;
+    }
+
+    .ff-landing-footer-cta p {
+      max-width: 620px;
+      margin: 0 auto 28px;
+      color: #94a3b8;
+      line-height: 1.7;
+    }
+
+    .ff-landing-footer-meta {
+      margin-top: 34px;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    .ff-landing-footer-meta a {
+      color: #94a3b8;
+      text-decoration: none;
+      margin: 0 8px;
+    }
+
+    @media (max-width: 960px) {
+      .ff-landing-hero,
+      .ff-landing-blog,
+      .ff-landing-grid,
+      .ff-landing-list {
+        grid-template-columns: 1fr;
+      }
+
+      .ff-landing-hero {
+        gap: 36px;
+        padding-top: 24px;
+      }
+
+      .ff-landing-title,
+      .ff-landing-subtitle,
+      .ff-landing-section-title,
+      .ff-landing-footer-cta {
+        text-align: left;
+      }
+
+      .ff-landing-badge-google {
+        height: 56px;
+      }
+    }
+  </style>
+
+  <div class="ff-landing-container">
+    <section class="ff-landing-hero">
+      <div>
+        <span class="ff-landing-kicker">iOS &amp; Android Live</span>
+        <h1 class="ff-landing-title">Scan items.<br>Snapshot market.<br>Know your profit.</h1>
+        <p class="ff-landing-subtitle">
+          FlipFinds helps resellers make faster buy decisions with active market snapshots,
+          profit math, and simple inventory tracking in one workflow.
+        </p>
+        <div class="ff-landing-cta-row">
+          <a class="ff-landing-badge-link" href="https://apps.apple.com/us/app/flipfinds/id6757338338" target="_blank" rel="noopener" aria-label="Download on the App Store" data-source="landing_home" data-campaign="install_cta">
+            <img class="ff-landing-badge-apple" src="/images/store-badges/download-on-the-app-store.svg" alt="Download on the App Store">
+          </a>
+          <a class="ff-landing-badge-link" href="https://play.google.com/store/apps/details?id=com.flipfinds.app" target="_blank" rel="noopener" aria-label="Get it on Google Play" data-source="landing_home" data-campaign="install_cta">
+            <img class="ff-landing-badge-google" src="/images/store-badges/google-play-badge.png" alt="Get it on Google Play">
+          </a>
+          <a class="ff-landing-text-cta" href="/pages/start-here/" data-ff-track="start_here_home_landing">Start with reseller workflows</a>
+        </div>
+        <div class="ff-landing-trust">
+          <span class="ff-landing-chip">No account required</span>
+          <span class="ff-landing-chip">Fast in-store decisions</span>
+          <span class="ff-landing-chip">Private local storage</span>
+        </div>
+      </div>
+
+      <section class="ff-hero-proof" aria-label="FlipFinds app preview">
+        <div class="ff-hero-proof-top">
+          <span class="ff-hero-proof-label">App preview</span>
+          <div class="ff-hero-proof-nav" aria-label="Screenshot controls">
+            <button type="button" class="ff-hero-proof-btn" data-ff-hero-prev aria-label="Previous screenshot">&#8249;</button>
+            <button type="button" class="ff-hero-proof-btn" data-ff-hero-next aria-label="Next screenshot">&#8250;</button>
+          </div>
+        </div>
+        <div class="ff-landing-device">
+          <div class="ff-hero-carousel" data-ff-hero-carousel>
+            <figure class="ff-hero-slide is-active" data-ff-hero-slide data-title="Track inventory all in one place" data-caption="Home screen with quick actions and a snapshot of your resale activity.">
+              <img src="/images/hero-home.png" alt="FlipFinds home screen with overview card and quick actions" loading="eager">
+            </figure>
+            <figure class="ff-hero-slide" data-ff-hero-slide data-title="Scan barcodes or identify items from a photo" data-caption="Add items quickly with barcode scan or photo-based identification.">
+              <img src="/images/hero-scan.png" alt="FlipFinds add item screen with scan barcode and identify from photo options" loading="lazy">
+            </figure>
+            <figure class="ff-hero-slide" data-ff-hero-slide data-title="See ROI and margin across your inventory" data-caption="Inventory list shows item-level cost, price, margin, and ROI at a glance.">
+              <img src="/images/hero-inventory.png" alt="FlipFinds inventory screen listing items with ROI and margin details" loading="lazy">
+            </figure>
+            <figure class="ff-hero-slide" data-ff-hero-slide data-title="Track sales and true profit per item" data-caption="Item details screen breaks down price, cost, projected profit, and margin.">
+              <img src="/images/hero-item-profit.png" alt="FlipFinds item detail screen showing price and profit breakdown" loading="lazy">
+            </figure>
+            <figure class="ff-hero-slide" data-ff-hero-slide data-title="Use analytics to understand what sells" data-caption="Analytics dashboards help you track sell-through, profit, and inventory age buckets.">
+              <img src="/images/hero-analytics.png" alt="FlipFinds analytics screen with inventory age buckets and profit summary" loading="lazy">
+            </figure>
+          </div>
+        </div>
+        <div class="ff-landing-device-meta">
+          <h3 data-ff-hero-title>Track inventory all in one place</h3>
+          <p data-ff-hero-caption>Home screen with quick actions and a snapshot of your resale activity.</p>
+        </div>
+        <div class="ff-hero-proof-dots" role="tablist" aria-label="Choose screenshot">
+          <button type="button" class="ff-hero-dot is-active" data-ff-hero-dot="0" aria-label="Show screenshot 1" aria-selected="true"></button>
+          <button type="button" class="ff-hero-dot" data-ff-hero-dot="1" aria-label="Show screenshot 2" aria-selected="false"></button>
+          <button type="button" class="ff-hero-dot" data-ff-hero-dot="2" aria-label="Show screenshot 3" aria-selected="false"></button>
+          <button type="button" class="ff-hero-dot" data-ff-hero-dot="3" aria-label="Show screenshot 4" aria-selected="false"></button>
+          <button type="button" class="ff-hero-dot" data-ff-hero-dot="4" aria-label="Show screenshot 5" aria-selected="false"></button>
+        </div>
+      </section>
+    </section>
+
+    <section class="ff-landing-section">
+      <div style="text-align:center; margin-bottom: 12px;">
+        <span class="ff-landing-kicker">The workflow</span>
+      </div>
+      <h2 class="ff-landing-section-title">How FlipFinds works</h2>
+      <div class="ff-landing-grid">
+        <article class="ff-landing-card">
+          <span class="ff-landing-kicker">Phase 1</span>
+          <h3>Scan</h3>
+          <p>Instantly scan barcodes while sourcing at thrift stores, garage sales, estate sales, or retail shops.</p>
+        </article>
+        <article class="ff-landing-card">
+          <span class="ff-landing-kicker">Phase 2</span>
+          <h3>Snapshot</h3>
+          <p>Get a fast market snapshot and sanity-check the opportunity before you spend cash at the register.</p>
+        </article>
+        <article class="ff-landing-card">
+          <span class="ff-landing-kicker">Phase 3</span>
+          <h3>Profit + Track</h3>
+          <p>Estimate fees, margin, and ROI before you buy, then keep the item inside a clean inventory workflow.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="ff-landing-section">
+      <h2 class="ff-landing-section-title">Built for resellers and thrifters</h2>
+      <ul class="ff-landing-list">
+        <li>Estimate fees, profit, and ROI before you hit the register.</li>
+        <li>Use active market snapshots for faster sourcing decisions.</li>
+        <li>Track active, sold, and historical items in one place.</li>
+        <li>Review analytics to understand what is actually working.</li>
+        <li>Stay lightweight with private local storage and no account requirement.</li>
+        <li>Move from sourcing to listing to sale without a fragmented workflow.</li>
+      </ul>
+    </section>
+
+    <section class="ff-landing-section">
+      <div class="ff-landing-blog">
+        <article class="ff-landing-blog-card">
+          <span class="ff-landing-kicker">Blog + App</span>
+          <h2>Use the blog as your reseller operating system</h2>
+          <p>
+            FlipFinds is not just a scanner. The site also gives you practical workflows for inventory
+            control, pricing discipline, sell-through improvements, and weekly cleanup routines.
+          </p>
+          <ul>
+            <li>Start with the 10-minute onboarding path in <a href="/pages/start-here/">Start Here</a>.</li>
+            <li>Browse tactical posts in <a href="/posts/">Posts</a> and deeper reference material in <a href="/guides/">Guides</a>.</li>
+            <li>Then use FlipFinds in the field to run the same routines against your live inventory.</li>
+          </ul>
+        </article>
+        <aside class="ff-landing-blog-card">
+          <h3>Where to go next</h3>
+          <div class="ff-landing-link-list">
+            <a href="/pages/start-here/">Start Here<span>Follow the first 10-minute workflow path.</span></a>
+            <a href="/posts/">Read the Blog<span>Weekly reseller systems, cleanup routines, and pricing habits.</span></a>
+            <a href="/guides/">Open Guides<span>Longer-form reference content for repeatable workflows.</span></a>
+            <a href="/pages/contact/">Contact Support<span>Email support@parasdigital.net if you need help.</span></a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="ff-landing-section">
+      <h2 class="ff-landing-section-title">Frequently asked questions</h2>
+      <div class="ff-landing-faq">
+        <details>
+          <summary>Does FlipFinds show sold comps?</summary>
+          <p>FlipFinds is designed for fast sourcing decisions first. You can also dig deeper into sold comps when you need more confidence before listing or buying.</p>
+        </details>
+        <details>
+          <summary>Who is FlipFinds for?</summary>
+          <p>Resellers and thrifters who want faster buy decisions, clearer profit math, and a cleaner way to track inventory from source to sale.</p>
+        </details>
+        <details>
+          <summary>Do I need an account?</summary>
+          <p>No. FlipFinds does not require an account for the core workflow, and your tracked data stays local to your device.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="ff-landing-footer-cta">
+      <h2>Ready to source smarter?</h2>
+      <p>Install FlipFinds, then use the blog and guides to build repeatable sourcing, pricing, and inventory habits around your actual business.</p>
+      <div class="ff-landing-cta-row" style="justify-content:center;">
+        <a class="ff-landing-badge-link" href="https://apps.apple.com/us/app/flipfinds/id6757338338" target="_blank" rel="noopener" aria-label="Download on the App Store" data-source="landing_footer" data-campaign="install_cta">
+          <img class="ff-landing-badge-apple" src="/images/store-badges/download-on-the-app-store.svg" alt="Download on the App Store">
+        </a>
+        <a class="ff-landing-badge-link" href="https://play.google.com/store/apps/details?id=com.flipfinds.app" target="_blank" rel="noopener" aria-label="Get it on Google Play" data-source="landing_footer" data-campaign="install_cta">
+          <img class="ff-landing-badge-google" src="/images/store-badges/google-play-badge.png" alt="Get it on Google Play">
+        </a>
+      </div>
+      <div class="ff-landing-footer-meta">
+        <a href="/posts/">Posts</a>
+        <a href="/guides/">Guides</a>
+        <a href="/pages/privacy/">Privacy Policy</a>
+        Support: <a href="mailto:support@parasdigital.net" style="color:#fff;">support@parasdigital.net</a>
+      </div>
+    </section>
+  </div>
+</section>
+{{ end }}
