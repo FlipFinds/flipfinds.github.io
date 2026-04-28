@@ -233,13 +233,14 @@
     }
 
     .ff-calc-presets {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
     }
 
     .ff-calc-preset {
-      min-height: 38px;
+      width: 100%;
+      min-height: 44px;
       padding: 0 12px;
       border-radius: 999px;
       border: 1px solid rgba(255, 255, 255, 0.1);
@@ -650,6 +651,10 @@
       .ff-calc-card-body {
         padding-left: 18px;
         padding-right: 18px;
+      }
+
+      .ff-calc-presets {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
       .ff-calc-store-google img {
