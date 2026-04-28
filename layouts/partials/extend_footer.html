@@ -137,6 +137,28 @@
 </script>
 <script>
   (function () {
+    function initLandingShowcase() {
+      var mainShot = document.getElementById("ffLandingMainShot");
+      var caption = document.getElementById("ffLandingCaption");
+      var thumbs = Array.prototype.slice.call(document.querySelectorAll("[data-ff-landing-shot]"));
+      if (!mainShot || !caption || !thumbs.length) return;
+
+      thumbs.forEach(function (thumb) {
+        thumb.addEventListener("click", function () {
+          var shot = thumb.getAttribute("data-ff-landing-shot");
+          var cap = thumb.getAttribute("data-ff-landing-cap") || "";
+          if (shot) {
+            mainShot.setAttribute("src", shot);
+          }
+          caption.textContent = cap;
+          thumbs.forEach(function (other) {
+            other.classList.remove("is-active");
+          });
+          thumb.classList.add("is-active");
+        });
+      });
+    }
+
     function initHeroCarousel(root) {
       var slides = Array.prototype.slice.call(root.querySelectorAll("[data-ff-hero-slide]"));
       var dots = Array.prototype.slice.call(root.querySelectorAll("[data-ff-hero-dot]"));
@@ -189,6 +211,7 @@
     }
 
     document.addEventListener("DOMContentLoaded", function () {
+      initLandingShowcase();
       document.querySelectorAll("[data-ff-hero-carousel]").forEach(function (carousel) {
         var root = carousel.closest(".ff-hero-proof");
         if (root) initHeroCarousel(root);
