@@ -158,6 +158,10 @@
       margin-top: 28px;
     }
 
+    .ff-landing-showcase {
+      position: relative;
+    }
+
     .ff-landing-device {
       position: relative;
       padding: 12px;
@@ -165,10 +169,11 @@
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(255, 255, 255, 0.04);
       backdrop-filter: blur(20px);
-      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.55);
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
+      animation: ff-float 6s ease-in-out infinite;
     }
 
-    .ff-landing-device img {
+    .ff-landing-main-shot {
       width: 100%;
       display: block;
       border-radius: 30px;
@@ -177,25 +182,51 @@
       object-fit: cover;
     }
 
-    .ff-landing-device-meta {
-      margin-top: 18px;
-      padding: 16px 18px;
-      border-radius: 18px;
+    .ff-landing-device-cap {
+      position: absolute;
+      left: 24px;
+      right: 24px;
+      bottom: 24px;
+      padding: 12px;
+      border-radius: 16px;
       border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(0, 0, 0, 0.45);
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      color: #f8fafc;
+      font-size: 13px;
+      text-align: center;
     }
 
-    .ff-landing-device-meta h3 {
-      margin: 0 0 8px;
-      font-size: 18px;
-      color: #fff;
+    .ff-landing-picker {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 24px;
     }
 
-    .ff-landing-device-meta p {
-      margin: 0;
-      color: #94a3b8;
-      font-size: 14px;
-      line-height: 1.55;
+    .ff-landing-thumb {
+      height: 80px;
+      padding: 0;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      background: transparent;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: transform 0.3s ease, opacity 0.3s ease, border-color 0.3s ease;
+    }
+
+    .ff-landing-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .ff-landing-thumb.is-active {
+      opacity: 1;
+      border-color: rgba(255, 255, 255, 0.9);
+      transform: scale(1.05);
     }
 
     .ff-landing-section {
@@ -379,6 +410,11 @@
       margin: 0 8px;
     }
 
+    @keyframes ff-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
     @media (max-width: 960px) {
       .ff-landing-nav {
         flex-direction: column;
@@ -454,43 +490,45 @@
         </div>
       </div>
 
-      <section class="ff-hero-proof" aria-label="FlipFinds app preview">
-        <div class="ff-hero-proof-top">
-          <span class="ff-hero-proof-label">App preview</span>
-          <div class="ff-hero-proof-nav" aria-label="Screenshot controls">
-            <button type="button" class="ff-hero-proof-btn" data-ff-hero-prev aria-label="Previous screenshot">&#8249;</button>
-            <button type="button" class="ff-hero-proof-btn" data-ff-hero-next aria-label="Next screenshot">&#8250;</button>
-          </div>
-        </div>
+      <section class="ff-landing-showcase" aria-label="FlipFinds app preview">
         <div class="ff-landing-device">
-          <div class="ff-hero-carousel" data-ff-hero-carousel>
-            <figure class="ff-hero-slide is-active" data-ff-hero-slide data-title="Track inventory all in one place" data-caption="Home screen with quick actions and a snapshot of your resale activity.">
-              <img src="/images/hero-home.png" alt="FlipFinds home screen with overview card and quick actions" loading="eager">
-            </figure>
-            <figure class="ff-hero-slide" data-ff-hero-slide data-title="Scan barcodes or identify items from a photo" data-caption="Add items quickly with barcode scan or photo-based identification.">
-              <img src="/images/hero-scan.png" alt="FlipFinds add item screen with scan barcode and identify from photo options" loading="lazy">
-            </figure>
-            <figure class="ff-hero-slide" data-ff-hero-slide data-title="See ROI and margin across your inventory" data-caption="Inventory list shows item-level cost, price, margin, and ROI at a glance.">
-              <img src="/images/hero-inventory.png" alt="FlipFinds inventory screen listing items with ROI and margin details" loading="lazy">
-            </figure>
-            <figure class="ff-hero-slide" data-ff-hero-slide data-title="Track sales and true profit per item" data-caption="Item details screen breaks down price, cost, projected profit, and margin.">
-              <img src="/images/hero-item-profit.png" alt="FlipFinds item detail screen showing price and profit breakdown" loading="lazy">
-            </figure>
-            <figure class="ff-hero-slide" data-ff-hero-slide data-title="Use analytics to understand what sells" data-caption="Analytics dashboards help you track sell-through, profit, and inventory age buckets.">
-              <img src="/images/hero-analytics.png" alt="FlipFinds analytics screen with inventory age buckets and profit summary" loading="lazy">
-            </figure>
-          </div>
+          <img
+            id="ffLandingMainShot"
+            class="ff-landing-main-shot"
+            src="/images/landing/image5.jpeg"
+            alt="FlipFinds home screen preview"
+            loading="eager"
+          >
+          <div id="ffLandingCaption" class="ff-landing-device-cap">Home • Add items in seconds</div>
         </div>
-        <div class="ff-landing-device-meta">
-          <h3 data-ff-hero-title>Track inventory all in one place</h3>
-          <p data-ff-hero-caption>Home screen with quick actions and a snapshot of your resale activity.</p>
-        </div>
-        <div class="ff-hero-proof-dots" role="tablist" aria-label="Choose screenshot">
-          <button type="button" class="ff-hero-dot is-active" data-ff-hero-dot="0" aria-label="Show screenshot 1" aria-selected="true"></button>
-          <button type="button" class="ff-hero-dot" data-ff-hero-dot="1" aria-label="Show screenshot 2" aria-selected="false"></button>
-          <button type="button" class="ff-hero-dot" data-ff-hero-dot="2" aria-label="Show screenshot 3" aria-selected="false"></button>
-          <button type="button" class="ff-hero-dot" data-ff-hero-dot="3" aria-label="Show screenshot 4" aria-selected="false"></button>
-          <button type="button" class="ff-hero-dot" data-ff-hero-dot="4" aria-label="Show screenshot 5" aria-selected="false"></button>
+        <div class="ff-landing-picker">
+          <button
+            type="button"
+            class="ff-landing-thumb is-active"
+            data-ff-landing-shot="/images/landing/image5.jpeg"
+            data-ff-landing-cap="Home • Add items in seconds"
+            aria-label="Show home preview"
+          >
+            <img src="/images/landing/image5.jpeg" alt="FlipFinds home preview thumbnail" loading="lazy">
+          </button>
+          <button
+            type="button"
+            class="ff-landing-thumb"
+            data-ff-landing-shot="/images/landing/image4.jpeg"
+            data-ff-landing-cap="Profit • After fees and shipping"
+            aria-label="Show profit preview"
+          >
+            <img src="/images/landing/image4.jpeg" alt="FlipFinds profit preview thumbnail" loading="lazy">
+          </button>
+          <button
+            type="button"
+            class="ff-landing-thumb"
+            data-ff-landing-shot="/images/landing/image1.jpeg"
+            data-ff-landing-cap="Analytics • Track your growth"
+            aria-label="Show analytics preview"
+          >
+            <img src="/images/landing/image1.jpeg" alt="FlipFinds analytics preview thumbnail" loading="lazy">
+          </button>
         </div>
       </section>
     </section>
