@@ -66,6 +66,12 @@ summaryLength = 30
   category = "categories"
 
 [[menu.main]]
+  identifier = "calculator"
+  name = "Calculator"
+  url = "/calculator/"
+  weight = 1
+
+[[menu.main]]
   identifier = "start-here"
   name = "Start Here"
   url = "/pages/start-here/"
