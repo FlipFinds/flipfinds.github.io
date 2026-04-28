@@ -101,12 +101,10 @@
       border: 1px solid var(--ff-calc-border);
     }
 
-    .ff-calc-hero {
+    .ff-calc-intro {
       display: grid;
-      grid-template-columns: 1.03fr 0.97fr;
-      gap: 46px;
-      align-items: center;
-      padding: 26px 0 72px;
+      gap: 18px;
+      padding: 14px 0 30px;
     }
 
     .ff-calc-kicker {
@@ -123,10 +121,22 @@
       text-transform: uppercase;
     }
 
+    .ff-calc-intro-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .ff-calc-intro-copy {
+      max-width: 760px;
+    }
+
     .ff-calc-title {
-      margin: 22px 0;
-      font-size: clamp(40px, 5vw, 64px);
-      line-height: 1.04;
+      margin: 14px 0 10px;
+      font-size: clamp(34px, 4.3vw, 52px);
+      line-height: 1.02;
       letter-spacing: -0.05em;
       background: linear-gradient(135deg, #fff 38%, #64748b 100%);
       -webkit-background-clip: text;
@@ -134,25 +144,45 @@
     }
 
     .ff-calc-subtitle {
-      max-width: 580px;
-      margin: 0 0 24px;
-      font-size: 19px;
+      max-width: 760px;
+      margin: 0;
+      font-size: 17px;
       color: var(--ff-calc-muted);
     }
 
     .ff-calc-hero-claim {
-      margin: 0 0 28px;
+      margin: 0;
       color: #fff;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
     }
 
-    .ff-calc-cta-row {
+    .ff-calc-scenario-row {
       display: flex;
-      gap: 16px;
+      gap: 10px;
       align-items: center;
       flex-wrap: wrap;
-      margin-bottom: 26px;
+    }
+
+    .ff-calc-scenario-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.03);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .ff-calc-scenario-button:hover {
+      border-color: rgba(255, 255, 255, 0.22);
+      background: rgba(255, 255, 255, 0.08);
     }
 
     .ff-calc-button {
@@ -210,7 +240,6 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 24px;
     }
 
     .ff-calc-trust-tag {
@@ -223,58 +252,11 @@
     }
 
     .ff-calc-hero-note {
-      max-width: 600px;
-      padding: 16px 18px;
-      border-radius: 18px;
+      max-width: 100%;
+      padding: 14px 16px;
+      border-radius: 16px;
       border: 1px solid var(--ff-calc-border);
       background: var(--ff-calc-surface);
-      color: var(--ff-calc-muted);
-      font-size: 14px;
-    }
-
-    .ff-calc-proof-card {
-      padding: 28px;
-      border-radius: 28px;
-      border: 1px solid var(--ff-calc-border);
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(15, 23, 42, 0.82));
-      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.45);
-    }
-
-    .ff-calc-proof-card h2 {
-      margin: 0 0 12px;
-      font-size: 30px;
-      letter-spacing: -0.03em;
-      color: #fff;
-    }
-
-    .ff-calc-proof-card p {
-      margin: 0;
-      color: var(--ff-calc-muted);
-      font-size: 16px;
-    }
-
-    .ff-calc-proof-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-top: 22px;
-    }
-
-    .ff-calc-proof-metric {
-      padding: 18px;
-      border-radius: 18px;
-      border: 1px solid var(--ff-calc-border);
-      background: rgba(255, 255, 255, 0.03);
-    }
-
-    .ff-calc-proof-metric strong {
-      display: block;
-      margin-bottom: 6px;
-      color: #fff;
-      font-size: 15px;
-    }
-
-    .ff-calc-proof-metric span {
       color: var(--ff-calc-muted);
       font-size: 13px;
     }
@@ -343,16 +325,17 @@
     .ff-calc-presets {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
     }
 
     .ff-calc-preset {
-      padding: 10px 14px;
+      min-height: 38px;
+      padding: 0 12px;
       border-radius: 999px;
       border: 1px solid rgba(255, 255, 255, 0.1);
       background: rgba(255, 255, 255, 0.03);
       color: var(--ff-calc-muted-soft);
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       cursor: pointer;
       transition: 0.2s ease;
@@ -393,6 +376,11 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 16px;
+    }
+
+    .ff-calc-scenario-help {
+      color: var(--ff-calc-muted);
+      font-size: 12px;
     }
 
     .ff-calc-field {
@@ -543,6 +531,15 @@
       font-size: 13px;
     }
 
+    .ff-calc-warning {
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(245, 158, 11, 0.22);
+      background: rgba(245, 158, 11, 0.08);
+      color: #fcd34d;
+      font-size: 13px;
+    }
+
     .ff-calc-rating-card {
       padding: 20px;
       border-radius: 20px;
@@ -608,8 +605,9 @@
     .ff-calc-save-card {
       padding: 24px;
       border-radius: 24px;
-      border: 1px solid var(--ff-calc-border);
-      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(16, 185, 129, 0.32);
+      background: linear-gradient(160deg, rgba(16, 185, 129, 0.18), rgba(15, 23, 42, 0.92));
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
     }
 
     .ff-calc-save-card h3 {
@@ -622,7 +620,7 @@
 
     .ff-calc-save-card p {
       margin: 0 0 18px;
-      color: var(--ff-calc-muted);
+      color: rgba(255, 255, 255, 0.82);
       font-size: 15px;
     }
 
@@ -637,7 +635,7 @@
     .ff-calc-save-list li {
       display: flex;
       gap: 10px;
-      color: var(--ff-calc-muted-soft);
+      color: rgba(255, 255, 255, 0.88);
       font-size: 14px;
     }
 
@@ -730,7 +728,6 @@
       .ff-calc-hero,
       .ff-calc-card-body,
       .ff-calc-section-grid,
-      .ff-calc-proof-grid,
       .ff-calc-results-grid,
       .ff-calc-group-grid {
         grid-template-columns: 1fr;
@@ -754,6 +751,10 @@
 
       .ff-calc-nav a {
         font-size: 13px;
+      }
+
+      .ff-calc-intro-top {
+        display: grid;
       }
 
       .ff-calc-container {
@@ -797,62 +798,34 @@
       <div class="ff-calc-pill">Free Tool</div>
     </header>
 
-    <section class="ff-calc-hero">
-      <div>
-        <span class="ff-calc-kicker">Resale Profit Calculator</span>
-        <h1 class="ff-calc-title">Estimate profit before you buy, price, or list.</h1>
-        <p class="ff-calc-subtitle">
-          Use practical resale math, not guesses. Run the numbers before checkout or before you send
-          an offer so you know whether the deal still makes sense after fees and shipping.
-        </p>
-        <p class="ff-calc-hero-claim">Want this saved automatically for every item? Use FlipFinds.</p>
-
-        <div class="ff-calc-cta-row">
-          <a class="ff-calc-button ff-calc-button-primary" href="#profit-calculator">Run the calculator</a>
-          <a href="https://apps.apple.com/us/app/flipfinds/id6757338338" class="ff-calc-badge-link ff-calc-store-apple" target="_blank" rel="noopener">
-            <img src="/images/store-badges/download-on-the-app-store.svg" alt="Download on the App Store">
-          </a>
-          <a href="https://play.google.com/store/apps/details?id=com.flipfinds.app" class="ff-calc-badge-link ff-calc-store-google" target="_blank" rel="noopener">
-            <img src="/images/store-badges/google-play-badge.png" alt="Get it on Google Play">
-          </a>
+    <section class="ff-calc-intro">
+      <div class="ff-calc-intro-top">
+        <div class="ff-calc-intro-copy">
+          <span class="ff-calc-kicker">Resale Profit Calculator</span>
+          <h1 class="ff-calc-title">Run the numbers before you buy the flip.</h1>
+          <p class="ff-calc-subtitle">
+            Estimate profit, ROI, break-even, and max buy cost for eBay, Poshmark, Mercari, Facebook Marketplace, and custom fee setups.
+          </p>
         </div>
-
         <div class="ff-calc-trust-line">
-          <span class="ff-calc-trust-tag">Fast in-store sourcing math</span>
-          <span class="ff-calc-trust-tag">Current marketplace presets</span>
-          <span class="ff-calc-trust-tag">Target-price planning</span>
-        </div>
-
-        <div class="ff-calc-hero-note">
-          This is an estimate tool, not accounting. Presets are heuristics based on public marketplace
-          docs as of April 28, 2026, and your real profit will move if fees, discounts, taxes, or labels differ.
+          <span class="ff-calc-trust-tag">Fast sourcing math</span>
+          <span class="ff-calc-trust-tag">Current fee presets</span>
+          <span class="ff-calc-trust-tag">FlipFinds follow-through</span>
         </div>
       </div>
 
-      <div class="ff-calc-proof-card">
-        <h2>Know the deal before you commit.</h2>
-        <p>
-          The calculator focuses on the inputs that usually change the outcome: item cost, sale price,
-          buyer-paid shipping, seller-paid shipping, seller fees, and extra handling costs.
-        </p>
-        <div class="ff-calc-proof-grid">
-          <div class="ff-calc-proof-metric">
-            <strong>Use it while sourcing</strong>
-            <span>Check whether a thrift or clearance find still leaves room for a real flip.</span>
-          </div>
-          <div class="ff-calc-proof-metric">
-            <strong>Use it while listing</strong>
-            <span>Test offers and pricing before you accept thin margins by accident.</span>
-          </div>
-          <div class="ff-calc-proof-metric">
-            <strong>Use current fee logic</strong>
-            <span>eBay, Poshmark, Mercari, Facebook, and custom assumptions are built in.</span>
-          </div>
-          <div class="ff-calc-proof-metric">
-            <strong>Save the real item later</strong>
-            <span>FlipFinds is where the estimate becomes an item with actual sale history.</span>
-          </div>
-        </div>
+      <p class="ff-calc-hero-claim">Want barcode scans, inventory tracking, and automatic profit calculations? Use FlipFinds after you run the estimate.</p>
+
+      <div class="ff-calc-scenario-row">
+        <button type="button" class="ff-calc-scenario-button" data-scenario="thrift">$5 thrift flip</button>
+        <button type="button" class="ff-calc-scenario-button" data-scenario="garage">$20 garage sale flip</button>
+        <button type="button" class="ff-calc-scenario-button" data-scenario="resale">$50 eBay resale</button>
+      </div>
+
+      <div class="ff-calc-scenario-help">Use a common scenario to avoid starting from a blank page, then adjust the numbers for your item.</div>
+
+      <div class="ff-calc-hero-note">
+        This is seller-side decision support, not accounting. Presets are heuristics based on public marketplace docs as of April 28, 2026, and real profit will move if fees, discounts, taxes, or labels differ.
       </div>
     </section>
 
@@ -861,7 +834,7 @@
         <div class="ff-calc-card-head">
           <div>
             <h2>Run the math</h2>
-            <p>Pick a marketplace, adjust the assumptions, and see profit, break-even, deal quality, and the sale price needed to hit your target.</p>
+            <p>Pick a marketplace, set your target, and see profit, deal quality, minimum sale price, and max buy cost before you commit.</p>
           </div>
           <div class="ff-calc-card-chip">Calculator</div>
         </div>
@@ -908,8 +881,10 @@
                       <span class="ff-calc-input-symbol">$</span>
                       <input class="ff-calc-input ff-calc-input-currency" id="shippingCost" name="shippingCost" type="number" min="0" step="0.01" value="8.25">
                     </div>
+                    <div class="ff-calc-help">Tip: underestimating shipping is the fastest way to overstate profit.</div>
                   </div>
                 </div>
+                <div class="ff-calc-warning">Shipping surprises kill margins. If you are not sure, round your shipping cost up before trusting the result.</div>
               </section>
 
               <section class="ff-calc-group">
@@ -955,8 +930,8 @@
               </section>
 
               <section class="ff-calc-group">
-                <h3>Minimum acceptable sale price</h3>
-                <p>Set your target and the calculator will tell you the sale price needed under these assumptions.</p>
+                <h3>Planning target</h3>
+                <p>Choose the outcome you care about. FlipFinds will show the sale price you need and the max you can pay for the item.</p>
                 <fieldset class="ff-calc-toggle">
                   <label for="targetProfitMode">
                     <input id="targetProfitMode" name="targetMode" type="radio" value="profit" checked>
@@ -991,7 +966,7 @@
             <div class="ff-calc-rating-card">
               <div class="ff-calc-results-label">Deal rating</div>
               <div style="margin-top:10px;">
-                <span class="ff-calc-rating-pill ff-calc-rating-risky" id="ffDealRating">Risky Deal</span>
+                <span class="ff-calc-rating-pill ff-calc-rating-risky" id="ffDealRating">Pass</span>
               </div>
               <div class="ff-calc-results-copy" id="ffDealRatingCopy">This estimate does not clear the current profit and ROI thresholds yet.</div>
             </div>
@@ -1001,6 +976,11 @@
                 <div class="ff-calc-results-label">Minimum acceptable sale price</div>
                 <div class="ff-calc-metric-value" id="ffTargetSaleValue">$0.00</div>
                 <div class="ff-calc-metric-copy" id="ffTargetSaleCopy">Needed to hit your current target.</div>
+              </div>
+              <div class="ff-calc-metric">
+                <div class="ff-calc-results-label">Max buy cost</div>
+                <div class="ff-calc-metric-value" id="ffMaxBuyValue">$0.00</div>
+                <div class="ff-calc-metric-copy" id="ffMaxBuyCopy">Most you can pay and still hit your target.</div>
               </div>
               <div class="ff-calc-metric">
                 <div class="ff-calc-results-label">Break-even sale price</div>
@@ -1022,16 +1002,16 @@
             <div class="ff-calc-summary" id="ffCalcSummary"></div>
 
             <div class="ff-calc-save-card">
-              <h3>Save this estimate in FlipFinds</h3>
-              <p>Save the item, track actual sale profit, and build inventory history in FlipFinds instead of doing this math from scratch every time.</p>
+              <h3>Get the full workflow in FlipFinds</h3>
+              <p>Save the item, scan the barcode, track the real sale result, and stop rebuilding this estimate from scratch every time.</p>
               <ul class="ff-calc-save-list">
                 <li>Save the item instead of losing the estimate.</li>
                 <li>Track the actual sale result after fees and shipping.</li>
                 <li>Build repeatable inventory history across your flips.</li>
               </ul>
               <div class="ff-calc-save-actions">
-                <a class="ff-calc-button ff-calc-button-primary" href="https://apps.apple.com/us/app/flipfinds/id6757338338" target="_blank" rel="noopener">Save in FlipFinds for iPhone</a>
-                <a class="ff-calc-button" href="https://play.google.com/store/apps/details?id=com.flipfinds.app" target="_blank" rel="noopener">Save in FlipFinds for Android</a>
+                <a class="ff-calc-button ff-calc-button-primary" href="https://apps.apple.com/us/app/flipfinds/id6757338338" target="_blank" rel="noopener">Use FlipFinds on iPhone</a>
+                <a class="ff-calc-button" href="https://play.google.com/store/apps/details?id=com.flipfinds.app" target="_blank" rel="noopener">Use FlipFinds on Android</a>
               </div>
             </div>
           </aside>
@@ -1148,6 +1128,8 @@
       var profitMeta = document.getElementById("ffProfitMeta");
       var targetSaleValue = document.getElementById("ffTargetSaleValue");
       var targetSaleCopy = document.getElementById("ffTargetSaleCopy");
+      var maxBuyValue = document.getElementById("ffMaxBuyValue");
+      var maxBuyCopy = document.getElementById("ffMaxBuyCopy");
       var breakEvenValue = document.getElementById("ffBreakEvenValue");
       var marginValue = document.getElementById("ffMarginValue");
       var roiValue = document.getElementById("ffRoiValue");
@@ -1156,6 +1138,7 @@
       var summary = document.getElementById("ffCalcSummary");
       var presetButtons = Array.prototype.slice.call(document.querySelectorAll("[data-preset]"));
       var targetModeButtons = Array.prototype.slice.call(document.querySelectorAll("[name='targetMode']"));
+      var scenarioButtons = Array.prototype.slice.call(document.querySelectorAll("[data-scenario]"));
 
       function num(el) {
         var value = Number(el.value);
@@ -1251,6 +1234,41 @@
         return (targetProfit + cashInvested + fixedFee - shippingCharged * (1 - shippingFactor * sellerFeePct)) / denominator;
       }
 
+      function getMaxBuyCost(targetProfit, salePrice, shippingCharged, shippingCost, packagingCost, otherCosts, sellerFeePct, fixedFee, feeIncludesShipping) {
+        var totalRevenue = salePrice + shippingCharged;
+        var sellerFees = getSellerFees(salePrice, shippingCharged, sellerFeePct, fixedFee, feeIncludesShipping);
+
+        if (state.activePreset === "poshmark") {
+          sellerFees = salePrice < 15 ? 2.95 : salePrice * 0.20;
+        }
+
+        return totalRevenue - sellerFees - shippingCost - packagingCost - otherCosts - targetProfit;
+      }
+
+      function applyScenario(name) {
+        var scenario;
+        if (name === "thrift") {
+          scenario = { preset: "ebay", purchaseCost: 5, salePrice: 28, shippingCharged: 6.99, shippingCost: 6.25, packagingCost: 0.50, otherCosts: 0, targetMode: "profit", targetValue: 15 };
+        } else if (name === "garage") {
+          scenario = { preset: "facebook", purchaseCost: 20, salePrice: 52, shippingCharged: 0, shippingCost: 0, packagingCost: 0, otherCosts: 0, targetMode: "profit", targetValue: 20 };
+        } else if (name === "resale") {
+          scenario = { preset: "ebay", purchaseCost: 50, salePrice: 92, shippingCharged: 8.99, shippingCost: 9.50, packagingCost: 1, otherCosts: 0, targetMode: "roi", targetValue: 35 };
+        }
+
+        if (!scenario) return;
+
+        fields.purchaseCost.value = scenario.purchaseCost.toFixed(2);
+        fields.salePrice.value = scenario.salePrice.toFixed(2);
+        fields.shippingCharged.value = scenario.shippingCharged.toFixed(2);
+        fields.shippingCost.value = scenario.shippingCost.toFixed(2);
+        fields.packagingCost.value = scenario.packagingCost.toFixed(2);
+        fields.otherCosts.value = scenario.otherCosts.toFixed(2);
+        fields.targetValue.value = scenario.targetValue.toFixed(2);
+        document.getElementById(scenario.targetMode === "roi" ? "targetRoiMode" : "targetProfitMode").checked = true;
+        updateTargetUi();
+        applyPreset(scenario.preset);
+      }
+
       function calculate() {
         var purchaseCost = num(fields.purchaseCost);
         var salePrice = num(fields.salePrice);
@@ -1275,17 +1293,21 @@
           : targetValueRaw;
         var breakEven = getRequiredSalePrice(0, shippingCharged, cashInvested, sellerFeePct, fixedFee, feeIncludesShipping);
         var minimumAcceptableSale = getRequiredSalePrice(targetProfit, shippingCharged, cashInvested, sellerFeePct, fixedFee, feeIncludesShipping);
+        var maxBuyCost = getMaxBuyCost(targetProfit, salePrice, shippingCharged, shippingCost, packagingCost, otherCosts, sellerFeePct, fixedFee, feeIncludesShipping);
 
         profitValue.textContent = currency(profit);
         breakEvenValue.textContent = Number.isFinite(breakEven) ? currency(Math.max(breakEven, 0)) : "--";
         targetSaleValue.textContent = Number.isFinite(minimumAcceptableSale) ? currency(Math.max(minimumAcceptableSale, 0)) : "--";
+        maxBuyValue.textContent = Number.isFinite(maxBuyCost) ? currency(maxBuyCost) : "--";
         marginValue.textContent = percent(margin);
         roiValue.textContent = percent(roi);
 
         if (currentTargetMode() === "roi") {
           targetSaleCopy.textContent = "Needed to hit " + percent(targetValueRaw) + " ROI under these assumptions.";
+          maxBuyCopy.textContent = "Most you can pay and still hit " + percent(targetValueRaw) + " ROI.";
         } else {
           targetSaleCopy.textContent = "Needed to clear " + currency(targetValueRaw) + " profit under these assumptions.";
+          maxBuyCopy.textContent = "Most you can pay and still clear " + currency(targetValueRaw) + " profit.";
         }
 
         if (profit > 0) {
@@ -1301,15 +1323,15 @@
 
         dealRating.classList.remove("ff-calc-rating-good", "ff-calc-rating-okay", "ff-calc-rating-risky");
         if (profit > 15 && roi > 50) {
-          dealRating.textContent = "Good Deal";
+          dealRating.textContent = "Good Flip";
           dealRating.classList.add("ff-calc-rating-good");
           dealRatingCopy.textContent = "This clears both the current profit and ROI thresholds with room to work.";
         } else if (profit > 8 && roi > 30) {
-          dealRating.textContent = "Okay Deal";
+          dealRating.textContent = "Marginal";
           dealRating.classList.add("ff-calc-rating-okay");
           dealRatingCopy.textContent = "There is still room here, but the deal is less forgiving if the sale price or fees move.";
         } else {
-          dealRating.textContent = "Risky Deal";
+          dealRating.textContent = "Pass";
           dealRating.classList.add("ff-calc-rating-risky");
           dealRatingCopy.textContent = "This estimate is thin relative to the current thresholds and needs a better price, lower costs, or a stronger sale price.";
         }
@@ -1355,6 +1377,12 @@
         button.addEventListener("change", function () {
           updateTargetUi();
           calculate();
+        });
+      });
+
+      scenarioButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+          applyScenario(button.getAttribute("data-scenario"));
         });
       });
 
