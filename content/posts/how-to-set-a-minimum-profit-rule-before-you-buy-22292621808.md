@@ -9,6 +9,7 @@ tags = ["reselling", "inventory", "workflow", "profit"]
 
 Most reseller weeks fail for one reason: inventory moves faster than your tracking process.
 A 15-minute weekly check keeps your catalog cleaner and your buying decisions tighter.
+If you want to test a deal before you buy, use the [FlipFinds resale profit calculator](/calculator/?utm_source=flipfinds_blog&utm_medium=post&utm_campaign=calculator_crosslink).
 
 You do not need a new tool to start.
 You need one repeatable check that catches stale items, pricing issues, and tracking gaps before they compound.
@@ -61,6 +62,7 @@ If you want this workflow in an app, install FlipFinds and run it during your we
 If you want to keep going, use these next:
 
 - [Start Here](/pages/start-here/)
+- [Resale profit calculator](/calculator/?utm_source=flipfinds_blog&utm_medium=post&utm_campaign=calculator_crosslink)
 - [A Weekly Reseller Cleanup Routine for Better Sell-Through](/posts/a-weekly-reseller-cleanup-routine-for-better-sell-through-22251714854/)
 - [A Simple Weekly Sell-Through Review for Part-Time Resellers](/posts/a-simple-weekly-sell-through-review-for-part-time-resellers-22292557017/)
 

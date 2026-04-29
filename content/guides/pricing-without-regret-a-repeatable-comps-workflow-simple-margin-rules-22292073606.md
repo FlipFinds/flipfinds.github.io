@@ -10,6 +10,7 @@ tags = ["reselling", "guide", "workflow", "pricing-and-comps-workflows"]
 This guide gives you a repeatable SOP for pricing and comps workflows so you can reduce backlog, protect margin, and keep your week predictable.
 
 If you're new, start here: [Start Here](/pages/start-here/).
+If you want to run the math faster while sourcing or listing, use the [FlipFinds resale profit calculator](/calculator/?utm_source=flipfinds_blog&utm_medium=guide&utm_campaign=calculator_crosslink).
 
 ## Goal
 
@@ -51,6 +52,7 @@ Use a decision rule for each item: list now, hold for research, clean/test, or s
 Set a minimum margin target and a skip rule before you continue. A simple threshold (for example, net margin 30%+ or a minimum dollar profit) keeps pricing consistent.
 
 This is where FlipFinds can reduce manual tracking if you want one place for item status, costs, and margin checks.
+If you want a quick floor check before listing, plug the numbers into the [profit calculator](/calculator/?utm_source=flipfinds_blog&utm_medium=guide&utm_campaign=calculator_crosslink).
 
 ### 5. Close the loop and stage the next action
 

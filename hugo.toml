@@ -1,6 +1,6 @@
 baseURL = "https://flipfinds.github.io/"
 languageCode = "en-us"
-title = "FlipFinds Reseller Blog"
+title = "FlipFinds"
 theme = "PaperMod"
 enableRobotsTXT = true
 summaryLength = 30
@@ -11,8 +11,8 @@ summaryLength = 30
 
 [params]
   env = "production"
-  description = "Practical reseller workflows, inventory discipline, and listing execution playbooks from FlipFinds."
-  keywords = ["reseller app", "reseller workflow", "inventory tracking", "pricing discipline", "sell-through"]
+  description = "FlipFinds helps resellers estimate profit, track inventory, protect margin, and run practical resale workflows."
+  keywords = ["flipfinds", "resale profit calculator", "inventory tracking", "reseller workflow", "pricing discipline", "sell-through"]
   mainSections = ["posts"]
   images = ["images/hero-home.png"]
   defaultTheme = "light"
@@ -24,7 +24,7 @@ summaryLength = 30
   ShowPostNavLinks = true
   disableSpecial1stPost = true
   [params.label]
-    text = "FlipFinds Reseller Blog"
+    text = "FlipFinds"
     icon = "images/app-icon.png"
     iconHeight = 26
   [params.assets]
@@ -39,8 +39,8 @@ summaryLength = 30
     text = "Support: support@parasdigital.net"
     hideCopyright = false
   [params.homeInfoParams]
-    Title = "FlipFinds Growth Playbooks for Resellers"
-    Content = "Practical weekly systems for sourcing, listing, inventory control, and sell-through improvements."
+    Title = "FlipFinds for Resellers"
+    Content = "Profit calculator, inventory tracking, and practical workflows for sourcing, pricing, and sell-through."
   [params.author]
     name = "FlipFinds Team"
     email = "support@parasdigital.net"

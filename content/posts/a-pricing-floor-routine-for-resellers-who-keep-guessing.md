@@ -9,6 +9,7 @@ categories = ["Posts"]
 
 When pricing happens in a rush, margin leaks out in small ways: shipping gets underestimated, fees get ignored, and discounts start from a weak number.
 The fix is not a complicated spreadsheet. It is a short pricing floor routine you can run before you list.
+If you want to work backward from your target profit quickly, use the [FlipFinds resale profit calculator](/calculator/?utm_source=flipfinds_blog&utm_medium=post&utm_campaign=calculator_crosslink).
 
 <!--more-->
 
