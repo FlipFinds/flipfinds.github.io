@@ -441,25 +441,6 @@
       font-size: 13px;
     }
 
-    .ff-calc-advanced-toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--ff-calc-muted-soft);
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .ff-calc-advanced {
-      display: none;
-    }
-
-    .ff-calc-advanced.is-open {
-      display: grid;
-      gap: 16px;
-    }
-
     .ff-calc-rating-card {
       padding: 20px;
       border-radius: 20px;
@@ -738,19 +719,11 @@
                       <input class="ff-calc-input ff-calc-input-currency" id="shippingCost" name="shippingCost" type="number" min="0" step="0.01" value="0">
                     </div>
                   </div>
-                </div>
-                <label class="ff-calc-advanced-toggle" for="showAdvancedInputs">
-                  <input id="showAdvancedInputs" type="checkbox">
-                  Show advanced inputs
-                </label>
-                <div class="ff-calc-advanced" id="ffAdvancedInputs">
-                  <div class="ff-calc-group-grid">
-                    <div class="ff-calc-field">
-                      <label for="shippingCharged">Shipping charged to buyer</label>
-                      <div class="ff-calc-input-wrap">
-                        <span class="ff-calc-input-symbol">$</span>
-                        <input class="ff-calc-input ff-calc-input-currency" id="shippingCharged" name="shippingCharged" type="number" min="0" step="0.01" value="0">
-                      </div>
+                  <div class="ff-calc-field">
+                    <label for="shippingCharged">Shipping charged to buyer</label>
+                    <div class="ff-calc-input-wrap">
+                      <span class="ff-calc-input-symbol">$</span>
+                      <input class="ff-calc-input ff-calc-input-currency" id="shippingCharged" name="shippingCharged" type="number" min="0" step="0.01" value="0">
                     </div>
                   </div>
                 </div>
@@ -984,8 +957,6 @@
       var targetValueLabel = document.getElementById("ffTargetValueLabel");
       var targetSymbol = document.getElementById("ffTargetSymbol");
       var targetHelp = document.getElementById("ffTargetHelp");
-      var showAdvancedInputs = document.getElementById("showAdvancedInputs");
-      var advancedInputs = document.getElementById("ffAdvancedInputs");
 
       var profitCard = document.getElementById("ffProfitCard");
       var profitValue = document.getElementById("ffProfitValue");
@@ -1065,13 +1036,6 @@
           targetSymbol.textContent = "$";
           targetHelp.textContent = "How much profit you want to clear.";
           fields.targetValue.classList.add("ff-calc-input-currency");
-        }
-      }
-
-      function updateAdvancedInputs() {
-        advancedInputs.classList.toggle("is-open", !!showAdvancedInputs.checked);
-        if (!showAdvancedInputs.checked) {
-          fields.shippingCharged.value = "0.00";
         }
       }
 
@@ -1219,13 +1183,7 @@
         });
       });
 
-      showAdvancedInputs.addEventListener("change", function () {
-        updateAdvancedInputs();
-        calculate();
-      });
-
       updateTargetUi();
-      updateAdvancedInputs();
       applyPreset("ebay");
     })();
   </script>
