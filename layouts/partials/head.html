@@ -9,6 +9,9 @@
 
 {{- /* Title */}}
 {{- $siteTitle := site.Title -}}
+{{- if .IsHome -}}
+{{- $siteTitle = "FlipFinds | Resale Profit Calculator and Inventory Tracker" -}}
+{{- end -}}
 {{- if eq .Type "calculator" -}}
 {{- $siteTitle = "FlipFinds" -}}
 {{- end -}}
