@@ -972,6 +972,26 @@
       var dealRatingCopy = document.getElementById("ffDealRatingCopy");
       var presetButtons = Array.prototype.slice.call(document.querySelectorAll("[data-preset]"));
       var targetModeButtons = Array.prototype.slice.call(document.querySelectorAll("[name='targetMode']"));
+      var calculatorStarted = false;
+      var calculatorCompleted = false;
+
+      function trackCalculatorInteraction(evt) {
+        if (!evt.isTrusted || typeof window.gtag !== "function") return;
+        try {
+          if (!calculatorStarted) {
+            window.gtag("event", "calculator_started", { calculator_name: "resale_profit" });
+            calculatorStarted = true;
+          }
+          // This live calculator completes when a user produces a valid estimate,
+          // including free inventory and loss-making estimates. Never send inputs.
+          var form = document.getElementById("ffProfitForm");
+          if (!calculatorCompleted && form.checkValidity() && Number(fields.salePrice.value) > 0 &&
+              (state.activePreset === "poshmark" || Number(fields.sellerFeePct.value) < 100)) {
+            window.gtag("event", "calculator_completed", { calculator_name: "resale_profit" });
+            calculatorCompleted = true;
+          }
+        } catch (e) {}
+      }
 
       function num(el) {
         var value = Number(el.value);
@@ -1148,8 +1168,9 @@
       }
 
       presetButtons.forEach(function (button) {
-        button.addEventListener("click", function () {
+        button.addEventListener("click", function (evt) {
           applyPreset(button.getAttribute("data-preset"));
+          trackCalculatorInteraction(evt);
         });
       });
 
@@ -1185,6 +1206,8 @@
 
       updateTargetUi();
       applyPreset("ebay");
+      document.getElementById("ffProfitForm").addEventListener("input", trackCalculatorInteraction);
+      document.getElementById("ffProfitForm").addEventListener("change", trackCalculatorInteraction);
     })();
   </script>
 </section>

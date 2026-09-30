@@ -4,6 +4,11 @@
     var STORE_PREFIX = "flipfinds_store_clicks_v2";
     var EVENT_PREFIX = "flipfinds_site_events_v2";
 
+    function trackWebEvent(name, params) {
+      if (typeof window.gtag !== "function") return;
+      try { window.gtag("event", name, params || {}); } catch (e) {}
+    }
+
     function isoDay() {
       return new Date().toISOString().slice(0, 10);
     }
@@ -125,6 +130,9 @@
 
       var day = isoDay();
       var source = inferClickSource(anchor);
+      trackWebEvent(store === "appstore" ? "ios_app_store_cta_clicked" : "android_play_store_cta_clicked", {
+        cta_source: source
+      });
       hit(STORE_PREFIX, "total_" + day);
       hit(STORE_PREFIX, store + "_" + day);
       hit(EVENT_PREFIX, "store_click_total_" + day);
@@ -133,6 +141,7 @@
     });
 
     trackPageViewOncePerLoad();
+    if (window.location.pathname === "/") trackWebEvent("landing_page_viewed");
   })();
 </script>
 <script>
