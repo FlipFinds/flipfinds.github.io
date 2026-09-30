@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="{{ .Permalink }}">
+    <meta http-equiv="refresh" content="0; url={{ .Permalink }}">
+    <title>Page moved | FlipFinds</title>
+    <script>
+      // GitHub Pages aliases are HTML redirects; keep campaign and fragment data.
+      window.location.replace({{ .Permalink }} + window.location.search + window.location.hash);
+    </script>
+  </head>
+  <body><a href="{{ .Permalink }}">Continue to FlipFinds</a></body>
+</html>

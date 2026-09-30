@@ -3,6 +3,7 @@ title = "Privacy Policy"
 date = 2026-04-28T00:00:00Z
 draft = false
 description = "FlipFinds privacy policy."
+aliases = ["/privacy.html"]
 +++
 
 Last updated: April 28, 2026

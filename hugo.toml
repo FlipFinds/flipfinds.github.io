@@ -1,4 +1,4 @@
-baseURL = "https://flipfinds.github.io/"
+baseURL = "https://flipfinds.net/"
 languageCode = "en-us"
 title = "FlipFinds"
 theme = "PaperMod"
@@ -92,7 +92,7 @@ summaryLength = 30
 [[menu.main]]
   identifier = "flipfinds-app"
   name = "FlipFinds App"
-  url = "https://flipfinds.github.io/?utm_source=flipfinds_blog&utm_medium=nav&utm_campaign=crosslink"
+  url = "https://flipfinds.net/?utm_source=flipfinds_blog&utm_medium=nav&utm_campaign=crosslink"
   weight = 25
 
 [[menu.main]]
