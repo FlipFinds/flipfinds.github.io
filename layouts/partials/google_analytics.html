@@ -1,0 +1,60 @@
+{{- with site.Config.Services.GoogleAnalytics.ID }}
+<script>
+  (function () {
+    var id = {{ . }};
+    var key = "ff_website_analytics_consent";
+    var enabled = false;
+    var initialized = false;
+    var choice = null;
+    try { choice = localStorage.getItem(key); } catch (e) {}
+
+    function enable() {
+      if (enabled) return;
+      enabled = true;
+      window["ga-disable-" + id] = false;
+      if (initialized) return;
+      initialized = true;
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function () { if (enabled) window.dataLayer.push(arguments); };
+      window.gtag("consent", "default", {
+        analytics_storage: "granted", ad_storage: "denied",
+        ad_user_data: "denied", ad_personalization: "denied"
+      });
+      window.gtag("js", new Date());
+      window.gtag("config", id, {
+        allow_google_signals: false, allow_ad_personalization_signals: false
+      });
+      var script = document.createElement("script");
+      script.async = true;
+      script.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
+      document.head.appendChild(script);
+      if (window.location.pathname === "/") window.gtag("event", "landing_page_viewed");
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var panel = document.getElementById("ffAnalyticsChoice");
+      var status = document.getElementById("ffAnalyticsStatus");
+      var settings = document.getElementById("ffAnalyticsSettings");
+      function render() {
+        panel.hidden = choice === "granted" || choice === "denied";
+        status.textContent = choice === "granted" ? "Analytics allowed" : "Analytics off";
+      }
+      function choose(next) {
+        choice = next;
+        try { localStorage.setItem(key, next); } catch (e) {}
+        if (next === "granted") enable();
+        else if (enabled) {
+          window["ga-disable-" + id] = true;
+          enabled = false;
+        }
+        render();
+      }
+      document.getElementById("ffAnalyticsAllow").addEventListener("click", function () { choose("granted"); });
+      document.getElementById("ffAnalyticsDecline").addEventListener("click", function () { choose("denied"); });
+      settings.addEventListener("click", function () { panel.hidden = !panel.hidden; });
+      if (choice === "granted") enable();
+      render();
+    });
+  })();
+</script>
+{{- end }}

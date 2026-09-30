@@ -56,7 +56,7 @@ summaryLength = 30
 
 [services]
   [services.googleAnalytics]
-    ID = ""
+    ID = "G-XX9ZJKDNEC"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]

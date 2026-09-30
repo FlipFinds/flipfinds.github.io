@@ -1,3 +1,13 @@
+{{- if site.Config.Services.GoogleAnalytics.ID }}
+<aside style="max-width: var(--main-width); margin: 1rem auto; padding: 1rem; color: var(--primary); background: var(--entry); border: 1px solid var(--border); border-radius: var(--radius);" aria-label="Website analytics preferences">
+  <div id="ffAnalyticsChoice">
+    <p>Allow Google Analytics to help us understand visits, calculator use, and download clicks? Your calculator amounts are not sent. <a href="/pages/privacy/#website-analytics">Privacy details</a></p>
+    <button id="ffAnalyticsAllow" type="button" style="padding: .6rem; text-decoration: underline;">Allow analytics</button>
+    <button id="ffAnalyticsDecline" type="button" style="padding: .6rem; text-decoration: underline;">No thanks</button>
+  </div>
+  <span id="ffAnalyticsStatus">Analytics off</span> · <button id="ffAnalyticsSettings" type="button" style="text-decoration: underline;">Analytics settings</button>
+</aside>
+{{- end }}
 <script>
   (function () {
     var COUNT_API_BASE = "https://countapi.mileshilliard.com/api/v1";
@@ -141,7 +151,6 @@
     });
 
     trackPageViewOncePerLoad();
-    if (window.location.pathname === "/") trackWebEvent("landing_page_viewed");
   })();
 </script>
 <script>
