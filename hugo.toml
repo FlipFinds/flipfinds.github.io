@@ -45,7 +45,7 @@ summaryLength = 30
     name = "FlipFinds Team"
     email = "support@parasdigital.net"
   [params.analytics.google]
-    SiteVerificationTag = ""
+    SiteVerificationTag = "8LP8V_IDTUfadYf9D-xqpbdz2dxGU1aGSVPwl5wUYCU"
   [params.analytics.bing]
     SiteVerificationTag = ""
   [params.analytics.yandex]
