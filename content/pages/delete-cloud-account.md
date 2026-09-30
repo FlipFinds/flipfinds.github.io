@@ -1,7 +1,7 @@
 +++
 title = "Delete your FlipFinds Cloud Workspace account"
 date = 2026-09-27T00:00:00Z
-draft = true
+draft = false
 description = "Request deletion of your FlipFinds Cloud Workspace account and cloud data."
 +++
 
