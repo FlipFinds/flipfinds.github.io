@@ -15,7 +15,7 @@
         var host = (u.hostname || "").toLowerCase();
         var path = (u.pathname || "").toLowerCase();
         if (host.indexOf("play.google.com") !== -1 && u.search.indexOf("id=com.flipfinds.app") !== -1) return "play";
-        if (host.indexOf("apps.apple.com") !== -1 && path.indexOf("/flipfinds-resale-tracker/") !== -1) return "appstore";
+        if (host === "apps.apple.com" && path.indexOf("/id6757338338") !== -1) return "appstore";
       } catch (e) {
         return null;
       }
@@ -28,7 +28,7 @@
       try {
         var u = new URL(href, window.location.origin);
         var host = (u.hostname || "").toLowerCase();
-        if (host !== "flipfinds.parasdigital.net") return null;
+        if (host !== window.location.hostname.toLowerCase() || u.pathname !== "/") return null;
         var medium = (u.searchParams.get("utm_medium") || "").toLowerCase();
         if (medium === "nav") return "nav";
         if (medium === "start_here") return "start_here";
