@@ -5,21 +5,33 @@ draft = false
 description = "FlipFinds privacy policy."
 +++
 
-Last updated: April 28, 2026
+Last updated: September 29, 2026
 
-FlipFinds is built with a privacy-first philosophy. Your sourcing data and business inventory should belong to you.
+FlipFinds can be used locally without creating a Cloud Workspace account. Cloud Workspace is optional and lets you sync inventory between devices.
 
 ## Data collection
 
-FlipFinds does not require you to create an account for the core product workflow.
+The core inventory workflow does not require an account. If you connect Cloud Workspace, FlipFinds uses Firebase Authentication with your chosen sign-in method, including Google or Apple where available. A FlipFinds Cloud Workspace account is created for that sign-in, even though you use an existing Google or Apple identity.
 
 ## Local storage
 
-Data you enter into the app, including scanned items, profit calculations, and inventory lists, is stored locally on your device.
+Items you enter, photos you take or select, and inventory records are stored on your device. Deleting a Cloud Workspace account does not remove copies that remain only on a device.
+
+## Optional Cloud Workspace
+
+When you connect Cloud Workspace, inventory records are copied to Firebase so they can sync across your signed-in devices. If you enable cloud photo backup and have access to that feature, backed-up photos are stored in Firebase Storage. FlipFinds uses account and upload records to operate, secure, and troubleshoot these features.
+
+Disconnecting Cloud Workspace on a device stops its sync; it does not delete the cloud account or its saved data. To request deletion, use the in-app deletion option when available or the [Cloud Workspace deletion request page](/pages/delete-cloud-account/).
+
+## Purchases, ads, and connected services
+
+FlipFinds uses RevenueCat and the App Store or Google Play to manage Pro purchases and restore access. Deleting Cloud Workspace does not cancel a store subscription. The app also uses Google Mobile Ads for ads where shown.
+
+If you use product lookups or other connected features, the information needed for the request is sent to the service providing it.
 
 ## External requests
 
-To provide pricing information and related product lookups, the app may perform anonymous external data requests that do not include direct personal identity fields.
+These services may process device, transaction, account, or usage information needed to provide their features.
 
 ## Contact
 
