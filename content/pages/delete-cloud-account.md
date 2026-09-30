@@ -15,6 +15,6 @@ We will verify that you control the account, tell you when to expect completion,
 
 ## What deletion means
 
-Deletion removes your FlipFinds Cloud Workspace account and associated cloud inventory and backed-up photos. It does not delete your Google, Apple, or eBay account. Items and original photos saved only on your phone are outside the cloud account and remain on that device.
+Deletion removes your FlipFinds Cloud Workspace account and associated cloud inventory and backed-up photos. It does not delete your Google or Apple account. Items and original photos saved only on your phone are outside the cloud account and remain on that device.
 
 Deleting Cloud Workspace does not cancel a Pro subscription. Cancel an active subscription in the App Store or Google Play if you no longer want to be billed.

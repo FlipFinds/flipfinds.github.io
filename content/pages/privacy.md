@@ -27,7 +27,7 @@ Disconnecting Cloud Workspace on a device stops its sync; it does not delete the
 
 FlipFinds uses RevenueCat and the App Store or Google Play to manage Pro purchases and restore access. Deleting Cloud Workspace does not cancel a store subscription. The app also uses Google Mobile Ads for ads where shown.
 
-If you choose to connect eBay, FlipFinds stores the connection needed to access that service. If you use product lookups or other connected features, the information needed for the request is sent to the service providing it.
+If you use product lookups or other connected features, the information needed for the request is sent to the service providing it.
 
 ## External requests
 
