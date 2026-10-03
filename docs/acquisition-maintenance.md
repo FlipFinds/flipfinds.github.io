@@ -21,6 +21,8 @@ node --test tests/*.test.cjs
 
 Set `SITE_BUILD` if the build destination differs from `public`. Run `node --check` on each `assets/js/*.js` file. No package lint command is configured in this Hugo repository; syntax checks, the site validator and focused math/privacy tests are the release checks. Pull requests build and validate; deployment is restricted to the existing main/manual workflow.
 
+When working inside the app checkout, its existing ESLint can also check these scripts and tests. Browser/CommonJS globals are explicitly declared in the standalone scripts. Scope that lint run to website source; the app-wide command also includes generated review builds and unrelated app code.
+
 The site validator checks canonical sitemap entries, indexability, unique titles/descriptions, one H1, internal targets/fragments, image alt text, schema JSON and breadcrumb positions, and reachability from home. It also reports images missing dimensions. It does not prove Google rich-result eligibility or production HTTP redirects.
 
 Check simulated mobile performance and visually inspect home, calculator, product and resource pages. Scores alone can miss contrast/layout problems. Check blank/zero/loss inputs, fee boundaries, keyboard controls, consent decline/allow/revoke, and store URLs. Physical iOS/Android store opening, Smart App Banner and a fresh Play install require devices.
