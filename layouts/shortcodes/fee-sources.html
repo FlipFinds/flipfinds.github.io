@@ -1,0 +1,2 @@
+<p>Sources checked {{ site.Data.fees.verified }} for {{ site.Data.fees.region }}. Recheck for your category and account before relying on a preset.</p>
+<ul>{{ range $name, $preset := site.Data.fees.presets }}{{ with $preset.source }}<li><a href="{{ . }}" rel="noopener">{{ $name | title }} official fee guidance</a>: {{ $preset.note }}</li>{{ end }}{{ end }}</ul>

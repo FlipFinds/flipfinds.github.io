@@ -140,6 +140,7 @@
 
     .ff-landing-badge-img {
       display: block;
+      width: auto;
     }
 
     .ff-landing-store-apple .ff-landing-badge-img {
@@ -433,58 +434,56 @@
     }
   </style>
 
+{{ $shot1 := (resources.Get "images/landing/image1.jpeg").Resize "480x webp q78" }}
+{{ $shot4 := (resources.Get "images/landing/image4.jpeg").Resize "480x webp q78" }}
+{{ $shot5 := (resources.Get "images/landing/image5.jpeg").Resize "480x webp q78" }}
   <div class="ff-landing-container">
     <header class="ff-landing-header">
       <a class="ff-landing-brand" href="/">
-        <img src="/images/app-icon.png" alt="FlipFinds Logo">
+        {{ $logo := (resources.Get "images/app-icon.png").Resize "88x88 webp q80" }}<img src="{{ $logo.RelPermalink }}" width="44" height="44" alt="FlipFinds">
         FlipFinds
       </a>
-      <nav class="ff-landing-nav-links">
-        <a href="#how">How it works</a>
-        <a href="/calculator/">Calculator</a>
-        <a href="#faq">FAQ</a>
-        <a href="/posts/?utm_source=flipfinds_site&utm_medium=nav&utm_campaign=blog_crosslink">Reseller Blog</a>
-      </nav>
+      {{ partial "acquisition-nav.html" . }}
       <div class="ff-landing-pill">iOS &amp; Android Live</div>
     </header>
 
     <div class="ff-landing-hero">
       <div>
-        <h1 class="ff-landing-title">Scan items.<br>Snapshot market.<br>Know your profit.</h1>
+        <h1 class="ff-landing-title">Track your inventory.<br>Know your profit.</h1>
         <p class="ff-landing-subtitle">
-          The ultimate toolkit for high-volume resellers. Get <strong>active listing median pricing</strong>
-          and instant ROI calculations in one scan.
+          For resellers turning thrift finds into listings. Research a possible buy, estimate costs,
+          and keep inventory and recorded sale results together in FlipFinds.
         </p>
-        <div class="ff-landing-cta-group">
-          <a href="https://apps.apple.com/us/app/flipfinds/id6757338338" class="ff-landing-badge-link ff-landing-store-apple" target="_blank" rel="noopener">
-            <img src="/images/store-badges/download-on-the-app-store.svg" alt="Download on the App Store" class="ff-landing-badge-img">
+        <div class="ff-landing-cta-group" data-ff-store-group>{{ if and site.Data.acquisition.webSignupEnabled site.Data.acquisition.webSignupUrl }}<a href="{{ site.Data.acquisition.webSignupUrl }}" data-ff-platform="web" data-source="home_web" class="ff-landing-text-cta">Start on web</a>{{ end }}
+          <a href="{{ partial "store-url.html" (dict "page" . "platform" "ios") }}" data-ff-platform="ios" data-source="home_hero" class="ff-landing-badge-link ff-landing-store-apple" target="_blank" rel="noopener">
+            <img src="/images/store-badges/download-on-the-app-store.svg" alt="Download on the App Store" class="ff-landing-badge-img" width="120" height="40">
           </a>
-          <a href="https://play.google.com/store/apps/details?id=com.flipfinds.app" class="ff-landing-badge-link ff-landing-store-google" target="_blank" rel="noopener">
-            <img src="/images/store-badges/google-play-badge.png" alt="Get it on Google Play" class="ff-landing-badge-img">
+          <a href="{{ partial "store-url.html" (dict "page" . "platform" "android") }}" data-ff-platform="android" data-source="home_hero" class="ff-landing-badge-link ff-landing-store-google" target="_blank" rel="noopener">
+            <img src="/images/store-badges/google-play-badge.png" alt="Get it on Google Play" class="ff-landing-badge-img" width="155" height="60">
           </a>
-          <a href="/calculator/?utm_source=flipfinds_site&utm_medium=hero&utm_campaign=calculator_crosslink" class="ff-landing-text-cta" data-ff-track="hero_profit_calculator">Try the profit calculator</a>
+          <a href="/calculator/" class="ff-landing-text-cta" data-ff-track="hero_profit_calculator">Try the profit calculator</a>
         </div>
         <div class="ff-landing-trust-line">
-          <span class="ff-landing-trust-tag">No account required</span>
+          <span class="ff-landing-trust-tag">No account for local inventory</span>
           <span class="ff-landing-trust-tag">Fast in-store decisions</span>
-          <span class="ff-landing-trust-tag">Private local storage</span>
+          <span class="ff-landing-trust-tag">Optional connected Cloud</span>
         </div>
       </div>
 
       <div class="ff-landing-showcase">
         <div class="ff-landing-device-frame">
-          <img id="ffLandingMainShot" src="/images/landing/image5.jpeg" class="ff-landing-main-shot" alt="App Preview">
-          <div id="ffLandingCaption" class="ff-landing-device-cap">Home • Add items in seconds</div>
+          <img id="ffLandingMainShot" src="{{ $shot5.RelPermalink }}" class="ff-landing-main-shot" alt="FlipFinds home screen with inventory and item actions" fetchpriority="high" width="{{ $shot5.Width }}" height="{{ $shot5.Height }}" decoding="async">
+          <div id="ffLandingCaption" class="ff-landing-device-cap">Home - Add your next item</div>
         </div>
         <div class="ff-landing-picker">
-          <button type="button" class="ff-landing-thumb is-active" data-ff-landing-shot="/images/landing/image5.jpeg" data-ff-landing-cap="Home • Add items in seconds" aria-label="Show home preview">
-            <img src="/images/landing/image5.jpeg" alt="Home preview thumbnail">
+          <button type="button" class="ff-landing-thumb is-active" data-ff-landing-shot="{{ $shot5.RelPermalink }}" data-ff-landing-cap="Home - Add your next item" aria-label="Show home preview" aria-pressed="true">
+            <img src="{{ $shot5.RelPermalink }}" alt="Home preview thumbnail" loading="lazy" width="{{ $shot5.Width }}" height="{{ $shot5.Height }}" decoding="async">
           </button>
-          <button type="button" class="ff-landing-thumb" data-ff-landing-shot="/images/landing/image4.jpeg" data-ff-landing-cap="Profit • After fees and shipping" aria-label="Show profit preview">
-            <img src="/images/landing/image4.jpeg" alt="Profit preview thumbnail">
+          <button type="button" class="ff-landing-thumb" data-ff-landing-shot="{{ $shot4.RelPermalink }}" data-ff-landing-cap="Profit - After fees and shipping" aria-label="Show profit preview" aria-pressed="false">
+            <img src="{{ $shot4.RelPermalink }}" alt="Profit preview thumbnail" loading="lazy" width="{{ $shot4.Width }}" height="{{ $shot4.Height }}" decoding="async">
           </button>
-          <button type="button" class="ff-landing-thumb" data-ff-landing-shot="/images/landing/image1.jpeg" data-ff-landing-cap="Analytics • Track your growth" aria-label="Show analytics preview">
-            <img src="/images/landing/image1.jpeg" alt="Analytics preview thumbnail">
+          <button type="button" class="ff-landing-thumb" data-ff-landing-shot="{{ $shot1.RelPermalink }}" data-ff-landing-cap="Analytics - Review recorded results" aria-label="Show analytics preview" aria-pressed="false">
+            <img src="{{ $shot1.RelPermalink }}" alt="Analytics preview thumbnail" loading="lazy" width="{{ $shot1.Width }}" height="{{ $shot1.Height }}" decoding="async">
           </button>
         </div>
       </div>
@@ -497,17 +496,17 @@
         <div class="ff-landing-card">
           <span class="ff-landing-chip">Phase 1</span>
           <h3>Scan</h3>
-          <p>Instantly scan barcodes while sourcing at thrift stores, garage sales, or retail shops.</p>
+          <p>Scan a readable barcode or use photo-assisted/manual entry. Verify the item before saving.</p>
         </div>
         <div class="ff-landing-card">
           <span class="ff-landing-chip">Phase 2</span>
           <h3>Snapshot</h3>
-          <p>Get a quick market snapshot based on median active listing prices to judge value fast.</p>
+          <p>Use available research to compare the item. Active listing prices are asking prices; check completed sales separately.</p>
         </div>
         <div class="ff-landing-card">
           <span class="ff-landing-chip">Phase 3</span>
           <h3>Profit + Save</h3>
-          <p>Calculate exact fees and ROI before you buy, then save items to your inventory.</p>
+          <p>Estimate fees, shipping and ROI before buying. Save the item, then record the actual sale result.</p>
         </div>
       </div>
     </section>
@@ -515,23 +514,29 @@
     <section class="ff-landing-section">
       <h2 class="ff-landing-section-title">Built for resellers and thrifters</h2>
       <ul class="ff-landing-bullet-list">
-        <li>Median active listing prices at a glance for fast snapshots.</li>
+        <li>Active listing snapshots where available, with completed-sales research as a separate check.</li>
         <li>Estimate fees, profit, and ROI before you hit the register.</li>
         <li>Manage active, sold, and historical items in one place.</li>
         <li>Optimized for speed during fast, in-store decisions.</li>
-        <li>No account required, your data stays on your device.</li>
+        <li>Use local inventory without an account; optional Cloud uses a signed-in connection and transfers data to Cloud services.</li>
         <li>Track every item from the initial scan to the final sale.</li>
       </ul>
     </section>
 
+    <section class="ff-landing-section">
+      <h2 class="ff-landing-section-title">Start with one useful action</h2>
+      <p>Add one item and its purchase cost. Use an estimate to plan; update the actual numbers when it sells.</p>
+      <p><a href="/pages/start-here/">Follow the first-item setup</a> · <a href="/product/">Explore the product workflow</a> · <a href="/tools/">Use free resale tools</a> · <a href="/resources/">Check methods and resources</a></p>
+      <p><a href="/product/inventory-tracker/">Track resale inventory</a> · <a href="/product/profit-tracker/">Review profit and analytics</a> · <a href="/product/sourcing/">Check a buying decision</a> · <a href="/product/scanning/">Start with a barcode or photo</a> · <a href="/product/market-research/">Research comparable sales</a> · <a href="/product/cloud/">Understand optional Cloud</a> · <a href="/marketplaces/">Choose your seller workflow</a></p>
+    </section>
     <section id="faq" class="ff-landing-section ff-landing-faq">
       <h2 class="ff-landing-section-title">Frequently Asked Questions</h2>
       <details>
         <summary>Does FlipFinds show sold comps?</summary>
         <div class="ff-landing-faq-content">
-          Yes. While the primary scan gives you an instant active median snapshot for speed, you can
-          deep-dive further any time. Just tap the Sold Comps button in the app to see what similar
-          items have recently sold for on eBay.
+          Use the app’s Sold Comps research path to check comparable completed sales where available.
+          Active listing medians summarize asking prices, not confirmed sale prices. Match model,
+          condition and shipping before using either signal; research coverage can vary.
         </div>
       </details>
       <details>
@@ -544,26 +549,26 @@
       <details>
         <summary>Do I need an account?</summary>
         <div class="ff-landing-faq-content">
-          No. FlipFinds works without an account. Your tracked data is stored locally on your mobile device.
+          Local inventory works without an account. Optional Cloud requires sign-in and sends connected inventory data to Cloud services. Photo backup availability and status are separate; check Settings to confirm what is backed up.
         </div>
       </details>
     </section>
 
     <footer class="ff-landing-footer">
       <h2 class="ff-landing-section-title" style="margin-bottom:24px;">Ready to source smarter?</h2>
-      <div class="ff-landing-cta-group" style="justify-content:center; margin-bottom:40px;">
-        <a href="https://apps.apple.com/us/app/flipfinds/id6757338338" class="ff-landing-badge-link ff-landing-store-apple" target="_blank" rel="noopener">
-          <img src="/images/store-badges/download-on-the-app-store.svg" alt="Download on the App Store" class="ff-landing-badge-img">
+      <div class="ff-landing-cta-group" data-ff-store-group style="justify-content:center; margin-bottom:40px;">{{ if and site.Data.acquisition.webSignupEnabled site.Data.acquisition.webSignupUrl }}<a href="{{ site.Data.acquisition.webSignupUrl }}" data-ff-platform="web" data-source="home_web" class="ff-landing-text-cta">Start on web</a>{{ end }}
+        <a href="{{ partial "store-url.html" (dict "page" . "platform" "ios") }}" data-ff-platform="ios" data-source="home_footer" class="ff-landing-badge-link ff-landing-store-apple" target="_blank" rel="noopener">
+          <img src="/images/store-badges/download-on-the-app-store.svg" alt="Download on the App Store" class="ff-landing-badge-img" width="120" height="40">
         </a>
-        <a href="https://play.google.com/store/apps/details?id=com.flipfinds.app" class="ff-landing-badge-link ff-landing-store-google" target="_blank" rel="noopener">
-          <img src="/images/store-badges/google-play-badge.png" alt="Get it on Google Play" class="ff-landing-badge-img">
+        <a href="{{ partial "store-url.html" (dict "page" . "platform" "android") }}" data-ff-platform="android" data-source="home_footer" class="ff-landing-badge-link ff-landing-store-google" target="_blank" rel="noopener">
+          <img src="/images/store-badges/google-play-badge.png" alt="Get it on Google Play" class="ff-landing-badge-img" width="155" height="60">
         </a>
       </div>
       <p class="ff-landing-footer-links">
-        <a href="/calculator/?utm_source=flipfinds_site&utm_medium=footer&utm_campaign=calculator_crosslink" data-ff-track="footer_profit_calculator">Profit Calculator</a>
-        <a href="/guides/?utm_source=flipfinds_site&utm_medium=footer&utm_campaign=blog_crosslink" data-ff-track="blog_footer_guides">Reseller Guides</a>
-        <a href="/posts/?utm_source=flipfinds_site&utm_medium=footer&utm_campaign=blog_crosslink" data-ff-track="blog_footer_posts">Blog Posts</a>
-        <a href="/pages/privacy/">Privacy Policy</a>
+        <a href="/calculator/" data-ff-track="footer_profit_calculator">Profit Calculator</a>
+        <a href="/guides/" data-ff-track="blog_footer_guides">Reseller Guides</a>
+        <a href="/posts/" data-ff-track="blog_footer_posts">Blog Posts</a>
+        <a href="/pages/about/">About</a> <a href="/pages/contact/">Support</a> <a href="/pages/privacy/">Privacy Policy</a> <a href="/pages/terms/">Terms</a> <a href="/pricing/">App options</a>
         Support: <a href="mailto:support@parasdigital.net" style="color:#fff;">support@parasdigital.net</a><br><br>
         &copy; 2026 FlipFinds. Built for the modern reselling community.
       </p>

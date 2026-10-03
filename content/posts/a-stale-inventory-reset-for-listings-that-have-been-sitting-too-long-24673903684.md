@@ -2,51 +2,29 @@
 title = "A Stale Inventory Reset for Listings That Have Been Sitting Too Long"
 date = 2026-04-20T15:03:35Z
 draft = false
-description = "A workflow for deciding whether to reprice, relist, bundle, or clear stale listings without making random cleanup choices."
-summary = "A reset process for stale inventory so old listings stop absorbing attention, storage space, and working capital."
+description = "Diagnose older listings before choosing a price adjustment, better presentation, additional research or a different selling route."
+summary = "Diagnose older listings before choosing a price adjustment, better presentation, additional research or a different selling route."
 tags = ["inventory", "stale", "sell-through", "workflow"]
+lastmod = 2026-10-03T00:00:00Z
+related = ["guides", "calculator/break-even", "product/market-research"]
 +++
 
-Stale inventory cleanup starts slipping the moment inventory moves faster than the process around it.
-A 18 minutes operating pass is usually enough to get control back without adding another tool.
+An older listing needs a diagnosis before it needs a discount. Age alone does not identify whether the problem is demand, presentation, condition or price.
 
-Use this as a working SOP for stale inventory cleanup. It is built to keep listings older than 45 days visible and keep stale count down week over week and sell-through above 40% on track. Keep the inventory, margin, and tracking signals visible enough to act on before the next batch or sourcing stop.
+## Check the record first
 
-## Example from a reseller week
+Confirm that the item is still available and its status is current. Verify the model, size and condition in the listing. An item already sold elsewhere needs a status correction, not another price experiment.
 
-One part-time seller repriced 7 listings, bundled 4 items, and delisted 2 slow pieces after a 45-day stale check on Sunday night.
-That is the point of the routine: one pass, one decision per item, and less random cleanup later.
-## The 15-minute weekly routine
+## Inspect the buyer-facing evidence
 
-1. **Step 1.** Pull every listing older than 45 days into one review view.
-2. **Step 2.** Choose a single action for each stale item: reprice, relist, bundle, or clear.
-3. **Step 3.** Handle the highest-cost stale items first so cash is not trapped in the wrong shelves.
-4. **Step 4.** Write the reason each item went stale so next week starts with better buying filters.
-5. **Checkpoint.** Finish with one metric note so next week starts with a real baseline against stale count down week over week and sell-through above 40%.
-## Common mistakes to avoid
+Review the main photo, title and relevant item specifics. Compare completed-sale evidence for genuinely similar items. Active listings can show competition but cannot prove that your price will sell.
 
-1. Treating every stale item as a pricing problem.
-2. Ignoring stale inventory because new sourcing feels more productive.
-3. Changing photos, price, and title all at once with no clear signal.
-## Weekly scorecard
+If there is little comparable history, keep that uncertainty visible. A universal 30-day or 45-day cutoff would ignore category differences and seasonal stock.
 
-Track these each week:
+## Choose one change you can explain
 
-1. Items older than 45 days
-2. Stale listings repriced or relisted this week
-3. High-cost stale units still tying up cash
-4. Items cleared from storage after the reset
+Retake unclear photos, correct a missing detail, or review a price against both market evidence and your cost floor. Change one relevant problem first so the result is easier to interpret.
 
-Keep the scorecard short enough to update every week and specific enough to show whether inventory, profit, or sell-through is actually improving.
-## Next step
+Before accepting a lower offer, calculate what remains after fees and shipping. You may decide to recover part of the tied-up cash, but call the outcome what it is rather than disguising a loss as profit.
 
-Run a stale reset on one category this week and keep notes on what actually moved after the change.
-Keep the rule simple: one threshold, one metric, and one action you will repeat next week.
-If you want this workflow in an app, install FlipFinds and run it during your weekly review.
-## Related reading
-
-Related reading to build the same habit into your week:
-
-- [Start Here](/pages/start-here/)
-- [The Reseller Intake SOP: From Bag to Listed Without Losing Items](/posts/the-reseller-intake-sop-from-bag-to-listed-without-losing-items-23777004652/)
-- [How to Set a Minimum Profit Rule Before You Buy](/posts/how-to-set-a-minimum-profit-rule-before-you-buy-22292621808/)
+Record the change and the review date. If no defensible listing improvement exists, consider a different route based on your own constraints.
