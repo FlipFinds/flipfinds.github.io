@@ -49,3 +49,22 @@ test('device routing prefers the appropriate store and changes desktop only when
  assert.equal(preferred('Android',0,false),'android');assert.equal(preferred('iPhone',0,false),'ios');assert.equal(preferred('Macintosh',5,false),'ios');
  assert.equal(preferred('Windows',0,false),null);assert.equal(preferred('Windows',0,true),'web');
 });
+
+test('acquisition clicks emit the correct event and placement without item amounts',()=>{
+ const script=fs.readFileSync('assets/js/acquisition.js','utf8');
+ const events=[];let click;
+ vm.runInNewContext(script,{
+  window:{FFAcquisition:config,ffTrack:(name,payload)=>events.push({name,payload})},
+  navigator:{userAgent:'Windows',maxTouchPoints:0},location:{origin:'https://flipfinds.net'},URL,
+  document:{querySelectorAll:()=>[],addEventListener:(name,fn)=>{if(name==='click')click=fn;}}
+ });
+ function follow(href,dataset){const link={href,dataset};click({target:{closest:()=>link}});}
+ follow(config.ios,{source:'home_hero'});
+ follow(config.android,{source:'calculator_result'});
+ follow('https://flipfinds.net/downloads/flipfinds-inventory-template.xlsx',{resource:'inventory_template',source:'resource_page',itemTitle:'Private',cost:'99'});
+ follow('https://flipfinds.net/download/',{source:'nav_download'});
+ assert.deepEqual(events.map(e=>e.name),['ios_app_store_cta_clicked','android_play_store_cta_clicked','resource_downloaded','internal_navigation_clicked']);
+ assert.deepEqual(events.map(e=>e.payload.cta_placement),['home_hero','calculator_result','resource_page','nav_download']);
+ assert.equal(events[2].payload.resource_name,'inventory_template');
+ assert.equal(events[2].payload.itemTitle,undefined);assert.equal(events[2].payload.cost,undefined);
+});

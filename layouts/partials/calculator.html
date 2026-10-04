@@ -1,32 +1,24 @@
 <section class="ff-calc-shell{{ if .Params.embed }} ff-embed{{ end }}">
   <style>
     :root {
-      --ff-calc-bg: #030712;
-      --ff-calc-emerald: #10b981;
-      --ff-calc-emerald-glow: rgba(16, 185, 129, 0.15);
-      --ff-calc-surface: rgba(255, 255, 255, 0.03);
-      --ff-calc-surface-hover: rgba(255, 255, 255, 0.05);
-      --ff-calc-border: rgba(255, 255, 255, 0.08);
-      --ff-calc-text: #f8fafc;
-      --ff-calc-muted: #94a3b8;
-      --ff-calc-muted-soft: #cbd5e1;
-      --ff-calc-good: #34d399;
-      --ff-calc-warn: #f59e0b;
-      --ff-calc-risk: #fb7185;
+      --ff-calc-bg: var(--ff-brand-bg);
+      --ff-calc-emerald: var(--ff-brand-primary);
+      --ff-calc-emerald-glow: var(--ff-brand-border);
+      --ff-calc-surface: var(--ff-brand-surface);
+      --ff-calc-surface-hover: var(--ff-brand-surface-alt);
+      --ff-calc-border: var(--ff-brand-border);
+      --ff-calc-text: var(--ff-brand-text);
+      --ff-calc-muted: var(--ff-brand-muted);
+      --ff-calc-muted-soft: var(--ff-brand-muted);
+      --ff-calc-good: var(--ff-brand-success);
+      --ff-calc-warn: var(--ff-brand-text);
+      --ff-calc-risk: var(--ff-brand-danger);
     }
 
     .ff-calc-shell {
-      position: relative;
-      left: 50%;
-      right: 50%;
-      width: 100vw;
-      margin-left: -50vw;
-      margin-right: -50vw;
+      width: 100%;
       color: var(--ff-calc-text);
-      background:
-        radial-gradient(circle at 0% 0%, var(--ff-calc-emerald-glow) 0%, transparent 40%),
-        radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.02) 0%, transparent 38%),
-        var(--ff-calc-bg);
+      background: var(--ff-calc-bg);
       line-height: 1.6;
       overflow-x: hidden;
     }
@@ -37,9 +29,9 @@
     }
 
     .ff-calc-container {
-      max-width: 1120px;
+      max-width: 1072px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0;
     }
 
     .ff-calc-header {
@@ -54,7 +46,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      color: #fff;
+      color: var(--ff-brand-text);
       text-decoration: none;
       font-weight: 800;
       font-size: 22px;
@@ -85,7 +77,7 @@
 
     .ff-calc-nav a:hover,
     .ff-calc-nav a.ff-calc-nav-active {
-      color: #fff;
+      color: var(--ff-brand-text);
     }
 
     .ff-calc-pill {
@@ -109,7 +101,7 @@
       border-radius: 12px;
       border: 1px solid var(--ff-calc-border);
       background: var(--ff-calc-surface);
-      color: #fff;
+      color: var(--ff-brand-text);
       text-decoration: none;
       font-weight: 600;
       transition: 0.2s ease;
@@ -117,18 +109,18 @@
 
     .ff-calc-button:hover {
       background: var(--ff-calc-surface-hover);
-      border-color: rgba(255, 255, 255, 0.18);
+      border-color: var(--ff-brand-border);
     }
 
     .ff-calc-button-primary {
-      background: linear-gradient(135deg, #0ea56b, #10b981);
-      border-color: rgba(16, 185, 129, 0.8);
-      color: #03130f;
+      background: var(--ff-brand-primary);
+      border-color: var(--ff-brand-border);
+      color: var(--ff-brand-surface);
     }
 
     .ff-calc-button-primary:hover {
-      background: linear-gradient(135deg, #12b778, #34d399);
-      border-color: rgba(52, 211, 153, 0.9);
+      background: var(--ff-brand-primary);
+      border-color: var(--ff-brand-primary);
     }
 
     .ff-calc-badge-link {
@@ -165,21 +157,19 @@
       font-size: clamp(30px, 4vw, 44px);
       line-height: 1.02;
       letter-spacing: -0.05em;
-      background: linear-gradient(135deg, #fff 38%, #64748b 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--ff-brand-text);
     }
 
     .ff-calc-workspace {
-      padding: 0 0 88px;
+      padding: 0 0 48px;
     }
 
     .ff-calc-card {
-      border-radius: 32px;
+      border-radius: var(--radius);
       border: 1px solid var(--ff-calc-border);
-      background: rgba(255, 255, 255, 0.04);
+      background: var(--ff-brand-surface);
       backdrop-filter: blur(16px);
-      box-shadow: 0 28px 60px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
       overflow: hidden;
     }
 
@@ -196,7 +186,7 @@
       margin: 0 0 8px;
       font-size: 30px;
       letter-spacing: -0.03em;
-      color: #fff;
+      color: var(--ff-brand-text);
     }
 
     .ff-calc-card-head p {
@@ -210,7 +200,7 @@
       padding: 10px 16px;
       border-radius: 999px;
       border: 1px solid var(--ff-calc-border);
-      background: rgba(255, 255, 255, 0.03);
+      background: var(--ff-brand-surface);
       color: var(--ff-calc-emerald);
       font-size: 12px;
       font-weight: 700;
@@ -243,8 +233,8 @@
       min-height: 44px;
       padding: 10px;
       border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--ff-brand-border);
+      background: var(--ff-brand-surface);
       color: var(--ff-calc-muted-soft);
       font-size: 12px;
       font-weight: 600;
@@ -253,11 +243,16 @@
       line-height: 1.2;
     }
 
-    .ff-calc-preset.is-active,
     .ff-calc-preset:hover {
-      color: #fff;
-      border-color: rgba(255, 255, 255, 0.22);
-      background: rgba(255, 255, 255, 0.08);
+      color: var(--ff-brand-primary);
+      border-color: var(--ff-brand-primary);
+      background: var(--ff-brand-surface-note);
+    }
+
+    .ff-calc-preset.is-active {
+      color: var(--ff-brand-surface);
+      border-color: var(--ff-brand-primary);
+      background: var(--ff-brand-primary);
     }
 
     .ff-calc-groups {
@@ -268,14 +263,14 @@
 
     .ff-calc-group {
       padding: 22px;
-      border-radius: 24px;
+      border-radius: var(--radius);
       border: 1px solid var(--ff-calc-border);
-      background: rgba(255, 255, 255, 0.025);
+      background: var(--ff-brand-surface-alt);
     }
 
     .ff-calc-group h3 {
       margin: 0 0 6px;
-      color: #fff;
+      color: var(--ff-brand-text);
       font-size: 18px;
     }
 
@@ -301,7 +296,7 @@
     }
 
     .ff-calc-field label {
-      color: #e2e8f0;
+      color: var(--ff-brand-text);
       font-size: 14px;
       font-weight: 600;
     }
@@ -331,9 +326,9 @@
       min-height: 56px;
       padding: 14px 16px;
       border-radius: 16px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(2, 6, 23, 0.55);
-      color: #fff;
+      border: 1px solid var(--ff-brand-border);
+      background: var(--ff-brand-surface);
+      color: var(--ff-brand-text);
       font: inherit;
     }
 
@@ -342,9 +337,10 @@
     }
 
     .ff-calc-input:focus {
-      outline: none;
-      border-color: rgba(16, 185, 129, 0.75);
-      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.12);
+      outline: 2px solid var(--ff-brand-primary);
+      outline-offset: 2px;
+      border-color: var(--ff-brand-border);
+      box-shadow: 0 0 0 3px var(--ff-brand-surface-note);
     }
 
     .ff-calc-toggle {
@@ -379,13 +375,13 @@
 
     .ff-calc-results-primary {
       padding: 24px;
-      border-radius: 24px;
-      border: 1px solid rgba(16, 185, 129, 0.28);
-      background: linear-gradient(160deg, rgba(16, 185, 129, 0.2), rgba(15, 23, 42, 0.88));
+      border-radius: var(--radius);
+      border: 1px solid var(--ff-brand-border);
+      background: var(--ff-brand-surface-note);
     }
 
     .ff-calc-results-primary .ff-calc-results-label {
-      color: rgba(255, 255, 255, 0.8);
+      color: var(--ff-brand-muted);
     }
 
     .ff-calc-results-label {
@@ -398,7 +394,7 @@
 
     .ff-calc-results-value {
       margin-top: 8px;
-      color: #fff;
+      color: var(--ff-brand-text);
       font-size: clamp(38px, 5vw, 58px);
       line-height: 0.98;
       font-weight: 800;
@@ -407,7 +403,7 @@
 
     .ff-calc-results-copy {
       margin-top: 10px;
-      color: rgba(255, 255, 255, 0.82);
+      color: var(--ff-brand-muted);
       font-size: 14px;
     }
 
@@ -419,14 +415,14 @@
 
     .ff-calc-metric {
       padding: 18px;
-      border-radius: 20px;
+      border-radius: var(--radius);
       border: 1px solid var(--ff-calc-border);
-      background: rgba(255, 255, 255, 0.03);
+      background: var(--ff-brand-surface);
     }
 
     .ff-calc-metric-value {
       margin-top: 8px;
-      color: #fff;
+      color: var(--ff-brand-text);
       font-size: 28px;
       line-height: 1.02;
       font-weight: 800;
@@ -441,9 +437,9 @@
 
     .ff-calc-rating-card {
       padding: 20px;
-      border-radius: 20px;
+      border-radius: var(--radius);
       border: 1px solid var(--ff-calc-border);
-      background: rgba(255, 255, 255, 0.03);
+      background: var(--ff-brand-surface);
     }
 
     .ff-calc-rating-pill {
@@ -458,34 +454,34 @@
     }
 
     .ff-calc-rating-good {
-      background: rgba(52, 211, 153, 0.12);
+      background: var(--ff-brand-surface-note);
       color: var(--ff-calc-good);
-      border: 1px solid rgba(52, 211, 153, 0.28);
+      border: 1px solid var(--ff-brand-success);
     }
 
     .ff-calc-rating-okay {
-      background: rgba(245, 158, 11, 0.12);
+      background: var(--ff-brand-surface-alt);
       color: var(--ff-calc-warn);
-      border: 1px solid rgba(245, 158, 11, 0.28);
+      border: 1px solid var(--ff-brand-warning);
     }
 
     .ff-calc-rating-risky {
-      background: rgba(251, 113, 133, 0.12);
+      background: var(--ff-brand-danger-soft);
       color: var(--ff-calc-risk);
-      border: 1px solid rgba(251, 113, 133, 0.28);
+      border: 1px solid var(--ff-brand-danger);
     }
 
     .ff-calc-save-card {
       padding: 24px;
-      border-radius: 24px;
-      border: 1px solid rgba(16, 185, 129, 0.32);
-      background: linear-gradient(160deg, rgba(16, 185, 129, 0.18), rgba(15, 23, 42, 0.92));
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+      border-radius: var(--radius);
+      border: 1px solid var(--ff-brand-border);
+      background: var(--ff-brand-surface-note);
+      box-shadow: inset 0 1px 0 var(--ff-brand-surface);
     }
 
     .ff-calc-save-card h3 {
       margin: 0 0 10px;
-      color: #fff;
+      color: var(--ff-brand-text);
       font-size: 24px;
       line-height: 1.1;
       letter-spacing: -0.03em;
@@ -493,7 +489,7 @@
 
     .ff-calc-save-card p {
       margin: 0 0 18px;
-      color: rgba(255, 255, 255, 0.82);
+      color: var(--ff-brand-muted);
       font-size: 15px;
     }
 
@@ -508,7 +504,7 @@
     .ff-calc-save-list li {
       display: flex;
       gap: 10px;
-      color: rgba(255, 255, 255, 0.88);
+      color: var(--ff-brand-muted);
       font-size: 14px;
     }
 
@@ -530,12 +526,12 @@
     }
 
     .ff-calc-sections {
-      padding: 0 0 88px;
+      padding: 0 0 48px;
       border-top: 1px solid var(--ff-calc-border);
     }
 
     .ff-calc-section-head {
-      padding: 72px 0 34px;
+      padding: 48px 0 24px;
       text-align: center;
     }
 
@@ -551,7 +547,7 @@
 
     .ff-calc-section-head h2 {
       margin: 0;
-      color: #fff;
+      color: var(--ff-brand-text);
       font-size: 34px;
       letter-spacing: -0.03em;
     }
@@ -564,14 +560,14 @@
 
     .ff-calc-section-card {
       padding: 24px;
-      border-radius: 24px;
+      border-radius: var(--radius);
       border: 1px solid var(--ff-calc-border);
       background: var(--ff-calc-surface);
     }
 
     .ff-calc-section-card h3 {
       margin: 0 0 10px;
-      color: #fff;
+      color: var(--ff-brand-text);
       font-size: 22px;
     }
 
@@ -631,7 +627,7 @@
       }
 
       .ff-calc-container {
-        padding: 0 18px;
+        padding: 0;
       }
 
       .ff-calc-card-head,
@@ -652,14 +648,6 @@
   </style>
 
   <div class="ff-calc-container">
-    {{ if not .Params.embed }}<header class="ff-calc-header">
-      <a class="ff-calc-brand" href="/">
-        {{ $logo := (resources.Get "images/app-icon.png").Resize "88x88 webp q80" }}<img src="{{ $logo.RelPermalink }}" width="44" height="44" alt="FlipFinds">
-        FlipFinds
-      </a>
-      {{ partial "acquisition-nav.html" . }}
-      <div class="ff-calc-pill">Free Tool</div>
-    </header>{{ end }}
 
     <section id="profit-calculator" class="ff-calc-workspace">
       <h1 class="ff-calc-page-title">{{ .Title }}</h1>
@@ -1024,13 +1012,13 @@
 
         if (profit > 0) {
           profitMeta.textContent = "Estimated positive profit after item cost, shipping, seller fees, and supplies.";
-          profitCard.style.borderColor = "rgba(16, 185, 129, 0.28)";
+          profitCard.style.borderColor = "var(--ff-brand-success)";
         } else if (profit < 0) {
           profitMeta.textContent = "This setup is currently estimating a loss after the recorded costs.";
-          profitCard.style.borderColor = "rgba(251, 113, 133, 0.32)";
+          profitCard.style.borderColor = "var(--ff-brand-danger)";
         } else {
           profitMeta.textContent = "This setup is currently estimating a break-even result.";
-          profitCard.style.borderColor = "rgba(255, 255, 255, 0.18)";
+          profitCard.style.borderColor = "var(--ff-brand-border)";
         }
 
         if (resultMode === "break_even") {

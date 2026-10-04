@@ -1,7 +1,10 @@
-{{ if and (not .IsHome) (not (.Param "hideFooter")) }}
-<footer class="footer">
-  <p>&copy; {{ now.Year }} FlipFinds, operated by Paras Digital LLC.</p>
-  <p><a href="/pages/about/">About</a> | <a href="/pages/contact/">Support</a> | <a href="/pages/privacy/">Privacy</a> | <a href="/pages/terms/">Terms</a> | <a href="/pricing/">App options</a></p>
+{{ if not (.Param "hideFooter") }}
+<footer class="footer ff-site-footer">
+  <div class="ff-footer-grid"><div class="ff-footer-brand"><a class="ff-wordmark" href="/">FlipFinds<span aria-hidden="true">.</span></a><p>Good finds deserve<br>a clear picture.</p><small>Built for the resale workflow.</small></div>
+  <div><h2>PRODUCT</h2><a href="/product/">Explore FlipFinds</a><a href="/product/inventory-tracker/">Inventory tracking</a><a href="/product/profit-tracker/">Profit & analytics</a><a href="/pricing/">Free & Pro options</a><a href="/download/">Get the app</a></div>
+  <div><h2>LEARN & BUILD</h2><a href="/tools/">Free calculators</a><a href="/guides/">Reseller guides</a><a href="/resources/">Resources</a><a href="/marketplaces/">Seller workflows</a><a href="/posts/">All articles</a></div>
+  <div><h2>HERE TO HELP</h2><a href="/pages/start-here/">First-item setup</a><a href="/pages/about/">About FlipFinds</a><a href="/pages/contact/">Contact support</a><a href="/resources/fee-assumptions/">Calculation methods</a></div></div>
+  <div class="ff-footer-bottom"><span>&copy; {{ now.Year }} FlipFinds · Operated by Paras Digital LLC</span><div><a href="/pages/privacy/">Privacy</a><a href="/pages/terms/">Terms</a></div></div>
 </footer>
 {{ end }}
 {{- if (not site.Params.disableScrollToTop) }}
@@ -32,6 +35,9 @@
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
             var id = this.getAttribute("href").substr(1);
+            if (id === "main-content") {
+                document.getElementById(id).focus({ preventScroll: true });
+            }
             if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                 document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
                     behavior: "smooth"

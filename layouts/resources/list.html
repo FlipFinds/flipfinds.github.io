@@ -1,0 +1,5 @@
+{{ define "main" }}
+<header class="ff-hub-header">{{ partial "breadcrumbs.html" . }}<p class="ff-eyebrow">THE RESOURCE LIBRARY</p><h1>Useful tools.<br>Something to build on.</h1><p>Free reseller resources and calculation methods. Keep a record, share a calculator, or look closer at the numbers behind an estimate.</p></header>
+{{ partial "hub-cards.html" (dict "items" site.Data.design_hubs.resources "action" "Explore resource") }}
+<aside class="ff-method-note"><h2>Need an answer right now?</h2><p>Check a potential buy with the <a href="/tools/">free calculators</a>. For ongoing item records, <a href="/product/">explore the FlipFinds workflow</a>.</p></aside>
+{{ end }}
