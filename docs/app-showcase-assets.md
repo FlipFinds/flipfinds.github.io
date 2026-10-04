@@ -6,7 +6,7 @@ The homepage and product hub use `assets/images/app/inventory.png`, `item-profit
 
 Eight fictional inventory records were loaded into an initially empty local emulator store. Cloud was disabled. No customer records, production database, mobile source, purchase state or entitlements were changed. Analytics retains its actual Free-plan / Pro-locked presentation. The example bag sold for $45 with $12 cost, $6.10 fees and $6 shipping; the app calculates $20.90 realized profit and 46% rounded margin. Six sales total $111.40 profit, with two active items at $89 list value. These are examples, not customer outcomes or promised returns.
 
-Hugo generates 800-pixel-wide WebP derivatives. CSS frames the full captures and enlarges the actual profit section; no app labels or amounts were painted over. Mobile places the detail beneath the phone. Existing screenshot controls, captions and pressed states remain, with no automatic rotation or new tracking events.
+Hugo generates 640-pixel-wide WebP derivatives. CSS frames the full captures and enlarges the actual profit section; no app labels or amounts were painted over. Mobile places the detail beneath the phone. Existing screenshot controls, captions and pressed states remain, with no automatic rotation or new tracking events.
 
 ## Illustrative item photos
 
