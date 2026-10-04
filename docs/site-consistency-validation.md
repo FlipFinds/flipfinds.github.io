@@ -26,3 +26,7 @@ Shared visual rules live in `assets/css/extended/site.css`. Hub cards live in `d
 Fonts are Latin WOFF2 subsets of the app's existing Expo Google Fonts Inter (400/600) and Poppins (600) assets, approximately 53 KB combined; OFL licenses are included under `static/fonts/`. Fonts are served locally and introduce no third-party font requests. Screenshot cropping is CSS presentation of existing assets, not newly generated app screens.
 
 PR 60 is prepared for owner design review. **Do not merge or deploy without approval.** The preview runs at `http://127.0.0.1:1315/`. After approval, verify representative production pages and measurement again. Physical iPhone/Android store opening, Safari Smart App Banner and fresh-install attribution still require real devices. Existing launch follow-ups for reporting maturity and external account access are not closed by this visual redesign.
+
+## Current screenshot refresh
+
+The hero now uses fresh native Inventory, Item profit and Analytics captures with a full phone frame and a genuine item-profit detail. Fictional data is labeled, and only the example inventory photographs are generated. See [capture provenance and validation](app-showcase-assets.md). This supersedes the older screenshot-cropping description above. The earlier Lighthouse results predate the new assets; no new performance score is claimed. Build, validator, all 11 tests and scoped lint passed for the refresh; home/product layouts and controls were checked at desktop and mobile widths.
