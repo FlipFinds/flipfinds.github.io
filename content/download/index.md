@@ -7,9 +7,9 @@ hideMeta = true
 related = ["pages/start-here", "product", "tools"]
 +++
 
-Install FlipFinds on your phone to keep item costs, inventory status, and recorded sale results together. Choose the store for your device below; both options stay available if you are browsing on a computer.
+{{< store_buttons source="download_page" >}}
 
-{{< app_cta source="download_page" >}}
+Choose the store for your device. Both options stay available if you are browsing on a computer.
 
 ## Your first useful action
 

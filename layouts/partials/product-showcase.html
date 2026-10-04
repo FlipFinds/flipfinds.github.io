@@ -1,0 +1,14 @@
+{{ $home := (resources.Get "images/landing/image5.jpeg").Resize "800x webp q85" }}
+{{ $inventory := (resources.Get "images/landing/image4.jpeg").Resize "800x webp q85" }}
+{{ $analytics := (resources.Get "images/landing/image1.jpeg").Resize "800x webp q85" }}
+<div class="ff-showcase">
+  <div class="ff-showcase-label"><span class="ff-status-dot" aria-hidden="true"></span> YOUR RESALE WORKFLOW, TOGETHER</div>
+  <div class="ff-product-window"><img id="ffLandingMainShot" src="{{ $home.RelPermalink }}" alt="FlipFinds home screen with add item, scanning, inventory and analytics actions" width="{{ $home.Width }}" height="{{ $home.Height }}" fetchpriority="high" decoding="async"></div>
+  <div class="ff-showcase-controls" aria-label="App screenshots">
+    <button type="button" class="is-active" data-ff-landing-shot="{{ $home.RelPermalink }}" data-ff-landing-cap="Home · Add your next item" aria-pressed="true">Home</button>
+    <button type="button" data-ff-landing-shot="{{ $inventory.RelPermalink }}" data-ff-landing-cap="Inventory · Track items and costs" aria-pressed="false">Inventory</button>
+    <button type="button" data-ff-landing-shot="{{ $analytics.RelPermalink }}" data-ff-landing-cap="Analytics · Review recorded results" aria-pressed="false">Analytics</button>
+  </div>
+  <p id="ffLandingCaption" class="ff-showcase-caption" aria-live="polite">Home · Add your next item</p>
+  <p class="ff-showcase-note">App screenshots. Example entries shown.</p>
+</div>

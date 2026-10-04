@@ -1,0 +1,6 @@
+{{ define "main" }}
+<header class="ff-hub-header">{{ partial "breadcrumbs.html" . }}<p class="ff-eyebrow">THE FLIPFINDS TOOLKIT</p><h1>More clarity.<br>Before you commit.</h1><p>Free resale profit and sourcing tools. Choose the question you need to answer, then put your own numbers to work.</p></header>
+{{ partial "hub-cards.html" (dict "items" site.Data.design_hubs.tools "action" "Open calculator") }}
+<aside class="ff-method-note"><h2>Your inputs. Transparent assumptions.</h2><p>Every tool uses the same calculation engine. Marketplace presets are editable starting assumptions. Estimates are in US dollars, not guaranteed sale prices or marketplace invoices. Calculator amounts stay in your browser; optional analytics records tool events without those amounts.</p><a class="ff-text-link" href="/resources/fee-assumptions/">Read the methods and fee sources →</a></aside>
+{{ partial "acquisition-cta.html" (dict "page" . "placement" "tools_hub" "title" "Keep the record after the calculation.") }}
+{{ end }}
