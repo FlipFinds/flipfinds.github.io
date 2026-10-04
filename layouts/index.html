@@ -2,30 +2,22 @@
 <section class="ff-landing-shell">
   <style>
     :root {
-      --ff-bg: #030712;
-      --ff-emerald: #10b981;
-      --ff-emerald-glow: rgba(16, 185, 129, 0.15);
-      --ff-surface: rgba(255, 255, 255, 0.03);
-      --ff-surface-hover: rgba(255, 255, 255, 0.06);
-      --ff-border: rgba(255, 255, 255, 0.08);
-      --ff-text-main: #f8fafc;
-      --ff-text-muted: #94a3b8;
-      --ff-radius: 24px;
+      --ff-bg: var(--ff-brand-bg);
+      --ff-emerald: var(--ff-brand-primary);
+      --ff-emerald-glow: var(--ff-brand-border);
+      --ff-surface: var(--ff-brand-surface);
+      --ff-surface-hover: var(--ff-brand-surface-alt);
+      --ff-border: var(--ff-brand-border);
+      --ff-text-main: var(--ff-brand-text);
+      --ff-text-muted: var(--ff-brand-muted);
+      --ff-radius: var(--radius);
       --ff-ease: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .ff-landing-shell {
-      position: relative;
-      left: 50%;
-      right: 50%;
-      width: 100vw;
-      margin-left: -50vw;
-      margin-right: -50vw;
+      width: 100%;
       color: var(--ff-text-main);
       background: var(--ff-bg);
-      background-image:
-        radial-gradient(circle at 0% 0%, var(--ff-emerald-glow) 0%, transparent 40%),
-        radial-gradient(circle at 100% 100%, rgba(255, 255, 255, 0.02) 0%, transparent 40%);
       line-height: 1.6;
       overflow-x: hidden;
     }
@@ -36,9 +28,9 @@
     }
 
     .ff-landing-container {
-      max-width: 1100px;
+      max-width: 1072px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0;
     }
 
     .ff-landing-header {
@@ -52,7 +44,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      color: #fff;
+      color: var(--ff-brand-text);
       text-decoration: none;
       font-weight: 800;
       font-size: 22px;
@@ -81,7 +73,7 @@
     }
 
     .ff-landing-nav-links a:hover {
-      color: #fff;
+      color: var(--ff-brand-text);
     }
 
     .ff-landing-pill {
@@ -101,7 +93,7 @@
       grid-template-columns: 1.1fr 0.9fr;
       gap: 60px;
       align-items: center;
-      padding: 40px 0 100px;
+      padding: 0 0 64px;
     }
 
     .ff-landing-title {
@@ -109,9 +101,7 @@
       line-height: 1.05;
       letter-spacing: -0.04em;
       margin: 0 0 24px;
-      background: linear-gradient(135deg, #fff 40%, #64748b 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--ff-brand-text);
     }
 
     .ff-landing-subtitle {
@@ -160,7 +150,7 @@
       border-radius: 12px;
       border: 1px solid var(--ff-border);
       background: var(--ff-surface);
-      color: #fff;
+      color: var(--ff-brand-text);
       text-decoration: none;
       font-weight: 600;
       transition: 0.2s ease;
@@ -168,7 +158,7 @@
 
     .ff-landing-text-cta:hover {
       background: var(--ff-surface-hover);
-      border-color: rgba(255, 255, 255, 0.18);
+      border-color: var(--ff-brand-border);
     }
 
     .ff-landing-trust-line {
@@ -197,15 +187,15 @@
       border: 1px solid var(--ff-border);
       border-radius: 40px;
       padding: 12px;
-      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.6);
-      animation: ff-float 6s ease-in-out infinite;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+      animation: none;
     }
 
     .ff-landing-main-shot {
       width: 100%;
       border-radius: 30px;
       display: block;
-      background: #000;
+      background: var(--ff-brand-surface-alt);
       aspect-ratio: 10 / 18;
       object-fit: cover;
     }
@@ -215,14 +205,14 @@
       bottom: 24px;
       left: 24px;
       right: 24px;
-      background: rgba(0, 0, 0, 0.6);
+      background: var(--ff-brand-primary);
       backdrop-filter: blur(10px);
       padding: 12px;
       border-radius: 16px;
       font-size: 13px;
       text-align: center;
       border: 1px solid var(--ff-border);
-      color: #fff;
+      color: var(--ff-brand-surface);
     }
 
     .ff-landing-picker {
@@ -253,12 +243,12 @@
 
     .ff-landing-thumb.is-active {
       opacity: 1;
-      border-color: #fff;
+      border-color: var(--ff-brand-text);
       transform: scale(1.05);
     }
 
     .ff-landing-section {
-      padding: 80px 0;
+      padding: 56px 0;
       border-top: 1px solid var(--ff-border);
     }
 
@@ -266,7 +256,7 @@
       font-size: 32px;
       letter-spacing: -0.5px;
       margin: 0 0 40px;
-      color: #fff;
+      color: var(--ff-brand-text);
     }
 
     .ff-landing-center {
@@ -291,13 +281,13 @@
     .ff-landing-card {
       background: var(--ff-surface);
       border: 1px solid var(--ff-border);
-      padding: 40px;
+      padding: 24px;
       border-radius: var(--ff-radius);
       transition: 0.3s ease;
     }
 
     .ff-landing-card:hover {
-      border-color: rgba(255, 255, 255, 0.2);
+      border-color: var(--ff-brand-border);
       background: var(--ff-surface-hover);
       transform: translateY(-5px);
     }
@@ -305,7 +295,7 @@
     .ff-landing-card h3 {
       font-size: 22px;
       margin: 0 0 16px;
-      color: #fff;
+      color: var(--ff-brand-text);
     }
 
     .ff-landing-card p {
@@ -360,7 +350,7 @@
       list-style: none;
       display: flex;
       justify-content: space-between;
-      color: #fff;
+      color: var(--ff-brand-text);
     }
 
     .ff-landing-faq summary::after {
@@ -376,7 +366,7 @@
     }
 
     .ff-landing-footer {
-      padding: 100px 0 60px;
+      padding: 56px 0 0;
       text-align: center;
       border-top: 1px solid var(--ff-border);
     }
@@ -438,14 +428,6 @@
 {{ $shot4 := (resources.Get "images/landing/image4.jpeg").Resize "480x webp q78" }}
 {{ $shot5 := (resources.Get "images/landing/image5.jpeg").Resize "480x webp q78" }}
   <div class="ff-landing-container">
-    <header class="ff-landing-header">
-      <a class="ff-landing-brand" href="/">
-        {{ $logo := (resources.Get "images/app-icon.png").Resize "88x88 webp q80" }}<img src="{{ $logo.RelPermalink }}" width="44" height="44" alt="FlipFinds">
-        FlipFinds
-      </a>
-      {{ partial "acquisition-nav.html" . }}
-      <div class="ff-landing-pill">iOS &amp; Android Live</div>
-    </header>
 
     <div class="ff-landing-hero">
       <div>
@@ -554,7 +536,7 @@
       </details>
     </section>
 
-    <footer class="ff-landing-footer">
+    <section class="ff-landing-footer" aria-label="Get FlipFinds">
       <h2 class="ff-landing-section-title" style="margin-bottom:24px;">Ready to source smarter?</h2>
       <div class="ff-landing-cta-group" data-ff-store-group style="justify-content:center; margin-bottom:40px;">{{ if and site.Data.acquisition.webSignupEnabled site.Data.acquisition.webSignupUrl }}<a href="{{ site.Data.acquisition.webSignupUrl }}" data-ff-platform="web" data-source="home_web" class="ff-landing-text-cta">Start on web</a>{{ end }}
         <a href="{{ partial "store-url.html" (dict "page" . "platform" "ios") }}" data-ff-platform="ios" data-source="home_footer" class="ff-landing-badge-link ff-landing-store-apple" target="_blank" rel="noopener">
@@ -568,11 +550,8 @@
         <a href="/calculator/" data-ff-track="footer_profit_calculator">Profit Calculator</a>
         <a href="/guides/" data-ff-track="blog_footer_guides">Reseller Guides</a>
         <a href="/posts/" data-ff-track="blog_footer_posts">Blog Posts</a>
-        <a href="/pages/about/">About</a> <a href="/pages/contact/">Support</a> <a href="/pages/privacy/">Privacy Policy</a> <a href="/pages/terms/">Terms</a> <a href="/pricing/">App options</a>
-        Support: <a href="mailto:support@parasdigital.net" style="color:#fff;">support@parasdigital.net</a><br><br>
-        &copy; 2026 FlipFinds. Built for the modern reselling community.
       </p>
-    </footer>
+    </section>
   </div>
 </section>
 {{ end }}

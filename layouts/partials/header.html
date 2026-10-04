@@ -1,3 +1,3 @@
-{{- if and (not .IsHome) (ne .Section "calculator") (ne .Type "calculator") -}}
+{{- if not .Params.embed -}}
 {{- partial "header-theme.html" . -}}
 {{- end -}}

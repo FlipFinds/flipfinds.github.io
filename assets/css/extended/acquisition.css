@@ -1,6 +1,3 @@
-/* Forest & Cream tokens from the app's src/theme/brandTokens.js. */
-:root { --ff-brand-primary: #0E5739; --ff-brand-bg: #F3EEE5; --ff-brand-surface: #FFFFFF; --ff-brand-text: #1F2933; --ff-brand-muted: #4A5A5A; --ff-brand-border: #E0D2B8; }
-html[data-theme="light"] { --theme: var(--ff-brand-bg); --entry: var(--ff-brand-surface); --primary: var(--ff-brand-text); --secondary: var(--ff-brand-muted); --border: var(--ff-brand-border); }
 .ff-acquisition-nav { display:flex; flex-wrap:wrap; gap:12px 20px; font-size:15px; }
 .ff-landing-shell .ff-acquisition-nav a { color:var(--ff-text-muted); }
 .ff-calc-shell .ff-acquisition-nav a { color:var(--ff-calc-muted); }
@@ -10,14 +7,16 @@ body { overflow-x:clip; }
 .ff-acquisition-cta,.ff-related { padding:24px; margin:28px 0; border:1px solid var(--border); border-radius:12px; }
 .ff-inline-cta-actions { display:flex; align-items:center; flex-wrap:wrap; gap:12px; }
 .ff-store-badge-link { display:inline-flex; }
-.ff-acquisition-cta .ff-store-badge { width:auto; max-width:160px; height:48px; }
+.ff-acquisition-cta .ff-store-badge { width:auto; max-width:160px; }
+.ff-acquisition-cta .ff-store-badge-apple { height:44px; }
+.ff-acquisition-cta .ff-store-badge-google { height:60px; }
 .ff-acquisition-cta h2 { margin-top:0; }
 .ff-calc-shell .ff-acquisition-cta,.ff-calc-shell .ff-related { color:var(--ff-calc-text); border-color:var(--ff-calc-border); }
 .ff-calc-shell .ff-acquisition-cta h2,.ff-calc-shell .post-content h2,.ff-calc-shell .post-content h3 { color:var(--ff-calc-text); }
 .ff-calc-shell .post-content { color:var(--ff-calc-muted-soft); }
 .ff-landing-shell .ff-landing-section a { color:var(--ff-text-muted); text-decoration:underline; }
-.ff-calc-shell .ff-acquisition-cta a,.ff-calc-shell .ff-related a,.ff-calc-shell .post-content a { color:#AFCBB7; text-decoration:underline; }
-.ff-calc-shell :focus-visible,.ff-landing-shell :focus-visible { outline-color:#AFCBB7; }
+.ff-calc-shell .ff-acquisition-cta a,.ff-calc-shell .ff-related a,.ff-calc-shell .post-content a { color:var(--ff-brand-primary); text-decoration:underline; }
+.ff-calc-shell :focus-visible,.ff-landing-shell :focus-visible { outline-color:var(--ff-brand-primary); }
 .ff-embed .ff-calc-container { padding:16px; }
 .ff-embed .ff-calc-hero { padding-top:0; }
 .ff-embed .ff-calc-save-card { padding:12px; }

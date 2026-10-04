@@ -26,8 +26,10 @@ summaryLength = 30
   [params.label]
     text = "FlipFinds"
     icon = "images/app-icon.png"
-    iconHeight = 26
+    iconHeight = 44
   [params.assets]
+    theme_color = "#0E5739"
+    msapplication_TileColor = "#0E5739"
     favicon = "images/app-icon.png"
     favicon16x16 = "images/app-icon.png"
     favicon32x32 = "images/app-icon.png"

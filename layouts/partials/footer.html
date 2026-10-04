@@ -1,7 +1,7 @@
-{{ if and (not .IsHome) (not (.Param "hideFooter")) }}
+{{ if not (.Param "hideFooter") }}
 <footer class="footer">
   <p>&copy; {{ now.Year }} FlipFinds, operated by Paras Digital LLC.</p>
-  <p><a href="/pages/about/">About</a> | <a href="/pages/contact/">Support</a> | <a href="/pages/privacy/">Privacy</a> | <a href="/pages/terms/">Terms</a> | <a href="/pricing/">App options</a></p>
+  <p class="ff-footer-links"><a href="/pages/about/">About</a><a href="/pages/contact/">Support</a><a href="/pages/privacy/">Privacy</a><a href="/pages/terms/">Terms</a><a href="/pricing/">App options</a></p>
 </footer>
 {{ end }}
 {{- if (not site.Params.disableScrollToTop) }}

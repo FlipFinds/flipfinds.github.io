@@ -7,7 +7,7 @@ This remains a Hugo site using the existing GitHub Pages workflow and PaperMod t
 - `data/acquisition.json`: verified store IDs/URLs, campaign clusters, optional Apple provider token and future web entry point. Keep the Apple token empty until the real token is available. Enabling web requires both `webSignupEnabled` and an HTTPS `webSignupUrl` with a working receiving flow.
 - `data/fees.json`: US fee assumptions, authoritative sources, actual review date and threshold rules. Before a fee change, read the official sources, update both the explanatory note and applicable rule values, and test order/tier thresholds. Review before release and when a marketplace announces a change. Custom inputs remain available.
 - `layouts/partials/acquisition-cta.html`, `store-url.html`, `acquisition-related.html`: contextual conversion and linking. Front matter `related` entries identify existing page paths; do not copy calculator formulas into content pages.
-- App branding originates in the app's `src/theme/brandTokens.js`. Acquisition styles reuse Forest & Cream values and the existing dark landing/calculator presentation.
+- App branding originates in the app's `src/theme/brandTokens.js`. `assets/css/extended/site.css` mirrors its Forest & Cream colors and web font stacks. Homepage and calculator variables reference these shared values; all public pages use the same cream background, navigation and footer. Keep white cards, green actions and readable content widths consistent when adding pages. The embedded calculator intentionally omits the site navigation/footer.
 
 ## Validation
 

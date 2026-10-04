@@ -1,5 +1,5 @@
 <header class="header">
-    <nav class="nav">
+    <nav class="nav" aria-label="Main navigation">
         <div class="logo">
             {{- $label_text := (site.Params.label.text | default site.Title) }}
             {{- if site.Title }}
@@ -14,16 +14,16 @@
                     {{- $prod := (hugo.IsProduction | or (eq site.Params.env "production")) }}
                     {{- if and (in $processableFormats $img.MediaType.SubType) (eq $prod true)}}
                         {{- if site.Params.label.iconHeight }}
-                            {{- $img = $img.Resize (printf "x%d" site.Params.label.iconHeight) }}
+                            {{- $img = $img.Resize (printf "x%d" (mul 2 site.Params.label.iconHeight)) }}
                         {{ else }}
-                            {{- $img = $img.Resize "x30" }}
+                            {{- $img = $img.Resize "x88" }}
                         {{- end }}
                     {{- end }}
-                    <img src="{{ $img.Permalink }}" alt="" aria-label="logo"
-                        width="{{ $img.Width }}" height="{{- site.Params.label.iconHeight | default "30" -}}">
+                    <img src="{{ $img.RelPermalink }}" alt="" aria-label="logo"
+                        width="{{- site.Params.label.iconHeight | default "44" -}}" height="{{- site.Params.label.iconHeight | default "44" -}}">
                 {{- else }}
                 <img src="{{- site.Params.label.icon | absURL -}}" alt="" aria-label="logo"
-                    height="{{- site.Params.label.iconHeight | default "30" -}}">
+                    height="{{- site.Params.label.iconHeight | default "44" -}}">
                 {{- end -}}
                 {{- else if hasPrefix site.Params.label.iconSVG "<svg" }}
                     {{ site.Params.label.iconSVG | safeHTML }}

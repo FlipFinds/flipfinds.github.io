@@ -1,0 +1,188 @@
+/* Shared Forest & Cream values from src/theme/brandTokens.js. */
+:root {
+  --ff-brand-primary: #0E5739;
+  --ff-brand-bg: #F3EEE5;
+  --ff-brand-surface: #FFFFFF;
+  --ff-brand-surface-alt: #FDF7EC;
+  --ff-brand-surface-note: #E6F2E9;
+  --ff-brand-text: #1F2933;
+  --ff-brand-muted: #4A5A5A;
+  --ff-brand-border: #E0D2B8;
+  --ff-brand-success: #147A4B;
+  --ff-brand-danger: #B91C1C;
+  --ff-brand-danger-soft: #FEF2F2;
+  --ff-brand-warning: #F4AF4F;
+  --ff-body-font: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  --ff-heading-font: Poppins, Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  --nav-width: 1072px;
+  --main-width: 1072px;
+  --header-height: 96px;
+  --radius: 16px;
+}
+
+html[data-theme="light"] {
+  --theme: var(--ff-brand-bg);
+  --entry: var(--ff-brand-surface);
+  --primary: var(--ff-brand-text);
+  --secondary: var(--ff-brand-muted);
+  --content: var(--ff-brand-text);
+  --border: var(--ff-brand-border);
+  --code-bg: var(--ff-brand-surface-alt);
+}
+
+body, body.list {
+  background: var(--theme);
+  font-family: var(--ff-body-font);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ff-heading-font);
+  text-wrap: balance;
+}
+
+.header {
+  border-bottom: 1px solid var(--border);
+}
+
+.header .nav {
+  align-items: center;
+  gap: 16px 24px;
+  padding: 24px;
+  line-height: 1.4;
+}
+
+.header .logo, .header #menu {
+  margin: 0;
+}
+
+.header .logo a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ff-brand-primary);
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.header .logo a img {
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  transform: none;
+  border-radius: 12px;
+}
+
+.header #menu {
+  flex-wrap: wrap;
+  gap: 8px 24px;
+  overflow: visible;
+  white-space: normal;
+}
+
+.header #menu li + li {
+  margin: 0;
+}
+
+.header #menu a {
+  padding: 8px 0;
+  font-size: 15px;
+  color: var(--secondary);
+}
+
+.header #menu li:last-child a {
+  min-height: 44px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--ff-brand-primary);
+  color: var(--ff-brand-surface);
+  font-weight: 600;
+}
+
+.header #menu a:hover, .header #menu a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.main {
+  padding-top: 48px;
+  padding-bottom: 64px;
+}
+
+.post-single {
+  max-width: 800px;
+  margin: auto;
+}
+
+.post-content {
+  max-width: 800px;
+}
+
+.ff-page-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.ff-page-grid .post-entry {
+  margin: 0;
+}
+
+.post-title, .page-header h1 {
+  font-size: clamp(32px, 4vw, 44px);
+  letter-spacing: -0.035em;
+}
+
+.post-description {
+  margin-top: 16px;
+  font-size: 18px;
+  color: var(--secondary);
+}
+
+.post-entry, .ff-guide-card, .ff-guides-banner,
+.ff-acquisition-cta, .ff-related, .ff-inline-cta,
+.ff-post-next-steps, .ff-author-box, .ff-related-posts {
+  background: var(--entry);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+
+.ff-read-more, .ff-post-next-link, .post-content a,
+.ff-guide-card a, .ff-guides-banner a, .ff-related a {
+  color: var(--ff-brand-primary);
+}
+
+.footer {
+  max-width: none;
+  margin: 0;
+  padding: 32px 24px;
+  border-top: 1px solid var(--border);
+  color: var(--secondary);
+  font-size: 14px;
+}
+
+.footer p + p {
+  margin-top: 12px;
+}
+
+.ff-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 20px;
+}
+
+aside[aria-label="Website analytics preferences"] {
+  max-width: 800px !important;
+  margin: 24px auto !important;
+}
+
+@media (max-width: 760px) {
+  .header .nav { position: relative; gap: 12px; padding: 20px 24px; }
+  .header #menu { width: 100%; gap: 4px 16px; }
+  .header #menu li:last-child { position: absolute; top: 20px; right: 24px; }
+  .ff-page-grid { grid-template-columns: 1fr; }
+  .main { padding-top: 32px; padding-bottom: 40px; }
+  .ff-acquisition-cta, .ff-related, .post-entry { padding: 20px; }
+  aside[aria-label="Website analytics preferences"] { margin: 20px 24px !important; }
+}
