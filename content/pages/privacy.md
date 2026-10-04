@@ -1,4 +1,5 @@
 +++
+lastmod = 2026-10-03T00:00:00Z
 title = "Privacy Policy"
 date = 2026-04-28T00:00:00Z
 draft = false
@@ -6,7 +7,7 @@ description = "FlipFinds privacy policy."
 aliases = ["/privacy.html"]
 +++
 
-Last updated: September 30, 2026 (website analytics section)
+Last updated: October 3, 2026 (website analytics section)
 
 App policy effective date: September 27, 2026. The app policy below is the policy already published at [FlipFinds Privacy Policy on Google Sites](https://sites.google.com/view/flipfinds-privacy/home).
 
@@ -51,6 +52,8 @@ We may update this policy as the app changes. We will post the revised policy wi
 On flipfinds.net, Google Analytics loads only after you choose **Allow analytics**. With your permission, it measures pages visited, campaign links, general browser/device information, calculator use, and clicks to the app stores. Analytics cookies can distinguish visits. Calculator amounts and inventory details are not included in our calculator events; a completed event means a valid estimate was displayed, not that an item sold or an app was installed.
 
 Your choice is saved in this browser. You can change it using **Analytics settings** at the bottom of any page. Choosing **No thanks** stops future Google Analytics collection on this website. Advertising personalization is disabled. Learn how Google handles information from partner sites in [Google's privacy explanation](https://policies.google.com/technologies/partner-sites).
+
+With analytics permission, the website also keeps approved campaign/source values for the first referred visit and the current browsing session. These values can accompany a future web signup link when that service launches. Calculator amounts, item descriptions and arbitrary query text are excluded. Choosing **No thanks** clears these stored attribution values. Downloaded spreadsheet entries are not sent to FlipFinds.
 
 The site also uses existing anonymous page and click counters, which request a counter service without sending calculator amounts or inventory details. Those requests expose normal connection information to that service. The Google Analytics choice controls Google Analytics, not these existing counters.
 

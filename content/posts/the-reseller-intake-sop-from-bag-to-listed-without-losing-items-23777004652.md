@@ -2,51 +2,29 @@
 title = "The Reseller Intake SOP: From Bag to Listed Without Losing Items"
 date = 2026-03-31T02:06:14Z
 draft = false
-description = "A step-by-step intake workflow for resellers who want fewer lost items and cleaner listing handoffs."
-summary = "A practical intake workflow for logging costs, assigning storage, and moving sourced items into a real listing queue."
+description = "Use an intake sequence to identify purchases, record costs, inspect condition and stage the right next action before listing."
+summary = "Use an intake sequence to identify purchases, record costs, inspect condition and stage the right next action before listing."
 tags = ["inventory", "intake", "workflow", "listing"]
+lastmod = 2026-10-03T00:00:00Z
+related = ["guides", "calculator/max-buy-price", "product/scanning"]
 +++
 
-When a reseller intake process is loose, resellers usually feel it in wasted time before they feel it in profit.
-The goal is not a perfect system. It is one repeatable pass that keeps items sitting unprocessed for more than 24 hours or more than 3 items without a cost note from piling up.
+Intake is the point where a purchased item becomes a manageable record. Finish the essentials while the source and cost are still fresh.
 
-This post gives you a practical a reseller intake process routine you can run in 20 minutes. Use it to handle items sitting unprocessed for more than 24 hours or more than 3 items without a cost note before the backlog spreads. Keep the inventory, margin, and tracking signals visible enough to act on before the next batch or sourcing stop.
+## Identify and record
 
-## The weekly 15-minute routine
+Assign a recognizable title and record what you actually paid. If one receipt covers a batch, choose a consistent cost allocation and retain enough context to explain it later. Do not give every item the full batch cost.
 
-1. **Step 1.** Empty one sourcing bag at a time and attach a cost note before anything reaches storage.
-2. **Step 2.** Assign a bin, shelf, or tote location immediately so the item is searchable later.
-3. **Step 3.** Create a short listing queue with condition notes, photo needs, and missing specifics.
-4. **Step 4.** Move only the ready items into the listing batch and hold the rest for a follow-up check.
-5. **Checkpoint.** Finish with one metric note so next week starts with a real baseline against sell-through above 40% once items leave intake and missing-cost count at zero.
-## A real reseller week
+Use barcode/photo-assisted entry where useful, but verify the model or edition and condition. Manual entry is a valid fallback when research is unavailable.
 
-Last week, one reseller sorted 14 items, listed 9 items, and boxed 3 items with missing chargers into a follow-up bin before the backlog spread.
-That is the point of the routine: one pass, one decision per item, and less random cleanup later.
-## Mistakes to avoid
+## Inspect before listing
 
-1. Dropping sourced items into a generic pile with no cost note.
-2. Mixing ready-to-list items with items that still need testing.
-3. Waiting until the end of the week to decide where inventory lives.
-## Your weekly scorecard
+Check damage, missing parts and whether testing or cleaning is required. Keep uncertain items out of the listing-ready group until you can describe them accurately. A suggested title does not establish authenticity or functionality.
 
-Track these each week:
+## Stage the next action
 
-1. New items logged the same day
-2. Items with storage location assigned
-3. Items moved into the listing queue within 24 hours
-4. Unprocessed intake items older than one day
+Separate the steps: testing, cleaning, research, photos and listing. Give each item a current status and a known location in your tracking method. Complete a small batch rather than touching every item without finishing any.
 
-Keep the scorecard short enough to update every week and specific enough to show whether inventory, profit, or sell-through is actually improving.
-## What to do next
+A hypothetical five-item batch might include one listing-ready item, two needing cleaning and two awaiting identification. Recording those distinctions makes the next session easier to resume.
 
-Run the intake pass on your next sourcing batch and keep the queue small enough to clear before the next trip.
-Keep the rule simple: one threshold, one metric, and one action you will repeat next week.
-If you want this workflow in an app, install FlipFinds and run it during your weekly review.
-## Related reading
-
-If you want to keep going, use these next:
-
-- [Start Here](/pages/start-here/)
-- [FlipFinds: Weekly reseller workflow to protect margin](/posts/flipfinds-weekly-reseller-workflow-to-protect-margin-22580226441/)
-- [A Weekly Reseller Cleanup Routine for Better Sell-Through](/posts/a-weekly-reseller-cleanup-routine-for-better-sell-through-22251714854/)
+Update the record when the listing or sale actually happens. FlipFinds helps keep the workflow together, but does not automatically publish the marketplace listing.

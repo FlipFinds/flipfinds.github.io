@@ -14,11 +14,6 @@
     var STORE_PREFIX = "flipfinds_store_clicks_v2";
     var EVENT_PREFIX = "flipfinds_site_events_v2";
 
-    function trackWebEvent(name, params) {
-      if (typeof window.gtag !== "function") return;
-      try { window.gtag("event", name, params || {}); } catch (e) {}
-    }
-
     function isoDay() {
       return new Date().toISOString().slice(0, 10);
     }
@@ -69,13 +64,15 @@
     }
 
     function hit(prefix, key) {
-      if (!key) return;
+      if (!key || location.hostname !== "flipfinds.net") return;
       fireAndForget(COUNT_API_BASE + "/hit/" + prefix + "_" + key);
     }
 
     function pathBucket() {
       var p = (window.location.pathname || "/").toLowerCase();
       if (p === "/" || p === "") return "home";
+      var cluster=p.split("/")[1];
+      if (["calculator","product","marketplaces","resources","pricing","download","tools"].indexOf(cluster)!==-1) return cluster;
       if (p.indexOf("/pages/start-here/") === 0) return "page_start_here";
       if (p.indexOf("/posts/") === 0) {
         return p === "/posts/" ? "posts_index" : "post_article";
@@ -140,14 +137,12 @@
 
       var day = isoDay();
       var source = inferClickSource(anchor);
-      trackWebEvent(store === "appstore" ? "ios_app_store_cta_clicked" : "android_play_store_cta_clicked", {
-        cta_source: source
-      });
       hit(STORE_PREFIX, "total_" + day);
       hit(STORE_PREFIX, store + "_" + day);
       hit(EVENT_PREFIX, "store_click_total_" + day);
       hit(EVENT_PREFIX, "store_click_" + source + "_" + day);
       hit(EVENT_PREFIX, "store_click_" + source + "_" + store + "_" + day);
+      hit(EVENT_PREFIX, "store_cluster_" + pathBucket() + "_" + day);
     });
 
     trackPageViewOncePerLoad();
@@ -169,10 +164,13 @@
             mainShot.setAttribute("src", shot);
           }
           caption.textContent = cap;
+          mainShot.setAttribute("alt", "FlipFinds app preview: " + cap);
           thumbs.forEach(function (other) {
             other.classList.remove("is-active");
+            other.setAttribute("aria-pressed", "false");
           });
           thumb.classList.add("is-active");
+          thumb.setAttribute("aria-pressed", "true");
         });
       });
     }
@@ -237,3 +235,6 @@
     });
   })();
 </script>
+
+{{ $acquisition := resources.Get "js/acquisition.js" | resources.Minify | fingerprint }}
+<script defer src="{{ $acquisition.RelPermalink }}" integrity="{{ $acquisition.Data.Integrity }}" crossorigin="anonymous"></script>

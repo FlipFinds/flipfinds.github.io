@@ -2,51 +2,31 @@
 title = "A Listing Quality SOP for Better Photos, Titles, and Specifics"
 date = 2026-04-06T14:30:38Z
 draft = false
-description = "A checklist-driven SOP for improving listing quality without turning every draft into a long editing session."
-summary = "A repeatable listing-quality check for resellers who want fewer buyer questions and fewer weak listings."
+description = "Check product identity, honest condition, clear photos and useful item specifics before publishing a resale listing."
+summary = "Check product identity, honest condition, clear photos and useful item specifics before publishing a resale listing."
 tags = ["listing", "photos", "workflow", "quality"]
+lastmod = 2026-10-03T00:00:00Z
+related = ["guides", "calculator", "product/market-research"]
 +++
 
-You can keep listing quality control cleaner with one repeatable review instead of a long cleanup session every few weeks.
-A checklist works because you can run it in 15 minutes and still catch the weak spots before they spread.
+A listing should help a buyer recognize the item and judge whether it matches their needs. The quality check begins with accuracy, not a longer title.
 
-Use this checklist when listing quality control needs a quick review, not a full rewrite. The target is simple: protect sell-through above 40% after title cleanup and buyer-question rate under 10% and reduce drift around drafts with more than 5 specifics missing or fewer than 5 useful photos. Keep the inventory, margin, and tracking signals visible enough to act on before the next batch or sourcing stop.
+## Verify the product identity
 
-## Your weekly scorecard
+Confirm the model, edition, size or variant against the actual item. A barcode lookup or similar photo can suggest a starting point, but the seller remains responsible for checking it.
 
-Track these each week:
+Write a title with the identifying details a buyer needs. Avoid unsupported compatibility, authenticity or condition claims.
 
-1. Drafts with clean cover photos
-2. Titles containing the core search terms
-3. Listings with all buyer-facing specifics completed
-4. Messages asking for missing details after publish
+## Show condition honestly
 
-Keep the scorecard short enough to update every week and specific enough to show whether inventory, profit, or sell-through is actually improving.
-## The weekly 15-minute routine
+Use clear images of the complete item, identifying labels, included parts and meaningful flaws. Describe testing that actually happened; do not use a generic working-condition statement for an untested item.
 
-1. **Checklist item 1.** Check the cover photo first and replace anything with weak lighting or clutter.
-2. **Checklist item 2.** Tighten the title so brand, model, size, and condition appear before filler words.
-3. **Checklist item 3.** Fill the specifics that buyers filter on before writing extra description copy.
-4. **Checklist item 4.** Spot-check one draft from the buyer view before publishing the batch.
-5. **Checkpoint.** End the review only after you have one written action for anything that crossed drafts with more than 5 specifics missing or fewer than 5 useful photos.
-## A real reseller week
+Add the item specifics that apply to the product rather than filling irrelevant fields with guessed information.
 
-One seller photographed 6 listings again, rewrote 4 titles, and added missing size specifics before publishing the batch the same evening.
-That is why the checklist matters. Short review, visible miss, one immediate correction.
-## Mistakes to avoid
+## Check economics and handling
 
-1. Keeping dark photos because retakes feel slower than relisting later.
-2. Using broad titles that bury the important filters.
-3. Copying the same description format even when condition details changed.
-## What to do next
+Confirm the purchase record, expected seller costs and shipping assumptions. Measure or weigh the packed item when size or fragility can change the label cost. Keep research evidence separate from your asking price.
 
-Use the checklist on your next five drafts and note which step keeps causing delay or rework.
-Keep the rule simple: one threshold, one metric, and one action you will repeat next week.
-If you want this workflow in an app, install FlipFinds and run it during your weekly review.
-## Related reading
+Before publishing, compare the record with the item you will ship. A hypothetical pair of similar models needs different identifying details even if their packaging looks alike.
 
-Keep the momentum with one of these follow-ups:
-
-- [Start Here](/pages/start-here/)
-- [The Reseller Intake SOP: From Bag to Listed Without Losing Items](/posts/the-reseller-intake-sop-from-bag-to-listed-without-losing-items-23777004652/)
-- [FlipFinds: Weekly reseller workflow to protect margin](/posts/flipfinds-weekly-reseller-workflow-to-protect-margin-22580226441/)
+FlipFinds supports item tracking and research. Publish and manage the listing on the selling platform; the app does not automatically synchronize every listing change.

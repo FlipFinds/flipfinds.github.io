@@ -16,7 +16,7 @@ summaryLength = 30
   mainSections = ["posts"]
   images = ["images/hero-home.png"]
   defaultTheme = "light"
-  disableThemeToggle = false
+  disableThemeToggle = true
   ShowReadingTime = true
   ShowShareButtons = false
   ShowCodeCopyButtons = false
@@ -66,44 +66,22 @@ summaryLength = 30
   category = "categories"
 
 [[menu.main]]
-  identifier = "calculator"
-  name = "Calculator"
-  url = "/calculator/"
+  name = "Product"
+  url = "/product/"
   weight = 1
-
 [[menu.main]]
-  identifier = "start-here"
-  name = "Start Here"
-  url = "/pages/start-here/"
-  weight = 5
-
+  name = "Free tools"
+  url = "/tools/"
+  weight = 2
 [[menu.main]]
-  identifier = "posts"
-  name = "Posts"
-  url = "/posts/"
-  weight = 10
-
-[[menu.main]]
-  identifier = "guides"
   name = "Guides"
   url = "/guides/"
-  weight = 20
-
+  weight = 3
 [[menu.main]]
-  identifier = "flipfinds-app"
-  name = "FlipFinds App"
-  url = "https://flipfinds.net/?utm_source=flipfinds_blog&utm_medium=nav&utm_campaign=crosslink"
-  weight = 25
-
+  name = "Resources"
+  url = "/resources/"
+  weight = 4
 [[menu.main]]
-  identifier = "about"
-  name = "About"
-  url = "/pages/about/"
-  weight = 30
-
-[[menu.main]]
-  identifier = "contact"
-  name = "Contact"
-  url = "/pages/contact/"
-  weight = 40
-
+  name = "Get the app"
+  url = "/download/"
+  weight = 5

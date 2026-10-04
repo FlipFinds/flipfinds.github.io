@@ -43,7 +43,8 @@
   {{- end }}
 
   {{- partial "post_install_cta.html" . }}
-  {{- partial "related_posts.html" . }}
+  {{- if not .Params.related }}{{ partial "related_posts.html" . }}{{ end }}
+  {{- partial "acquisition-related.html" . }}
 
   <footer class="post-footer">
     {{- $tags := .Language.Params.Taxonomies.tag | default "tags" }}

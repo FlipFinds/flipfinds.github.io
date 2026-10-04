@@ -1,0 +1,26 @@
+{{- if not .Params.robotsNoIndex -}}
+{{- $graph := slice -}}
+{{- if .IsHome -}}
+  {{- $graph = $graph | append (dict "@type" "Organization" "@id" "https://flipfinds.net/#organization" "name" "Paras Digital LLC" "url" site.Home.Permalink "logo" ("images/app-icon.png" | absURL) "email" site.Data.acquisition.supportEmail) -}}
+  {{- $graph = $graph | append (dict "@type" "WebSite" "@id" "https://flipfinds.net/#website" "name" "FlipFinds" "url" site.Home.Permalink "publisher" (dict "@id" "https://flipfinds.net/#organization")) -}}
+{{- else if or .IsPage .IsSection -}}
+  {{- $crumbs := slice -}}
+  {{- range .Ancestors.Reverse -}}
+    {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" (add (len $crumbs) 1) "name" (.Title | default "FlipFinds") "item" .Permalink) -}}
+  {{- end -}}
+  {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" (add (len $crumbs) 1) "name" .Title "item" .Permalink) -}}
+  {{- $graph = $graph | append (dict "@type" "BreadcrumbList" "itemListElement" $crumbs) -}}
+  {{- if and .IsPage (in (slice "posts" "guides") .Section) -}}
+    {{- $article := dict "@type" "Article" "headline" .Title "description" .Description "url" .Permalink "author" (dict "@type" "Organization" "name" "FlipFinds Team") "publisher" (dict "@id" "https://flipfinds.net/#organization") -}}
+    {{- if not .Date.IsZero }}{{ $article = merge $article (dict "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")) }}{{ end -}}
+    {{- if not .Lastmod.IsZero }}{{ $article = merge $article (dict "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")) }}{{ end -}}
+    {{- $graph = $graph | append $article -}}
+  {{- else -}}
+    {{- $graph = $graph | append (dict "@type" "WebPage" "name" .Title "description" .Description "url" .Permalink) -}}
+  {{- end -}}
+  {{- if eq .RelPermalink "/product/" -}}
+    {{- $graph = $graph | append (dict "@type" "MobileApplication" "name" "FlipFinds" "applicationCategory" "BusinessApplication" "operatingSystem" "iOS, Android" "description" .Description "url" .Permalink "installUrl" (slice site.Data.acquisition.ios site.Data.acquisition.android) "publisher" (dict "@id" "https://flipfinds.net/#organization")) -}}
+  {{- end -}}
+{{- end -}}
+{{- with $graph }}<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" . | jsonify | safeJS }}</script>{{ end -}}
+{{- end -}}

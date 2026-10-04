@@ -2,68 +2,27 @@
 title = "A Pricing Floor Routine for Resellers Who Keep Guessing"
 date = 2026-02-22T08:10:00Z
 draft = false
-description = "A simple pricing floor routine to stop margin leakage when listing fast-moving or inconsistent inventory."
+description = "Calculate a listing floor from recorded item cost and selling expenses, then compare it with researched completed-sale evidence."
 tags = ["pricing", "profit", "workflow", "sell-through"]
 categories = ["Posts"]
+lastmod = 2026-10-03T00:00:00Z
+related = ["guides", "calculator/break-even", "product/profit-tracker"]
 +++
 
-When pricing happens in a rush, margin leaks out in small ways: shipping gets underestimated, fees get ignored, and discounts start from a weak number.
-The fix is not a complicated spreadsheet. It is a short pricing floor routine you can run before you list.
-If you want to work backward from your target profit quickly, use the [FlipFinds resale profit calculator](/calculator/?utm_source=flipfinds_blog&utm_medium=post&utm_campaign=calculator_crosslink).
+Your pricing floor answers how low a sale can go under known costs. Comparable completed sales answer whether buyers may pay that much. Keep those two questions separate.
 
-<!--more-->
+## Build the floor from the item record
 
-## Use a floor before you pick a list price
+Confirm purchase cost, expected seller fees, shipping you pay and supplies. A break-even result covers those entered expenses; it leaves no modeled profit. A target-profit price adds your chosen dollar outcome.
 
-Start by separating two decisions:
+For a hypothetical item with $12 purchase cost, $5 shipping and $1 supplies, a flat 10% fee requires a $20 sale just to break even. A $10 profit target requires about $31.12 at cent precision.
 
-1. Your minimum acceptable net profit
-2. Your public list price
+## Compare with the market before changing a price
 
-Most resellers reverse these. They pick a list price first, then hope the margin works.
+Match model, condition and included parts when researching completed sales. If defensible sale evidence falls below your floor, increasing the listing price does not fix the mismatch. Review whether the costs or research are wrong, or accept that the original purchase may not recover the expected return.
 
-## A 10-minute pricing floor routine
+## Evaluate offers at the accepted amount
 
-1. **Set your minimum net profit target**
-   Choose one target for the item type (for example: "$12 net minimum" for small electronics).
+Run an offer through the calculator with the shipping terms that actually apply. A discount can change fee thresholds as well as proceeds. Avoid charging a shipping label twice by including it in both seller shipping and Other costs.
 
-2. **Estimate total cost to sell**
-   Include purchase cost, shipping materials, platform fees, and expected shipping cost.
-
-3. **Calculate the lowest acceptable sale price**
-   Work backward from your net target. This is your floor, not your public price.
-
-4. **Check recent sold comps**
-   Compare your floor to recent sold prices. If your floor is above the market, change the buy decision next time instead of forcing a bad listing.
-
-5. **Set list price with room to negotiate**
-   List above the floor so you can accept offers without falling below target.
-
-## Example
-
-You buy an item for $18.
-You estimate $2 in packing supplies, $7 shipping, and $8 in marketplace fees.
-You want at least $12 net profit.
-
-Your floor is not "$30 because it feels right."
-Your floor must cover:
-
-- $18 cost
-- $2 supplies
-- $7 shipping
-- $8 fees
-- $12 target net
-
-That means selling below $47 is already below your target.
-
-## Mistakes that cause pricing leakage
-
-1. Using listed comps instead of sold comps
-2. Ignoring shipping on heavier or larger items
-3. Accepting offers without checking floor price first
-4. Repricing downward without updating the margin target
-
-## What to do this week
-
-Pick one category you list often and create a repeatable net-profit floor target for it.
-Run this routine on your next five listings and compare outcomes.
+Record actual proceeds after the sale. This workflow supports an informed decision; it does not establish an optimal selling price or predict sale timing.
