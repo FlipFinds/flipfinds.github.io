@@ -1,0 +1,9 @@
+{{- $url := "" -}}
+{{- if and site.Data.acquisition.webSignupEnabled (eq site.Data.acquisition.webSignupUrl "https://app.flipfinds.net/start") -}}
+  {{- $url = site.Data.acquisition.webSignupUrl -}}
+{{- else if and (eq hugo.Environment "development") site.Params.workspacePreview (eq site.Params.workspacePreviewUrl "http://127.0.0.1:3210/start") -}}
+  {{- $url = site.Params.workspacePreviewUrl -}}
+{{- end -}}
+{{- with $url -}}
+<a class="{{ $.class | default "ff-text-link" }}" href="{{ . }}" data-ff-platform="web" data-source="{{ $.placement | default "content_end" }}">{{ $.label | default "Start on web" }} <span aria-hidden="true">↗</span></a>
+{{- end -}}
