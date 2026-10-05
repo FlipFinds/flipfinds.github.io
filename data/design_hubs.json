@@ -1,0 +1,120 @@
+{
+  "tools": [
+    [
+      "01",
+      "Resale profit",
+      "What could you keep after costs?",
+      "Compare revenue with item cost, fees, shipping and supplies.",
+      "/calculator/"
+    ],
+    [
+      "02",
+      "Maximum buy price",
+      "What can you afford to pay?",
+      "Work back from your sale estimate and target profit.",
+      "/calculator/max-buy-price/"
+    ],
+    [
+      "03",
+      "Break-even price",
+      "What would cover your costs?",
+      "Find the modeled sale price that recovers your costs.",
+      "/calculator/break-even/"
+    ],
+    [
+      "04",
+      "Reseller ROI",
+      "How hard is your cash working?",
+      "Compare estimated profit with the cash you invest.",
+      "/calculator/reseller-roi/"
+    ],
+    [
+      "EB",
+      "eBay profit",
+      "Start with an eBay estimate.",
+      "Editable US non-Store fee assumptions, including tax in the fee base.",
+      "/calculator/ebay-profit/"
+    ],
+    [
+      "PO",
+      "Poshmark profit",
+      "Check the small-sale threshold.",
+      "Model the flat fee or percentage fee for your sale.",
+      "/calculator/poshmark-profit/"
+    ],
+    [
+      "ME",
+      "Mercari profit",
+      "Include buyer-paid shipping.",
+      "Account for shipping in the seller fee base.",
+      "/calculator/mercari-profit/"
+    ]
+  ],
+  "product": [
+    [
+      "01",
+      "Inventory tracking",
+      "A place for every find.",
+      "Keep item records, costs and status together from purchase to sale.",
+      "/product/inventory-tracker/"
+    ],
+    [
+      "02",
+      "Profit & analytics",
+      "Review what you recorded.",
+      "Keep expected profit distinct from actual sale results.",
+      "/product/profit-tracker/"
+    ],
+    [
+      "03",
+      "Sourcing",
+      "A clearer buying decision.",
+      "Check the item, its possible price and the costs before buying.",
+      "/product/sourcing/"
+    ],
+    [
+      "04",
+      "Scanning & entry",
+      "Start with the item in front of you.",
+      "Use barcode, photo-assisted or manual entry where available.",
+      "/product/scanning/"
+    ],
+    [
+      "05",
+      "Market research",
+      "Put asking prices in context.",
+      "Research comparable items and check completed sales separately.",
+      "/product/market-research/"
+    ],
+    [
+      "06",
+      "Optional Cloud",
+      "Choose how you stay connected.",
+      "Understand connected inventory, sign-in and photo backup status.",
+      "/product/cloud/"
+    ]
+  ],
+  "resources": [
+    [
+      "XLSX",
+      "Inventory spreadsheet",
+      "A record you can keep.",
+      "Download an inventory and actual-profit workbook for your own workflow.",
+      "/resources/inventory-template/"
+    ],
+    [
+      "</>",
+      "Embed the calculator",
+      "Bring the tool to your site.",
+      "Use the shared calculator with the documented embed code.",
+      "/resources/embed-calculator/"
+    ],
+    [
+      "REF",
+      "Fee assumptions",
+      "Understand the estimate.",
+      "Review fee sources, calculation methods and exclusions.",
+      "/resources/fee-assumptions/"
+    ]
+  ]
+}

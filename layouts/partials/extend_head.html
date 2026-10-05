@@ -1,5 +1,13 @@
+{{- /* Retain ownership of the redirected legacy FlipFinds subdomain. */ -}}
+<meta name="google-site-verification" content="Unn1UGkEJx7vHan9LwfEcbyY1IEUtVKR9f9-wc5rlhU">
+{{- if .IsHome -}}
+<meta name="msvalidate.01" content="578B33715800F96F08DD2AB35C3A352B">
+{{- end -}}
 {{- with site.Params.analytics.plausible -}}
   {{- if and .domain .scriptSrc -}}
 <script defer data-domain="{{ .domain }}" src="{{ .scriptSrc }}"></script>
   {{- end -}}
 {{- end -}}
+
+<link rel="preload" href="/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/poppins-600-latin.woff2" as="font" type="font/woff2" crossorigin>

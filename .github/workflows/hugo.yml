@@ -42,16 +42,35 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+        run: hugo --gc --minify
+
+      - name: Snapshot existing discovery URLs
+        if: github.event_name != 'pull_request'
+        run: python3 scripts/indexnow.py snapshot
+
+      - name: Preserve discovery baseline for deployment
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: indexnow-baseline
+          path: indexnow-baseline.json
+
+      - name: Validate public pages and calculator measurement
+        env:
+          SITE_BUILD: public
+        run: |
+          python3 scripts/validate_site.py public
+          for script in assets/js/*.js; do node --check "$script"; done
+          node --test tests/*.test.cjs
 
       - name: Upload artifact
-        if: github.event_name == 'push'
+        if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./public
 
   deploy:
-    if: github.event_name == 'push'
+    if: github.event_name != 'pull_request'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -61,3 +80,14 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Checkout notification script
+        uses: actions/checkout@v4
+
+      - name: Load discovery baseline
+        uses: actions/download-artifact@v4
+        with:
+          name: indexnow-baseline
+
+      - name: Notify changed discovery set after deployment
+        run: python3 scripts/indexnow.py notify

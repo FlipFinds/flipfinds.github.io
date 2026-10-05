@@ -1,0 +1,6 @@
+{{- with .Params.related -}}
+<aside class="ff-related" aria-label="Related tools and guides">
+  <h2>Continue your workflow</h2>
+  <ul>{{- range . -}}{{- with site.GetPage . -}}<li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>{{- end -}}{{- end -}}</ul>
+</aside>
+{{- end -}}

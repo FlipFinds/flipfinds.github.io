@@ -1,4 +1,4 @@
-baseURL = "https://flipfinds.github.io/"
+baseURL = "https://flipfinds.net/"
 languageCode = "en-us"
 title = "FlipFinds"
 theme = "PaperMod"
@@ -16,7 +16,7 @@ summaryLength = 30
   mainSections = ["posts"]
   images = ["images/hero-home.png"]
   defaultTheme = "light"
-  disableThemeToggle = false
+  disableThemeToggle = true
   ShowReadingTime = true
   ShowShareButtons = false
   ShowCodeCopyButtons = false
@@ -26,8 +26,10 @@ summaryLength = 30
   [params.label]
     text = "FlipFinds"
     icon = "images/app-icon.png"
-    iconHeight = 26
+    iconHeight = 44
   [params.assets]
+    theme_color = "#0E5739"
+    msapplication_TileColor = "#0E5739"
     favicon = "images/app-icon.png"
     favicon16x16 = "images/app-icon.png"
     favicon32x32 = "images/app-icon.png"
@@ -45,7 +47,7 @@ summaryLength = 30
     name = "FlipFinds Team"
     email = "support@parasdigital.net"
   [params.analytics.google]
-    SiteVerificationTag = ""
+    SiteVerificationTag = "8LP8V_IDTUfadYf9D-xqpbdz2dxGU1aGSVPwl5wUYCU"
   [params.analytics.bing]
     SiteVerificationTag = ""
   [params.analytics.yandex]
@@ -56,7 +58,7 @@ summaryLength = 30
 
 [services]
   [services.googleAnalytics]
-    ID = ""
+    ID = "G-XX9ZJKDNEC"
 
 [outputs]
   home = ["HTML", "RSS", "JSON"]
@@ -66,44 +68,22 @@ summaryLength = 30
   category = "categories"
 
 [[menu.main]]
-  identifier = "calculator"
-  name = "Calculator"
-  url = "/calculator/"
+  name = "Product"
+  url = "/product/"
   weight = 1
-
 [[menu.main]]
-  identifier = "start-here"
-  name = "Start Here"
-  url = "/pages/start-here/"
-  weight = 5
-
+  name = "Free tools"
+  url = "/tools/"
+  weight = 2
 [[menu.main]]
-  identifier = "posts"
-  name = "Posts"
-  url = "/posts/"
-  weight = 10
-
-[[menu.main]]
-  identifier = "guides"
   name = "Guides"
   url = "/guides/"
-  weight = 20
-
+  weight = 3
 [[menu.main]]
-  identifier = "flipfinds-app"
-  name = "FlipFinds App"
-  url = "https://flipfinds.github.io/?utm_source=flipfinds_blog&utm_medium=nav&utm_campaign=crosslink"
-  weight = 25
-
+  name = "Resources"
+  url = "/resources/"
+  weight = 4
 [[menu.main]]
-  identifier = "about"
-  name = "About"
-  url = "/pages/about/"
-  weight = 30
-
-[[menu.main]]
-  identifier = "contact"
-  name = "Contact"
-  url = "/pages/contact/"
-  weight = 40
-
+  name = "Get the app"
+  url = "/download/"
+  weight = 5

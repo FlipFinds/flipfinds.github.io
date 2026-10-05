@@ -1,3 +1,13 @@
+{{- if site.Config.Services.GoogleAnalytics.ID }}
+<aside style="max-width: var(--main-width); margin: 1rem auto; padding: 1rem; color: var(--primary); background: var(--entry); border: 1px solid var(--border); border-radius: var(--radius);" aria-label="Website analytics preferences">
+  <div id="ffAnalyticsChoice">
+    <p>Allow Google Analytics to help us understand visits, calculator use, and download clicks? Your calculator amounts are not sent. <a href="/pages/privacy/#website-analytics">Privacy details</a></p>
+    <button id="ffAnalyticsAllow" type="button" style="padding: .6rem; text-decoration: underline;">Allow analytics</button>
+    <button id="ffAnalyticsDecline" type="button" style="padding: .6rem; text-decoration: underline;">No thanks</button>
+  </div>
+  <span id="ffAnalyticsStatus">Analytics off</span> · <button id="ffAnalyticsSettings" type="button" style="text-decoration: underline;">Analytics settings</button>
+</aside>
+{{- end }}
 <script>
   (function () {
     var COUNT_API_BASE = "https://countapi.mileshilliard.com/api/v1";
@@ -15,7 +25,7 @@
         var host = (u.hostname || "").toLowerCase();
         var path = (u.pathname || "").toLowerCase();
         if (host.indexOf("play.google.com") !== -1 && u.search.indexOf("id=com.flipfinds.app") !== -1) return "play";
-        if (host.indexOf("apps.apple.com") !== -1 && path.indexOf("/flipfinds-resale-tracker/") !== -1) return "appstore";
+        if (host === "apps.apple.com" && path.indexOf("/id6757338338") !== -1) return "appstore";
       } catch (e) {
         return null;
       }
@@ -28,7 +38,7 @@
       try {
         var u = new URL(href, window.location.origin);
         var host = (u.hostname || "").toLowerCase();
-        if (host !== "flipfinds.parasdigital.net") return null;
+        if (host !== window.location.hostname.toLowerCase() || u.pathname !== "/") return null;
         var medium = (u.searchParams.get("utm_medium") || "").toLowerCase();
         if (medium === "nav") return "nav";
         if (medium === "start_here") return "start_here";
@@ -54,13 +64,15 @@
     }
 
     function hit(prefix, key) {
-      if (!key) return;
+      if (!key || location.hostname !== "flipfinds.net") return;
       fireAndForget(COUNT_API_BASE + "/hit/" + prefix + "_" + key);
     }
 
     function pathBucket() {
       var p = (window.location.pathname || "/").toLowerCase();
       if (p === "/" || p === "") return "home";
+      var cluster=p.split("/")[1];
+      if (["calculator","product","marketplaces","resources","pricing","download","tools"].indexOf(cluster)!==-1) return cluster;
       if (p.indexOf("/pages/start-here/") === 0) return "page_start_here";
       if (p.indexOf("/posts/") === 0) {
         return p === "/posts/" ? "posts_index" : "post_article";
@@ -130,6 +142,7 @@
       hit(EVENT_PREFIX, "store_click_total_" + day);
       hit(EVENT_PREFIX, "store_click_" + source + "_" + day);
       hit(EVENT_PREFIX, "store_click_" + source + "_" + store + "_" + day);
+      hit(EVENT_PREFIX, "store_cluster_" + pathBucket() + "_" + day);
     });
 
     trackPageViewOncePerLoad();
@@ -151,10 +164,13 @@
             mainShot.setAttribute("src", shot);
           }
           caption.textContent = cap;
+          mainShot.setAttribute("alt", "FlipFinds app preview: " + cap);
           thumbs.forEach(function (other) {
             other.classList.remove("is-active");
+            other.setAttribute("aria-pressed", "false");
           });
           thumb.classList.add("is-active");
+          thumb.setAttribute("aria-pressed", "true");
         });
       });
     }
@@ -219,3 +235,6 @@
     });
   })();
 </script>
+
+{{ $acquisition := resources.Get "js/acquisition.js" | resources.Minify | fingerprint }}
+<script defer src="{{ $acquisition.RelPermalink }}" integrity="{{ $acquisition.Data.Integrity }}" crossorigin="anonymous"></script>

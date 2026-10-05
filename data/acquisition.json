@@ -1,0 +1,25 @@
+{
+  "appId": "6757338338",
+  "packageId": "com.flipfinds.app",
+  "ios": "https://apps.apple.com/app/flipfinds-resale-tracker/id6757338338",
+  "android": "https://play.google.com/store/apps/details?id=com.flipfinds.app",
+  "appleProviderToken": "128421758",
+  "webSignupEnabled": false,
+  "webSignupUrl": "",
+  "campaigns": {
+    "home": "ff_home",
+    "calculator": "ff_tools",
+    "product": "ff_product",
+    "marketplaces": "ff_sellers",
+    "guides": "ff_guides",
+    "posts": "ff_articles",
+    "resources": "ff_resources",
+    "pages": "ff_support"
+  },
+  "referrals": [
+    "website",
+    "embed"
+  ],
+  "supportEmail": "support@parasdigital.net",
+  "indexNowKey": "d237239d22e7409c97513db12ae21cdc"
+}

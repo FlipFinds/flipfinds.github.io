@@ -1,0 +1,55 @@
+{
+  "verified": "2026-10-03",
+  "region": "United States",
+  "currency": "USD",
+  "presets": {
+    "ebay": {
+      "sellerFeePct": 13.6,
+      "fixedFee": 0.4,
+      "feeIncludesShipping": true,
+      "note": "US non-Store most-category estimate: 13.6% through $7,500 and 2.35% above it; $0.30 order fee through $10, $0.40 above. Includes buyer-paid shipping and entered marketplace-collected tax in the fee base. Category, Store, ads and account charges vary.",
+      "source": "https://www.ebay.com/help/selling/selling-fees/selling-fees?id=4822",
+      "rules": {
+        "tierBase": 7500,
+        "lowerRate": 13.6,
+        "upperRate": 2.35,
+        "smallOrderMax": 10,
+        "smallOrderFee": 0.3,
+        "regularOrderFee": 0.4
+      }
+    },
+    "poshmark": {
+      "sellerFeePct": 20,
+      "fixedFee": 0,
+      "feeIncludesShipping": false,
+      "note": "US item price: $2.95 below $15; 20% at $15 or above. Enter seller-paid shipping discounts, fee tax and other charges separately. Editing fee fields switches to Custom. Buyer-paid Poshmark postage is not seller revenue; enter only shipping discounts or other shipping costs you bear.",
+      "source": "https://poshmark.com/posh_guide/get_started_on_poshmark",
+      "rules": {
+        "threshold": 15,
+        "flatFee": 2.95,
+        "rate": 20
+      }
+    },
+    "mercari": {
+      "sellerFeePct": 10,
+      "fixedFee": 0,
+      "feeIncludesShipping": true,
+      "note": "US seller estimate: 10% of item price plus buyer-paid shipping for listings using the fee structure effective January 6, 2025. Enter optional transfer, return or other charges separately.",
+      "source": "https://www.mercari.com/us/help_center/article/169/"
+    },
+    "facebook": {
+      "sellerFeePct": 0,
+      "fixedFee": 0,
+      "feeIncludesShipping": false,
+      "note": "Illustrative local cash pickup assumption only: no platform transaction fee entered. This is not a verified Facebook shipping/checkout fee preset. Adjust to your actual transaction charges.",
+      "source": ""
+    },
+    "custom": {
+      "sellerFeePct": 0,
+      "fixedFee": 0,
+      "feeIncludesShipping": false,
+      "note": "Enter your actual seller fee rate, fixed order fee and costs. No marketplace fee rule is assumed.",
+      "source": ""
+    }
+  }
+}

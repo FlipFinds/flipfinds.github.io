@@ -1,0 +1,63 @@
+{{- with site.Config.Services.GoogleAnalytics.ID }}
+<script>
+(function(){
+  var id={{ . }}, key="ff_website_analytics_consent", enabled=false, initialized=false, choice=null;
+  var page=window.FFPage || {};
+  var events=["page_view","landing_page_viewed","calculator_started","calculator_completed","calculator_shared","resource_downloaded","ios_app_store_cta_clicked","android_play_store_cta_clicked","internal_navigation_clicked","pricing_viewed","web_signup_started"];
+  var fields=["calculator_name","marketplace","cta_placement","destination","resource_name"];
+  try{choice=localStorage.getItem(key);}catch(e){}
+  function safeLocation(){
+    var u=new URL(page.page_path || "/",location.origin);
+    var incoming=new URLSearchParams(location.search);
+    var allowed=window.FFAcquisition || {};
+    var values={utm_source:["google","bing","newsletter","instagram","facebook","youtube","partner","flipfinds_web","website","embed"],utm_medium:["organic","referral","email","social","website","cpc","paid_social"],utm_campaign:Object.values(allowed.campaigns || {})};
+    Object.keys(values).forEach(function(k){var v=incoming.get(k);if(values[k].indexOf(v)!==-1)u.searchParams.set(k,v);});
+    return u.href;
+  }
+  function safeReferrer(){try{return document.referrer ? new URL(document.referrer).origin+"/" : "";}catch(e){return "";}}
+  window.ffTrack=function(name,params){
+    if(!enabled || events.indexOf(name)===-1)return false;
+    var payload=Object.assign({},page,{page_location:safeLocation(),page_referrer:safeReferrer()});
+    var attribution=(window.FFAttributionContext||{}).current||{};
+    var campaignFields={utm_source:'campaign_source',utm_medium:'campaign_medium',utm_campaign:'campaign_name'};
+    Object.keys(campaignFields).forEach(function(k){if(attribution[k])payload[campaignFields[k]]=attribution[k];});
+    fields.forEach(function(k){var v=(params || {})[k];if(typeof v==="string" && /^[a-z][a-z0-9_]{0,47}$/.test(v))payload[k]=v;});
+    window.gtag("event",name,payload);return true;
+  };
+  function enable(){
+    if(enabled)return;enabled=true;window["ga-disable-"+id]=false;
+    try{window.FFAttributionContext=window.FFAttribution.capture(localStorage,sessionStorage,location.search,document.referrer,window.FFAcquisition||{});}catch(e){}
+    if(initialized){window.gtag("consent","update",{analytics_storage:"granted"});return;}
+    initialized=true;window.dataLayer=window.dataLayer || [];
+    window.gtag=function(){window.dataLayer.push(arguments);};
+    window.gtag("consent","default",{analytics_storage:"granted",ad_storage:"denied",ad_user_data:"denied",ad_personalization:"denied"});
+    window.gtag("js",new Date());
+    window.gtag("config",id,{send_page_view:false,page_location:safeLocation(),page_referrer:safeReferrer(),allow_google_signals:false,allow_ad_personalization_signals:false});
+    // Local previews exercise consent without polluting production measurement.
+    if(location.hostname==="flipfinds.net"){
+      var script=document.createElement("script");script.async=true;script.src="https://www.googletagmanager.com/gtag/js?id="+id;document.head.appendChild(script);
+    }
+    window.ffTrack("page_view");window.ffTrack("landing_page_viewed");
+    if(page.page_type==="pricing")window.ffTrack("pricing_viewed");
+  }
+  document.addEventListener("DOMContentLoaded",function(){
+    var panel=document.getElementById("ffAnalyticsChoice"), status=document.getElementById("ffAnalyticsStatus");
+    if(!panel || !status)return;
+    function render(){panel.hidden=choice==="granted" || choice==="denied";status.textContent=choice==="granted" ? "Analytics allowed" : "Analytics off";}
+    function choose(next){
+      choice=next;try{localStorage.setItem(key,next);}catch(e){}
+      if(next==="granted")enable();else{
+        if(enabled){window.gtag("consent","update",{analytics_storage:"denied"});window["ga-disable-"+id]=true;enabled=false;}
+        window.FFAttributionContext=null;
+        try{localStorage.removeItem('ff_acquisition_first');sessionStorage.removeItem('ff_acquisition_current');}catch(e){}
+      }
+      render();
+    }
+    document.getElementById("ffAnalyticsAllow").addEventListener("click",function(){choose("granted");});
+    document.getElementById("ffAnalyticsDecline").addEventListener("click",function(){choose("denied");});
+    document.getElementById("ffAnalyticsSettings").addEventListener("click",function(){panel.hidden=!panel.hidden;});
+    if(choice==="granted")enable();render();
+  });
+})();
+</script>
+{{- end }}

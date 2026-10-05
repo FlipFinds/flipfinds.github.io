@@ -1,12 +1,22 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-{{- if hugo.IsProduction | or (eq site.Params.env "production") | and (ne .Params.robotsNoIndex true) }}
+{{ if not .Params.embed }}<meta name="apple-itunes-app" content="app-id={{ site.Data.acquisition.appId }}">{{ end }}
+{{ $attribution := resources.Get "js/attribution.js" | resources.Minify | fingerprint }}
+<script src="{{ $attribution.RelPermalink }}" integrity="{{ $attribution.Data.Integrity }}" crossorigin="anonymous"></script>
+{{ $paginated := false }}{{ if and (not .IsPage) (in (slice "posts" "tags" "categories") .Section) }}{{ $paginated = gt .Paginator.PageNumber 1 }}{{ end }}
+{{- if and (or hugo.IsProduction (eq site.Params.env "production")) (not (or .Params.robotsNoIndex $paginated (eq .Kind "404") (in (slice "taxonomy" "term") .Kind))) }}
 <meta name="robots" content="index, follow">
 {{- else }}
-<meta name="robots" content="noindex, nofollow">
+<meta name="robots" content="noindex, follow">
 {{- end }}
 
+<script>
+window.FFAcquisition={{ site.Data.acquisition }};
+window.FFFees={{ site.Data.fees }};
+{{ $pageType := index (split (strings.Trim .RelPermalink "/") "/") 0 }}{{ if .IsHome }}{{ $pageType = "home" }}{{ end }}
+window.FFPage={page_path:{{ .RelPermalink }},page_type:{{ $pageType }},intent:{{ .Params.intent | default $pageType }}{{ with .Params.marketplace }},marketplace:{{ . }}{{ end }}};
+</script>
 {{- /* Title */}}
 {{- $siteTitle := site.Title -}}
 {{- if .IsHome -}}
@@ -29,7 +39,8 @@
     {{- .Summary | default (printf "%s - %s" .Title  site.Title) }}{{- else }}
     {{- with site.Params.description }}{{ . }}{{- end }}{{- end }}{{- end -}}">
 <meta name="author" content="{{ (partial "author.html" . ) }}">
-<link rel="canonical" href="{{ if .Params.canonicalURL -}} {{ trim .Params.canonicalURL " " }} {{- else -}} {{ .Permalink }} {{- end }}">
+{{ $canonical := .Permalink }}{{ if and (not .IsPage) (in (slice "posts" "tags" "categories") .Section) }}{{ if gt .Paginator.PageNumber 1 }}{{ $canonical = .Paginator.URL | absURL }}{{ end }}{{ end }}
+<link rel="canonical" href="{{ with .Params.canonicalURL }}{{ trim . " " }}{{ else }}{{ $canonical }}{{ end }}">
 {{- if site.Params.analytics.google.SiteVerificationTag }}
 <meta name="google-site-verification" content="{{ site.Params.analytics.google.SiteVerificationTag }}">
 {{- end }}
@@ -96,12 +107,15 @@
 {{- end }}
 {{- end -}}
 
-{{- /* Favicons */}}
-<link rel="icon" href="{{ site.Params.assets.favicon | default "favicon.ico" | absURL }}">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ site.Params.assets.favicon16x16 | default "favicon-16x16.png" | absURL }}">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ site.Params.assets.favicon32x32 | default "favicon-32x32.png" | absURL }}">
-<link rel="apple-touch-icon" href="{{ site.Params.assets.apple_touch_icon | default "apple-touch-icon.png" | absURL }}">
-<link rel="mask-icon" href="{{ site.Params.assets.safari_pinned_tab | default "safari-pinned-tab.svg" | absURL }}">
+{{- /* Resize the genuine app icon; keep the original asset available. */}}
+{{- $icon := resources.Get "images/app-icon.png" -}}
+{{- $favicon := $icon.Resize "32x32 png" -}}
+{{- $touch := $icon.Resize "180x180 png" -}}
+<link rel="icon" type="image/png" sizes="32x32" href="{{ $favicon.RelPermalink }}">
+<link rel="apple-touch-icon" href="{{ $touch.RelPermalink }}">
+{{- with site.Params.assets.safari_pinned_tab }}
+<link rel="mask-icon" href="{{ . | absURL }}">
+{{- end }}
 <meta name="theme-color" content="{{ site.Params.assets.theme_color | default "#2e2e33" }}">
 <meta name="msapplication-TileColor" content="{{ site.Params.assets.msapplication_TileColor | default "#2e2e33" }}">
 
@@ -208,5 +222,5 @@
 {{- partial "google_analytics.html" . }}
 {{- partial "templates/opengraph.html" . }}
 {{- partial "templates/twitter_cards.html" . }}
-{{- partial "templates/schema_json.html" . }}
+{{- partial "acquisition-schema.html" . }}
 {{- end -}}

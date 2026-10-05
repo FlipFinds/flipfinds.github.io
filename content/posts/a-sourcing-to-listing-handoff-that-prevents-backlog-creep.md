@@ -2,62 +2,29 @@
 title = "A Sourcing-to-Listing Handoff That Prevents Backlog Creep"
 date = 2026-02-22T08:20:00Z
 draft = false
-description = "A simple handoff routine for resellers so sourced items do not sit unlisted and turn into backlog."
+description = "Move newly purchased items into a defined listing queue with recorded cost, condition and the next action."
 tags = ["sourcing", "listing", "workflow", "inventory"]
 categories = ["Posts"]
+lastmod = 2026-10-03T00:00:00Z
+related = ["guides", "calculator/max-buy-price", "product/inventory-tracker"]
 +++
 
-Backlog usually starts before the item reaches your shelf.
-It starts when sourcing and listing are treated as separate jobs with no handoff standard between them.
+Sourcing creates work as well as inventory. A good handoff keeps a purchase from becoming an unidentified item in an expanding pile.
 
-<!--more-->
+## Finish the intake record before storage
 
-## The handoff rule
+Record the actual cost, a recognizable title and the item's condition. Note missing parts or testing still required. Use an item identifier that stays with the physical item as it moves from preparation to listing.
 
-Every item you source should leave sourcing with enough information for the listing step to start immediately.
+Do not call the item ready to list if its model or condition is still uncertain. Put research or testing in the next action rather than making another vague holding pile.
 
-If the item enters your inventory pile without a title draft, cost, and condition note, it becomes delayed work.
+## Stage by next action
 
-## A practical sourcing-to-listing handoff (12 minutes per batch)
+Separate items needing cleaning, testing, research and listing photos. Use the smallest number of physical groups that you can maintain. Choose a batch you can complete in the next work session.
 
-Use this after each sourcing trip or buy session.
+A hypothetical ten-item sourcing trip may produce three ready-to-list items, four needing cleaning and three needing research. Treating all ten as listing-ready hides the work still required.
 
-1. **Sort the batch by priority**
-   Group items into quick-list, medium effort, and research-needed.
+## Close the handoff
 
-2. **Record cost and quantity immediately**
-   Do not wait until listing day to reconstruct receipts or memory.
+At the end of a session, every item should have a known location and a next step. Check whether the queue grew because preparation capacity fell or because purchases exceeded available time.
 
-3. **Write a short title draft or keyword notes**
-   You are not writing the final listing. You are removing the blank-page problem.
-
-4. **Add one condition note**
-   Example: "light wear on left edge" or "tested, powers on."
-
-5. **Assign a listing destination**
-   Put each item into a bin or queue that maps to your next listing session.
-
-## Example batch
-
-A reseller sources 14 items on Saturday.
-Instead of stacking them for "later," they record cost, condition, and listing notes for all 14 in one session.
-
-On Monday, listing starts faster because:
-
-- item cost is already recorded
-- keywords are already drafted
-- condition notes are already captured
-
-The result is less backlog and fewer skipped listings.
-
-## Common backlog mistakes
-
-1. Cleaning and testing first, but recording nothing
-2. Waiting to enter costs until end of week
-3. Mixing quick-list items with research-heavy items
-4. Leaving sourced inventory without a next listing queue
-
-## What to do this week
-
-Run one handoff session after your next sourcing trip.
-Your goal is not perfect listings. Your goal is to remove friction before listing starts.
+Keep purchase decisions and eventual sales in the same records so future sourcing reflects actual outcomes. A buying ceiling helps with cost discipline; it does not remove the time needed to prepare a listing.

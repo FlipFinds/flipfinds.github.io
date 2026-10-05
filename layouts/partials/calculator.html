@@ -1,0 +1,1093 @@
+<section class="ff-calc-shell{{ if .Params.embed }} ff-embed{{ end }}">
+  <style>
+    :root {
+      --ff-calc-bg: var(--ff-brand-bg);
+      --ff-calc-emerald: var(--ff-brand-primary);
+      --ff-calc-emerald-glow: var(--ff-brand-border);
+      --ff-calc-surface: var(--ff-brand-surface);
+      --ff-calc-surface-hover: var(--ff-brand-surface-alt);
+      --ff-calc-border: var(--ff-brand-border);
+      --ff-calc-text: var(--ff-brand-text);
+      --ff-calc-muted: var(--ff-brand-muted);
+      --ff-calc-muted-soft: var(--ff-brand-muted);
+      --ff-calc-good: var(--ff-brand-success);
+      --ff-calc-warn: var(--ff-brand-text);
+      --ff-calc-risk: var(--ff-brand-danger);
+    }
+
+    .ff-calc-shell {
+      width: 100%;
+      color: var(--ff-calc-text);
+      background: var(--ff-calc-bg);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .ff-calc-shell * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .ff-calc-container {
+      max-width: 1072px;
+      margin: 0 auto;
+      padding: 0;
+    }
+
+    .ff-calc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      padding: 40px 0;
+    }
+
+    .ff-calc-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--ff-brand-text);
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: -0.5px;
+    }
+
+    .ff-calc-brand img {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1px solid var(--ff-calc-border);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .ff-calc-nav {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .ff-calc-nav a {
+      font-size: 14px;
+      color: var(--ff-calc-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .ff-calc-nav a:hover,
+    .ff-calc-nav a.ff-calc-nav-active {
+      color: var(--ff-brand-text);
+    }
+
+    .ff-calc-pill {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--ff-calc-emerald);
+      background: var(--ff-calc-surface);
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--ff-calc-border);
+    }
+
+    .ff-calc-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 12px;
+      border: 1px solid var(--ff-calc-border);
+      background: var(--ff-calc-surface);
+      color: var(--ff-brand-text);
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .ff-calc-button:hover {
+      background: var(--ff-calc-surface-hover);
+      border-color: var(--ff-brand-border);
+    }
+
+    .ff-calc-button-primary {
+      background: var(--ff-brand-primary);
+      border-color: var(--ff-brand-border);
+      color: var(--ff-brand-surface);
+    }
+
+    .ff-calc-button-primary:hover {
+      background: var(--ff-brand-primary);
+      border-color: var(--ff-brand-primary);
+    }
+
+    .ff-calc-badge-link {
+      display: inline-block;
+      transition: 0.25s ease;
+    }
+
+    .ff-calc-badge-link:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.08);
+    }
+
+    .ff-calc-store-apple img {
+      display: block;
+      height: 44px;
+    }
+
+    .ff-calc-store-google img {
+      display: block;
+      height: 60px;
+    }
+
+    .ff-calc-hero-note {
+      max-width: 680px;
+      padding: 0 0 18px;
+      border: 0;
+      background: transparent;
+      color: var(--ff-calc-muted);
+      font-size: 12px;
+    }
+
+    .ff-calc-page-title {
+      margin: 0 0 10px;
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.02;
+      letter-spacing: -0.05em;
+      color: var(--ff-brand-text);
+    }
+
+    .ff-calc-workspace {
+      padding: 0 0 48px;
+    }
+
+    .ff-calc-card {
+      border-radius: var(--radius);
+      border: 1px solid var(--ff-calc-border);
+      background: var(--ff-brand-surface);
+      backdrop-filter: blur(16px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+    }
+
+    .ff-calc-card-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: end;
+      padding: 28px 30px 20px;
+      border-bottom: 1px solid var(--ff-calc-border);
+    }
+
+    .ff-calc-card-head h2 {
+      margin: 0 0 8px;
+      font-size: 30px;
+      letter-spacing: -0.03em;
+      color: var(--ff-brand-text);
+    }
+
+    .ff-calc-card-head p {
+      margin: 0;
+      color: var(--ff-calc-muted);
+      font-size: 15px;
+      max-width: 560px;
+    }
+
+    .ff-calc-card-chip {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--ff-calc-border);
+      background: var(--ff-brand-surface);
+      color: var(--ff-calc-emerald);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      white-space: nowrap;
+    }
+
+    .ff-calc-card-body {
+      display: grid;
+      grid-template-columns: minmax(0, 1.06fr) minmax(330px, 0.94fr);
+      gap: 22px;
+      padding: 26px 30px 30px;
+    }
+
+    .ff-calc-inputs {
+      display: grid;
+      gap: 0;
+    }
+
+    .ff-calc-presets {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      align-items: start;
+    }
+
+    .ff-calc-preset {
+      width: 100%;
+      min-height: 44px;
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid var(--ff-brand-border);
+      background: var(--ff-brand-surface);
+      color: var(--ff-calc-muted-soft);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s ease;
+      line-height: 1.2;
+    }
+
+    .ff-calc-preset:hover {
+      color: var(--ff-brand-primary);
+      border-color: var(--ff-brand-primary);
+      background: var(--ff-brand-surface-note);
+    }
+
+    .ff-calc-preset.is-active {
+      color: var(--ff-brand-surface);
+      border-color: var(--ff-brand-primary);
+      background: var(--ff-brand-primary);
+    }
+
+    .ff-calc-groups {
+      display: grid;
+      gap: 18px;
+      margin: 0;
+    }
+
+    .ff-calc-group {
+      padding: 22px;
+      border-radius: var(--radius);
+      border: 1px solid var(--ff-calc-border);
+      background: var(--ff-brand-surface-alt);
+    }
+
+    .ff-calc-group h3 {
+      margin: 0 0 6px;
+      color: var(--ff-brand-text);
+      font-size: 18px;
+    }
+
+    .ff-calc-group p {
+      margin: 0 0 16px;
+      color: var(--ff-calc-muted);
+      font-size: 14px;
+    }
+
+    .ff-calc-group-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .ff-calc-field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .ff-calc-field-wide {
+      grid-column: 1 / -1;
+    }
+
+    .ff-calc-field label {
+      color: var(--ff-brand-text);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .ff-calc-help,
+    .ff-calc-note-sm {
+      color: var(--ff-calc-muted);
+      font-size: 12px;
+    }
+
+    .ff-calc-input-wrap {
+      position: relative;
+    }
+
+    .ff-calc-input-symbol {
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+      color: var(--ff-calc-muted);
+      font-size: 14px;
+      pointer-events: none;
+    }
+
+    .ff-calc-input {
+      width: 100%;
+      min-height: 56px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid var(--ff-brand-border);
+      background: var(--ff-brand-surface);
+      color: var(--ff-brand-text);
+      font: inherit;
+    }
+
+    .ff-calc-input-currency {
+      padding-left: 34px;
+    }
+
+    .ff-calc-input:focus {
+      outline: 2px solid var(--ff-brand-primary);
+      outline-offset: 2px;
+      border-color: var(--ff-brand-border);
+      box-shadow: 0 0 0 3px var(--ff-brand-surface-note);
+    }
+
+    .ff-calc-toggle {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 0;
+      margin: 0;
+      border: 0;
+    }
+
+    .ff-calc-toggle label,
+    .ff-calc-checkbox {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--ff-calc-muted-soft);
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .ff-calc-toggle input,
+    .ff-calc-checkbox input {
+      accent-color: var(--ff-calc-emerald);
+    }
+
+    .ff-calc-results {
+      display: grid;
+      gap: 16px;
+      align-content: start;
+    }
+
+    .ff-calc-results-primary {
+      padding: 24px;
+      border-radius: var(--radius);
+      border: 1px solid var(--ff-brand-border);
+      background: var(--ff-brand-surface-note);
+    }
+
+    .ff-calc-results-primary .ff-calc-results-label {
+      color: var(--ff-brand-muted);
+    }
+
+    .ff-calc-results-label {
+      color: var(--ff-calc-muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .ff-calc-results-value {
+      margin-top: 8px;
+      color: var(--ff-brand-text);
+      font-size: clamp(38px, 5vw, 58px);
+      line-height: 0.98;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+    }
+
+    .ff-calc-results-copy {
+      margin-top: 10px;
+      color: var(--ff-brand-muted);
+      font-size: 14px;
+    }
+
+    .ff-calc-results-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .ff-calc-metric {
+      padding: 18px;
+      border-radius: var(--radius);
+      border: 1px solid var(--ff-calc-border);
+      background: var(--ff-brand-surface);
+    }
+
+    .ff-calc-metric-value {
+      margin-top: 8px;
+      color: var(--ff-brand-text);
+      font-size: 28px;
+      line-height: 1.02;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+    }
+
+    .ff-calc-metric-copy {
+      margin-top: 8px;
+      color: var(--ff-calc-muted);
+      font-size: 13px;
+    }
+
+    .ff-calc-rating-card {
+      padding: 20px;
+      border-radius: var(--radius);
+      border: 1px solid var(--ff-calc-border);
+      background: var(--ff-brand-surface);
+    }
+
+    .ff-calc-rating-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .ff-calc-rating-good {
+      background: var(--ff-brand-surface-note);
+      color: var(--ff-calc-good);
+      border: 1px solid var(--ff-brand-success);
+    }
+
+    .ff-calc-rating-okay {
+      background: var(--ff-brand-surface-alt);
+      color: var(--ff-calc-warn);
+      border: 1px solid var(--ff-brand-warning);
+    }
+
+    .ff-calc-rating-risky {
+      background: var(--ff-brand-danger-soft);
+      color: var(--ff-calc-risk);
+      border: 1px solid var(--ff-brand-danger);
+    }
+
+    .ff-calc-save-card {
+      padding: 24px;
+      border-radius: var(--radius);
+      border: 1px solid var(--ff-brand-border);
+      background: var(--ff-brand-surface-note);
+      box-shadow: inset 0 1px 0 var(--ff-brand-surface);
+    }
+
+    .ff-calc-save-card h3 {
+      margin: 0 0 10px;
+      color: var(--ff-brand-text);
+      font-size: 24px;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+    }
+
+    .ff-calc-save-card p {
+      margin: 0 0 18px;
+      color: var(--ff-brand-muted);
+      font-size: 15px;
+    }
+
+    .ff-calc-save-list {
+      display: grid;
+      gap: 10px;
+      padding: 0;
+      margin: 0 0 18px;
+      list-style: none;
+    }
+
+    .ff-calc-save-list li {
+      display: flex;
+      gap: 10px;
+      color: var(--ff-brand-muted);
+      font-size: 14px;
+    }
+
+    .ff-calc-save-list li::before {
+      content: "\2713";
+      color: var(--ff-calc-emerald);
+      font-weight: 800;
+      margin-top: 1px;
+    }
+
+    .ff-calc-save-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .ff-calc-save-actions .ff-calc-button {
+      flex: 1 1 220px;
+    }
+
+    .ff-calc-sections {
+      padding: 0 0 48px;
+      border-top: 1px solid var(--ff-calc-border);
+    }
+
+    .ff-calc-section-head {
+      padding: 48px 0 24px;
+      text-align: center;
+    }
+
+    .ff-calc-section-chip {
+      display: inline-block;
+      margin-bottom: 10px;
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--ff-calc-emerald);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .ff-calc-section-head h2 {
+      margin: 0;
+      color: var(--ff-brand-text);
+      font-size: 34px;
+      letter-spacing: -0.03em;
+    }
+
+    .ff-calc-section-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .ff-calc-section-card {
+      padding: 24px;
+      border-radius: var(--radius);
+      border: 1px solid var(--ff-calc-border);
+      background: var(--ff-calc-surface);
+    }
+
+    .ff-calc-section-card h3 {
+      margin: 0 0 10px;
+      color: var(--ff-brand-text);
+      font-size: 22px;
+    }
+
+    .ff-calc-section-card p {
+      margin: 0 0 14px;
+      color: var(--ff-calc-muted);
+      font-size: 15px;
+    }
+
+    .ff-calc-section-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .ff-calc-footer {
+      padding: 0 0 64px;
+      text-align: center;
+    }
+
+    .ff-calc-footer p,
+    .ff-calc-footer a {
+      color: var(--ff-calc-muted);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .ff-calc-footer a {
+      margin: 0 8px;
+    }
+
+    @media (max-width: 980px) {
+      .ff-calc-hero,
+      .ff-calc-card-body,
+      .ff-calc-section-grid,
+      .ff-calc-results-grid,
+      .ff-calc-group-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ff-calc-card-head {
+        grid-template-columns: 1fr;
+        align-items: start;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .ff-calc-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .ff-calc-nav {
+        gap: 16px;
+      }
+
+      .ff-calc-nav a {
+        font-size: 13px;
+      }
+
+      .ff-calc-container {
+        padding: 0;
+      }
+
+      .ff-calc-card-head,
+      .ff-calc-card-body {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .ff-calc-presets {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .ff-calc-store-google img {
+        height: 56px;
+      }
+
+    }
+  </style>
+
+  <div class="ff-calc-container">
+
+    <section id="profit-calculator" class="ff-calc-workspace">
+      <h1 class="ff-calc-page-title">{{ .Title }}</h1>
+      <div class="ff-calc-hero-note">
+        Seller-side estimate only. Real profit will move if fees, discounts, taxes, or labels differ.
+      </div>
+      <div class="ff-calc-card">
+        <div class="ff-calc-card-head">
+          <div>
+            <h2>Run the math</h2>
+            <p>Pick a marketplace, enter the basics, and see if the deal works.</p>
+          </div>
+          <div class="ff-calc-card-chip">Calculator</div>
+        </div>
+
+        <div class="ff-calc-card-body">
+          <div class="ff-calc-inputs">
+            <div class="ff-calc-presets">
+              <button type="button" class="ff-calc-preset is-active" data-preset="ebay">eBay</button>
+              <button type="button" class="ff-calc-preset" data-preset="poshmark">Poshmark</button>
+              <button type="button" class="ff-calc-preset" data-preset="mercari">Mercari</button>
+              <button type="button" class="ff-calc-preset" data-preset="facebook">Facebook</button>
+              <button type="button" class="ff-calc-preset" data-preset="custom">Custom</button>
+            </div>
+
+            <form class="ff-calc-groups" id="ffProfitForm">
+              <section class="ff-calc-group">
+                <h3>Sale setup</h3>
+                <p>Start with the deal itself: what you paid, what you expect to sell it for, and what shipping will cost you.</p>
+                <div class="ff-calc-group-grid">
+                  <div class="ff-calc-field">
+                    <label for="purchaseCost">Item cost</label>
+                    <div class="ff-calc-input-wrap">
+                      <span class="ff-calc-input-symbol">$</span>
+                      <input class="ff-calc-input ff-calc-input-currency" id="purchaseCost" name="purchaseCost" type="number" min="0" step="0.01" value="">
+                    </div>
+                  </div>
+                  <div class="ff-calc-field">
+                    <label for="salePrice">Expected sale price</label>
+                    <div class="ff-calc-input-wrap">
+                      <span class="ff-calc-input-symbol">$</span>
+                      <input class="ff-calc-input ff-calc-input-currency" id="salePrice" name="salePrice" type="number" min="0" step="0.01" value="">
+                    </div>
+                  </div>
+                  <div class="ff-calc-field">
+                    <label for="shippingCost">Shipping you pay</label>
+                    <div class="ff-calc-input-wrap">
+                      <span class="ff-calc-input-symbol">$</span>
+                      <input class="ff-calc-input ff-calc-input-currency" id="shippingCost" name="shippingCost" type="number" min="0" step="0.01" value="0">
+                    </div>
+                  </div>
+                  <div class="ff-calc-field">
+                    <label for="shippingCharged">Shipping charged to buyer</label>
+                    <div class="ff-calc-input-wrap">
+                      <span class="ff-calc-input-symbol">$</span>
+                      <input class="ff-calc-input ff-calc-input-currency" id="shippingCharged" name="shippingCharged" type="number" min="0" step="0.01" value="0">
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="ff-calc-group">
+                <h3>Seller fee assumptions</h3>
+                <p id="ffFeeModelNote">Preset fee logic will appear here.</p>
+                <div class="ff-calc-group-grid">
+                  <div class="ff-calc-field">
+                    <label for="sellerFeePct">Seller fee percent</label>
+                    <input class="ff-calc-input" id="sellerFeePct" name="sellerFeePct" type="number" min="0" step="0.01" value="13.60">
+                  </div>
+                  <div class="ff-calc-field">
+                    <label for="fixedFee">Fixed order fee</label>
+                    <div class="ff-calc-input-wrap">
+                      <span class="ff-calc-input-symbol">$</span>
+                      <input class="ff-calc-input ff-calc-input-currency" id="fixedFee" name="fixedFee" type="number" min="0" step="0.01" value="0.40">
+                    </div>
+                  </div>
+                  <div class="ff-calc-field ff-calc-field-wide">
+                    <label class="ff-calc-checkbox" for="feeIncludesShipping">
+                      <input id="feeIncludesShipping" name="feeIncludesShipping" type="checkbox" checked>
+                      Apply seller fee percent to buyer-paid shipping too
+                    </label>
+                  </div>
+                  <div class="ff-calc-field">
+                    <label for="taxCollected">Sales tax collected by marketplace</label>
+                    <input class="ff-calc-input" id="taxCollected" type="number" min="0" step="0.01" value="0">
+                    <div class="ff-calc-help">Used only in the eBay fee base, never in seller revenue. Held constant when solving a price.</div>
+                  </div>
+                  <div class="ff-calc-field">
+                    <label for="packagingCost">Packaging and supplies</label>
+                    <div class="ff-calc-input-wrap">
+                      <span class="ff-calc-input-symbol">$</span>
+                      <input class="ff-calc-input ff-calc-input-currency" id="packagingCost" name="packagingCost" type="number" min="0" step="0.01" value="0.75">
+                    </div>
+                  </div>
+                  <div class="ff-calc-field">
+                    <label for="otherCosts">Other costs</label>
+                    <div class="ff-calc-input-wrap">
+                      <span class="ff-calc-input-symbol">$</span>
+                      <input class="ff-calc-input ff-calc-input-currency" id="otherCosts" name="otherCosts" type="number" min="0" step="0.01" value="0">
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="ff-calc-group">
+                <h3>Planning target</h3>
+                <p>Choose the outcome you care about.</p>
+                <fieldset class="ff-calc-toggle"><legend>Target type</legend>
+                  <label for="targetProfitMode">
+                    <input id="targetProfitMode" name="targetMode" type="radio" value="profit" checked>
+                    Target profit
+                  </label>
+                  <label for="targetRoiMode">
+                    <input id="targetRoiMode" name="targetMode" type="radio" value="roi">
+                    Target ROI
+                  </label>
+                </fieldset>
+                <div class="ff-calc-group-grid" style="margin-top:16px;">
+                  <div class="ff-calc-field">
+                    <label for="targetValue" id="ffTargetValueLabel">Target profit</label>
+                    <div class="ff-calc-input-wrap">
+                      <span class="ff-calc-input-symbol" id="ffTargetSymbol">$</span>
+                      <input class="ff-calc-input ff-calc-input-currency" id="targetValue" name="targetValue" type="number" min="0" step="0.01" value="15">
+                    </div>
+                    <div class="ff-calc-help" id="ffTargetHelp">How much profit you want to clear.</div>
+                  </div>
+                </div>
+              </section>
+            </form>
+          </div>
+
+          <aside class="ff-calc-results" aria-live="polite" aria-atomic="true">
+            <div class="ff-calc-results-primary" id="ffProfitCard">
+              <div class="ff-calc-results-label">{{ .Params.resultLabel | default "Estimated profit" }}</div>
+              <div class="ff-calc-results-value" id="ffProfitValue">$0.00</div>
+              <div class="ff-calc-results-copy" id="ffProfitMeta">After item cost, shipping, seller fees, and supplies.</div>
+            </div>
+
+            <div class="ff-calc-rating-card">
+              <div class="ff-calc-results-label">Your planning target</div>
+              <div style="margin-top:10px;">
+                <span class="ff-calc-rating-pill ff-calc-rating-risky" id="ffDealRating">Enter your inputs</span>
+              </div>
+              <div class="ff-calc-results-copy" id="ffDealRatingCopy">Choose your own target. This tool does not recommend whether to buy an item.</div>
+            </div>
+
+            <div class="ff-calc-results-grid">
+              <div class="ff-calc-metric">
+                <div class="ff-calc-results-label">Minimum acceptable sale price</div>
+                <div class="ff-calc-metric-value" id="ffTargetSaleValue">$0.00</div>
+                <div class="ff-calc-metric-copy" id="ffTargetSaleCopy">Needed to hit your current target.</div>
+              </div>
+              <div class="ff-calc-metric">
+                <div class="ff-calc-results-label">Max buy cost</div>
+                <div class="ff-calc-metric-value" id="ffMaxBuyValue">$0.00</div>
+                <div class="ff-calc-metric-copy" id="ffMaxBuyCopy">Most you can pay and still hit your target.</div>
+              </div>
+              <div class="ff-calc-metric">
+                <div class="ff-calc-results-label">Break-even sale price</div>
+                <div class="ff-calc-metric-value" id="ffBreakEvenValue">$0.00</div>
+                <div class="ff-calc-metric-copy">The lowest price before you start losing money.</div>
+              </div>
+              <div class="ff-calc-metric">
+                <div class="ff-calc-results-label">ROI</div>
+                <div class="ff-calc-metric-value" id="ffRoiValue">0%</div>
+                <div class="ff-calc-metric-copy">Profit compared with cash invested.</div>
+              </div>
+              <div class="ff-calc-metric">
+                <div class="ff-calc-results-label">Profit margin</div>
+                <div class="ff-calc-metric-value" id="ffMarginValue">0%</div>
+                <div class="ff-calc-metric-copy">Profit as a share of total revenue.</div>
+              </div>
+            </div>
+            <div class="ff-calc-save-card">
+              <button type="button" class="ff-calc-button" id="ffCopyResult" disabled>Copy estimate</button>
+              <p id="ffCopyStatus" role="status"></p>
+              {{ if not .Params.embed }}{{ partial "acquisition-cta.html" (dict "page" . "placement" "calculator_result" "title" "Keep the item and its actual outcome" "copy" "Enter the item manually in FlipFinds, save its costs, and update the result when it sells. This browser estimate does not transfer automatically to the app.") }}{{ else }}<p><a href="/calculator/?utm_source=embed&amp;utm_medium=referral&amp;utm_campaign=ff_resources" target="_blank" rel="noopener">Powered by FlipFinds</a></p>{{ end }}
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    {{ if not .Params.embed }}<section class="ff-calc-sections post-content">
+      {{ .Content }}
+      {{ partial "acquisition-related.html" . }}
+      <p>US dollar estimates. <a href="/resources/fee-assumptions/">Methodology and sourced fee assumptions</a>; sources checked {{ site.Data.fees.verified }}.</p>
+    </section>{{ end }}
+  </div>
+  {{ $math := resources.Get "js/resale-math.js" | resources.Minify | fingerprint }}
+  <script src="{{ $math.RelPermalink }}" integrity="{{ $math.Data.Integrity }}" crossorigin="anonymous"></script>
+  <script>
+    (function () {
+      var presets = {{ site.Data.fees.presets }};
+      var intent = {{ .Params.intent | default "resale_profit" }};
+      var initialPreset = {{ .Params.preset | default "ebay" }};
+      var resultMode = {{ .Params.resultMode | default "profit" }};
+      var state = {
+        activePreset: "ebay"
+      };
+
+      var fields = {
+        purchaseCost: document.getElementById("purchaseCost"),
+        taxCollected: document.getElementById("taxCollected"),
+        salePrice: document.getElementById("salePrice"),
+        shippingCharged: document.getElementById("shippingCharged"),
+        shippingCost: document.getElementById("shippingCost"),
+        sellerFeePct: document.getElementById("sellerFeePct"),
+        fixedFee: document.getElementById("fixedFee"),
+        feeIncludesShipping: document.getElementById("feeIncludesShipping"),
+        packagingCost: document.getElementById("packagingCost"),
+        otherCosts: document.getElementById("otherCosts"),
+        targetValue: document.getElementById("targetValue")
+      };
+
+      var feeModelNote = document.getElementById("ffFeeModelNote");
+      var targetValueLabel = document.getElementById("ffTargetValueLabel");
+      var targetSymbol = document.getElementById("ffTargetSymbol");
+      var targetHelp = document.getElementById("ffTargetHelp");
+
+      var profitCard = document.getElementById("ffProfitCard");
+      var profitValue = document.getElementById("ffProfitValue");
+      var profitMeta = document.getElementById("ffProfitMeta");
+      var targetSaleValue = document.getElementById("ffTargetSaleValue");
+      var targetSaleCopy = document.getElementById("ffTargetSaleCopy");
+      var maxBuyValue = document.getElementById("ffMaxBuyValue");
+      var maxBuyCopy = document.getElementById("ffMaxBuyCopy");
+      var breakEvenValue = document.getElementById("ffBreakEvenValue");
+      var marginValue = document.getElementById("ffMarginValue");
+      var roiValue = document.getElementById("ffRoiValue");
+      var dealRating = document.getElementById("ffDealRating");
+      var dealRatingCopy = document.getElementById("ffDealRatingCopy");
+      var presetButtons = Array.prototype.slice.call(document.querySelectorAll("[data-preset]"));
+      var targetModeButtons = Array.prototype.slice.call(document.querySelectorAll("[name='targetMode']"));
+      var calculatorStarted = false;
+      var calculatorCompleted = false;
+
+      function trackCalculatorInteraction(evt) {
+        if (!evt.isTrusted || typeof window.ffTrack !== "function") return;
+        var params = { calculator_name: intent, marketplace: state.activePreset };
+        if (!calculatorStarted) calculatorStarted = window.ffTrack("calculator_started", params);
+        if (!calculatorCompleted && document.getElementById("ffProfitForm").checkValidity() && isReady()) {
+          calculatorCompleted = window.ffTrack("calculator_completed", params);
+        }
+      }
+      function isReady() {
+        var costEntered = fields.purchaseCost.value.trim() !== "";
+        var saleEntered = fields.salePrice.value.trim() !== "" && Number(fields.salePrice.value) > 0;
+        if (!document.getElementById("ffProfitForm").checkValidity()) return false;
+        if (state.activePreset !== "poshmark" && state.activePreset !== "ebay" && Number(fields.sellerFeePct.value) >= 100) return false;
+        return resultMode === "break_even" ? costEntered : resultMode === "max_buy" ? saleEntered : costEntered && saleEntered;
+      }
+      function num(el) {
+        var value = Number(el.value);
+        return Number.isFinite(value) ? value : 0;
+      }
+
+      function bool(el) {
+        return !!el.checked;
+      }
+
+      function currency(value) {
+        return new Intl.NumberFormat("en-US", {
+          style: "currency",
+          currency: "USD"
+        }).format(value || 0);
+      }
+
+      function percent(value) {
+        if (!Number.isFinite(value)) return "--";
+        return value.toFixed(1) + "%";
+      }
+
+      function currentTargetMode() {
+        var checked = document.querySelector("[name='targetMode']:checked");
+        return checked ? checked.value : "profit";
+      }
+
+      function setActivePreset(name) {
+        state.activePreset = name;
+        presetButtons.forEach(function (button) {
+          button.classList.toggle("is-active", button.getAttribute("data-preset") === name);
+        });
+      }
+
+      function applyPreset(name) {
+        var preset = presets[name];
+        setActivePreset(name);
+        if (preset) {
+          fields.sellerFeePct.value = preset.sellerFeePct.toFixed(2);
+          fields.fixedFee.value = preset.fixedFee.toFixed(2);
+          fields.feeIncludesShipping.checked = preset.feeIncludesShipping;
+          feeModelNote.textContent = preset.note;
+          fields.shippingCharged.disabled=name === "poshmark";
+          fields.shippingCharged.setAttribute("aria-describedby", "ffFeeModelNote");
+        }
+        calculate();
+      }
+
+      function promoteToCustomIfNeeded() {
+        if (state.activePreset !== "custom") {
+          setActivePreset("custom");
+          fields.shippingCharged.disabled=false;
+          feeModelNote.textContent = presets.custom.note;
+        }
+      }
+
+      function updateTargetUi() {
+        if (currentTargetMode() === "roi") {
+          targetValueLabel.textContent = "Target ROI";
+          targetSymbol.textContent = "%";
+          targetHelp.textContent = "The ROI percent you want.";
+          fields.targetValue.classList.remove("ff-calc-input-currency");
+        } else {
+          targetValueLabel.textContent = "Target profit";
+          targetSymbol.textContent = "$";
+          targetHelp.textContent = "How much profit you want to clear.";
+          fields.targetValue.classList.add("ff-calc-input-currency");
+        }
+      }
+
+      function calculate() {
+        var purchaseCost = num(fields.purchaseCost);
+        var salePrice = num(fields.salePrice);
+        var shippingCharged = num(fields.shippingCharged);
+        var shippingCost = num(fields.shippingCost);
+        var sellerFeePct = num(fields.sellerFeePct) / 100;
+        var fixedFee = num(fields.fixedFee);
+        var feeIncludesShipping = bool(fields.feeIncludesShipping);
+        var packagingCost = num(fields.packagingCost);
+        var otherCosts = num(fields.otherCosts);
+        var targetValueRaw = num(fields.targetValue);
+
+        var input = { marketplace:state.activePreset, purchaseCost:purchaseCost, salePrice:salePrice, shippingCharged:shippingCharged,
+          shippingCost:shippingCost, packagingCost:packagingCost, otherCosts:otherCosts, sellerFeePct:sellerFeePct*100,
+          fixedFee:fixedFee, feeIncludesShipping:feeIncludesShipping, taxCollected:num(fields.taxCollected),
+          targetMode:currentTargetMode(), targetValue:targetValueRaw };
+        var result = FFResaleMath.calculate(input);
+        var profit=result.profit, roi=result.roi;
+        var ready=isReady();
+        document.getElementById("ffCopyResult").disabled=!ready;
+        document.getElementById("ffCopyStatus").textContent="";
+        if (!ready) {
+          [profitValue,breakEvenValue,targetSaleValue,maxBuyValue,marginValue,roiValue].forEach(function(el){el.textContent="--";});
+          profitMeta.textContent="Enter the required item cost and/or expected sale price. Fee rates must be below 100% for Custom.";
+          dealRating.textContent="Enter your inputs";dealRatingCopy.textContent="Choose a target to compare with your estimate.";
+          return;
+        }
+        profitValue.textContent = resultMode === "roi" ? (Number.isFinite(result.roi) ? percent(result.roi) : "--") : currency(resultMode === "max_buy" ? result.maxBuy : resultMode === "break_even" ? result.breakEven : result.profit);
+        breakEvenValue.textContent = Number.isFinite(result.breakEven) ? currency(result.breakEven) : "--";
+        targetSaleValue.textContent = Number.isFinite(result.minimumSale) ? currency(result.minimumSale) : "--";
+        maxBuyValue.textContent = Number.isFinite(result.maxBuy) ? currency(result.maxBuy) : "--";
+        marginValue.textContent = fields.salePrice.value !== "" ? percent(result.margin) : "--";
+        roiValue.textContent = fields.salePrice.value !== "" && fields.purchaseCost.value !== "" ? percent(result.roi) : "--";
+        if (currentTargetMode() === "roi") {
+          targetSaleCopy.textContent = "Needed to hit " + percent(targetValueRaw) + " ROI under these assumptions.";
+          maxBuyCopy.textContent = "Most you can pay and still hit " + percent(targetValueRaw) + " ROI.";
+        } else {
+          targetSaleCopy.textContent = "Needed to clear " + currency(targetValueRaw) + " profit under these assumptions.";
+          maxBuyCopy.textContent = "Most you can pay and still clear " + currency(targetValueRaw) + " profit.";
+        }
+
+        if (profit > 0) {
+          profitMeta.textContent = "Estimated positive profit after item cost, shipping, seller fees, and supplies.";
+          profitCard.style.borderColor = "var(--ff-brand-success)";
+        } else if (profit < 0) {
+          profitMeta.textContent = "This setup is currently estimating a loss after the recorded costs.";
+          profitCard.style.borderColor = "var(--ff-brand-danger)";
+        } else {
+          profitMeta.textContent = "This setup is currently estimating a break-even result.";
+          profitCard.style.borderColor = "var(--ff-brand-border)";
+        }
+
+        if (resultMode === "break_even") {
+          profitMeta.textContent="Minimum modeled sale price to cover entered costs. Enter a sale price to compare an outcome.";
+          dealRating.textContent="Cost coverage";dealRatingCopy.textContent="Break-even leaves no profit cushion for missing costs.";
+        } else if (resultMode === "max_buy") {
+          profitMeta.textContent="Maximum item cost under your entered sale estimate, expenses and target.";
+          dealRating.textContent=result.maxBuy < 0 ? "Target not feasible" : "Compare with asking cost";
+          dealRatingCopy.textContent="This ceiling depends on the expected sale price. It is not a recommendation to buy.";
+        } else {
+          dealRating.textContent=result.meetsTarget ? "Target met" : "Below your target";
+          dealRatingCopy.textContent="Comparison with your chosen target only; demand, time and unentered costs are not modeled.";
+        }
+        dealRating.classList.remove("ff-calc-rating-good","ff-calc-rating-okay","ff-calc-rating-risky");
+        dealRating.classList.add(result.meetsTarget ? "ff-calc-rating-good" : "ff-calc-rating-okay");
+        if(result.meetsTarget === null){dealRating.textContent="ROI undefined";dealRatingCopy.textContent="Use a dollar-profit target when cash investment is zero.";}
+        if(resultMode === "roi")profitMeta.textContent="Estimated profit: "+currency(result.profit)+". ROI compares it with entered cash investment; zero investment has no ROI percentage.";
+      }
+      document.getElementById("ffCopyResult").addEventListener("click", async function(){
+        var summary = document.title + "\n" + document.querySelector(".ff-calc-results-label").textContent + ": " + profitValue.textContent
+          + "\nROI: " + roiValue.textContent + "; margin: " + marginValue.textContent + "\nEstimates, not guaranteed outcomes. " + {{ .Permalink }};
+        try { await navigator.clipboard.writeText(summary);document.getElementById("ffCopyStatus").textContent="Estimate copied.";
+          if(window.ffTrack)window.ffTrack("calculator_shared",{calculator_name:intent,marketplace:state.activePreset});
+        } catch(e){document.getElementById("ffCopyStatus").textContent="Copy is unavailable here. Select the visible results to copy them.";}
+      });
+
+      presetButtons.forEach(function (button) {
+        button.addEventListener("click", function (evt) {
+          applyPreset(button.getAttribute("data-preset"));
+          trackCalculatorInteraction(evt);
+        });
+      });
+
+      [fields.sellerFeePct, fields.fixedFee, fields.feeIncludesShipping].forEach(function (field) {
+        field.addEventListener("input", function () {
+          promoteToCustomIfNeeded();
+          calculate();
+        });
+        field.addEventListener("change", function () {
+          promoteToCustomIfNeeded();
+          calculate();
+        });
+      });
+
+      [
+        fields.purchaseCost,
+        fields.salePrice,
+        fields.shippingCharged,
+        fields.shippingCost,
+        fields.packagingCost,
+        fields.otherCosts,
+        fields.taxCollected,
+        fields.targetValue
+      ].forEach(function (field) {
+        field.addEventListener("input", calculate);
+      });
+
+      targetModeButtons.forEach(function (button) {
+        button.addEventListener("change", function () {
+          updateTargetUi();
+          calculate();
+        });
+      });
+
+      updateTargetUi();
+      if (resultMode === "roi") { document.getElementById("targetRoiMode").checked=true;fields.targetValue.value="50";updateTargetUi(); }
+      applyPreset(initialPreset);
+      document.getElementById("ffProfitForm").addEventListener("input", trackCalculatorInteraction);
+      document.getElementById("ffProfitForm").addEventListener("change", trackCalculatorInteraction);
+    })();
+  </script>
+</section>

@@ -1,0 +1,18 @@
+{{- $page := .page -}}
+{{- $placement := .placement | default "content_end" -}}
+<aside class="ff-acquisition-cta" aria-label="Use FlipFinds">
+  <h2>{{ .title | default "Keep the next item in FlipFinds" }}</h2>
+  <p>{{ .copy | default "Add an item, record your costs, and update the actual result when it sells. Local inventory works without an account; optional Cloud uses a connected account." }}</p>
+  <div class="ff-inline-cta-actions" data-ff-store-group>
+    <a class="ff-store-badge-link" data-ff-platform="ios" data-source="{{ $placement }}" href="{{ partial "store-url.html" (dict "page" $page "platform" "ios") }}" target="_blank" rel="noopener" aria-label="Download FlipFinds on the App Store">
+      <img class="ff-store-badge ff-store-badge-apple" src="/images/store-badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40" loading="lazy">
+    </a>
+    <a class="ff-store-badge-link" data-ff-platform="android" data-source="{{ $placement }}" href="{{ partial "store-url.html" (dict "page" $page "platform" "android") }}" target="_blank" rel="noopener" aria-label="Get FlipFinds on Google Play">
+      <img class="ff-store-badge ff-store-badge-google" src="/images/store-badges/google-play-badge.png" alt="Get it on Google Play" width="155" height="60" loading="lazy">
+    </a>
+    {{- if and site.Data.acquisition.webSignupEnabled site.Data.acquisition.webSignupUrl }}
+    <a href="{{ site.Data.acquisition.webSignupUrl }}" data-ff-platform="web" data-source="{{ $placement }}">Start on web</a>
+    {{- end }}
+  </div>
+  <p><a href="/pages/start-here/">Follow the first-item setup</a> · <a href="/pricing/">Free and Pro options</a></p>
+</aside>

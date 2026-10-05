@@ -1,0 +1,30 @@
+.ff-acquisition-nav { display:flex; flex-wrap:wrap; gap:12px 20px; font-size:15px; }
+.ff-landing-shell .ff-acquisition-nav a { color:var(--ff-text-muted); }
+.ff-calc-shell .ff-acquisition-nav a { color:var(--ff-calc-muted); }
+.ff-landing-shell .ff-acquisition-nav a:hover,.ff-calc-shell .ff-acquisition-nav a:hover { text-decoration:underline; }
+.ff-landing-shell .ff-landing-main-shot { max-height:560px; width:auto; max-width:100%; object-fit:contain; margin:auto; }
+body { overflow-x:clip; }
+.ff-acquisition-cta,.ff-related { padding:24px; margin:28px 0; border:1px solid var(--border); border-radius:12px; }
+.ff-inline-cta-actions { display:flex; align-items:center; flex-wrap:wrap; gap:12px; }
+.ff-store-badge-link { display:inline-flex; }
+.ff-acquisition-cta .ff-store-badge { width:auto; max-width:160px; }
+.ff-acquisition-cta .ff-store-badge-apple { height:44px; }
+.ff-acquisition-cta .ff-store-badge-google { height:60px; }
+.ff-acquisition-cta h2 { margin-top:0; }
+.ff-calc-shell .ff-acquisition-cta,.ff-calc-shell .ff-related { color:var(--ff-calc-text); border-color:var(--ff-calc-border); }
+.ff-calc-shell .ff-acquisition-cta h2,.ff-calc-shell .post-content h2,.ff-calc-shell .post-content h3 { color:var(--ff-calc-text); }
+.ff-calc-shell .post-content { color:var(--ff-calc-muted-soft); }
+.ff-landing-shell .ff-landing-section a { color:var(--ff-text-muted); text-decoration:underline; }
+.ff-calc-shell .ff-acquisition-cta a,.ff-calc-shell .ff-related a,.ff-calc-shell .post-content a { color:var(--ff-brand-primary); text-decoration:underline; }
+.ff-calc-shell :focus-visible,.ff-landing-shell :focus-visible { outline-color:var(--ff-brand-primary); }
+.ff-embed .ff-calc-container { padding:16px; }
+.ff-embed .ff-calc-hero { padding-top:0; }
+.ff-embed .ff-calc-save-card { padding:12px; }
+.ff-acquisition-cta p,.ff-related li { margin:12px 0; }
+.ff-device-primary { order:-1; outline:2px solid var(--ff-brand-primary); outline-offset:4px; border-radius:5px; }
+a:focus-visible,button:focus-visible,input:focus-visible { outline:3px solid var(--ff-brand-primary); outline-offset:4px; }
+.post-content figure img { width:100%; max-width:480px; height:auto; margin:auto; }
+.post-content figcaption { text-align:center; font-size:14px; color:var(--secondary); }
+.post-content a { text-decoration:underline; text-underline-offset:.15em; }
+.ff-acquisition-cta [data-ff-platform="web"] { padding:12px 20px; background:var(--ff-brand-primary); color:white; border-radius:8px; }
+@media(max-width:760px) { .ff-acquisition-nav { gap:10px 16px; } .ff-landing-header,.ff-calc-header { flex-wrap:wrap; } }

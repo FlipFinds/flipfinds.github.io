@@ -1,0 +1,14 @@
+{{- $config := site.Data.acquisition -}}
+{{- $cluster := index (split (strings.Trim .page.RelPermalink "/") "/") 0 -}}
+{{- if .page.IsHome }}{{ $cluster = "home" }}{{ end -}}
+{{- $campaign := index $config.campaigns $cluster | default "ff_support" -}}
+{{- $url := $config.ios -}}
+{{- if eq .platform "ios" -}}
+  {{- with $config.appleProviderToken -}}
+    {{- $url = printf "%s?pt=%s&ct=%s&mt=8" $url (urlquery .) (urlquery $campaign) -}}
+  {{- end -}}
+{{- else -}}
+  {{- $referrer := printf "utm_source=flipfinds_web&utm_medium=website&utm_campaign=%s" $campaign -}}
+  {{- $url = printf "%s&referrer=%s" $config.android (urlquery $referrer) -}}
+{{- end -}}
+{{- return $url -}}

@@ -1,0 +1,3 @@
+<div class="ff-hub-grid">
+{{ range .items }}<a class="ff-hub-card" href="{{ index . 4 }}"><span class="ff-card-code" aria-hidden="true">{{ index . 0 }}</span><span class="ff-eyebrow">{{ index . 1 }}</span><h2>{{ index . 2 }}</h2><p>{{ index . 3 }}</p><span class="ff-card-action">{{ $.action }} <span aria-hidden="true">→</span></span></a>{{ end }}
+</div>
