@@ -17,4 +17,6 @@ We will verify that you control the account, tell you when to expect completion,
 
 Deletion removes your FlipFinds Cloud Workspace account and associated cloud inventory and backed-up photos. It does not delete your Google or Apple account. Items and original photos saved only on your phone are outside the cloud account and remain on that device.
 
+Removed cloud data may remain in restricted disaster-recovery copies until they expire: database backups for up to 14 days, point-in-time database versions for up to seven days, and deleted cloud photo files for up to seven days. We exclude completed account deletions from restoration to active service. Device inventory and any device recovery copies remain local until you remove that app data.
+
 Deleting Cloud Workspace does not cancel a Pro subscription. Cancel an active subscription in the App Store or Google Play if you no longer want to be billed.
