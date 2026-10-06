@@ -5,21 +5,21 @@
       <p class="ff-eyebrow">FROM THE FIRST FIND TO THE FINAL SALE</p>
       <h1 id="home-title">Good finds.<br>Clear numbers.<br><span>Better decisions.</span></h1>
       <p class="ff-hero-lead">Your resale business, item by item.</p>
-      <p class="ff-hero-description">Research a possible buy, keep inventory organized, and see what’s left after costs. FlipFinds brings the whole workflow together.</p>
+      <p class="ff-hero-description">Add your finds, keep inventory organized, and see what’s left after costs. FlipFinds keeps your items and results together.</p>
       {{ partial "store-buttons.html" (dict "page" . "placement" "home_hero") }}
       <a class="ff-text-link" href="/calculator/" data-ff-track="hero_profit_calculator">Try the free profit calculator <span aria-hidden="true">→</span></a>
       <p class="ff-hero-note">iPhone & Android · No account needed for local inventory</p>
     </div>
     {{ partial "product-showcase.html" . }}
   </section>
-  <div class="ff-value-strip" aria-label="FlipFinds capabilities"><span>Research before you buy</span><span>Keep track of every item</span><span>Review your recorded profit</span></div>
+  <div class="ff-value-strip" aria-label="FlipFinds capabilities"><span>Add your finds</span><span>Keep track of every item</span><span>Review your recorded profit</span></div>
   {{ if and (eq hugo.Environment "development") site.Params.workspacePreview }}
   <section class="ff-workspace-feature" aria-labelledby="workspace-title">
-    <div class="ff-workspace-story"><p class="ff-eyebrow">MOBILE WHEN YOU SOURCE. DESKTOP WHEN YOU PLAN.</p><h2 id="workspace-title">A clear view of<br>your resale business.</h2><p>Keep the item-level detail. See the bigger picture. Review inventory, prepare listings, record sales and export your numbers from one workspace.</p><ul><li>Sign in with the Google or Apple account you use on mobile.</li><li>Review your current Cloud inventory.</li><li>Create a separate, writable copy to test your workflows.</li></ul>{{ partial "workspace-link.html" (dict "placement" "home_workspace" "label" "Open your workspace" "class" "ff-button") }}<p class="ff-workspace-note">Private launch testing · Live inventory stays read-only · Purchases are not enabled</p></div>
+    <div class="ff-workspace-story"><p class="ff-eyebrow">MOBILE WHEN YOU SOURCE. DESKTOP WHEN YOU PLAN.</p><h2 id="workspace-title">A clear view of<br>your resale business.</h2><p>Keep the item-level detail. See the bigger picture. Add items, review inventory, record sales and explore your analytics from one workspace.</p><ul><li>Sign in with the Google or Apple account you use on mobile.</li><li>Review your current Cloud inventory.</li><li>Create a separate, writable copy to test your workflows.</li></ul>{{ partial "workspace-link.html" (dict "placement" "home_workspace" "label" "Open your workspace" "class" "ff-button") }}<p class="ff-workspace-note">Private launch testing · Live inventory stays read-only · Purchases are not enabled</p></div>
     <div class="ff-desktop-preview" aria-label="Illustrative desktop inventory preview">
       <div class="ff-desktop-toolbar"><strong>FlipFinds.</strong><span>Inventory / Business overview</span><span class="ff-example-label">EXAMPLE DATA</span></div>
       <div class="ff-desktop-metrics"><div><span>Inventory cost</span><strong>$132.00</strong><small>3 owned items</small></div><div><span>Recorded sales</span><strong>$180.00</strong><small>2 sold items</small></div><div><span>Recorded profit</span><strong>$76.00</strong><small>After recorded costs</small></div></div>
-      <div class="ff-desktop-table"><div><strong>Item</strong><strong>Status</strong><strong>Purchase cost</strong></div><div><span>Trail running shoes</span><span>Listed</span><span>$28.00</span></div><div><span>Canvas travel bag</span><span>Owned</span><span>$34.00</span></div><div><span>Vintage field jacket</span><span>Listed</span><span>$70.00</span></div></div>
+      <div class="ff-desktop-table"><div><strong>Item</strong><strong>Status</strong><strong>Purchase cost</strong></div><div><span>Trail running shoes</span><span>Active</span><span>$28.00</span></div><div><span>Canvas travel bag</span><span>Active</span><span>$34.00</span></div><div><span>Vintage field jacket</span><span>Active</span><span>$70.00</span></div></div>
       <p>One record from purchase through sale. Estimates stay separate from recorded results.</p>
     </div>
   </section>
@@ -27,8 +27,8 @@
   <section class="ff-section" aria-labelledby="workflow-title">
     <div class="ff-section-heading"><div><p class="ff-eyebrow">ONE CONNECTED WORKFLOW</p><h2 id="workflow-title">From “is it worth it?”<br>to knowing how it sold.</h2></div><a class="ff-text-link" href="/product/">Explore FlipFinds <span aria-hidden="true">→</span></a></div>
     <div class="ff-workflow-grid">
-      <article><span class="ff-step-number">01 / SOURCE</span><h3>Make room for a better buy.</h3><p>Start with a barcode, photo-assisted entry or a manual record. Research comparable items and check your expected costs.</p><a class="ff-text-link" href="/product/sourcing/">Explore sourcing <span aria-hidden="true">→</span></a></article>
-      <article><span class="ff-step-number">02 / ORGANIZE</span><h3>Give every find a place.</h3><p>Keep purchase costs and item records together. Update status as you move from buying to listing to selling.</p><a class="ff-text-link" href="/product/inventory-tracker/">Explore inventory <span aria-hidden="true">→</span></a></article>
+      <article><span class="ff-step-number">01 / ADD</span><h3>Make room for a better buy.</h3><p>Start with a barcode, photo-assisted entry or a manual record. Review the item details and record what you paid.</p><a class="ff-text-link" href="/product/scanning/">Explore adding items <span aria-hidden="true">→</span></a></article>
+      <article><span class="ff-step-number">02 / ORGANIZE</span><h3>Give every find a place.</h3><p>Keep purchase costs and item records together. Edit details, record sales, or archive items you no longer need.</p><a class="ff-text-link" href="/product/inventory-tracker/">Explore inventory <span aria-hidden="true">→</span></a></article>
       <article><span class="ff-step-number">03 / REVIEW</span><h3>See more than a sale price.</h3><p>Record the actual sale and its costs. Review recorded profit and analytics, with estimates kept distinct from results.</p><a class="ff-text-link" href="/product/profit-tracker/">Explore profit tracking <span aria-hidden="true">→</span></a></article>
     </div>
   </section>
@@ -44,7 +44,7 @@
     <div><p class="ff-eyebrow">A LITTLE MORE CLARITY</p><h2 id="faq-title">Before you get started.</h2><a class="ff-text-link" href="/pages/contact/">Contact support <span aria-hidden="true">→</span></a></div>
     <div>
       <details><summary>Do I need an account?</summary><p>Local inventory works without an account. Optional Cloud requires sign-in and sends connected inventory data to Cloud services. Photo backup availability and status are separate; check Settings to confirm what is backed up.</p></details>
-      <details><summary>Does FlipFinds show sold comps?</summary><p>Use the app’s Sold Comps research path to check comparable completed sales where available. Active listing medians summarize asking prices, not confirmed sale prices. Match model, condition and shipping; research coverage can vary.</p></details>
+      <details><summary>Does FlipFinds show sold comps?</summary><p>Use marketplace websites to check comparable completed sales. Match the model, condition and shipping, then enter your chosen list price in FlipFinds. The current app and dashboard do not include a separate Research workspace.</p></details>
       <details><summary>Can I use the calculators without the app?</summary><p>Yes. The free web calculators work in your browser. Estimates depend on your inputs and editable assumptions. Calculator amounts are not automatically transferred into the app.</p></details>
       <details><summary>What are the Free and Pro options?</summary><p>Check the app for current features, regional prices and subscription terms. <a href="/pricing/">Read the app options overview</a> before deciding.</p></details>
     </div>

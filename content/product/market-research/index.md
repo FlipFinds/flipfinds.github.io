@@ -1,13 +1,15 @@
 +++
 title = "Sold comps and active listings: a reseller research workflow"
-description = "Use item research and the eBay sold-comps handoff in FlipFinds to compare exact items, condition and shipping before estimating a resale price."
+description = "Compare exact items, condition and shipping on marketplace websites before entering a resale price in FlipFinds."
 intent = "market_research"
 lastmod = 2026-10-03T00:00:00Z
 hideMeta = true
 related = ["product", "calculator/max-buy-price", "product/scanning", "resources/fee-assumptions", "guides/pricing-without-regret-a-repeatable-comps-workflow-simple-margin-rules-22292073606"]
 +++
 
-A listing price answers what a seller hopes to receive. A completed sale is stronger evidence of what a buyer paid, though it still needs context. FlipFinds supports a research workflow around the item you are adding; its eBay sold-comps action opens an external research destination.
+The current FlipFinds mobile app and dashboard do not include a separate Research workspace. Use the external marketplace checks below, then enter your own list price in the item record.
+
+A listing price answers what a seller hopes to receive. A completed sale is stronger evidence of what a buyer paid, though it still needs context. Use marketplace websites for that research, then record your chosen list price and actual costs in FlipFinds.
 
 ## Match the item before comparing prices
 
