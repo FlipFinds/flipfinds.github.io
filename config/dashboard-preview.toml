@@ -1,4 +1,4 @@
 # Explicit local preview only. The template also requires development mode.
 [params]
   workspacePreview = true
-  workspacePreviewUrl = "http://127.0.0.1:3210/start"
+  workspacePreviewUrl = "http://localhost:3212/start"

@@ -1,7 +1,7 @@
 {{- $url := "" -}}
 {{- if and site.Data.acquisition.webSignupEnabled (eq site.Data.acquisition.webSignupUrl "https://app.flipfinds.net/start") -}}
   {{- $url = site.Data.acquisition.webSignupUrl -}}
-{{- else if and (eq hugo.Environment "development") site.Params.workspacePreview (eq site.Params.workspacePreviewUrl "http://127.0.0.1:3210/start") -}}
+{{- else if and (eq hugo.Environment "development") site.Params.workspacePreview (in (slice "http://127.0.0.1:3210/start" "http://localhost:3212/start") site.Params.workspacePreviewUrl) -}}
   {{- $url = site.Params.workspacePreviewUrl -}}
 {{- end -}}
 {{- with $url -}}

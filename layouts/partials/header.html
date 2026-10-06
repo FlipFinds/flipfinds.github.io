@@ -5,8 +5,10 @@
     {{ $icon := (resources.Get "images/app-icon.png").Resize "80x webp" }}
     <a class="ff-wordmark" href="/" aria-label="FlipFinds home"><img src="{{ $icon.RelPermalink }}" alt="" width="40" height="40">FlipFinds<span aria-hidden="true">.</span></a>
     <ul id="menu" class="ff-menu">{{ range site.Menus.main }}{{ if ne .URL "/download/" }}<li><a href="{{ .URL }}"{{ if hasPrefix $.RelPermalink .URL }} aria-current="page"{{ end }}>{{ .Name }}</a></li>{{ end }}{{ end }}</ul>
-    {{ partial "workspace-link.html" (dict "placement" "header_workspace" "label" "Open workspace") }}
-    <a class="ff-button ff-nav-download" href="/download/" data-ff-track="header_download">Get the app <span aria-hidden="true">↗</span></a>
+    <div class="ff-nav-actions">
+      {{ partial "workspace-link.html" (dict "placement" "header_workspace" "label" "Open workspace") }}
+      <a class="ff-button ff-nav-download" href="/download/" data-ff-track="header_download">Get the app <span aria-hidden="true">↗</span></a>
+    </div>
   </nav>
 </header>
 {{ end }}

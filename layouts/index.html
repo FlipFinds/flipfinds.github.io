@@ -13,6 +13,17 @@
     {{ partial "product-showcase.html" . }}
   </section>
   <div class="ff-value-strip" aria-label="FlipFinds capabilities"><span>Research before you buy</span><span>Keep track of every item</span><span>Review your recorded profit</span></div>
+  {{ if and (eq hugo.Environment "development") site.Params.workspacePreview }}
+  <section class="ff-workspace-feature" aria-labelledby="workspace-title">
+    <div class="ff-workspace-story"><p class="ff-eyebrow">MOBILE WHEN YOU SOURCE. DESKTOP WHEN YOU PLAN.</p><h2 id="workspace-title">A clear view of<br>your resale business.</h2><p>Keep the item-level detail. See the bigger picture. Review inventory, prepare listings, record sales and export your numbers from one workspace.</p><ul><li>Sign in with the Google or Apple account you use on mobile.</li><li>Review your current Cloud inventory.</li><li>Create a separate, writable copy to test your workflows.</li></ul>{{ partial "workspace-link.html" (dict "placement" "home_workspace" "label" "Open your workspace" "class" "ff-button") }}<p class="ff-workspace-note">Private launch testing · Live inventory stays read-only · Purchases are not enabled</p></div>
+    <div class="ff-desktop-preview" aria-label="Illustrative desktop inventory preview">
+      <div class="ff-desktop-toolbar"><strong>FlipFinds.</strong><span>Inventory / Business overview</span><span class="ff-example-label">EXAMPLE DATA</span></div>
+      <div class="ff-desktop-metrics"><div><span>Inventory cost</span><strong>$132.00</strong><small>3 owned items</small></div><div><span>Recorded sales</span><strong>$180.00</strong><small>2 sold items</small></div><div><span>Recorded profit</span><strong>$76.00</strong><small>After recorded costs</small></div></div>
+      <div class="ff-desktop-table"><div><strong>Item</strong><strong>Status</strong><strong>Purchase cost</strong></div><div><span>Trail running shoes</span><span>Listed</span><span>$28.00</span></div><div><span>Canvas travel bag</span><span>Owned</span><span>$34.00</span></div><div><span>Vintage field jacket</span><span>Listed</span><span>$70.00</span></div></div>
+      <p>One record from purchase through sale. Estimates stay separate from recorded results.</p>
+    </div>
+  </section>
+  {{ end }}
   <section class="ff-section" aria-labelledby="workflow-title">
     <div class="ff-section-heading"><div><p class="ff-eyebrow">ONE CONNECTED WORKFLOW</p><h2 id="workflow-title">From “is it worth it?”<br>to knowing how it sold.</h2></div><a class="ff-text-link" href="/product/">Explore FlipFinds <span aria-hidden="true">→</span></a></div>
     <div class="ff-workflow-grid">

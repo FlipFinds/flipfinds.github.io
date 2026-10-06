@@ -10,6 +10,6 @@ test('normal website build keeps all dashboard entry links disabled', () => {
   for (const page of ['index.html', 'calculator/index.html', 'product/index.html']) {
     const html = fs.readFileSync(path.join(built, page), 'utf8');
     assert.doesNotMatch(html, /<a\b[^>]*data-ff-platform=["']?web\b/);
-    assert.doesNotMatch(html, /href=["']?http:\/\/127\.0\.0\.1:3210/);
+    assert.doesNotMatch(html, /href=["']?http:\/\/(?:127\.0\.0\.1|localhost):321[012]/);
   }
 });
