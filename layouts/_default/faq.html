@@ -1,0 +1,12 @@
+{{ define "main" }}
+<article class="post-single ff-help-page">
+  <header class="post-header">
+    {{ partial "breadcrumbs.html" . }}
+    <p class="ff-eyebrow">FLIPFINDS HELP</p>
+    <h1 class="post-title">{{ .Title }}</h1>
+    <p class="post-description">{{ .Description }}</p>
+  </header>
+  <nav class="ff-help-topics" aria-label="FAQ topics"><a href="#getting-started">Getting started</a><a href="#pro-and-your-account">Pro & account</a><a href="#inventory-and-tools">Inventory & tools</a></nav>
+  <div class="post-content">{{ .Content }}</div>
+</article>
+{{ end }}

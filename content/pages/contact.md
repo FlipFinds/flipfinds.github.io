@@ -20,6 +20,8 @@ For Cloud issues, describe inventory synchronization and photo-backup status sep
 
 ## Useful links
 
+- [Frequently asked questions](/pages/faq/)
+
 - [Start Here](/pages/start-here/)
 - [Posts](/posts/)
 - [Guides](/guides/)

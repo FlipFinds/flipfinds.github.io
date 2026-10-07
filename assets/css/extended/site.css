@@ -1368,3 +1368,26 @@ aside[aria-label='Website analytics preferences'] {
     transition: none !important;
   }
 }
+
+/* Homepage: distinct next steps in a compact resource row. */
+.ff-home-resources { padding: 64px 0; }
+.ff-resource-heading { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-bottom: 24px; }
+.ff-resource-heading h2 { font-size: clamp(24px, 2.4vw, 30px); letter-spacing: -.035em; margin: 0; }
+.ff-resource-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.ff-resource-cards > a { display: block; padding: 26px; border: 1px solid var(--border); border-radius: 14px; background: var(--entry); }
+.ff-resource-cards h3 { display: flex; justify-content: space-between; gap: 12px; font-size: 20px; margin: 12px 0; }
+.ff-resource-cards h3 span { color: var(--ff-brand-primary); }
+.ff-resource-cards p:last-child { color: var(--secondary); font-size: 14px; line-height: 1.7; margin: 0; }
+.ff-resource-cards a:hover { border-color: var(--ff-brand-primary); }
+.ff-resource-cards a:hover h3 { text-decoration: underline; text-underline-offset: 4px; }
+.ff-help-topics { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 40px; }
+.ff-help-topics a { border: 1px solid var(--border); border-radius: 8px; padding: 10px 16px; font-size: 14px; }
+.ff-help-topics a:hover { border-color: var(--ff-brand-primary); }
+.ff-help-page .post-content h2 { border-top: 1px solid var(--border); padding-top: 32px; }
+.ff-help-page .post-content h3 { font-size: 21px; line-height: 1.45; }
+@media (max-width: 760px) {
+  .ff-home-resources { padding: 44px 0; }
+  .ff-resource-heading { align-items: flex-start; flex-direction: column; gap: 14px; }
+  .ff-resource-cards { grid-template-columns: 1fr; gap: 12px; }
+  .ff-resource-cards > a { padding: 22px; }
+}

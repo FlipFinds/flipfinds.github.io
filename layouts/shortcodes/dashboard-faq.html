@@ -1,0 +1,8 @@
+{{ $entry := partial "workspace-link.html" (dict "placement" "faq_dashboard" "label" "Open dashboard" "next" "/dashboard") }}
+{{ if $entry }}
+<h3 id="use-dashboard">How do I open the web dashboard?</h3>
+<p>Select <strong>Dashboard</strong> in the website header, then sign in with your Cloud account. An active FlipFinds Pro subscription is required to use the dashboard.</p>
+<p>{{ $entry }}</p>
+<h3 id="mobile-pro">I already have Pro on mobile. Do I need another subscription?</h3>
+<p>No. Use the same Cloud account and sign-in method you use in the mobile app. Your connected inventory and Pro access belong together. If your mobile subscription is not recognized, contact support before purchasing again.</p>
+{{ end }}
