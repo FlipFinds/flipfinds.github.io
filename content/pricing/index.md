@@ -24,6 +24,6 @@ Local inventory does not require an account. Cloud is optional, requires a conne
 
 ## Web access
 
-FlipFinds is currently available through the iOS and Android apps. Web signup and checkout will appear here when web access becomes available.
+{{< web-billing >}}
 
 We do not quote a fixed price here because live store offers and regional terms can differ. For help understanding the offer you see, [contact support](/pages/contact/).

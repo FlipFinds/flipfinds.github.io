@@ -1,0 +1,7 @@
+{{ if or site.Data.acquisition.webSignupEnabled (and (eq hugo.Environment "development") site.Params.workspacePreview) }}
+<p>Use the same Google or Apple account as your mobile Cloud workspace. Review available web plans and manage your subscription from Billing.</p>
+{{ partial "workspace-link.html" (dict "placement" "pricing_web_billing" "label" "View web plans" "class" "ff-button" "next" "/billing") }}
+{{ if and (eq hugo.Environment "development") site.Params.workspacePreview }}<p>Private preview: web checkout is in sandbox mode for test payments.</p>{{ end }}
+{{ else }}
+<p>FlipFinds is currently available through the iOS and Android apps. Web signup and checkout will appear here when web access becomes available.</p>
+{{ end }}
