@@ -158,9 +158,13 @@ select:focus-visible {
   font-weight: 600;
   line-height: 1.4;
   text-decoration: none;
+  transition: background-color 150ms ease, color 150ms ease;
 }
-.ff-button:hover {
-  box-shadow: 0 3px 0 var(--ff-brand-accent);
+.ff-button:hover,
+.ff-button:active {
+  background: color-mix(in srgb, var(--ff-brand-primary) 85%, black);
+  box-shadow: none;
+  transform: none;
 }
 .ff-nav-download {
   justify-self: end;
