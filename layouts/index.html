@@ -12,14 +12,15 @@
     </div>
     {{ partial "product-showcase.html" . }}
   </section>
-  {{ if and (eq hugo.Environment "development") site.Params.workspacePreview }}
+  {{ $workspaceLink := partial "workspace-link.html" (dict "placement" "home_workspace" "label" "Open dashboard" "next" "/dashboard" "class" "ff-button") }}
+  {{ if $workspaceLink }}
   <section class="ff-workspace-feature" aria-labelledby="workspace-title">
     <div class="ff-workspace-story">
       <p class="ff-eyebrow">INCLUDED WITH FLIPFINDS PRO</p>
       <h2 id="workspace-title">Your inventory,<br>now on desktop.</h2>
       <p>Start on your phone. Pick up with your Cloud inventory in a browser, with more room to work.</p>
       <ul><li>Review and edit your inventory on a larger screen.</li><li>Explore your sales and profit over time.</li><li>Create reports to print or export.</li></ul>
-      {{ partial "workspace-link.html" (dict "placement" "home_workspace" "label" "Open dashboard" "next" "/dashboard" "class" "ff-button") }}
+      {{ $workspaceLink }}
       <p class="ff-workspace-note">Already Pro on mobile? Sign in with the same Cloud account. No second subscription needed.</p>
     </div>
     <div class="ff-desktop-preview" aria-label="Illustrative desktop inventory preview">
