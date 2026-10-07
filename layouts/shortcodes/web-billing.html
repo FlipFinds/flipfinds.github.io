@@ -1,10 +1,23 @@
 {{ if or site.Data.acquisition.webSignupEnabled (and (eq hugo.Environment "development") site.Params.workspacePreview) }}
-<h2>FlipFinds Pro includes the web dashboard</h2>
-<p>Manage inventory, record sales, explore analytics and create printable reports with your Cloud records. An active Pro subscription is required for dashboard access.</p>
-<p>Choose monthly or annual billing on the purchase page, where live prices and billing periods are shown. Sign in or create an account, then continue to secure checkout.</p>
-{{ partial "workspace-link.html" (dict "placement" "pricing_web_purchase" "label" "See plans & get Pro" "class" "ff-button") }}
-<p>Already have Pro on mobile? Sign in with your existing Cloud account. We check your subscription before asking you to purchase; an active linked Pro subscription includes dashboard access.</p>
-{{ partial "workspace-link.html" (dict "placement" "pricing_existing_pro" "label" "Already have Pro? Sign in" "next" "/dashboard") }}
+<div class="ff-plan-grid">
+  <section class="ff-plan-card" aria-labelledby="mobile-plan">
+    <p class="ff-eyebrow">START ON YOUR PHONE</p>
+    <h2 id="mobile-plan">Your everyday inventory</h2>
+    <p>Start with the mobile app and keep your local inventory without creating an account.</p>
+    <ul><li>Keep track of your finds</li><li>Record purchase costs and sales</li><li>Build your inventory as you go</li></ul>
+    <a class="ff-button ff-plan-secondary" href="/download/">Get the mobile app</a>
+    <p class="ff-plan-note">Optional upgrades are available in the app.</p>
+  </section>
+  <section class="ff-plan-card ff-plan-featured" aria-labelledby="pro-plan">
+    <p class="ff-eyebrow">MOBILE + WEB</p>
+    <h2 id="pro-plan">FlipFinds Pro</h2>
+    <p>Your Pro mobile features, plus room to manage your Cloud inventory on a bigger screen.</p>
+    <ul><li>Desktop inventory and sales management</li><li>Business analytics from your records</li><li>Printable reports and data exports</li></ul>
+    {{ partial "workspace-link.html" (dict "placement" "pricing_web_purchase" "label" "See plans & get Pro" "class" "ff-button") }}
+    <p class="ff-plan-note">Monthly and annual options. Current prices appear before checkout.</p>
+  </section>
+</div>
+<div class="ff-existing-plan"><strong>Already have Pro on mobile?</strong><p>Use your existing Cloud account. We check for an active linked Pro subscription before offering a purchase.</p>{{ partial "workspace-link.html" (dict "placement" "pricing_existing_pro" "label" "Sign in to your account" "next" "/dashboard") }}</div>
 {{ if and (eq hugo.Environment "development") site.Params.workspacePreview }}<p>Private preview: web checkout is in sandbox mode for test payments.</p>{{ end }}
 {{ else }}
 <p>FlipFinds is currently available through the iOS and Android apps. Web signup and checkout will appear here when web access becomes available.</p>
