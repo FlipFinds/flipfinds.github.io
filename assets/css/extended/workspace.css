@@ -1,4 +1,8 @@
 /* Shared brand variables come from site.css. */
+html { scrollbar-gutter: stable; }
+/* Match the dashboard gutter instead of PaperMod's wider desktop scrollbar. */
+::-webkit-scrollbar { width: 15px !important; }
+.ff-nav-actions > .ff-text-link { width: 100px; justify-content: flex-end; }
 .ff-nav { grid-template-columns: auto minmax(0, 1fr) auto; gap: 26px; }
 .ff-nav #menu { justify-content: center; }
 .ff-nav-actions { display: flex; align-items: center; justify-content: flex-end; gap: 22px; }
@@ -28,12 +32,20 @@
   .ff-workspace-feature { gap: 32px; }
 }
 @media (max-width: 700px) {
-  .ff-nav-actions { gap: 10px; }
-  .ff-nav-actions > .ff-text-link { font-size: 11px; gap: 4px; }
-  .ff-nav-actions .ff-nav-download { padding: 10px; font-size: 11px; }
+  .ff-nav { grid-template-columns: 1fr; gap: 16px; }
+  .ff-nav-actions { gap: 10px; grid-row: 2; grid-column: 1; justify-content: space-between; }
+  .ff-nav #menu { grid-row: 3; justify-content: space-between; gap: 12px; }
+  .ff-nav-actions > .ff-text-link { font-size: 11px; gap: 4px; width: 75px; }
+  .ff-nav-actions > .ff-button { min-height: 42px; padding: 10px 12px; font-size: 12px; gap: 12px; }
   .ff-workspace-feature { grid-template-columns: 1fr; padding: 48px 0; }
   .ff-desktop-preview { transform: none; }
   .ff-desktop-toolbar > span:not(.ff-example-label) { display: none; }
+}
+@media (max-width: 359px) {
+  .ff-nav #menu { gap: 8px; }
+  .ff-nav-actions { gap: 6px; }
+  .ff-nav-actions > .ff-text-link { width: 60px; }
+  .ff-nav-actions > .ff-button { font-size: 11px; padding: 10px 8px; gap: 6px; }
 }
 @media (max-width: 390px) {
   .ff-nav { grid-template-columns: 1fr; }
