@@ -11,6 +11,8 @@ related = ["pages/start-here", "product", "tools"]
 
 Choose the store for your device. Both options stay available if you are browsing on a computer.
 
+{{< web-pro-offer >}}
+
 ## Your first useful action
 
 Add one item and enter its purchase cost. Check an expected sale price, account for fees and shipping, and save it. Later, record what actually happened when it sells.
