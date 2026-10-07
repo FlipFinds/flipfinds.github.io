@@ -9,6 +9,8 @@ related = ["download", "product/cloud", "pages/terms"]
 
 Start with the local resale workflow, then review the available upgrade options in the app. The App Store, Google Play, and in-app offer screen show the current price, currency, billing period, and terms for your region.
 
+{{< web-billing >}}
+
 ## What to check before upgrading
 
 - Which research and analytics features are included in the offer shown to you.
@@ -22,8 +24,6 @@ Start with the local resale workflow, then review the available upgrade options 
 
 Local inventory does not require an account. Cloud is optional, requires a connected account and eligible access, and transfers data to Cloud services. [Read the Cloud workflow](/product/cloud/) and [privacy policy](/pages/privacy/).
 
-## Web access
 
-{{< web-billing >}}
 
 We do not quote a fixed price here because live store offers and regional terms can differ. For help understanding the offer you see, [contact support](/pages/contact/).
