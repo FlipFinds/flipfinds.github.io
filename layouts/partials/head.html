@@ -20,7 +20,7 @@ window.FFPage={page_path:{{ .RelPermalink }},page_type:{{ $pageType }},intent:{{
 {{- /* Title */}}
 {{- $siteTitle := site.Title -}}
 {{- if .IsHome -}}
-{{- $siteTitle = "FlipFinds | Resale Profit Calculator and Inventory Tracker" -}}
+{{- $siteTitle = .Title | default site.Title -}}
 {{- end -}}
 {{- if eq .Type "calculator" -}}
 {{- $siteTitle = "FlipFinds" -}}
