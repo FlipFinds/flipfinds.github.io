@@ -1,0 +1,68 @@
+/* Download landing page uses shared brand tokens and actual app screens. */
+.ff-download-hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 60px; align-items: center; padding: 8px 0 56px; }
+.ff-download-copy h1 { font: 600 clamp(40px, 4.2vw, 58px)/1.12 var(--ff-heading-font); letter-spacing: -.045em; margin: 0 0 26px; }
+.ff-download-copy h1 span { color: var(--ff-brand-primary); }
+.ff-download-lead { font-size: 21px; font-weight: 600; margin: 0 0 14px; }
+.ff-download-description { font-size: 17px; line-height: 1.8; color: var(--ff-brand-muted); max-width: 470px; }
+.ff-download-copy .ff-store-actions { margin-top: 26px; gap: 18px; }
+.ff-download-reassurance { font-size: 13px; font-weight: 600; margin: 10px 0 8px; }
+.ff-download-store-note { font-size: 12px; line-height: 1.6; color: var(--ff-brand-muted); margin: 0 0 12px; }
+.ff-download-visual { margin: 0; min-width: 0; }
+.ff-download-art { height: 570px; position: relative; isolation: isolate; overflow: hidden; border-radius: 24px; border: 1px solid var(--ff-brand-border); background: var(--ff-brand-surface-note); }
+.ff-download-orbit { position: absolute; width: 520px; height: 520px; border: 1px solid color-mix(in srgb, var(--ff-brand-primary) 12%, transparent); border-radius: 50%; left: -75px; top: 80px; }
+.ff-download-phone { position: absolute; padding: 5px; border-radius: 29px; background: var(--ff-brand-primary); box-shadow: 0 20px 45px color-mix(in srgb, var(--ff-brand-primary) 15%, transparent); }
+.ff-download-phone img { width: 100%; height: auto; display: block; margin: 0; border-radius: 24px; }
+.ff-download-phone-front { width: 222px; left: 9%; top: 38px; transform: rotate(-5deg); z-index: 2; }
+.ff-download-phone-back { width: 188px; right: 5%; top: 92px; transform: rotate(7deg); }
+.ff-download-art-label { position: absolute; z-index: 3; bottom: 32px; left: 7%; right: 7%; display: flex; align-items: center; gap: 14px; padding: 18px 20px; border: 1px solid var(--ff-brand-border); border-radius: 14px; background: var(--ff-brand-surface-alt); font-size: 14px; font-weight: 600; box-shadow: 0 8px 24px color-mix(in srgb, var(--ff-brand-primary) 8%, transparent); }
+.ff-download-art-label > span { color: var(--ff-brand-primary); font-size: 23px; }
+.ff-download-art-label small { display: block; font-size: 11px; font-weight: 400; color: var(--ff-brand-muted); margin-top: 4px; }
+.ff-download-visual figcaption { font-size: 10px; line-height: 1.6; text-align: center; color: var(--ff-brand-muted); padding: 12px 8px 0; }
+.ff-download-benefits { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; padding: 36px 0 42px; border-block: 1px solid var(--ff-brand-border); }
+.ff-download-number { color: var(--ff-brand-primary); font-size: 10px; letter-spacing: 1.3px; font-weight: 600; }
+.ff-download-benefits h2 { font-size: 19px; line-height: 1.4; margin: 14px 0 10px; }
+.ff-download-benefits p, .ff-download-start p, .ff-download-questions p { color: var(--ff-brand-muted); font-size: 14px; line-height: 1.8; margin: 0; }
+.ff-download-start, .ff-download-questions { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; padding: 64px 0; }
+.ff-download-start h2, .ff-download-questions h2 { font: 600 32px/1.25 var(--ff-heading-font); letter-spacing: -.035em; margin: 0 0 18px; }
+.ff-download-start .ff-eyebrow, .ff-download-questions .ff-eyebrow { margin-bottom: 16px; color: var(--ff-brand-primary); font-size: 11px; }
+.ff-download-start .ff-text-link { margin-top: 16px; }
+.ff-download-start ol { list-style: none; margin: 0; padding: 0; display: grid; gap: 24px; }
+.ff-download-start li { display: flex; gap: 18px; align-items: flex-start; }
+.ff-download-start li > span { display: grid; place-items: center; flex: 0 0 36px; height: 36px; border-radius: 50%; border: 1px solid var(--ff-brand-border); color: var(--ff-brand-primary); background: var(--ff-brand-surface-note); font-size: 13px; font-weight: 600; }
+.ff-download-start h3 { font-size: 17px; margin: 0 0 6px; }
+.ff-download-questions { border-top: 1px solid var(--ff-brand-border); }
+.ff-download-questions details { border-bottom: 1px solid var(--ff-brand-border); padding: 0 0 20px; margin-bottom: 20px; }
+.ff-download-questions summary { cursor: pointer; font-size: 15px; font-weight: 600; padding: 4px 0; }
+.ff-download-questions details p { margin-top: 12px; }
+.ff-download-questions a { color: var(--ff-brand-primary); text-decoration: underline; text-underline-offset: 3px; }
+.ff-download-page .ff-download-pro { margin: 0; background: var(--ff-brand-surface-note); }
+.ff-download-return { text-align: center; padding-top: 28px; }
+#download-options, #first-item { scroll-margin-top: 110px; }
+@media (max-width: 1000px) {
+ .ff-download-hero { gap: 30px; }
+ .ff-download-art { height: 505px; }
+ .ff-download-phone-front { width: 190px; left: 7%; }
+ .ff-download-phone-back { width: 162px; right: 4%; }
+ .ff-download-start, .ff-download-questions { gap: 40px; }
+}
+@media (max-width: 700px) {
+ .ff-download-hero { grid-template-columns: 1fr; gap: 28px; padding-bottom: 32px; }
+ .ff-download-copy h1 { font-size: clamp(35px, 8.5vw, 48px); }
+ .ff-download-lead { font-size: 19px; }
+ .ff-download-description { font-size: 15px; }
+ .ff-download-art { height: 490px; max-width: 480px; margin: auto; }
+ .ff-download-phone-front { width: 190px; left: 9%; top: 25px; }
+ .ff-download-phone-back { width: 163px; top: 70px; right: 7%; }
+ .ff-download-art-label { bottom: 22px; padding: 15px; }
+ .ff-download-benefits { grid-template-columns: 1fr; gap: 26px; padding: 30px 0; }
+ .ff-download-benefits h2 { margin-top: 8px; }
+ .ff-download-start, .ff-download-questions { grid-template-columns: 1fr; gap: 28px; padding: 38px 0; }
+ .ff-download-start h2, .ff-download-questions h2 { font-size: 28px; }
+}
+@media (max-width: 359px) {
+ .ff-download-art { height: 420px; }
+ .ff-download-phone-front { width: 158px; }
+ .ff-download-phone-back { width: 137px; }
+ .ff-download-art-label { left: 5%; right: 5%; font-size: 12px; gap: 10px; }
+ .ff-download-art-label small { font-size: 10px; }
+}

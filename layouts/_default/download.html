@@ -1,0 +1,51 @@
+{{ define "main" }}
+{{ $inventory := (resources.Get "images/app/inventory.png").Resize "640x webp q85" }}
+{{ $profit := (resources.Get "images/app/item-profit.png").Resize "480x webp q85" }}
+<div class="ff-download-page">
+<section class="ff-download-hero" aria-labelledby="download-title">
+ <div class="ff-download-copy">
+  <p class="ff-eyebrow">FLIPFINDS FOR IPHONE &amp; ANDROID</p>
+  <h1 id="download-title">Your next find.<br><span>Already organized.</span></h1>
+  <p class="ff-download-lead">Keep the finds. Lose the guesswork.</p>
+  <p class="ff-download-description">Give every item a place, keep its costs together, and see what you kept when it sells. Your resale business, right in your pocket.</p>
+  <div id="download-options">
+   {{ partial "store-buttons.html" (dict "page" . "placement" "download_page") }}
+   <p class="ff-download-reassurance">Start with local inventory. No account required.</p>
+   <p class="ff-download-store-note">Choose the App Store for iPhone or Google Play for Android.</p>
+  </div>
+  <a class="ff-text-link" href="#first-item">See how to get started <span aria-hidden="true">&darr;</span></a>
+ </div>
+ <figure class="ff-download-visual">
+  <div class="ff-download-art">
+   <div class="ff-download-orbit" aria-hidden="true"></div>
+   <div class="ff-download-phone ff-download-phone-back"><img src="{{ $profit.RelPermalink }}" alt="Item details in FlipFinds showing a bag's recorded sale, costs and profit" width="{{ $profit.Width }}" height="{{ $profit.Height }}" decoding="async"></div>
+   <div class="ff-download-phone ff-download-phone-front"><img src="{{ $inventory.RelPermalink }}" alt="FlipFinds mobile inventory with item photos, purchase costs and sale values" width="{{ $inventory.Width }}" height="{{ $inventory.Height }}" fetchpriority="high" decoding="async"></div>
+   <div class="ff-download-art-label"><span aria-hidden="true">&#10003;</span><div>Every find has a place.<small>From the first buy to the final sale.</small></div></div>
+  </div>
+  <figcaption>Actual app screens &middot; Example data and illustrative item photos</figcaption>
+ </figure>
+</section>
+<section class="ff-download-benefits" aria-label="Why download FlipFinds">
+ <article><span class="ff-download-number">01 / KEEP TRACK</span><h2>A place for every item.</h2><p>Keep photos, item details and purchase costs together, wherever you're sourcing.</p></article>
+ <article><span class="ff-download-number">02 / SEE THE COSTS</span><h2>Know what goes into a sale.</h2><p>Consider fees and shipping alongside your purchase cost when estimating profit.</p></article>
+ <article><span class="ff-download-number">03 / CLOSE THE LOOP</span><h2>See what you actually kept.</h2><p>Record the sale and its costs to keep your results connected to the item.</p></article>
+</section>
+<section id="first-item" class="ff-download-start" aria-labelledby="first-item-title">
+ <div><p class="ff-eyebrow">START SMALL. BUILD THE HABIT.</p><h2 id="first-item-title">One item is all<br>you need to begin.</h2><p>You don't need to organize your entire inventory before FlipFinds becomes useful.</p><a class="ff-text-link" href="/pages/start-here/">Follow the first-item walkthrough <span aria-hidden="true">&rarr;</span></a></div>
+ <ol><li><span>1</span><div><h3>Add your first find</h3><p>Give it a name, add its purchase cost and save its details.</p></div></li><li><span>2</span><div><h3>Work through the numbers</h3><p>Check an expected sale price and account for fees and shipping.</p></div></li><li><span>3</span><div><h3>Record it when it sells</h3><p>Enter the actual sale and costs to see the result.</p></div></li></ol>
+</section>
+<section class="ff-download-questions" aria-labelledby="download-questions-title">
+ <div><p class="ff-eyebrow">BEFORE YOUR FIRST FIND</p><h2 id="download-questions-title">A few useful answers.</h2><p>Need a hand? <a href="/pages/contact/">Contact support</a>.</p></div>
+ <div>
+  <details><summary>Do I need an account to get started?</summary><p>You can start with local inventory without an account. Optional Cloud requires sign-in and sends connected inventory data to Cloud services.</p></details>
+  <details><summary>What is included, and what requires Pro?</summary><p>You can start with the app's local inventory. Pro unlocks additional features. Review the <a href="/pricing/">Free and Pro options</a>; available purchase options and regional prices appear in the app and store.</p></details>
+  {{ $pro := partial "workspace-link.html" (dict "placement" "download_faq" "class" "ff-text-link") }}
+  {{ with $pro }}<details><summary>Can I use my inventory on a computer?</summary><p>The web dashboard uses your Cloud account and requires an active linked Pro subscription. Sign in with the same account you use on mobile.</p></details>{{ end }}
+  <details><summary>Will my website calculator results appear in the app?</summary><p>Calculator results don't transfer automatically. Enter the item details in the app when you add your first item.</p></details>
+ </div>
+</section>
+{{ $pro := partial "workspace-link.html" (dict "placement" "download_page" "class" "ff-button") }}
+{{ with $pro }}<section class="ff-download-pro" aria-labelledby="download-pro-title"><div><p class="ff-eyebrow">READY FOR A BIGGER PICTURE?</p><h2 id="download-pro-title">Mobile for your finds. Desktop for your business.</h2><p>One Pro subscription unlocks mobile Pro and the web dashboard. Use your Cloud inventory for desktop analytics and reports.</p></div>{{ . }}</section>{{ end }}
+<div class="ff-download-return"><a class="ff-text-link" href="#download-options">Ready for your next find? Get the app <span aria-hidden="true">&uarr;</span></a></div>
+</div>
+{{ end }}
