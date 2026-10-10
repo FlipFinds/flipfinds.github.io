@@ -1,17 +1,13 @@
-# Dashboard integration — launch preparation
+# Dashboard website launch — 2026-10-09
 
-Prepared locally on `codex/dashboard-site-launch`. No publish, merge, DNS change or production service change is authorized.
+Both mobile apps are live, and the owner authorized publishing the full marketing site on its existing GitHub Pages host. Hosting migration remains deferred.
 
-Keep `data/acquisition.json` → `webSignupEnabled: false`. The future receiver is `https://app.flipfinds.net/start`; it has not been deployed or configured in DNS. Workspace entry links reuse one guarded template across header, home/store buttons and content CTAs. Existing app-store routes, calculators, analytics consent and canonical pages remain in place.
+`webSignupEnabled` is now true. Production entries point to https://app.flipfinds.net. The homepage includes an actual dashboard screenshot with synthetic example data and a three-step Cloud setup guide. Existing app-store routes, calculators, analytics consent, and canonical URLs remain intact.
 
-For local review with the dashboard preview running on port 3210:
+Validation: production Hugo build; 105 HTML pages and 53 indexable sitemap pages validated; 14 tests passed; JavaScript syntax checks and diff whitespace checks passed. Desktop homepage and mobile guide visually reviewed. No payment, authentication, Firebase rules, or mobile release changes are included.
 
-```text
-hugo server --bind 127.0.0.1 --port 1317 --environment development --config hugo.toml,config/dashboard-preview.toml --disableFastRender
-```
+Rollback: the previous production commit is 3fd1e48. Preserve it as `backup/pre-dashboard-launch-2026-10-09` before publishing. To undo this launch, revert the launch merge on main and let the existing Pages workflow redeploy. Do not reset or force-push main. To hide only dashboard entry points, set webSignupEnabled false and run the same build/tests.
 
-Open `http://127.0.0.1:1317/` and choose **Start on web**. The preview link requires both development mode and the explicit local config. The normal production build ignores this preview configuration. The template only permits the proposed HTTPS launch URL or the exact local preview URL.
+Local preview: run Hugo with config/dashboard-preview.toml. While the production flag is true, links intentionally use the live service. Never publish loopback URLs.
 
-Existing consented first/current campaign handoff works for the HTTPS launch URL. The HTTP local preview carries no acquisition history. Receiver-side consent, attribution persistence and confirmed purchase reporting remain launch blockers; a CTA click is not a completed signup or payment.
-
-Before enabling the flag: verify dashboard hosting, approved auth domain, new-user and existing-mobile-account flows, cache/account isolation, plan access, analytics consent and Stripe/RevenueCat reconciliation. Release the website flag only after the receiving product is validated and launch is explicitly approved.
+Post-deploy: verify homepage Dashboard and Get Pro links, pricing, download page, FAQ, and /guides/desktop-dashboard/ on the public domain. A CTA click is not a verified purchase. Native announcement preparation is a separate dashboard_onboard branch and requires a future mobile build and device QA.
