@@ -10,9 +10,7 @@
     <a class="ff-store-badge-link" data-ff-platform="android" data-source="{{ $placement }}" href="{{ partial "store-url.html" (dict "page" $page "platform" "android") }}" target="_blank" rel="noopener" aria-label="Get FlipFinds on Google Play">
       <img class="ff-store-badge ff-store-badge-google" src="/images/store-badges/google-play-badge.png" alt="Get it on Google Play" width="155" height="60" loading="lazy">
     </a>
-    {{- if and site.Data.acquisition.webSignupEnabled site.Data.acquisition.webSignupUrl }}
-    <a href="{{ site.Data.acquisition.webSignupUrl }}" data-ff-platform="web" data-source="{{ $placement }}">Start on web</a>
-    {{- end }}
+    {{ partial "workspace-link.html" (dict "placement" $placement) }}
   </div>
   <p><a href="/pages/start-here/">Follow the first-item setup</a> · <a href="/pricing/">Free and Pro options</a></p>
 </aside>

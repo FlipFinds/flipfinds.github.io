@@ -1,29 +1,24 @@
 +++
-lastmod = 2026-10-03T00:00:00Z
-title = "FlipFinds Free and Pro options"
-description = "Understand local inventory, optional Pro features and Cloud in FlipFinds. Check the app for current regional prices and available offers."
+lastmod = 2026-10-07T00:00:00Z
+title = "Find your next step with FlipFinds"
+description = "Start tracking finds on mobile, or choose Pro for your mobile workflow and web dashboard."
 intent = "pricing"
 hideMeta = true
 related = ["download", "product/cloud", "pages/terms"]
 +++
 
-Start with the local resale workflow, then review the available upgrade options in the app. The App Store, Google Play, and in-app offer screen show the current price, currency, billing period, and terms for your region.
+Start with your finds. Choose the workspace that fits how you sell.
 
-## What to check before upgrading
+{{< web-billing >}}
 
-- Which research and analytics features are included in the offer shown to you.
-- Whether the Cloud Workspace features you need are available for your account.
-- Photo backup allowance and current backup status; inventory sync does not prove photo backup completion.
-- The billing interval, trial or promotional terms, renewal price, and cancellation instructions displayed by your store.
+## One account, across your devices
 
-{{< app_cta source="pricing_page" >}}
+Use the same Cloud account on mobile and web to access your connected inventory. Local inventory on your phone stays local until you connect Cloud. Inventory sync and photo backup are separate; check photo backup status in the app.
 
-## Local use and Cloud are different
+## Clear terms before you buy
 
-Local inventory does not require an account. Cloud is optional, requires a connected account and eligible access, and transfers data to Cloud services. [Read the Cloud workflow](/product/cloud/) and [privacy policy](/pages/privacy/).
+Your purchase screen shows the current price, currency, billing period and renewal terms. Store and web offers can differ. Review any trial or promotion at checkout. Manage your subscription through the provider where you purchased it.
 
-## Web access
+Already paying for Pro but unable to access it? Sign in with your existing Cloud account and [contact support](/pages/contact/) before purchasing again.
 
-FlipFinds is currently available through the iOS and Android apps. Web signup and checkout will appear here when web access becomes available.
-
-We do not quote a fixed price here because live store offers and regional terms can differ. For help understanding the offer you see, [contact support](/pages/contact/).
+[Learn about Cloud](/product/cloud/) · [Terms](/pages/terms/) · [Privacy](/pages/privacy/)

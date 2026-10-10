@@ -5,37 +5,48 @@
       <p class="ff-eyebrow">FROM THE FIRST FIND TO THE FINAL SALE</p>
       <h1 id="home-title">Good finds.<br>Clear numbers.<br><span>Better decisions.</span></h1>
       <p class="ff-hero-lead">Your resale business, item by item.</p>
-      <p class="ff-hero-description">Research a possible buy, keep inventory organized, and see what’s left after costs. FlipFinds brings the whole workflow together.</p>
+      <p class="ff-hero-description">Add your finds, keep inventory organized, and see what’s left after costs. FlipFinds keeps your items and results together.</p>
       {{ partial "store-buttons.html" (dict "page" . "placement" "home_hero") }}
       <a class="ff-text-link" href="/calculator/" data-ff-track="hero_profit_calculator">Try the free profit calculator <span aria-hidden="true">→</span></a>
       <p class="ff-hero-note">iPhone & Android · No account needed for local inventory</p>
     </div>
     {{ partial "product-showcase.html" . }}
   </section>
-  <div class="ff-value-strip" aria-label="FlipFinds capabilities"><span>Research before you buy</span><span>Keep track of every item</span><span>Review your recorded profit</span></div>
+  {{ $workspaceLink := partial "workspace-link.html" (dict "placement" "home_workspace" "label" "Open dashboard" "next" "/dashboard" "class" "ff-button") }}
+  {{ if $workspaceLink }}
+  <section class="ff-workspace-feature" aria-labelledby="workspace-title">
+    <div class="ff-workspace-story">
+      <p class="ff-eyebrow">INCLUDED WITH FLIPFINDS PRO</p>
+      <h2 id="workspace-title">Your inventory,<br>now on desktop.</h2>
+      <p>Start on your phone. Pick up with your Cloud inventory in a browser, with more room to work.</p>
+      <ul><li>Review and edit your inventory on a larger screen.</li><li>Explore your sales and profit over time.</li><li>Create reports to print or export.</li></ul>
+      {{ $workspaceLink }}
+      <p class="ff-workspace-note">Already Pro on mobile? Sign in with the same Cloud account. No second subscription needed. <a href="/guides/desktop-dashboard/">See the setup guide →</a></p>
+    </div>
+    <figure class="ff-dashboard-capture">
+      <img src="/images/launch/dashboard.jpg" alt="FlipFinds desktop dashboard showing inventory, recorded profit and business performance" width="1410" height="1140" loading="lazy">
+      <figcaption>Actual dashboard · Example inventory and sales</figcaption>
+    </figure>
+  </section>
+  {{ end }}
   <section class="ff-section" aria-labelledby="workflow-title">
     <div class="ff-section-heading"><div><p class="ff-eyebrow">ONE CONNECTED WORKFLOW</p><h2 id="workflow-title">From “is it worth it?”<br>to knowing how it sold.</h2></div><a class="ff-text-link" href="/product/">Explore FlipFinds <span aria-hidden="true">→</span></a></div>
     <div class="ff-workflow-grid">
-      <article><span class="ff-step-number">01 / SOURCE</span><h3>Make room for a better buy.</h3><p>Start with a barcode, photo-assisted entry or a manual record. Research comparable items and check your expected costs.</p><a class="ff-text-link" href="/product/sourcing/">Explore sourcing <span aria-hidden="true">→</span></a></article>
-      <article><span class="ff-step-number">02 / ORGANIZE</span><h3>Give every find a place.</h3><p>Keep purchase costs and item records together. Update status as you move from buying to listing to selling.</p><a class="ff-text-link" href="/product/inventory-tracker/">Explore inventory <span aria-hidden="true">→</span></a></article>
-      <article><span class="ff-step-number">03 / REVIEW</span><h3>See more than a sale price.</h3><p>Record the actual sale and its costs. Review recorded profit and analytics, with estimates kept distinct from results.</p><a class="ff-text-link" href="/product/profit-tracker/">Explore profit tracking <span aria-hidden="true">→</span></a></article>
+      <article><span class="ff-step-number">01 / ADD</span><h3>Capture the find.</h3><p>Add a photo, scan a barcode or enter an item manually. Record what you paid.</p></article>
+      <article><span class="ff-step-number">02 / ORGANIZE</span><h3>Keep it in order.</h3><p>Give each item a category, location and asking price so it is easy to find later.</p></article>
+      <article><span class="ff-step-number">03 / REVIEW</span><h3>Know what you kept.</h3><p>Record the sale, fees and shipping to see your profit after costs.</p></article>
     </div>
   </section>
   <section class="ff-tools-feature" aria-labelledby="tools-title">
     <div><p class="ff-eyebrow">FREE TOOLS. PRACTICAL ANSWERS.</p><h2 id="tools-title">Run the numbers.<br>Before the register.</h2><p>A quick check for the decision in front of you. Use your own costs and editable fee assumptions.</p><a class="ff-button ff-button-light" href="/tools/">Explore all calculators <span aria-hidden="true">→</span></a></div>
     <div class="ff-tool-rows"><a href="/calculator/"><span><small>PROFIT CALCULATOR</small>What could I keep after costs?</span><b aria-hidden="true">↗</b></a><a href="/calculator/max-buy-price/"><span><small>MAXIMUM BUY PRICE</small>What can I afford to pay?</span><b aria-hidden="true">↗</b></a><a href="/calculator/break-even/"><span><small>BREAK-EVEN CALCULATOR</small>What would cover my costs?</span><b aria-hidden="true">↗</b></a></div>
   </section>
-  <section class="ff-section ff-learning" aria-labelledby="learn-title">
-    <div><p class="ff-eyebrow">BUILD YOUR RESELLING ROUTINE</p><h2 id="learn-title">A useful next step.<br>Wherever you are.</h2><p>Start with one item. Build a repeatable process for the next.</p><a class="ff-text-link" href="/pages/start-here/">Follow the first-item setup <span aria-hidden="true">→</span></a></div>
-    <div class="ff-learning-links"><a href="/guides/"><span class="ff-eyebrow">THE PLAYBOOK</span><h3>Practical reseller guides</h3><p>Sourcing, pricing and inventory routines.</p><span aria-hidden="true">↗</span></a><a href="/resources/inventory-template/"><span class="ff-eyebrow">THE WORKSHEET</span><h3>A record you can keep</h3><p>Download the inventory and profit spreadsheet.</p><span aria-hidden="true">↗</span></a></div>
-  </section>
-  <section class="ff-section ff-faq" aria-labelledby="faq-title">
-    <div><p class="ff-eyebrow">A LITTLE MORE CLARITY</p><h2 id="faq-title">Before you get started.</h2><a class="ff-text-link" href="/pages/contact/">Contact support <span aria-hidden="true">→</span></a></div>
-    <div>
-      <details><summary>Do I need an account?</summary><p>Local inventory works without an account. Optional Cloud requires sign-in and sends connected inventory data to Cloud services. Photo backup availability and status are separate; check Settings to confirm what is backed up.</p></details>
-      <details><summary>Does FlipFinds show sold comps?</summary><p>Use the app’s Sold Comps research path to check comparable completed sales where available. Active listing medians summarize asking prices, not confirmed sale prices. Match model, condition and shipping; research coverage can vary.</p></details>
-      <details><summary>Can I use the calculators without the app?</summary><p>Yes. The free web calculators work in your browser. Estimates depend on your inputs and editable assumptions. Calculator amounts are not automatically transferred into the app.</p></details>
-      <details><summary>What are the Free and Pro options?</summary><p>Check the app for current features, regional prices and subscription terms. <a href="/pricing/">Read the app options overview</a> before deciding.</p></details>
+  <section class="ff-home-resources" aria-labelledby="learn-title">
+    <div class="ff-resource-heading"><h2 id="learn-title">A little help along the way.</h2><a class="ff-text-link" href="/resources/">All resources <span aria-hidden="true">→</span></a></div>
+    <div class="ff-resource-cards">
+      <a href="/pages/start-here/"><span class="ff-eyebrow">GET STARTED</span><h3>Your first item <span aria-hidden="true">↗</span></h3><p>A short walkthrough from adding a find to recording a sale.</p></a>
+      <a href="/guides/"><span class="ff-eyebrow">BUILD YOUR ROUTINE</span><h3>Reseller guides <span aria-hidden="true">↗</span></h3><p>Practical help with pricing, organization and selling.</p></a>
+      <a href="/pages/faq/"><span class="ff-eyebrow">FIND AN ANSWER</span><h3>Common questions <span aria-hidden="true">↗</span></h3><p>Accounts, Pro, Cloud inventory and getting connected.</p></a>
     </div>
   </section>
   <section class="ff-closing" aria-label="Get FlipFinds"><p class="ff-eyebrow">MAKE YOUR NEXT FIND COUNT</p><h2>Start with one item.<br>Keep the whole picture.</h2><p>Download FlipFinds and give your next find a place.</p>{{ partial "store-buttons.html" (dict "page" . "placement" "home_footer") }}</section>

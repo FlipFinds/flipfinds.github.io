@@ -1,0 +1,11 @@
+{{ $pro := partial "workspace-link.html" (dict "placement" "download_page" "class" "ff-button") }}
+{{ with $pro }}
+<section class="ff-download-pro" aria-labelledby="download-pro-title">
+  <div>
+    <p class="ff-eyebrow">ONE PRO SUBSCRIPTION</p>
+    <h2 id="download-pro-title">Take your inventory further.</h2>
+    <p>Unlock Pro on mobile and the web dashboard. Use your Cloud account to review inventory, analytics and reports on a bigger screen.</p>
+  </div>
+  {{ . }}
+</section>
+{{ end }}

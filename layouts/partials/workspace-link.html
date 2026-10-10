@@ -1,0 +1,18 @@
+{{- $url := "" -}}
+{{- if and site.Data.acquisition.webSignupEnabled (eq site.Data.acquisition.webSignupUrl "https://app.flipfinds.net/start") -}}
+  {{- $url = site.Data.acquisition.webSignupUrl -}}
+{{- else if and (eq hugo.Environment "development") site.Params.workspacePreview (in (slice "http://127.0.0.1:3210/start" "http://localhost:3212/start" "http://localhost:3213/start") site.Params.workspacePreviewUrl) -}}
+  {{- $url = site.Params.workspacePreviewUrl -}}
+{{- end -}}
+{{- if $url -}}
+  {{- if eq .next "/dashboard" -}}
+    {{- $url = printf "%s?mode=signin&next=%%2Fdashboard" $url -}}
+  {{- else if eq .next "/billing" -}}
+    {{- $url = printf "%s?mode=signin&next=%%2Fbilling" $url -}}
+  {{- else -}}
+    {{- $url = replaceRE "/start$" "/get-pro" $url -}}
+  {{- end -}}
+{{- end -}}
+{{- with $url -}}
+<a class="{{ $.class | default "ff-text-link" }}" href="{{ . }}" data-ff-platform="web" data-source="{{ $.placement | default "content_end" }}">{{ $.label | default "Get FlipFinds Pro" }} <span aria-hidden="true">↗</span></a>
+{{- end -}}

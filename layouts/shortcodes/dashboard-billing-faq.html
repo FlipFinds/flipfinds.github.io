@@ -1,0 +1,10 @@
+{{ $purchase := partial "workspace-link.html" (dict "placement" "faq_purchase" "label" "View Pro plans") }}
+{{ if $purchase }}
+<h3 id="buy-pro-online">Can I purchase Pro on the website?</h3>
+<p>Yes. Choose <strong>Get FlipFinds Pro</strong>, select a plan and sign in or create your Cloud account before checkout. Pro includes mobile and dashboard access through that account. The checkout shows the final price and renewal terms.</p>
+<p>{{ $purchase }}</p>
+<h3 id="web-subscription">How do I manage a subscription purchased on the web?</h3>
+<p>Open Billing from your account menu and choose Manage subscription. The secure billing portal may ask you to verify your email. You can also use the management link in your purchase or renewal email.</p>
+<h3 id="expired-pro">What happens to my Cloud inventory if Pro expires?</h3>
+<p>Your Cloud inventory is retained. Dashboard access requires active Pro, and you can export existing Cloud data from your account without renewing.</p>
+{{ end }}

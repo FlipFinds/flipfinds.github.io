@@ -1,5 +1,13 @@
+{{ if ne .placement "download_page" }}
+  {{ $pro := partial "workspace-link.html" (dict "placement" .placement "class" "ff-button") }}
+  {{ with $pro }}
+  <div class="ff-product-actions">
+    {{ . }}
+    <span class="ff-product-actions-note">Pro for mobile &amp; dashboard</span>
+  </div>
+  {{ end }}
+{{ end }}
 <div class="ff-store-actions" data-ff-store-group>
   <a href="{{ partial "store-url.html" (dict "page" .page "platform" "ios") }}" data-ff-platform="ios" data-source="{{ .placement }}" target="_blank" rel="noopener"><img src="/images/store-badges/download-on-the-app-store.svg" alt="Download on the App Store" width="120" height="40"></a>
   <a href="{{ partial "store-url.html" (dict "page" .page "platform" "android") }}" data-ff-platform="android" data-source="{{ .placement }}" target="_blank" rel="noopener"><img class="ff-google-badge" src="/images/store-badges/google-play-badge.png" alt="Get it on Google Play" width="155" height="60"></a>
-  {{ if and site.Data.acquisition.webSignupEnabled site.Data.acquisition.webSignupUrl }}<a class="ff-button" href="{{ site.Data.acquisition.webSignupUrl }}" data-ff-platform="web" data-source="{{ .placement }}">Start on web</a>{{ end }}
 </div>

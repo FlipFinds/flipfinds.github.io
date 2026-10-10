@@ -4,8 +4,8 @@
   "ios": "https://apps.apple.com/app/flipfinds-resale-tracker/id6757338338",
   "android": "https://play.google.com/store/apps/details?id=com.flipfinds.app",
   "appleProviderToken": "128421758",
-  "webSignupEnabled": false,
-  "webSignupUrl": "",
+  "webSignupEnabled": true,
+  "webSignupUrl": "https://app.flipfinds.net/start",
   "campaigns": {
     "home": "ff_home",
     "calculator": "ff_tools",
