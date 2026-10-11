@@ -3,7 +3,7 @@
 (function(){
   var id={{ . }}, key="ff_website_analytics_consent", enabled=false, initialized=false, choice=null;
   var page=window.FFPage || {};
-  var events=["page_view","landing_page_viewed","calculator_started","calculator_completed","calculator_shared","resource_downloaded","ios_app_store_cta_clicked","android_play_store_cta_clicked","internal_navigation_clicked","pricing_viewed","web_signup_started"];
+  var events=["page_view","landing_page_viewed","calculator_started","calculator_completed","calculator_shared","resource_downloaded","ios_app_store_cta_clicked","android_play_store_cta_clicked","internal_navigation_clicked","pricing_viewed","web_signup_cta_clicked"];
   var fields=["calculator_name","marketplace","cta_placement","destination","resource_name"];
   try{choice=localStorage.getItem(key);}catch(e){}
   function safeLocation(){
@@ -37,7 +37,7 @@
     if(location.hostname==="flipfinds.net"){
       var script=document.createElement("script");script.async=true;script.src="https://www.googletagmanager.com/gtag/js?id="+id;document.head.appendChild(script);
     }
-    window.ffTrack("page_view");window.ffTrack("landing_page_viewed");
+    window.ffTrack("page_view");if(page.page_path==="/")window.ffTrack("landing_page_viewed");
     if(page.page_type==="pricing")window.ffTrack("pricing_viewed");
   }
   document.addEventListener("DOMContentLoaded",function(){

@@ -30,7 +30,7 @@ test('generated consent wrapper blocks collection, sanitizes payloads, revokes a
  const location={origin:'http://localhost:1314',hostname:'localhost',search:'?item=Private&cost=99&utm_source=embed&utm_medium=referral&utm_campaign=ff_resources'};
  vm.runInNewContext(script,{window,document,location,localStorage:first,sessionStorage:session,URL,URLSearchParams,Date});listeners.DOMContentLoaded();
  assert.equal(window.ffTrack('calculator_completed',{marketplace:'ebay'}),false);assert.equal(window.dataLayer,undefined);
- buttons.ffAnalyticsAllow.click();let events=window.dataLayer.filter(x=>x[0]==='event');assert.equal(events.length,2);assert.equal(inserted.length,0);
+ buttons.ffAnalyticsAllow.click();let events=window.dataLayer.filter(x=>x[0]==='event');assert.equal(events.length,1);assert.equal(events[0][1],'page_view');assert.equal(inserted.length,0);
  assert.equal(window.ffTrack('calculator_completed',{calculator_name:'resale_profit',marketplace:'ebay',cost:99,item_title:'Private',destination:'private text'}),true);
  const payload=window.dataLayer.at(-1)[2];assert.equal(payload.cost,undefined);assert.equal(payload.item_title,undefined);assert.equal(payload.destination,undefined);
  assert.equal(payload.page_referrer,'https://example.org/');assert.ok(!payload.page_location.includes('cost'));assert.equal(payload.campaign_name,'ff_resources');

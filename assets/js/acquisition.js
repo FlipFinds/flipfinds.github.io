@@ -35,7 +35,7 @@
         config
       );
       if (handoff) link.href = handoff;
-      window.ffTrack('web_signup_started', { cta_placement: placement, destination: 'web_signup' });
+      window.ffTrack('web_signup_cta_clicked', { cta_placement: placement, destination: 'web_signup' });
     } else if (
       url.hostname === 'apps.apple.com' &&
       url.pathname.indexOf('/id' + config.appId) !== -1
