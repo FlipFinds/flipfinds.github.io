@@ -12,6 +12,7 @@
     </div>
     {{ partial "product-showcase.html" . }}
   </section>
+  {{ partial "promo-video.html" (dict "placement" "home_promo") }}
   {{ $workspaceLink := partial "workspace-link.html" (dict "placement" "home_workspace" "label" "Open dashboard" "next" "/dashboard" "class" "ff-button") }}
   {{ if $workspaceLink }}
   <section class="ff-workspace-feature" aria-labelledby="workspace-title">

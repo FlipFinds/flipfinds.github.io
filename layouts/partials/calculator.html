@@ -831,6 +831,7 @@
       </div>
     </section>
 
+    {{ if and (not .Params.embed) (eq .RelPermalink "/calculator/") }}{{ partial "promo-video.html" (dict "placement" "calculator_promo") }}{{ end }}
     {{ if not .Params.embed }}<section class="ff-calc-sections post-content">
       {{ .Content }}
       {{ partial "acquisition-related.html" . }}
