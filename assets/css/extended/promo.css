@@ -1,0 +1,14 @@
+.ff-promo {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: 2rem;
+  margin: 3rem 0;
+}
+.ff-promo h2 { margin: .5rem 0 1rem; }
+.ff-promo-copy > p { margin-bottom: 1rem; }
+.ff-promo .ff-promo-note { margin-top: 1rem; font-size: .875rem; color: var(--secondary); }
+.ff-promo video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: var(--radius); }
+@media (max-width: 760px) {
+  .ff-promo { grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
+}
