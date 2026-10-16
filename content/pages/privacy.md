@@ -1,5 +1,5 @@
 +++
-lastmod = 2026-10-03T00:00:00Z
+lastmod = 2026-10-05T00:00:00Z
 title = "Privacy Policy"
 date = 2026-04-28T00:00:00Z
 draft = false
@@ -7,9 +7,9 @@ description = "FlipFinds privacy policy."
 aliases = ["/privacy.html"]
 +++
 
-Last updated: October 3, 2026 (website analytics section)
+Last updated: October 5, 2026 (cloud recovery and account deletion sections)
 
-App policy effective date: September 27, 2026. The app policy below is the policy already published at [FlipFinds Privacy Policy on Google Sites](https://sites.google.com/view/flipfinds-privacy/home).
+This policy includes the existing app and website analytics disclosures and the cloud recovery and account deletion information below.
 
 FlipFinds is operated by Paras Digital LLC (“we,” “us,” or “our”). This policy explains what information FlipFinds handles when you use the mobile app and its optional cloud features.
 
@@ -35,9 +35,15 @@ You can use local inventory features without connecting Cloud Save. Disconnectin
 
 To request access to, correction of, or deletion of information associated with your account, contact support@parasdigital.net. Please include enough information for us to identify your account without sending passwords or payment-card details. We will explain what we can remove and what must be retained by a store or service provider.
 
+You can also use the [Cloud Workspace deletion request page](/pages/delete-cloud-account/) without having the app installed, or the in-app deletion control when it is available in your version. Google or Apple sign-in creates a FlipFinds Cloud Workspace account using that identity; deleting it does not delete your Google or Apple account or cancel a store subscription.
+
 ## Security and retention
 
 We use account-based access controls and service-provider safeguards to protect information. No internet service can guarantee complete security. Information is retained as needed to provide the service and meet applicable obligations. The time that a service provider keeps analytics, purchase, or ad data may differ from the time we keep inventory and account data. Contact us for information about a specific record or deletion request.
+
+To recover from accidental changes, our cloud database keeps point-in-time recovery versions for up to seven days and daily backups for 14 days. Deleted cloud photo files may remain in restricted recovery storage for up to seven days. Removed data can remain in these recovery copies until they expire. We exclude accounts with completed deletion requests from any restoration to active service.
+
+Some app versions also keep previous inventory versions on your device before cloud refresh replaces them. These recovery copies stay on that device and are separate from deletion of your cloud account. Recovering inventory records cannot guarantee recovery of a photo whose original file or cloud backup is no longer available.
 
 ## Children
 
