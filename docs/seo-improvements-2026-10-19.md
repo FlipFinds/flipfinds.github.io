@@ -31,6 +31,14 @@ as confirmed profit. No financial amounts are added to analytics events.
 
 ## Performance evidence and remaining checks
 
+The inventory product page now follows the genuine example bag screenshot from
+purchase/location entry through external listing and Mark Sold. Field/action
+wording was checked against AddItemScreen.js, ItemDetailScreen.js and the shared
+item type. The example explicitly uses quantity one and verifies
+$45 - $12 - $6.10 - $6 = $20.90 after those entered costs. It does not imply that
+packaging or every business expense has a supported dedicated app input. Local
+mobile and Pro/Cloud desktop requirements are explained alongside the workflow.
+
 Follow-up content review added a five-item, $30 haul reconciliation example to
 the existing guide. It checks allocation totals, physical stock, two completed
 sales, missing label expense, and the difference between $23 sold-item profit
