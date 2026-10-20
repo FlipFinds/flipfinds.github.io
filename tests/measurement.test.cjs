@@ -49,6 +49,52 @@ test('generated consent wrapper blocks collection, sanitizes payloads, revokes a
  buttons.ffAnalyticsAllow.click();assert.equal(window['ga-disable-G-XX9ZJKDNEC'],false);assert.equal(window.ffTrack('calculator_started',{}),true);
 });
 
+test('AI referrals use exact hosts and retain only bounded attribution',()=>{
+ for(const [host,source] of [['chatgpt.com','chatgpt'],['www.chatgpt.com','chatgpt'],['chat.openai.com','chatgpt'],['claude.ai','claude'],['gemini.google.com','gemini'],['perplexity.ai','perplexity'],['www.perplexity.ai','perplexity']]){
+  const first=storage(),session=storage();
+  const result=attr.capture(first,session,'',`https://${host}/private-conversation?prompt=secret`,config);
+  assert.deepEqual(result.current,{utm_source:source,utm_medium:'referral'});
+  assert.deepEqual(attr.capture(first,session,'','https://flipfinds.net/tools/',config),result);
+  assert.ok(!JSON.stringify(result).includes('secret'));
+ }
+ for(const host of ['chatgpt.com.evil.example','fakeclaude.ai','google.com.evil.example','constructor','toString'])
+  assert.deepEqual(attr.capture(storage(),storage(),'',`https://${host}/`,config).current,{});
+ assert.deepEqual(attr.capture(storage(),storage(),'','',config).current,{});
+ assert.equal(attr.capture(storage(),storage(),'','https://www.google.com/search?q=private',config).current.utm_source,'google');
+});
+
+test('AI source tags normalize safely without changing explicit campaigns or first touch',()=>{
+ assert.deepEqual(attr.sanitize('?utm_source=chatgpt.com&prompt=secret',config),{utm_source:'chatgpt',utm_medium:'referral'});
+ assert.deepEqual(attr.sanitize('?utm_source=claude&utm_medium=cpc',config),{utm_source:'claude',utm_medium:'cpc'});
+ assert.deepEqual(attr.sanitize('?utm_source=chatgpt.com.evil.example',config),{});
+ const first=storage();
+ attr.capture(first,storage(),'?utm_source=google&utm_medium=organic','',config);
+ const result=attr.capture(first,storage(),'','https://gemini.google.com/app/private',config);
+ assert.equal(result.first.utm_source,'google');assert.equal(result.current.utm_source,'gemini');
+ const tagged=attr.capture(storage(),storage(),'?utm_source=newsletter&utm_medium=email','https://claude.ai/',config);
+ assert.equal(tagged.current.utm_source,'newsletter');
+});
+
+test('AI attribution reaches generated analytics only after consent without conversation data',()=>{
+ const html=fs.readFileSync((process.env.SITE_BUILD||'public')+'/index.html','utf8');
+ const script=[...html.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/g)].map(x=>x[1]).find(x=>x.includes('ff_website_analytics_consent'));
+ for(const [search,referrer,source] of [['?utm_source=chatgpt.com&prompt=secret','','chatgpt'],['','https://claude.ai/chat/private?prompt=secret','claude'],['','https://gemini.google.com/app/private','gemini']]){
+  const listeners={},buttons={},first=storage(),session=storage();
+  for(const k of ['ffAnalyticsChoice','ffAnalyticsStatus','ffAnalyticsAllow','ffAnalyticsDecline','ffAnalyticsSettings'])buttons[k]={addEventListener:(e,fn)=>buttons[k][e]=fn};
+  const window={FFPage:{page_path:'/',page_type:'home'},FFAcquisition:config,FFAttribution:attr};
+  const document={referrer,getElementById:k=>buttons[k],addEventListener:(e,fn)=>listeners[e]=fn};
+  const location={origin:'http://localhost',hostname:'localhost',search};
+  vm.runInNewContext(script,{window,document,location,localStorage:first,sessionStorage:session,URL,URLSearchParams,Date});listeners.DOMContentLoaded();
+  assert.equal(window.dataLayer,undefined);assert.equal(first.getItem('ff_acquisition_first'),null);
+  buttons.ffAnalyticsAllow.click();
+  const payload=window.dataLayer.find(x=>x[0]==='event')[2];
+  assert.equal(payload.campaign_source,source);assert.equal(payload.campaign_medium,'referral');
+  assert.doesNotMatch(JSON.stringify(payload),/secret|private|prompt/);
+  buttons.ffAnalyticsDecline.click();assert.equal(window.ffTrack('page_view'),false);
+  assert.equal(first.getItem('ff_acquisition_first'),null);assert.equal(session.getItem('ff_acquisition_current'),null);
+ }
+});
+
 test('device routing prefers the appropriate store and changes desktop only when web is enabled',()=>{
  const script=fs.readFileSync('assets/js/acquisition.js','utf8');
  function preferred(agent,touch,enabled){

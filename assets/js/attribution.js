@@ -15,7 +15,23 @@
     'flipfinds_web',
     'website',
     'embed',
+    'chatgpt',
+    'claude',
+    'gemini',
+    'perplexity',
   ];
+  var aiHosts = {
+    'chatgpt.com': 'chatgpt',
+    'www.chatgpt.com': 'chatgpt',
+    'chat.openai.com': 'chatgpt',
+    'claude.ai': 'claude',
+    'gemini.google.com': 'gemini',
+    'perplexity.ai': 'perplexity',
+    'www.perplexity.ai': 'perplexity',
+  };
+  function aiSource(value) {
+    return Object.prototype.hasOwnProperty.call(aiHosts, value) ? aiHosts[value] : null;
+  }
   var media = ['organic', 'referral', 'email', 'social', 'website', 'cpc', 'paid_social'];
   function sanitize(search, config) {
     var params = new URLSearchParams(search),
@@ -27,8 +43,11 @@
     };
     Object.keys(allowed).forEach(function (key) {
       var value = params.get(key);
+      if (key === 'utm_source') value = aiSource(value) || value;
       if (allowed[key].indexOf(value) !== -1) out[key] = value;
     });
+    if (['chatgpt', 'claude', 'gemini', 'perplexity'].indexOf(out.utm_source) !== -1 && !out.utm_medium)
+      out.utm_medium = 'referral';
     return out;
   }
   function load(storage, key, config) {
@@ -48,6 +67,7 @@
     if (!Object.keys(current).length) {
       try {
         var host = new URL(referrer).hostname;
+        if (aiSource(host)) current = { utm_source: aiSource(host), utm_medium: 'referral' };
         if (['www.google.com', 'google.com', 'www.bing.com', 'bing.com'].indexOf(host) !== -1)
           current = {
             utm_source: host.indexOf('bing') !== -1 ? 'bing' : 'google',

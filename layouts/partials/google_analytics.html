@@ -8,10 +8,9 @@
   try{choice=localStorage.getItem(key);}catch(e){}
   function safeLocation(){
     var u=new URL(page.page_path || "/",location.origin);
-    var incoming=new URLSearchParams(location.search);
     var allowed=window.FFAcquisition || {};
-    var values={utm_source:["google","bing","newsletter","instagram","facebook","youtube","partner","flipfinds_web","website","embed"],utm_medium:["organic","referral","email","social","website","cpc","paid_social"],utm_campaign:Object.values(allowed.campaigns || {})};
-    Object.keys(values).forEach(function(k){var v=incoming.get(k);if(values[k].indexOf(v)!==-1)u.searchParams.set(k,v);});
+    var clean=window.FFAttribution.sanitize(location.search,allowed);
+    Object.keys(clean).forEach(function(k){u.searchParams.set(k,clean[k]);});
     return u.href;
   }
   function safeReferrer(){try{return document.referrer ? new URL(document.referrer).origin+"/" : "";}catch(e){return "";}}

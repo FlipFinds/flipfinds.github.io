@@ -20,6 +20,8 @@
   {{- end -}}
   {{- if eq .RelPermalink "/product/" -}}
     {{- $graph = $graph | append (dict "@type" "MobileApplication" "name" "FlipFinds" "applicationCategory" "BusinessApplication" "operatingSystem" "iOS, Android" "description" .Description "url" .Permalink "installUrl" (slice site.Data.acquisition.ios site.Data.acquisition.android) "publisher" (dict "@id" "https://flipfinds.net/#organization")) -}}
+  {{- else if eq .RelPermalink "/product/desktop-dashboard/" -}}
+    {{- $graph = $graph | append (dict "@type" "WebApplication" "@id" (printf "%s#application" .Permalink) "name" "FlipFinds Desktop Dashboard" "applicationCategory" "BusinessApplication" "description" .Description "url" .Permalink "isAccessibleForFree" false "softwareRequirements" "FlipFinds Pro and a signed-in Cloud account" "softwareHelp" (dict "@type" "WebPage" "url" ("guides/desktop-dashboard/" | absURL)) "publisher" (dict "@id" "https://flipfinds.net/#organization")) -}}
   {{- end -}}
 {{- end -}}
 {{- with $graph }}<script type="application/ld+json">{{ dict "@context" "https://schema.org" "@graph" . | jsonify | safeJS }}</script>{{ end -}}
