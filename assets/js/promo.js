@@ -1,3 +1,4 @@
+/* global document */
 (function () {
   var trigger = document.getElementById('ff-demo-open');
   var dialog = document.getElementById('ff-demo');
