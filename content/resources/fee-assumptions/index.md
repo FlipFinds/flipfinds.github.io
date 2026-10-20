@@ -1,5 +1,5 @@
 +++
-lastmod = 2026-10-03T00:00:00Z
+lastmod = 2026-10-19T00:00:00Z
 title = "Resale calculator methodology and fee assumptions"
 description = "Understand profit, ROI and break-even formulas, US marketplace fee sources, and the costs excluded from FlipFinds estimates."
 intent = "methodology"
@@ -42,3 +42,5 @@ The review date above records when these linked sources were checked. Marketplac
 [Open the resale calculator](/calculator/) or [contact support](/pages/contact/) if an assumption needs review.
 
 Poshmark buyer-paid postage is not credited as seller revenue in the preset. Enter any shipping discount or extra shipping charge you bear as seller shipping or Other costs. [Poshmark shipping guidance](https://blog.poshmark.com/how-to-list-on-poshmark/) explains that buyers pay for postage.
+
+For a US Mercari example, use the [Mercari fee and profit calculator](/calculator/mercari-profit/) to separate buyer-paid shipping, modeled seller fees and your entered costs.

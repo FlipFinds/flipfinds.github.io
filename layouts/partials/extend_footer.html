@@ -159,6 +159,7 @@
       thumbs.forEach(function (thumb) {
         thumb.addEventListener("click", function () {
           var shot = thumb.getAttribute("data-ff-landing-shot");
+          mainShot.srcset = thumb.getAttribute("data-ff-landing-srcset") || "";
           var cap = thumb.getAttribute("data-ff-landing-cap") || "";
           if (shot) {
             mainShot.setAttribute("src", shot);

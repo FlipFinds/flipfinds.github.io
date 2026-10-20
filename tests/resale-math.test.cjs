@@ -2,9 +2,33 @@ const assert = require('node:assert/strict');
 const test = require('node:test');
 const math = require('../assets/js/resale-math.js');
 const base = {marketplace:'custom',purchaseCost:10,salePrice:40,shippingCost:5,shippingCharged:0,packagingCost:.75,otherCosts:0,sellerFeePct:10,fixedFee:0,feeIncludesShipping:true,taxCollected:0,targetMode:'profit',targetValue:15};
+test('published Mercari examples reconcile fees, proceeds and expenses',()=>{
+  for (const [salePrice, shippingCharged, fee, proceeds, profit] of [
+    [30,5,3.5,31.5,18], [50,5,5.5,49.5,36], [100,5,10.5,94.5,81], [30,0,3,27,13.5],
+  ]) {
+    const r=math.calculate({...base,marketplace:'mercari',purchaseCost:8,packagingCost:.5,salePrice,shippingCharged});
+    assert.equal(r.sellerFees,fee);
+    assert.equal(r.revenue-r.sellerFees,proceeds);
+    assert.equal(r.profit,profit);
+    assert.equal(proceeds-r.invested,r.profit);
+  }
+});
 test('revenue excludes collected tax; eBay fees include it',()=>{
   const r=math.calculate({...base,marketplace:'ebay',taxCollected:3});
   assert.equal(r.revenue,40); assert.ok(Math.abs(r.profit-18.002)<1e-9);
+});
+
+test('published eBay and Poshmark fee tables match the calculator',()=>{
+  for (const [marketplace, salePrice, shippingCharged, taxCollected, fee, proceeds] of [
+    ['ebay',30,5,0,5.16,29.84], ['ebay',50,5,0,7.88,47.12],
+    ['ebay',100,5,0,14.68,90.32], ['ebay',30,5,2,5.43,29.57],
+    ['poshmark',12,0,0,2.95,9.05], ['poshmark',15,0,0,3,12],
+    ['poshmark',30,0,0,6,24], ['poshmark',50,0,0,10,40],
+  ]) {
+    const r=math.calculate({...base,marketplace,salePrice,shippingCharged,taxCollected});
+    assert.equal(Number(r.sellerFees.toFixed(2)),fee);
+    assert.equal(Number((r.revenue-r.sellerFees).toFixed(2)),proceeds);
+  }
 });
 test('eBay order fee and upper tier boundaries',()=>{
   assert.ok(Math.abs(math.fees(10,{...base,marketplace:'ebay'})-1.66)<1e-9);

@@ -1,5 +1,6 @@
 +++
-title = "Use FlipFinds on your computer"
+lastmod = 2026-10-19T00:00:00Z
+title = "Set Up the FlipFinds Desktop Dashboard"
 description = "Bring your FlipFinds Cloud inventory to the web dashboard. Set up your account, review analytics and create reports with Pro."
 hideMeta = true
 +++
@@ -29,3 +30,7 @@ You can keep using local inventory on your phone without creating an account. Th
 ## Need a hand?
 
 For missing items, first check Cloud sync status on your phone. For missing Pro access, check your original sign-in method and restore an Apple or Google purchase in the mobile app if necessary. [Contact support](/pages/contact/) if you are still stuck. Do not send passwords or payment-card details.
+
+{{< product-shot src="images/launch/dashboard.jpg" alt="FlipFinds desktop dashboard after connecting example inventory" caption="Actual dashboard with example records. Your own view depends on synchronized inventory and entered sales." >}}
+
+For an overview before setup, see [what the desktop inventory dashboard includes](/product/desktop-dashboard/).

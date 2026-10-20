@@ -1,8 +1,8 @@
 +++
-title = "Reseller profit tracking from costs to actual sales"
+title = "Reseller Profit Tracker & Sales Analytics"
 description = "Compare estimated proceeds with recorded sales, fees and shipping in FlipFinds. Understand profit and ROI without treating unsold inventory as revenue."
 intent = "profit_tracking"
-lastmod = 2026-10-03T00:00:00Z
+lastmod = 2026-10-19T00:00:00Z
 hideMeta = true
 related = ["product", "calculator/reseller-roi", "resources/fee-assumptions", "product/inventory-tracker", "guides/roi-vs-margin"]
 +++
@@ -29,5 +29,12 @@ Compare a few sold item records with your marketplace statements. Correct missin
 
 [Compare ROI with margin](/calculator/reseller-roi/) before choosing your own planning target. FlipFinds does not guarantee profit or automatically import every marketplace expense.
 
-{{< app_cta source="profit_tracking" >}}
+## Work through one completed sale
 
+The example below records a canvas weekender bag sold for $45, bought for $12, with $6.10 fees and $6 shipping. Those entries leave $20.90 before any additional expenses. An unsold asking price is still only an estimate.
+
+{{< product-shot src="images/app/item-profit.png" alt="Example bag sale with $45 sold price and $20.90 recorded profit" caption="Actual item screen using example data. Add any other applicable expenses before evaluating the outcome." >}}
+
+Review a sale against its marketplace statement, update missing costs, then use Analytics to review the recorded period. You can also review connected records in the [Pro desktop dashboard](/product/desktop-dashboard/); follow the [setup guide](/guides/desktop-dashboard/) first.
+
+{{< app_cta source="profit_tracking" >}}

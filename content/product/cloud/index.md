@@ -2,7 +2,7 @@
 title = "FlipFinds Cloud: connected inventory and backup expectations"
 description = "Understand local inventory, signed-in Cloud synchronization and separate photo-backup status before connecting your FlipFinds workspace."
 intent = "cloud_workflow"
-lastmod = 2026-10-03T00:00:00Z
+lastmod = 2026-10-19T00:00:00Z
 hideMeta = true
 related = ["product", "product/inventory-tracker", "pages/privacy", "pages/contact", "pages/start-here"]
 +++
@@ -27,5 +27,6 @@ The privacy information explains data use for connected services. Local inventor
 
 [Check current app options](/pricing/) or [contact support](/pages/contact/) if the displayed Cloud state does not match your expectations.
 
-{{< app_cta source="cloud_workflow" >}}
+Pro includes the [desktop inventory dashboard](/product/desktop-dashboard/). Follow the [desktop setup guide](/guides/desktop-dashboard/) to connect the same Cloud account and check inventory and photo status.
 
+{{< app_cta source="cloud_workflow" >}}

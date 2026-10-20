@@ -1,5 +1,5 @@
 +++
-lastmod = 2026-10-03T00:00:00Z
+lastmod = 2026-10-19T00:00:00Z
 title = "FlipFinds: inventory and profit tracking for resellers"
 description = "Track items and costs, and compare estimates with recorded sales in FlipFinds for iPhone and Android."
 intent = "product_overview"
@@ -26,5 +26,7 @@ Explore the workflow you need: [inventory tracking](/product/inventory-tracker/)
 Local inventory works without creating an account. Optional Cloud uses a signed-in connection and transfers data to Cloud services. Photo backup availability and status are separate from inventory synchronization. Check Settings rather than assuming every photo is backed up.
 
 FlipFinds supports reseller workflows; it does not automatically publish or synchronize marketplace listings. [Try the free tools](/tools/) before installing, or [review the app options](/pricing/).
+
+Working at a computer? Explore the [desktop inventory dashboard included with Pro](/product/desktop-dashboard/) and follow the [connection guide](/guides/desktop-dashboard/).
 
 {{< app_cta source="product_overview" >}}

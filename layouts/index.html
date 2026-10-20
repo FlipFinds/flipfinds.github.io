@@ -3,7 +3,7 @@
   <section class="ff-hero" aria-labelledby="home-title">
     <div class="ff-hero-copy">
       <p class="ff-eyebrow">FROM THE FIRST FIND TO THE FINAL SALE</p>
-      <h1 id="home-title">Good finds.<br>Clear numbers.<br><span>Better decisions.</span></h1>
+      <h1 id="home-title">Reseller inventory.<br><span>Clear profit tracking.</span></h1>
       <p class="ff-hero-lead">Your resale business, item by item.</p>
       <p class="ff-hero-description">Add your finds, keep inventory organized, and see what’s left after costs. FlipFinds keeps your items and results together.</p>
       {{ partial "store-buttons.html" (dict "page" . "placement" "home_hero") }}
@@ -21,10 +21,14 @@
       <p>Start on your phone. Pick up with your Cloud inventory in a browser, with more room to work.</p>
       <ul><li>Review and edit your inventory on a larger screen.</li><li>Explore your sales and profit over time.</li><li>Create reports to print or export.</li></ul>
       {{ $workspaceLink }}
+      <p><a href="/product/desktop-dashboard/">Explore the desktop inventory dashboard →</a></p>
       <p class="ff-workspace-note">Already Pro on mobile? Sign in with the same Cloud account. No second subscription needed. <a href="/guides/desktop-dashboard/">See the setup guide →</a></p>
     </div>
     <figure class="ff-dashboard-capture">
-      <img src="/images/launch/dashboard.jpg" alt="FlipFinds desktop dashboard showing inventory, recorded profit and business performance" width="1410" height="1140" loading="lazy">
+      {{ $dashboard := resources.Get "images/launch/dashboard.jpg" }}
+      {{ $small := $dashboard.Resize "640x webp q80" }}
+      {{ $large := $dashboard.Resize "1280x webp q80" }}
+      <img src="{{ $small.RelPermalink }}" srcset="{{ $small.RelPermalink }} 640w, {{ $large.RelPermalink }} 1280w" sizes="(max-width: 800px) 90vw, 640px" decoding="async" alt="FlipFinds desktop dashboard showing inventory, recorded profit and business performance" width="1410" height="1140" loading="lazy">
       <figcaption>Actual dashboard · Example inventory and sales</figcaption>
     </figure>
   </section>

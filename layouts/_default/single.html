@@ -28,6 +28,9 @@
     </div>
     {{- end }}
   </header>
+  {{ if in (slice "posts" "guides") .Section }}
+  <p class="post-meta">By <a href="/pages/about/#editorial-responsibility">FlipFinds Team · Paras Digital LLC</a>. <a href="/pages/about/#calculation-checks-and-corrections">How we check examples and handle corrections</a>.</p>
+  {{ end }}
   {{- $isHidden := (.Param "cover.hiddenInSingle") | default (.Param "cover.hidden") | default false }}
   {{- partial "cover.html" (dict "cxt" . "IsSingle" true "isHidden" $isHidden) }}
   {{- if (.Param "ShowToc") }}
