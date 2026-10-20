@@ -31,6 +31,14 @@ as confirmed profit. No financial amounts are added to analytics events.
 
 ## Performance evidence and remaining checks
 
+Follow-up content review added a five-item, $30 haul reconciliation example to
+the existing guide. It checks allocation totals, physical stock, two completed
+sales, missing label expense, and the difference between $23 sold-item profit
+and $5 cash remaining for the whole haul. All figures are hypothetical; seller
+fees are stated example amounts, not a marketplace-rate claim. The guide keeps
+its URL and original publication date. Site validation and arithmetic checks
+pass; browser preview confirms both tables and the workbook link render.
+
 The homepage now offers 384/640px phone screenshots and 640/1280px dashboard WebP
 sources with responsive sizes. Generated dashboard variants are 23,054 and
 69,160 bytes versus the former approximately 140 KB JPEG. Small inventory and
