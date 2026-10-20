@@ -1,6 +1,6 @@
 +++
-lastmod = 2026-10-07T00:00:00Z
-title = "Find your next step with FlipFinds"
+lastmod = 2026-10-19T00:00:00Z
+title = "FlipFinds Pricing: Free App & Pro Features"
 description = "Start tracking finds on mobile, or choose Pro for your mobile workflow and web dashboard."
 intent = "pricing"
 hideMeta = true
@@ -22,3 +22,5 @@ Your purchase screen shows the current price, currency, billing period and renew
 Already paying for Pro but unable to access it? Sign in with your existing Cloud account and [contact support](/pages/contact/) before purchasing again.
 
 [Learn about Cloud](/product/cloud/) · [Terms](/pages/terms/) · [Privacy](/pages/privacy/)
+
+See the [desktop dashboard workflow](/product/desktop-dashboard/) before choosing Pro, or follow the [setup guide](/guides/desktop-dashboard/) if you already subscribe.

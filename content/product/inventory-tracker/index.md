@@ -1,13 +1,15 @@
 +++
-title = "Reseller inventory tracker: know what you own"
+title = "Reseller Inventory Tracker for Mobile & Desktop"
 description = "Keep resale items, purchase costs and selling status together in FlipFinds. Build a searchable inventory record before your next sourcing trip."
 intent = "inventory_tracking"
-lastmod = 2026-10-03T00:00:00Z
+lastmod = 2026-10-19T00:00:00Z
 hideMeta = true
 related = ["product", "calculator", "pages/start-here", "product/profit-tracker", "guides/inventory-reconciliation"]
 +++
 
 An item is easy to lose twice: once in a storage bin and again in a spreadsheet you stopped updating. FlipFinds gives you a place to keep the item record from intake through sale, even when you list on more than one marketplace.
+
+{{< product-shot src="images/app/inventory.png" alt="FlipFinds inventory showing example items with costs and status" caption="Actual app screen with example inventory and illustrative item photos." >}}
 
 ## A useful record starts at intake
 
@@ -27,5 +29,6 @@ Enter five items you can physically find. Check their costs and status, then add
 
 FlipFinds does not automatically synchronize your marketplace listings. Keep listing changes and sale records current yourself. [Set up the first item](/pages/start-here/) or use the [free resale calculator](/calculator/) to review its economics.
 
-{{< app_cta source="inventory_tracking" >}}
+Prefer a workbook first? Download the [free reseller inventory spreadsheet for Excel](/resources/inventory-template/). For a larger workspace, explore the [Pro desktop inventory dashboard](/product/desktop-dashboard/) and its [Cloud setup steps](/guides/desktop-dashboard/).
 
+{{< app_cta source="inventory_tracking" >}}

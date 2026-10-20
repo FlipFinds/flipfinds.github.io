@@ -3,7 +3,7 @@ title = "Reconcile resale inventory without counting estimates as sales"
 description = "Match physical stock, item status, purchase costs and actual sales before reviewing reseller results."
 intent = "inventory_reconciliation"
 date = 2026-10-03T00:00:00Z
-lastmod = 2026-10-03T00:00:00Z
+lastmod = 2026-10-19T00:00:00Z
 related = ["guides","product/inventory-tracker","resources/fee-assumptions"]
 +++
 
@@ -35,5 +35,6 @@ Local inventory can be reviewed without a Cloud account. If using connected Clou
 
 [Explore the inventory workflow](/product/inventory-tracker/) and use the [methodology](/resources/fee-assumptions/) to keep estimates distinct from recorded outcomes.
 
-{{< app_cta source="inventory_reconciliation" >}}
+Use the [free Excel inventory template](/resources/inventory-template/) to keep unsold items separate from completed sales while you check your records.
 
+{{< app_cta source="inventory_reconciliation" >}}

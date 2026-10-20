@@ -3,7 +3,7 @@ title = "A resale sourcing cost checklist before you buy"
 description = "Check identity, condition, shipping, seller fees and your own target before using a maximum purchase price for a potential flip."
 intent = "sourcing_costs"
 date = 2026-10-03T00:00:00Z
-lastmod = 2026-10-03T00:00:00Z
+lastmod = 2026-10-19T00:00:00Z
 related = ["guides","calculator/max-buy-price","product/sourcing","marketplaces/thrift-sourcing"]
 +++
 
@@ -33,5 +33,6 @@ Save the actual purchase cost and identifying details when you buy. Update the s
 
 Use manual entry if assisted research is unavailable. Keep connected research and optional Cloud requirements separate from the local inventory workflow.
 
-{{< app_cta source="sourcing_costs" >}}
+Selling on Mercari? Check buyer-paid shipping and seller fees in the [Mercari fee and profit calculator](/calculator/mercari-profit/) before comparing your own purchase target.
 
+{{< app_cta source="sourcing_costs" >}}

@@ -3,7 +3,7 @@ title = "Start Here: track your first resale item"
 date = 2026-02-20T00:00:00Z
 draft = false
 description = "Install FlipFinds, add one item and its cost, review estimated profit, and record the actual result when it sells."
-lastmod = 2026-10-03T00:00:00Z
+lastmod = 2026-10-19T00:00:00Z
 intent = "first_item"
 related = ["product", "calculator", "pricing"]
 +++
@@ -16,8 +16,6 @@ Need quick deal math first? Use the [FlipFinds resale profit calculator](/calcul
 {{< author_box >}}
 
 ## 1) Install the app
-
-{{< app_cta source="start_here" campaign="install_cta" >}}
 
 ## 2) Add an item and its cost
 
@@ -61,3 +59,7 @@ Pick one action, run it this week, and keep the habit consistent.
 - Install FlipFinds and run the same workflow in the app
 
 For support, email [support@parasdigital.net](mailto:support@parasdigital.net).
+
+Starting in Excel? The [free inventory workbook](/resources/inventory-template/) gives you prepared rows for costs and completed sales. Workbook entries do not import automatically into FlipFinds.
+
+{{< app_cta source="start_here" campaign="install_cta" >}}

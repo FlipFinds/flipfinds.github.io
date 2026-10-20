@@ -407,6 +407,10 @@
       font-size: 14px;
     }
 
+    .ff-calc-breakdown { margin: 12px 0; }
+    .ff-calc-breakdown > div { display: flex; justify-content: space-between; gap: 16px; padding: 6px 0; }
+    .ff-calc-breakdown dd { margin: 0; white-space: nowrap; font-weight: 600; }
+
     .ff-calc-results-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -786,6 +790,8 @@
               <div class="ff-calc-results-copy" id="ffProfitMeta">After item cost, shipping, seller fees, and supplies.</div>
             </div>
 
+            <section class="ff-calc-metric" aria-labelledby="ffBreakdownTitle"><h3 id="ffBreakdownTitle">Sale breakdown</h3><dl class="ff-calc-breakdown"><div><dt>Item sale price</dt><dd id="ffSaleValue">--</dd></div><div><dt>Shipping received</dt><dd id="ffShippingValue">--</dd></div><div><dt>Modeled seller fee</dt><dd id="ffFeesValue">--</dd></div><div><dt>Proceeds before expenses</dt><dd id="ffProceedsValue">--</dd></div><div><dt>Entered item and other expenses</dt><dd id="ffExpensesValue">--</dd></div><div><dt>Estimated profit</dt><dd id="ffOutcomeValue">--</dd></div></dl><p class="ff-calc-note-sm">USD estimate, not a marketplace payout statement. Blank optional costs count as zero; enter missing expenses before relying on profit. Poshmark buyer shipping is excluded from seller receipts.</p></section>
+
             <div class="ff-calc-rating-card">
               <div class="ff-calc-results-label">Your planning target</div>
               <div style="margin-top:10px;">
@@ -990,6 +996,13 @@
         var ready=isReady();
         document.getElementById("ffCopyResult").disabled=!ready;
         document.getElementById("ffCopyStatus").textContent="";
+        var breakdown = {SaleValue:salePrice, ShippingValue:result.revenue-salePrice, FeesValue:result.sellerFees,
+          ProceedsValue:result.revenue-result.sellerFees, ExpensesValue:result.invested, OutcomeValue:result.profit};
+        var hasSale = ready && fields.salePrice.value.trim() !== "";
+        Object.keys(breakdown).forEach(function(key){
+          var complete = hasSale && ((key !== "ExpensesValue" && key !== "OutcomeValue") || fields.purchaseCost.value.trim() !== "");
+          document.getElementById("ff"+key).textContent = complete ? currency(breakdown[key]) : "--";
+        });
         if (!ready) {
           [profitValue,breakEvenValue,targetSaleValue,maxBuyValue,marginValue,roiValue].forEach(function(el){el.textContent="--";});
           profitMeta.textContent="Enter the required item cost and/or expected sale price. Fee rates must be below 100% for Custom.";

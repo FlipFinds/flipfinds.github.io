@@ -1,8 +1,8 @@
 +++
-title = "Free resale inventory and actual-profit spreadsheet"
+title = "Free Reseller Inventory Spreadsheet for Excel"
 description = "Download a free Excel inventory template with item status, costs, actual profit and ROI. No signup required; unsold estimates stay out of realized profit."
 intent = "inventory_template"
-lastmod = 2026-10-03T00:00:00Z
+lastmod = 2026-10-19T00:00:00Z
 hideMeta = true
 related = ["resources", "product/inventory-tracker", "calculator/reseller-roi", "guides/inventory-reconciliation"]
 +++
