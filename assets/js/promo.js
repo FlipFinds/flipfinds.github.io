@@ -1,3 +1,4 @@
+/* global document */
 (function () {
   var trigger = document.getElementById('ff-demo-open');
   var dialog = document.getElementById('ff-demo');
@@ -8,6 +9,10 @@
   trigger.addEventListener('click', function (event) {
     if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
+    // A poster downloads even in a closed dialog; request it only on demand.
+    if (!video.hasAttribute('poster')) {
+      video.setAttribute('poster', video.getAttribute('data-poster'));
+    }
     dialog.showModal();
   });
   dialog.querySelector('.ff-demo-close').addEventListener('click', function () {
