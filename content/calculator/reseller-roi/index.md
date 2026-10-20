@@ -21,6 +21,8 @@ The target starts in ROI mode. It is your planning threshold, not a statement th
 
 With $20 invested, a $40 sale and no additional fees, profit is $20: 100% ROI but 50% margin. If fees reduce profit to $16, ROI is 80% and margin is 40%. Neither percentage measures sale speed.
 
+See the [ROI vs profit margin formulas and worked examples](/guides/roi-vs-margin/) to compare the denominators, understand markup and check how losses affect each percentage.
+
 ## Zero investment
 
 If all entered investment costs are zero, ROI is undefined. The tool shows no ROI percentage instead of an infinite return. You can still review dollar profit. Unsold items, labor time and opportunity cost are not automatically included in this estimate.
