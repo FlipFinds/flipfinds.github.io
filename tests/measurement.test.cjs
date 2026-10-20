@@ -5,6 +5,16 @@ const vm=require('node:vm');
 const attr=require('../assets/js/attribution.js');
 const config=JSON.parse(fs.readFileSync('data/acquisition.json','utf8'));
 const storage=()=>{const data=new Map();return {getItem:k=>data.get(k)||null,setItem:(k,v)=>data.set(k,v),removeItem:k=>data.delete(k)};};
+test('inline attribution initializes before consent without a blocking script request',()=>{
+ const html=fs.readFileSync((process.env.SITE_BUILD||'public')+'/index.html','utf8');
+ assert.doesNotMatch(html, /<script[^>]+src=["']?[^ >]*attribution/);
+ const scripts=[...html.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/g)].map(x=>x[1]);
+ const attributionIndex=scripts.findIndex(x=>x.includes('FFAttribution'));
+ const consentIndex=scripts.findIndex(x=>x.includes('ff_website_analytics_consent'));
+ assert.ok(attributionIndex>=0 && consentIndex>attributionIndex);
+ const window={}; vm.runInNewContext(scripts[attributionIndex],{window,URL,URLSearchParams});
+ assert.equal(typeof window.FFAttribution.capture,'function');
+});
 test('attribution excludes arbitrary content and preserves approved first and current touches',()=>{
  const first=storage(),session=storage();
  let a=attr.capture(first,session,'?utm_source=embed&utm_medium=referral&utm_campaign=ff_resources&item=Private&amount=99','',config);

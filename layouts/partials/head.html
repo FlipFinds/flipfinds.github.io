@@ -3,7 +3,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 {{ if not .Params.embed }}<meta name="apple-itunes-app" content="app-id={{ site.Data.acquisition.appId }}">{{ end }}
 {{ $attribution := resources.Get "js/attribution.js" | resources.Minify | fingerprint }}
-<script src="{{ $attribution.RelPermalink }}" integrity="{{ $attribution.Data.Integrity }}" crossorigin="anonymous"></script>
+{{/* Keep attribution available before consent initialization without a blocking request. */}}
+<script>{{ $attribution.Content | safeJS }}</script>
 {{ $paginated := false }}{{ if and (not .IsPage) (in (slice "posts" "tags" "categories") .Section) }}{{ $paginated = gt .Paginator.PageNumber 1 }}{{ end }}
 {{- if and (or hugo.IsProduction (eq site.Params.env "production")) (not (or .Params.robotsNoIndex $paginated (eq .Kind "404") (in (slice "taxonomy" "term") .Kind))) }}
 <meta name="robots" content="index, follow">

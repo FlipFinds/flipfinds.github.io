@@ -27,4 +27,12 @@ Contact [support@parasdigital.net](mailto:support@parasdigital.net) for app, acc
 
 ## How to check our examples
 
+### Editorial responsibility
+
+FlipFinds Team is the organization byline for product guides published by Paras Digital LLC. It does not identify a separate independent reviewer. Product walkthroughs describe supported fields and actions; example records and screenshots are labeled when they use illustrative data.
+
+### Calculation checks and corrections
+
 Our public calculators share one calculation engine. Worked examples state their inputs so you can reproduce them; the fee methodology links to marketplace sources. Estimates cannot establish demand or a future selling price. If a fee or example looks wrong, send the page URL and calculation inputs to support without including personal or payment details.
+
+Calculator tests cover fee thresholds, buyer-paid shipping, collected tax, zero investment and losses. The date shown with fee sources records a source review, not a guarantee that every seller account uses those terms. Page modification dates and fee-review dates have different meanings. Always compare an estimate with the actual transaction when recording a sale.

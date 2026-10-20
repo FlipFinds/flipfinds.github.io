@@ -17,6 +17,19 @@ test('revenue excludes collected tax; eBay fees include it',()=>{
   const r=math.calculate({...base,marketplace:'ebay',taxCollected:3});
   assert.equal(r.revenue,40); assert.ok(Math.abs(r.profit-18.002)<1e-9);
 });
+
+test('published eBay and Poshmark fee tables match the calculator',()=>{
+  for (const [marketplace, salePrice, shippingCharged, taxCollected, fee, proceeds] of [
+    ['ebay',30,5,0,5.16,29.84], ['ebay',50,5,0,7.88,47.12],
+    ['ebay',100,5,0,14.68,90.32], ['ebay',30,5,2,5.43,29.57],
+    ['poshmark',12,0,0,2.95,9.05], ['poshmark',15,0,0,3,12],
+    ['poshmark',30,0,0,6,24], ['poshmark',50,0,0,10,40],
+  ]) {
+    const r=math.calculate({...base,marketplace,salePrice,shippingCharged,taxCollected});
+    assert.equal(Number(r.sellerFees.toFixed(2)),fee);
+    assert.equal(Number((r.revenue-r.sellerFees).toFixed(2)),proceeds);
+  }
+});
 test('eBay order fee and upper tier boundaries',()=>{
   assert.ok(Math.abs(math.fees(10,{...base,marketplace:'ebay'})-1.66)<1e-9);
   assert.ok(Math.abs(math.fees(10.01,{...base,marketplace:'ebay'})-1.76136)<1e-9);

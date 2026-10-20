@@ -11,7 +11,7 @@
   {{- $crumbs = $crumbs | append (dict "@type" "ListItem" "position" (add (len $crumbs) 1) "name" .Title "item" .Permalink) -}}
   {{- $graph = $graph | append (dict "@type" "BreadcrumbList" "itemListElement" $crumbs) -}}
   {{- if and .IsPage (in (slice "posts" "guides") .Section) -}}
-    {{- $article := dict "@type" "Article" "headline" .Title "description" .Description "url" .Permalink "author" (dict "@type" "Organization" "name" "FlipFinds Team") "publisher" (dict "@id" "https://flipfinds.net/#organization") -}}
+    {{- $article := dict "@type" "Article" "headline" .Title "description" .Description "url" .Permalink "author" (dict "@type" "Organization" "name" "FlipFinds Team" "url" ("pages/about/#editorial-responsibility" | absURL)) "publisher" (dict "@id" "https://flipfinds.net/#organization") -}}
     {{- if not .Date.IsZero }}{{ $article = merge $article (dict "datePublished" (.Date.Format "2006-01-02T15:04:05Z07:00")) }}{{ end -}}
     {{- if not .Lastmod.IsZero }}{{ $article = merge $article (dict "dateModified" (.Lastmod.Format "2006-01-02T15:04:05Z07:00")) }}{{ end -}}
     {{- $graph = $graph | append $article -}}

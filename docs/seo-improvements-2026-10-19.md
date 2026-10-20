@@ -60,7 +60,40 @@ After publication, repeat the same mobile PageSpeed run, inspect its trace, and
 check phone layouts and screenshot readability. Keep hosting unchanged unless
 new evidence identifies a hosting problem.
 
-## Distribution preparation
+## Follow-up verification on October 19
+
+The eBay and Poshmark landing pages now include static fee/proceeds tables,
+worked examples, shipping/tax exclusions and links to official fee policies.
+Eight displayed scenarios are checked against the shared engine, including
+the Poshmark $15 boundary and an eBay tax-inclusive fee example. No preset
+rates or calculator definitions changed.
+
+The workbook page now previews its actual 14 column names in readable groups.
+The downloaded XLSX was inspected read-only: Sold status and seven numeric
+inputs gate revenue/profit, and zero investment leaves ROI blank. The sample
+is explicitly hypothetical; the downloadable workbook remains unchanged.
+
+Guides and posts now link their organization byline to the About page's
+editorial responsibility and corrections explanation. No personal biography,
+independent review or credentials have been invented.
+
+A fresh production mobile PageSpeed baseline scored 79, with LCP 5.851s,
+FCP 0.901s, TBT 0ms and CLS 0.009; no real-user dataset was available:
+https://pagespeed.web.dev/analysis/https-flipfinds-net/4qshwgx4nd?form_factor=mobile
+Its render-blocking diagnostic included the small attribution script (450ms).
+This patch inlines that existing minified script, preserving initialization
+before consent while removing its blocking network request. Regression checks
+verify ordering and initialization alongside the existing consent tests. The
+report's headline LCP and heading render-delay diagnostic do not establish
+that this request explains the entire delay. No post-release speed gain is
+claimed. Responsive image changes also still need production measurement.
+
+Final local validation: production Hugo build, all 17 tests passing, 54 sitemap
+pages and 106 HTML files passing validation, 55 schema documents, no missing
+image dimensions, and clean whitespace checks. Browser checks confirm both
+fee tables and the workbook preview render.
+
+## Distribution resources
 
 Two resources to share when outreach is authorized:
 
