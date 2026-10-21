@@ -1,5 +1,5 @@
 +++
-lastmod = 2026-10-03T00:00:00Z
+lastmod = 2026-10-20T00:00:00Z
 title = "Privacy Policy"
 date = 2026-04-28T00:00:00Z
 draft = false
@@ -7,7 +7,7 @@ description = "FlipFinds privacy policy."
 aliases = ["/privacy.html"]
 +++
 
-Last updated: October 3, 2026 (website analytics section)
+Last updated: October 20, 2026 (website measurement section)
 
 App policy effective date: September 27, 2026. The app policy below is the policy already published at [FlipFinds Privacy Policy on Google Sites](https://sites.google.com/view/flipfinds-privacy/home).
 
@@ -47,15 +47,21 @@ FlipFinds is intended for adults and is not directed to children under 13. We do
 
 We may update this policy as the app changes. We will post the revised policy with a new effective date. For questions or privacy requests, contact support@parasdigital.net.
 
-## Website analytics
+## Website measurement
 
-On flipfinds.net, Google Analytics loads only after you choose **Allow analytics**. With your permission, it measures pages visited, campaign links, general browser/device information, calculator use, and clicks to the app stores. Analytics cookies can distinguish visits. Calculator amounts and inventory details are not included in our calculator events; a completed event means a valid estimate was displayed, not that an item sold or an app was installed.
+Google Analytics is disabled on flipfinds.net. The marketing website no longer records Google Analytics events or stores first-visit and current-session attribution values. This change does not delete information collected previously by service providers or change analytics in the mobile app or signed-in dashboard.
 
-Your choice is saved in this browser. You can change it using **Analytics settings** at the bottom of any page. Choosing **No thanks** stops future Google Analytics collection on this website. Advertising personalization is disabled. Learn how Google handles information from partner sites in [Google's privacy explanation](https://policies.google.com/technologies/partner-sites).
+We use basic aggregate statistics to improve the marketing website. When collection is enabled, it counts calculator interactions and valid results, validation or tool failures, app-store/dashboard/Pro link clicks, inventory-template download clicks, demo starts/completions/failures, and broad page-loading-speed categories. Counts are grouped by day, page category, calculator type, broad mobile/desktop layout and predefined button placement. Page-load totals provide context for those interactions.
 
-With analytics permission, the website also keeps approved campaign/source values for the first referred visit and the current browsing session. These values can accompany a future web signup link when that service launches. Calculator amounts, item descriptions and arbitrary query text are excluded. Choosing **No thanks** clears these stored attribution values. Downloaded spreadsheet entries are not sent to FlipFinds.
+Our collector, hosted by Cloudflare on our behalf, adds events directly to daily counters. It does not store individual event records, visitor identifiers, calculator inputs, full page or referrer URLs, account details or browsing histories. It does not link statistics to app installs, purchases, advertising or other services. Our collector does not read or store your IP address in the statistics database; Cloudflare necessarily handles connection information when providing hosting. Worker request logging is disabled in our collector configuration. Daily counters are retained for approximately 90 days, with scheduled daily cleanup.
 
-The site also uses existing anonymous page and click counters, which request a counter service without sending calculator amounts or inventory details. Those requests expose normal connection information to that service. The Google Analytics choice controls Google Analytics, not these existing counters.
+There is no approval popup. You can object using the control below; the preference is saved only in this browser. We also honor Global Privacy Control, Do Not Track and a previously saved website **No thanks** choice. Your choice stops future collection; it cannot identify and remove contributions already combined into aggregate totals. Browser storage is used only to remember your measurement preference. If that preference cannot be read, collection stays off. The former external CountAPI counters have been removed.
+
+{{< statistics-choice >}}
+
+Counts do not establish unique visitors, completed downloads, app installs, purchases or individual conversion journeys. Some events are counted once per page load; reloads, blocked requests and automated traffic can affect totals. Downloaded spreadsheet entries are not sent to FlipFinds.
+
+App-store links can include campaign tags. App stores and other linked services handle visits under their own policies. We also use Google Search Console to review aggregate search impressions and clicks without adding a Search Console tracking script to your browser.
 
 ## Contact
 

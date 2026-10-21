@@ -56,10 +56,6 @@ summaryLength = 30
     domain = ""
     scriptSrc = "https://plausible.io/js/script.js"
 
-[services]
-  [services.googleAnalytics]
-    ID = "G-XX9ZJKDNEC"
-
 [outputs]
   home = ["HTML", "RSS", "JSON"]
 

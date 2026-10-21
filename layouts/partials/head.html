@@ -2,9 +2,6 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 {{ if not .Params.embed }}<meta name="apple-itunes-app" content="app-id={{ site.Data.acquisition.appId }}">{{ end }}
-{{ $attribution := resources.Get "js/attribution.js" | resources.Minify | fingerprint }}
-{{/* Keep attribution available before consent initialization without a blocking request. */}}
-<script>{{ $attribution.Content | safeJS }}</script>
 {{ $paginated := false }}{{ if and (not .IsPage) (in (slice "posts" "tags" "categories") .Section) }}{{ $paginated = gt .Paginator.PageNumber 1 }}{{ end }}
 {{- if and (or hugo.IsProduction (eq site.Params.env "production")) (not (or .Params.robotsNoIndex $paginated (eq .Kind "404") (in (slice "taxonomy" "term") .Kind))) }}
 <meta name="robots" content="index, follow">
@@ -17,7 +14,10 @@ window.FFAcquisition={{ site.Data.acquisition }};
 window.FFFees={{ site.Data.fees }};
 {{ $pageType := index (split (strings.Trim .RelPermalink "/") "/") 0 }}{{ if .IsHome }}{{ $pageType = "home" }}{{ end }}
 window.FFPage={page_path:{{ .RelPermalink }},page_type:{{ $pageType }},intent:{{ .Params.intent | default $pageType }}{{ with .Params.marketplace }},marketplace:{{ . }}{{ end }}};
+window.FFMeasurementConfig={{ site.Data.measurement }};
 </script>
+{{ $measurement := resources.Get "js/measurement.js" | resources.Minify }}
+<script>{{ $measurement.Content | safeJS }}</script>
 {{- /* Title */}}
 {{- $siteTitle := site.Title -}}
 {{- if .IsHome -}}
@@ -220,7 +220,6 @@ window.FFPage={page_path:{{ .RelPermalink }},page_type:{{ $pageType }},intent:{{
 
 {{- /* Misc */}}
 {{- if hugo.IsProduction | or (eq site.Params.env "production") }}
-{{- partial "google_analytics.html" . }}
 {{- partial "templates/opengraph.html" . }}
 {{- partial "templates/twitter_cards.html" . }}
 {{- partial "acquisition-schema.html" . }}
