@@ -23,19 +23,11 @@
       return;
     }
     var placement = link.dataset.source || link.dataset.ffTrack || 'content_link';
-    if (
-      link.dataset.ffPlatform === 'web' &&
-      config.webSignupEnabled &&
-      config.webSignupUrl &&
-      window.FFAttribution
-    ) {
-      var handoff = window.FFAttribution.handoff(
-        config.webSignupUrl,
-        window.FFAttributionContext || {},
-        config
-      );
-      if (handoff) link.href = handoff;
-      window.ffTrack('web_signup_cta_clicked', { cta_placement: placement, destination: 'web_signup' });
+    if (url.hostname === 'app.flipfinds.net') {
+      if (url.pathname === '/get-pro') window.ffTrack('pro_opened', { cta_placement: placement });
+      else if (url.pathname === '/dashboard' || (url.pathname === '/start' &&
+          url.searchParams.get('mode') === 'signin' && url.searchParams.get('next') === '/dashboard'))
+        window.ffTrack('dashboard_opened', { cta_placement: placement });
     } else if (
       url.hostname === 'apps.apple.com' &&
       url.pathname.indexOf('/id' + config.appId) !== -1

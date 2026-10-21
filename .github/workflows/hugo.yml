@@ -35,6 +35,11 @@ jobs:
         id: pages
         uses: actions/configure-pages@v5
 
+      - name: Setup Node for collector and browser tests
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v3
         with:

@@ -1,0 +1,23 @@
+# Copy to wrangler.local.toml for local validation or wrangler.production.toml
+# after the dedicated D1 database has been provisioned for an approved release.
+name = "flipfinds-site-metrics"
+main = "collector.mjs"
+compatibility_date = "2026-10-20"
+workers_dev = true
+preview_urls = false
+
+[observability]
+enabled = false
+
+[[d1_databases]]
+binding = "COUNTS"
+database_name = "flipfinds-site-metrics"
+database_id = "00000000-0000-0000-0000-000000000000"
+
+[[ratelimits]]
+name = "INGEST_LIMIT"
+namespace_id = "957103"
+simple = { limit = 1000, period = 60 }
+
+[triggers]
+crons = ["17 3 * * *"]

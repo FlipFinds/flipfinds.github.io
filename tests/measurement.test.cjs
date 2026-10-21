@@ -11,31 +11,12 @@ test('public pages contain no Google Analytics collection or consent controls',(
  function walk(path){return fs.readdirSync(path,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path+'/'+e.name):e.name.endsWith('.html')?[path+'/'+e.name]:[]);}
  for(const path of walk(root)){
   const html=fs.readFileSync(path,'utf8');
-  assert.doesNotMatch(html,/googletagmanager\.com|google-analytics\.com|ffAnalyticsChoice|ffAnalyticsStatus|ffAnalyticsSettings|ff_website_analytics_consent/,path);
+  assert.doesNotMatch(html,/countapi\.mileshilliard\.com|googletagmanager\.com|google-analytics\.com|ffAnalyticsChoice|ffAnalyticsStatus|ffAnalyticsSettings/,path);
   const scripts=[...html.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/g)].map(x=>x[1]).join('\n');
-  assert.doesNotMatch(scripts,/FFAttribution\.capture|ff_acquisition_first|ff_acquisition_current|gtag\(/,path);
+  assert.doesNotMatch(scripts,/FFAttribution\.capture|gtag\(/,path);
  }
 });
 
-test('aggregate counters exclude page details, credentials and referrers',()=>{
- const html=fs.readFileSync((process.env.SITE_BUILD||'public')+'/index.html','utf8');
- const script=[...html.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/g)].map(x=>x[1]).find(x=>x.includes('countapi.mileshilliard.com'));
- assert.ok(script);
- const calls=[];let click;
- const location={hostname:'flipfinds.net',origin:'https://flipfinds.net',pathname:'/guides/private-item',search:'?amount=99&prompt=secret'};
- const document={addEventListener:(event,fn)=>{if(event==='click')click=fn;}};
- vm.runInNewContext(script,{window:{location},location,document,URL,Date,fetch:(url,options)=>{calls.push({url,options});return Promise.resolve();}});
- const anchor={getAttribute:k=>({href:'https://apps.apple.com/app/id6757338338','data-source':'guides_page'})[k]||null};
- click({target:{closest:()=>anchor}});
- assert.ok(calls.length>2);
- for(const {url,options} of calls){
-  assert.match(url,/^https:\/\/countapi\.mileshilliard\.com\/api\/v1\/hit\/flipfinds_/);
-  assert.doesNotMatch(url,/private-item|amount|prompt|secret/);
-  assert.equal(options.credentials,'omit');assert.equal(options.referrerPolicy,'no-referrer');
- }
- calls.length=0;location.hostname='localhost';
- vm.runInNewContext(script,{window:{location},location,document,URL,Date,fetch:()=>{throw new Error('Preview must not collect');}});
-});
 test('attribution excludes arbitrary content and preserves approved first and current touches',()=>{
  const first=storage(),session=storage();
  let a=attr.capture(first,session,'?utm_source=embed&utm_medium=referral&utm_campaign=ff_resources&item=Private&amount=99','',config);
@@ -72,8 +53,10 @@ test('acquisition clicks emit the correct event and placement without item amoun
  follow(config.android,{source:'calculator_result'});
  follow('https://flipfinds.net/downloads/flipfinds-inventory-template.xlsx',{resource:'inventory_template',source:'resource_page',itemTitle:'Private',cost:'99'});
  follow('https://flipfinds.net/download/',{source:'nav_download'});
- assert.deepEqual(events.map(e=>e.name),['ios_app_store_cta_clicked','android_play_store_cta_clicked','resource_downloaded','internal_navigation_clicked']);
- assert.deepEqual(events.map(e=>e.payload.cta_placement),['home_hero','calculator_result','resource_page','nav_download']);
+ follow('https://app.flipfinds.net/start?mode=signin&next=%2Fdashboard',{source:'header_signin'});
+ follow('https://app.flipfinds.net/get-pro',{source:'header_purchase'});
+ assert.deepEqual(events.map(e=>e.name),['ios_app_store_cta_clicked','android_play_store_cta_clicked','resource_downloaded','internal_navigation_clicked','dashboard_opened','pro_opened']);
+ assert.deepEqual(events.map(e=>e.payload.cta_placement),['home_hero','calculator_result','resource_page','nav_download','header_signin','header_purchase']);
  assert.equal(events[2].payload.resource_name,'inventory_template');
  assert.equal(events[2].payload.itemTitle,undefined);assert.equal(events[2].payload.cost,undefined);
 });

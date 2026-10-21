@@ -2,3 +2,7 @@
 /resources/_gen/
 /.hugo_build.lock
 /hugo-server.log
+/.wrangler/
+/worker/measurement/.wrangler/
+/worker/measurement/wrangler.local.toml
+/worker/measurement/wrangler.production.toml

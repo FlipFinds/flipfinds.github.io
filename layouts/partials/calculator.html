@@ -895,7 +895,11 @@
         if (!evt.isTrusted || typeof window.ffTrack !== "function") return;
         var params = { calculator_name: intent, marketplace: state.activePreset };
         if (!calculatorStarted) calculatorStarted = window.ffTrack("calculator_started", params);
-        if (!calculatorCompleted && document.getElementById("ffProfitForm").checkValidity() && isReady()) {
+        if (!document.getElementById("ffProfitForm").checkValidity() ||
+            (state.activePreset !== "poshmark" && state.activePreset !== "ebay" && Number(fields.sellerFeePct.value) >= 100)) {
+          window.ffTrack("calculator_validation_failed", params);
+        }
+        if (!calculatorCompleted && isReady() && !document.getElementById("ffCopyResult").disabled) {
           calculatorCompleted = window.ffTrack("calculator_completed", params);
         }
       }
@@ -991,7 +995,17 @@
           shippingCost:shippingCost, packagingCost:packagingCost, otherCosts:otherCosts, sellerFeePct:sellerFeePct*100,
           fixedFee:fixedFee, feeIncludesShipping:feeIncludesShipping, taxCollected:num(fields.taxCollected),
           targetMode:currentTargetMode(), targetValue:targetValueRaw };
-        var result = FFResaleMath.calculate(input);
+        var result;
+        try { result = FFResaleMath.calculate(input); }
+        catch (error) {
+          if (window.ffTrack) window.ffTrack("calculator_failed");
+          document.getElementById("ffCopyResult").disabled = true;
+          profitValue.textContent = "--";
+          roiValue.textContent = "--";
+          marginValue.textContent = "--";
+          document.getElementById("ffCopyStatus").textContent = "The calculator could not update. Reload the page and try again.";
+          return;
+        }
         var profit=result.profit, roi=result.roi;
         var ready=isReady();
         document.getElementById("ffCopyResult").disabled=!ready;

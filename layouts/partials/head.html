@@ -14,7 +14,10 @@ window.FFAcquisition={{ site.Data.acquisition }};
 window.FFFees={{ site.Data.fees }};
 {{ $pageType := index (split (strings.Trim .RelPermalink "/") "/") 0 }}{{ if .IsHome }}{{ $pageType = "home" }}{{ end }}
 window.FFPage={page_path:{{ .RelPermalink }},page_type:{{ $pageType }},intent:{{ .Params.intent | default $pageType }}{{ with .Params.marketplace }},marketplace:{{ . }}{{ end }}};
+window.FFMeasurementConfig={{ site.Data.measurement }};
 </script>
+{{ $measurement := resources.Get "js/measurement.js" | resources.Minify }}
+<script>{{ $measurement.Content | safeJS }}</script>
 {{- /* Title */}}
 {{- $siteTitle := site.Title -}}
 {{- if .IsHome -}}

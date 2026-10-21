@@ -1,0 +1,21 @@
+{
+  "endpoint": "",
+  "pages": ["home", "calculator", "product", "guides", "resources", "pricing", "download", "tools", "marketplaces", "posts", "pages", "other"],
+  "tools": ["none", "resale_profit", "ebay_profit", "poshmark_profit", "mercari_profit", "break_even", "reseller_roi", "max_buy_price"],
+  "events": {
+    "page_loaded": ["none"],
+    "calculator_started": ["none"],
+    "calculator_completed": ["none"],
+    "calculator_validation_failed": ["none"],
+    "calculator_failed": ["none"],
+    "ios_app_store_cta_clicked": ["header", "hero", "content", "footer", "result", "other"],
+    "android_play_store_cta_clicked": ["header", "hero", "content", "footer", "result", "other"],
+    "resource_downloaded": ["inventory_template"],
+    "dashboard_opened": ["header", "hero", "content", "footer", "result", "other"],
+    "pro_opened": ["header", "hero", "content", "footer", "result", "other"],
+    "demo_started": ["none"],
+    "demo_completed": ["none"],
+    "demo_failed": ["none"],
+    "page_load_speed": ["under_2s", "2_to_4s", "over_4s"]
+  }
+}

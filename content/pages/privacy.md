@@ -51,7 +51,15 @@ We may update this policy as the app changes. We will post the revised policy wi
 
 Google Analytics is disabled on flipfinds.net. The marketing website no longer records Google Analytics events or stores first-visit and current-session attribution values. This change does not delete information collected previously by service providers or change analytics in the mobile app or signed-in dashboard.
 
-The site uses aggregate page and click counters provided by CountAPI at countapi.mileshilliard.com. These requests contain bounded counter names such as a page category, action and date. They do not include calculator amounts, inventory details or a visitor identifier, and the counter code does not set analytics cookies or use browser storage. The provider receives normal connection information, such as your IP address, when handling a request. Aggregate counter totals do not establish unique visitors, app installs or purchases. Downloaded spreadsheet entries are not sent to FlipFinds.
+We use basic aggregate statistics to improve the marketing website. When collection is enabled, it counts calculator interactions and valid results, validation or tool failures, app-store/dashboard/Pro link clicks, inventory-template download clicks, demo starts/completions/failures, and broad page-loading-speed categories. Counts are grouped by day, page category, calculator type, broad mobile/desktop layout and predefined button placement. Page-load totals provide context for those interactions.
+
+Our collector, hosted by Cloudflare on our behalf, adds events directly to daily counters. It does not store individual event records, visitor identifiers, calculator inputs, full page or referrer URLs, account details or browsing histories. It does not link statistics to app installs, purchases, advertising or other services. Our collector does not read or store your IP address in the statistics database; Cloudflare necessarily handles connection information when providing hosting. Worker request logging is disabled in our collector configuration. Daily counters are retained for approximately 90 days, with scheduled daily cleanup.
+
+There is no approval popup. You can object using the control below; the preference is saved only in this browser. We also honor Global Privacy Control, Do Not Track and a previously saved website **No thanks** choice. Your choice stops future collection; it cannot identify and remove contributions already combined into aggregate totals. Browser storage is used only to remember your measurement preference. If that preference cannot be read, collection stays off. The former external CountAPI counters have been removed.
+
+{{< statistics-choice >}}
+
+Counts do not establish unique visitors, completed downloads, app installs, purchases or individual conversion journeys. Some events are counted once per page load; reloads, blocked requests and automated traffic can affect totals. Downloaded spreadsheet entries are not sent to FlipFinds.
 
 App-store links can include campaign tags. App stores and other linked services handle visits under their own policies. We also use Google Search Console to review aggregate search impressions and clicks without adding a Search Console tracking script to your browser.
 
